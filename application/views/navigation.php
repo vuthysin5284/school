@@ -44,9 +44,12 @@
         <ul class="menu accordion-menu">
             <li class="nav-heading"><span>Navigation</span></li> 
             <?php   
-					$data["description"]=$this->db->get_where('menu' , array('check' => $page_name))->row()->MAIN_MENU_ID;
-					$this->db->where('type','menu_id');
-					$this->db->update('settings',$data); 
+					$data_obj=$this->db->get_where('menu' , array('check' => $page_name))->row();
+					if($data_obj!=NULL || $data_obj!=''){
+						$data["description"] = $data_obj->MAIN_MENU_ID;
+						$this->db->where('type','menu_id');
+						$this->db->update('settings',$data);
+					}
 					//
 					$select_menu_id = $this->db->get_where('settings' , array('type' => 'menu_id'))->row()->description;
 				 

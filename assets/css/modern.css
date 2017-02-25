@@ -2579,7 +2579,7 @@ ol.linenums {
 .table > thead > tr > td,
 .table > thead > tr > th,
 .table td {
-    padding: 15px!important;
+    padding: 6px!important;
 }
 
 .dataTables_wrapper .dataTables_filter input,

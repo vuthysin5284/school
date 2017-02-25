@@ -40,7 +40,7 @@
 			language: {
 				 processing: "<img src='<?php echo base_url();?>assets/images/ProgressIcon.gif'>",
 				 loadingRecords: "<img src='<?php echo base_url();?>assets/images/ProgressIcon.gif'>",
-				 "url": "<?php echo base_url();?>assets/lang/kh.json"
+				 "url": "<?php echo base_url();?>assets/langs/kh.json"
 			  },
 			"columns"    : [ 
 				{ "data" : "id" },
