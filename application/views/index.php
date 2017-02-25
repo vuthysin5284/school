@@ -29,7 +29,7 @@
     
 
 	<?php include 'header.php';?> 
-    <?php include '/navigation.php';?>	
+    <?php include 'navigation.php';?>	
     
         <!-- Page Sidebar -->
         <div class="page-inner">  
