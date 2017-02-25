@@ -2,14 +2,7 @@
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
-
-/* 	
- * 	@author : Joyonto Roy
- * 	30th July, 2014
- * 	Creative Item
- * 	www.freephpsoftwares.com
- * 	http://codecanyon.net/user/joyontaroy
- */
+ 
 
 class Login extends CI_Controller {
 
@@ -22,7 +15,7 @@ class Login extends CI_Controller {
         $this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
         $this->output->set_header('Pragma: no-cache');
-        $this->output->set_header("Expires: Mon, 26 Jul 2010 05:00:00 GMT");
+        $this->output->set_header("Expires: Mon, 26 Jul 2099 05:00:00 GMT");
     }
 
     //Default function, redirects to logged in user area
@@ -37,7 +30,7 @@ class Login extends CI_Controller {
     //Ajax login function 
     function ajax_login() {
         $response = array();
-
+		 
         //Recieving post input of email, password from ajax request
         $username = $_POST["username"];
         $password = $_POST["password"];
@@ -47,7 +40,8 @@ class Login extends CI_Controller {
         $login_status = $this->validate_login($username, $password);
         $response['login_status'] = $login_status;
         if ($login_status == 'success') {
-            $response['redirect_url'] = str_replace("index.php/", "index.php?", $this->session->userdata('last_page'));
+            $response['redirect_url'] = $this->session->userdata('last_page');
+			redirect(base_url(), 'refresh');
         }
 
         //Replying ajax request with validation response
@@ -92,7 +86,7 @@ class Login extends CI_Controller {
     // PASSWORD RESET BY EMAIL
     function forgot_password()
     {
-        $this->load->view('backend/forgot_password');
+        $this->load->view('forgot_password');
     }
 
     function ajax_forgot_password()

@@ -56,7 +56,7 @@ $( document ).ready(function() {
     // Element Blocking
     function blockUI(item) {    
         $(item).block({
-            message: '<img src="assets/images/reload.gif" width="20px" alt="">',
+            message: '<img src="'+baseurl+'assets/images/reload.gif" width="20px" alt="">',
             css: {
                 border: 'none',
                 padding: '0px',

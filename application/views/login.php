@@ -1,104 +1,76 @@
-  
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootstrap3.3.2.min.css" /> 
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/font-icons/font-awesome/css/font-awesome.min.css"> 
+<!DOCTYPE html>
+<html>
+<head>
     
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/bootsnipp.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url();?>assets/css/forms.css" />
-    <style type="text/css">
-	
-	 
-	.form-signin input[type="text"] {
-	  margin-bottom: -1px;
-	  border-bottom-left-radius: 0;
-	  border-bottom-right-radius: 0;
-	}
-	.form-signin input[type="password"] { 
-	  border-top-left-radius: 0;
-	  border-top-right-radius: 0;
-	}
-	.form-signin .form-control {
-	  position: relative;
-	  font-size: 16px;
-	  height: auto;
-	  padding: 10px;
-	  -webkit-box-sizing: border-box;
-	     -moz-box-sizing: border-box;
-	          box-sizing: border-box;
-	}
-	.row { 
-		    margin-right: 0px; 
-    		margin-left: -15px;
-	}
-</style>
-<body class="page-body login-page login-form-fall" >
-<div class="login-container"> 
-                    
-    <div class="login-content" style="width:100%; text-align:center;"> 
-        <!-- progress bar indicator -->
-        <div class="login-progressbar-indicator">
-            <h3 style="color:red">43%</h3>
-            <span>logging in...</span>
-        </div>
-    </div> 
-    <div class="login-progressbar">
-        <div></div>
-    </div>
- 
- 
-	<div class="row" style="margin-top:60px;"> 
-     
-        
-        <div class="login-form">
-            <div class="col-md-4 col-md-offset-4">
-                     
-                    <div class="form-login-error" style="display: none;">
-                        <h3>Invalid login</h3>
-                        <p>Please enter correct username and password!</p>
+    <!-- Title -->
+    <title>EDS | Login - Sign in</title>
+    
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <meta charset="UTF-8">
+    <meta name="description" content="Admin Dashboard Template" />
+    <meta name="keywords" content="admin,dashboard" />
+    <meta name="author" content="Steelcoders" />
+    
+    <!-- Styles -->
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+    <link href="assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+    <link href="assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+    <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
+    <link href="assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
+    <link href="assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>	
+    
+    <!-- Theme Styles -->
+    <link href="assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
+    <link href="assets/css/custom.css" rel="stylesheet" type="text/css"/>
+    
+    <script src="assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
+    
+    
+    
+</head>
+<body class="page-login">
+    <main class="page-content">
+        <div class="page-inner">
+            <div id="main-wrapper">
+                <div class="row">
+                    <div class="col-md-3 center">
+                        <div class="login-box">
+                            <a href="<?php echo base_url();?>" class="logo-name text-lg text-center">If you are user's in system</a>
+                            <p class="text-center m-t-md">Please login into your account.</p> 
+                            <?php echo form_open(base_url() . 'login/ajax_login' , array('class' => 'form-horizontal form-groups-bordered validate ajax-submit m-t-md','enctype' => 'multipart/form-data'));?>
+                                <div class="form-group">
+                                    <input type="text" name="username" class="form-control" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Login</button>
+                                <a href="forgot.html" class="display-block text-center m-t-md text-sm">Forgot Password?</a>
+                                <!--p class="text-center m-t-xs text-sm">Do not have an account?</p>
+                               <a href="<?php echo base_url();?>register" class="btn btn-default btn-block m-t-md">Create an account</a-->
+                            </form>
+                            <p class="text-center m-t-xs text-sm">2015 &copy; EDS by Vuthy Teams.</p>
+                        </div>
                     </div>
-    
-    
-                    <form method="POST" accept-charset="UTF-8" role="form" id="form_login" class="form-signin">
-                        <input name="_token" type="hidden" value="TCta3gBWIjO2A0TOk4UGGbfwfAiD2nBe9R8deX6Z">
-                        <fieldset>
-                            <h3 class="sign-up-title" style="color:dimgray; text-align:left">Welcome! Please sign in</h3>
-                                
-                            <hr class="colorgraph">  
-                            
-                            <div class="form-group">
-                            	<div class="input-group" style="width:100%">
-                                <span class="input-group-addon"><i class="fa fa-envelope-o fa-fw"></i></span>
-                                    <input class="form-control email-title" placeholder="User ID" name="username" autofocus 
-                                        id="username" type="text" utocomplete="off" data-mask="username" style="color:black"/> 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                            	<div class="input-group" style="width:100%">
-                                <span class="input-group-addon"><i class="fa fa-key fa-fw"></i></span>
-                                    <input type="password" class="form-control" name="password" id="password" placeholder="Password" 
-                                        autocomplete="off" style="color:black"/> 
-                                </div>
-                            </div>
-                            
-                            <a class="pull-right" href="#">Forgot password?</a>
-                            <div class="checkbox" style="width:140px;">
-                                <label><input name="remember" type="checkbox" value="Remember Me"> Remember Me</label>
-                            </div>
-                            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Login"> 
-                        </fieldset>
-                </form> 
-  			</div>
-    
-    	</div>
-  	</div>
-</div>  
-</body>
-<script type="text/javascript">
-var baseurl = '<?php echo base_url();?>';
-</script>
+                </div><!-- Row -->
+            </div><!-- Main Wrapper -->
+        </div><!-- Page Inner -->
+    </main><!-- Page Content -->
 
-<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
-<script src='<?php echo base_url()?>assets/js/jquery-1.12.2.min.js'></script>  
-<script src='<?php echo base_url()?>assets/js/bootstrap3.3.2.min.js'></script>  
-<script src="<?php echo base_url()?>assets/js/jquery.validate.min.js"></script>
-<script src="<?php echo base_url()?>assets/js/login.js"></script>
-      
+
+    <!-- Javascripts -->
+    <script src="assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+    <script src="assets/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <script src="assets/plugins/pace-master/pace.min.js"></script>
+    <script src="assets/plugins/jquery-blockui/jquery.blockui.js"></script>
+    <script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="assets/plugins/switchery/switchery.min.js"></script>
+    <script src="assets/plugins/uniform/jquery.uniform.min.js"></script>
+    <script src="assets/plugins/classie/classie.js"></script>
+    <script src="assets/plugins/waves/waves.min.js"></script>
+    <script src="assets/js/modern.min.js"></script> 
+    

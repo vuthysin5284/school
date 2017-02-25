@@ -1,19 +1,4 @@
  
-<script src="<?php echo base_url();?>assets/js/modern.js"></script>
-<script src="<?php echo base_url();?>assets/js/pages/dashboard.js"></script>
-<div class="page-breadcrumb">
-    <ol class="breadcrumb container">
-        <li><a href="index.html">Home</a></li>
-        <li class="active"><?php echo $page_title;?></li>
-    </ol>
-</div>
-<!--div class="page-title">
-    <div class="container">
-        <h3><?php echo $page_title;?></h3>
-    </div>
-</div-->
-
-<div id="main-wrapper" class="container"> 
     <div class="row">
         <div class="col-lg-3 col-md-6">
             <div class="panel info-box panel-white">
@@ -386,5 +371,16 @@
                 </div>
             </div>
         </div>
-    </div>
-</div><!-- Main Wrapper -->
+    </div> 
+    
+
+
+<script src="<?php echo base_url();?>assets/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.time.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.resize.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/curvedlines/curvedLines.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/metrojs/MetroJs.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/pages/dashboard.js"></script>

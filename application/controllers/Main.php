@@ -20,10 +20,10 @@ class Main extends CI_Controller {
      
 	public function index()
 	{ 
-		//if ($this->session->userdata('is_login') != 1)
-        //    redirect(base_url() . 'login', 'refresh');
-        //if ($this->session->userdata('is_login') == 1)
-            //redirect(base_url() . 'dashboard', 'refresh');
+		if ($this->session->userdata('is_login') != 1)
+            redirect(base_url() . 'login', 'refresh');
+        if ($this->session->userdata('is_login') == 1)
+            redirect(base_url() . 'main/dashboard', 'refresh');
 		
 		$page_data['page_name']  = 'main/dashboard';
         $page_data['page_title'] = get_phrase('dashboard');
@@ -31,7 +31,9 @@ class Main extends CI_Controller {
 	}
 	 
 	function dashboard(){
-		
+		if ($this->session->userdata('is_login') != 1)
+            redirect(base_url() . 'login', 'refresh');
+			
 		$page_data['page_name']  = 'main/dashboard';
         $page_data['page_title'] = get_phrase('dashboard');
         $this->load->view('index', $page_data);

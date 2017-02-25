@@ -187,9 +187,9 @@ CREATE TABLE IF NOT EXISTS `language` (
   `chinese` longtext COLLATE utf8_unicode_ci NOT NULL,
   `khmer` longtext COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`phrase_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4025 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4028 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table school.language: 4,024 rows
+-- Dumping data for table school.language: 4,027 rows
 DELETE FROM `language`;
 /*!40000 ALTER TABLE `language` DISABLE KEYS */;
 INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `chinese`, `khmer`) VALUES
@@ -4216,7 +4216,10 @@ INSERT INTO `language` (`phrase_id`, `phrase`, `english`, `chinese`, `khmer`) VA
 	(4021, 'home', '', '', ''),
 	(4022, 'home', '', '', ''),
 	(4023, 'home', '', '', ''),
-	(4024, 'home', '', '', '');
+	(4024, 'home', '', '', ''),
+	(4025, 'security', '', '', ''),
+	(4026, 'create_role', '', '', ''),
+	(4027, 'update_user', '', '', '');
 /*!40000 ALTER TABLE `language` ENABLE KEYS */;
 
 
@@ -4226,103 +4229,97 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `MENU_NAME` varchar(1000) NOT NULL,
   `MENU_KHMER_NAME` varchar(1000) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `MAIN_MENU_ID` int(11) NOT NULL,
-  `MENU_ORDER` int(11) DEFAULT NULL,
-  `IS_LEAF` int(11) DEFAULT NULL,
+  `MENU_ORDER` int(11) DEFAULT '0',
+  `IS_LEAF` int(11) DEFAULT '0',
   `check` varchar(50) DEFAULT NULL,
   `LINK` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `LOAD_TYPE` smallint(2) NOT NULL DEFAULT '1',
   `STATUS_ID` smallint(1) NOT NULL,
   `icon` varchar(50) DEFAULT NULL,
-  `order_by` int(1) DEFAULT NULL,
+  `order_by` int(1) DEFAULT '0',
   PRIMARY KEY (`MENU_ID`,`MAIN_MENU_ID`),
   UNIQUE KEY `TBLMENU_PK` (`MENU_ID`,`MAIN_MENU_ID`),
   UNIQUE KEY `IDX_TBLMENU_1` (`MENU_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=48 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=67 DEFAULT CHARSET=utf8;
 
--- Dumping data for table school.menu: 28 rows
+-- Dumping data for table school.menu: 44 rows
 DELETE FROM `menu`;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`MENU_ID`, `MENU_NAME`, `MENU_KHMER_NAME`, `MAIN_MENU_ID`, `MENU_ORDER`, `IS_LEAF`, `check`, `LINK`, `LOAD_TYPE`, `STATUS_ID`, `icon`, `order_by`) VALUES
-	(1, 'Dashboard', 'Dashboard', 3, 1, 0, 'dashboard', 'nvc/dashboard', 1, 1, 'entypo-gauge', 1),
-	(2, 'Census dashboard', 'Census dashboard', 3, 2, 0, 'census_dashboard', 'census/census_dashboard', 1, 1, 'entypo-doc-text-inv"', 2),
-	(3, 'Dashboard', 'Dashboard', 0, 1, 1, NULL, '', 1, 1, 'entypo-docs', 1),
-	(4, 'Customer census', 'Customer census', 0, 5, 1, NULL, '', 1, 1, 'entypo-users', 6),
-	(5, 'Customers', 'Customers', 4, 1, 0, 'census_customer', 'census/census_customer', 1, 1, 'entypo-users', 1),
-	(6, 'Customer schedule', 'Customer schedule', 4, 2, 0, 'census_customer_schedule', 'census/census_customer_schedule', 1, 1, 'entypo-box', 2),
-	(7, 'Product', 'Product', 4, 3, 0, 'census_product', 'census/census_product', 1, 1, 'entypo-box', 3),
-	(8, 'Call card', 'Call card', 4, 4, 0, 'census_call_card', 'census/census_call_card', 1, 1, 'entypo-qq', 6),
-	(9, 'Represantative', 'Represantative', 4, 5, 0, 'represantative', 'census/represantative', 1, 1, 'entypo-infinity', 5),
-	(10, 'Leads', 'Leads', 0, 2, 0, 'lead', 'crm/lead/lead_view', 1, 1, 'entypo-cd', 2),
-	(11, 'Sales pipeline', 'Sales pipeline', 0, 4, 0, 'deal', 'crm/deal/stage_view/incoming', 1, 1, 'entypo-back-in-time', 4),
-	(12, 'Contact', 'Contact', 0, 3, 0, 'contact_list', 'crm/contact/contact_view/all_contact', 1, 1, 'entypo-user', 3),
-	(13, 'Settings', 'Settings', 0, 1, 1, NULL, NULL, 1, 1, 'entypo-lifebuoy', 13),
-	(14, 'System setup', 'System setup', 13, 1, 0, 'system_setup', 'nvc/system_setup', 1, 1, 'entypo-dot', 14),
-	(15, 'Public holiday', 'Public holiday', 13, 2, 0, 'public_holiday', 'public_holiday/1', 1, 1, 'entypo-dot', 15),
-	(16, 'System settings', 'System settings', 13, 3, 0, 'system_settings', 'nvc/system_settings', 1, 1, 'entypo-dot', 16),
-	(17, 'General settings', 'General settings', 13, 4, 0, 'general_settings', 'nvc/general_settings', 1, 1, 'entypo-ticket', 17),
-	(44, 'User management', 'User management', 22, 1, 0, 'user_management', 'nvc/user_management', 1, 1, 'entypo-user', 25),
-	(43, 'Sale transaction', 'Sale transaction', 0, 1, 0, 'appointments', 'crm/appointments/appointments_view', 1, 1, 'entypo-phone', 4),
-	(21, 'Auditrial', 'Auditrial', 0, 1, 0, 'auditrial', 'auditrial', 1, 1, 'entypo-eye', 21),
-	(22, 'Security', 'Security', 0, 1, 1, '', '', 1, 1, 'entypo-key', 22),
-	(23, 'User Role', 'User Role', 22, 1, 0, 'user_role', 'nvc/user_role', 1, 1, 'entypo-users', 23),
-	(24, 'User Permission', 'User Permission', 22, 1, 0, 'user_permission', 'user_permission', 1, 0, 'entypo-lock', 24),
-	(27, 'Reports', 'Reports', 0, 1, 1, NULL, NULL, 2, 1, 'entypo-docs', 4),
-	(29, 'Dashboard Service', 'Dashboard Service', 0, 1, 0, 'dashboard_service', 'dashboard', 2, 1, 'entypo-gauge', 1),
-	(47, 'Warehousing & Logistics', 'Warehousing & Logistics', 0, 4, 0, 'call_log_warehousing_logistic', 'crm/warehousing_logistic/stock_daily_plan', 1, 1, 'entypo-basket', 5),
-	(46, 'Sync customer', 'Sync customer', 22, 1, 0, 'synch_customer', 'customer/synch_customer/sap_customer', 1, 1, 'entypo-cw', 26),
-	(45, 'Schedule', 'Schedule', 22, 1, 0, 'email_sale_log', 'log/email_sale_log', 1, 1, 'entypo-gauge', 25);
+	(1, 'Home', 'Home', 0, 1, 0, 'main/dashboard', 'main/dashboard', 1, 1, 'icon-speedometer', 1),
+	(50, 'Student', 'Student', 0, 2, 1, NULL, NULL, 1, 1, 'fa fa-star', 2),
+	(4, 'Role', 'Role', 5, 1, 0, 'user_role', 'user/user_role', 1, 1, 'fa fa-gavel', 1),
+	(5, 'Security', 'Security', 0, 12, 1, '(NULL)', '(NULL)', 1, 1, 'fa fa-key', 12),
+	(6, 'User management', 'User management', 5, 2, 0, 'user_management', 'user/user_management', 1, 1, 'fa fa-users', 2),
+	(7, 'Teacher', 'Teacher', 0, 3, 1, NULL, NULL, 1, 1, 'fa fa-rocket', 3),
+	(8, 'Teacher profile', 'Teacher profile', 7, 1, 0, '', '', 1, 1, '', 1),
+	(57, 'Lession plan', 'Lession plan', 7, 3, 0, 'report/pivot_table', 'report/pivot_table', 1, 1, NULL, 3),
+	(9, 'Assign student score', 'Assign student score', 7, 2, 0, '', '', 1, 1, '', 2),
+	(10, 'Report', 'Report', 7, 5, 1, '(NULL)', '(NULL)', 1, 1, 'icon-layers', 5),
+	(11, 'Teacher report', 'Teacher report', 10, 1, 0, '', '', 1, 1, '', 1),
+	(12, 'Lession plan report', 'Lession plan report', 10, 2, 0, '', '', 1, 1, '', 2),
+	(13, 'student score report', 'student score report', 10, 3, 0, NULL, NULL, 1, 1, 'fa fa-user', 3),
+	(14, 'Parents', 'Parents', 0, 4, 1, '', '', 1, 1, '', 4),
+	(15, 'Parent list', 'Parent list', 14, 1, 0, '', '', 1, 1, '', 1),
+	(16, 'Quest list', 'Quest list', 14, 2, 0, '', '', 1, 1, '', 2),
+	(55, 'Attendance', 'Attendance', 0, 6, 1, '', '', 1, 1, NULL, 6),
+	(17, 'Attendance list', 'Attendance list', 55, 1, 0, '(NULL)', '(NULL)', 1, 1, '', 7),
+	(44, 'Schedule list', 'Schedule list', 55, 2, 0, '', '', 1, 1, '', 1),
+	(43, 'Financial', 'Financial', 0, 7, 1, '', '', 1, 1, '', 7),
+	(53, 'Cash Collection', 'Cash Collection', 43, 1, 0, NULL, NULL, 1, 1, NULL, 1),
+	(21, 'Revenue', 'Revenue', 43, 2, 0, '(NULL)', '(NULL)', 1, 1, '', 2),
+	(22, 'Transaction', 'Transaction', 43, 3, 0, '', '', 1, 1, '', 3),
+	(23, 'Financial Reports', 'Financial Reports', 43, 4, 1, '', '', 1, 1, '', 4),
+	(24, 'Sale Reports', 'Sale Reports', 23, 1, 0, '', '', 1, 1, 'fa fa-unlock', 1),
+	(27, 'Summary AR', 'Summary AR', 23, 2, 0, NULL, NULL, 1, 1, '', 2),
+	(47, 'Other Report', 'Other Report', 23, 3, 0, '', '', 1, 1, '', 3),
+	(51, 'Payrolls', 'Payrolls', 43, 7, 1, NULL, NULL, 1, 1, NULL, 4),
+	(46, 'Create Payroll', 'Create Payroll', 51, 1, 0, '', '', 1, 1, '', 1),
+	(52, 'Process Payroll', 'Process Payroll', 51, 2, 0, NULL, NULL, 1, 1, NULL, 2),
+	(45, 'Bank Setup', 'Bank Setup', 51, 3, 0, 'email_sale_log', 'log/email_sale_log', 1, 1, 'fa fa-calendar', 3),
+	(48, 'Payroll Reports', 'Payroll Reports', 51, 4, 1, NULL, NULL, 1, 1, 'fa fa-star', 4),
+	(56, 'Pay Slip', 'Pay Slip', 48, 1, 0, 'report/pivot_mode', 'report/pivot_mode', 1, 1, NULL, 5),
+	(54, 'Reports', 'Reports', 0, 8, 1, NULL, NULL, 1, 1, NULL, 8),
+	(49, 'Student profile', 'Student profile', 50, 1, 0, 'report/new_opportunity', 'report/new_opportunity', 1, 1, 'fa fa-star', 1),
+	(58, 'Enrolment', 'Enrolment', 50, 2, 0, 'sale/contact', 'sales/contact', 1, 1, 'fa fa-star', 2),
+	(59, 'Student record', 'Student record', 50, 3, 0, NULL, NULL, 1, 1, NULL, 3),
+	(60, 'Fees management', 'Fees management', 50, 4, 0, NULL, NULL, 1, 1, NULL, 4),
+	(61, 'Assignments', 'Assignments', 50, 6, 0, NULL, NULL, 1, 1, NULL, 6),
+	(62, 'Tasks', 'Tasks', 50, 5, 0, NULL, NULL, 1, 1, NULL, 5),
+	(63, 'Reports', 'Reports', 50, 7, 1, NULL, NULL, 1, 1, NULL, 7),
+	(64, 'Student report', 'Student report', 63, 1, 0, NULL, NULL, 1, 1, NULL, 1),
+	(65, 'Score report', 'Score report', 63, 2, 0, NULL, NULL, 1, 1, NULL, 2),
+	(66, 'Philine report', 'Philine report', 63, 3, 0, NULL, NULL, 1, 1, NULL, 3);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
 
 
--- Dumping structure for table school.menu_user
-CREATE TABLE IF NOT EXISTS `menu_user` (
-  `USER_MENU_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `USER_ID` int(11) DEFAULT NULL,
+-- Dumping structure for table school.menu_role
+CREATE TABLE IF NOT EXISTS `menu_role` (
+  `ROLE_MENU_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `ROLE_ID` int(11) DEFAULT NULL,
   `MENU_ID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`USER_MENU_ID`),
-  KEY `GROUP_ID` (`USER_ID`,`MENU_ID`),
-  KEY `IDX_TBLGROUP_MENU_2` (`USER_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`ROLE_MENU_ID`),
+  KEY `GROUP_ID` (`ROLE_ID`,`MENU_ID`),
+  KEY `IDX_TBLGROUP_MENU_2` (`ROLE_ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
--- Dumping data for table school.menu_user: 34 rows
-DELETE FROM `menu_user`;
-/*!40000 ALTER TABLE `menu_user` DISABLE KEYS */;
-INSERT INTO `menu_user` (`USER_MENU_ID`, `USER_ID`, `MENU_ID`) VALUES
-	(32, 2, 12),
-	(38, 2, 1),
-	(3, 2, 5),
-	(4, 2, 6),
-	(5, 2, 7),
-	(6, 2, 8),
-	(7, 2, 9),
-	(8, 1, 1),
-	(9, 1, 2),
-	(10, 1, 23),
-	(11, 1, 5),
-	(12, 1, 6),
-	(13, 1, 7),
-	(14, 1, 8),
-	(15, 1, 9),
-	(16, 1, 10),
-	(17, 1, 11),
-	(19, 1, 12),
-	(21, 1, 43),
-	(22, 1, 24),
-	(23, 1, 44),
-	(24, 3, 1),
-	(33, 2, 10),
-	(26, 3, 29),
-	(27, 3, 12),
-	(28, 3, 10),
-	(29, 3, 11),
-	(30, 3, 43),
-	(34, 2, 11),
-	(35, 2, 43),
-	(36, 1, 45),
-	(37, 1, 46),
-	(44, 1, 47),
-	(43, 1, 17);
-/*!40000 ALTER TABLE `menu_user` ENABLE KEYS */;
+-- Dumping data for table school.menu_role: 12 rows
+DELETE FROM `menu_role`;
+/*!40000 ALTER TABLE `menu_role` DISABLE KEYS */;
+INSERT INTO `menu_role` (`ROLE_MENU_ID`, `ROLE_ID`, `MENU_ID`) VALUES
+	(1, 2, 1),
+	(2, 2, 49),
+	(3, 2, 58),
+	(4, 2, 59),
+	(5, 2, 60),
+	(6, 2, 62),
+	(7, 2, 61),
+	(8, 2, 64),
+	(9, 2, 65),
+	(10, 2, 66),
+	(11, 2, 4),
+	(12, 2, 6);
+/*!40000 ALTER TABLE `menu_role` ENABLE KEYS */;
 
 
 -- Dumping structure for table school.message
@@ -4558,6 +4555,24 @@ INSERT INTO `prospect_status` (`id`, `prospect_status`, `status`) VALUES
 /*!40000 ALTER TABLE `prospect_status` ENABLE KEYS */;
 
 
+-- Dumping structure for table school.role
+CREATE TABLE IF NOT EXISTS `role` (
+  `role_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`role_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- Dumping data for table school.role: ~2 rows (approximately)
+DELETE FROM `role`;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` (`role_id`, `name`, `description`, `status`) VALUES
+	(1, 'Sale support', 'Sale support', 1),
+	(2, 'Marketing support', 'Sale support', 1);
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+
+
 -- Dumping structure for table school.schedule
 CREATE TABLE IF NOT EXISTS `schedule` (
   `schedule_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -4659,7 +4674,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `is_login` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'offline',
   `status` int(1) NOT NULL DEFAULT '1',
   `is_admin` int(1) NOT NULL DEFAULT '0',
-  `report_to` int(1) DEFAULT NULL,
+  `role_id` int(1) DEFAULT NULL,
   PRIMARY KEY (`admin_id`),
   KEY `username` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -4667,8 +4682,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Dumping data for table school.user: ~6 rows (approximately)
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` (`admin_id`, `SAP_ID`, `name`, `username`, `email`, `password`, `level`, `authentication_key`, `phone`, `address`, `owner_status`, `type_id`, `chat_status`, `is_login`, `status`, `is_admin`, `report_to`) VALUES
-	(1, 2917, 'Mr. Admin', 'admin', 'vuthy.sin@vital.com.kh', '4bcf5419e091739485c205cde0ecbf9e6b2f87b4', '1', '', '092892224', '', 0, 1, 'offline', 'online', 1, 1, 5),
+INSERT INTO `user` (`admin_id`, `SAP_ID`, `name`, `username`, `email`, `password`, `level`, `authentication_key`, `phone`, `address`, `owner_status`, `type_id`, `chat_status`, `is_login`, `status`, `is_admin`, `role_id`) VALUES
+	(1, 2917, 'Mr. Admin', 'admin', 'vuthy.sin@vital.com.kh', '4bcf5419e091739485c205cde0ecbf9e6b2f87b4', '1', '', '092892224', '', 0, 1, 'offline', 'online', 1, 1, 2),
 	(2, 2, 'vuthy', 'vuthy', 'vuthy.sin5284@gmail.com', '4bcf5419e091739485c205cde0ecbf9e6b2f87b4', '', '', '092', 'No. 888K, St. 598, 12105 Phnom Penh', 0, 1, 'offline', 'offline', 1, 0, 4),
 	(3, 0, 'dara', 'dara', 'abc@yahoo.com', 'e97762dad95697c98c46c8acfadca0f6cf818092', '', '', '092', '', 0, 0, 'offline', 'offline', 1, 0, NULL),
 	(4, 7757, 'data rith', 'dararith', 'vuthysin5284@hotmail.com', '4bcf5419e091739485c205cde0ecbf9e6b2f87b4', '', '', '09333', '', 0, 0, 'offline', 'offline', 1, 0, 0),

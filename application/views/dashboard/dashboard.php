@@ -1,18 +1,4 @@
  
-
-    <div class="content animate-panel">
-        <div class="row">
-            <div class="col-lg-12 text-center m-t-md">
-                <h2>
-                    Welcome to Homer Theme
-                </h2>
-
-                <p>
-                    Special <strong>Admin Theme</strong> for small, medium and large webapp with very clean and
-                    aesthetic style and feel.
-                </p>
-            </div>
-        </div>
         <div class="row">
             <div class="col-lg-12">
                 <div class="hpanel">
