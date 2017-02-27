@@ -72,5 +72,16 @@ class Teacher extends CI_Controller {
 		 
 		
 	} 
+	/* select teacher    */
+	public function add_teacher(){		
+								
+		$page_data['file_teacher_active']=$this->datatable_model->getMultirow('teacher','status=1');
+		$page_data['file_teacher_inactive']=$this->datatable_model->getMultirow('teacher','status=0');
+		
+		$page_data['page_name']  = 'teacher/teach_profile';
+        $page_data['page_main_title'] = get_phrase('security');
+        $page_data['page_title'] = get_phrase('teach_profile');
+        $this->load->view('index', $page_data);
+		}
 	  
 }

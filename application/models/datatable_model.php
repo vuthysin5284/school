@@ -7,8 +7,15 @@ class Datatable_model extends CI_Model{
 		$this->db=$this->load->database('default', TRUE);
 	}
 	
-	
-	
+	/*select data on Table is Multi*/
+	public function getMultirow($table=null,$con=null,$file=null)
+			{
+		if($con!=null){
+			$this->db->where($con);
+			}
+		$query=$this->db->get($table);
+		return $query->result();
+		}	
 	
 	function result_json ( $request, $table, $columns )
 	{
