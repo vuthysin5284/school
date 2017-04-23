@@ -12,7 +12,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table school.menu
-DROP TABLE IF EXISTS `menu`;
 CREATE TABLE IF NOT EXISTS `menu` (
   `MENU_ID` int(11) NOT NULL AUTO_INCREMENT,
   `MENU_NAME` varchar(1000) NOT NULL,
@@ -29,9 +28,9 @@ CREATE TABLE IF NOT EXISTS `menu` (
   PRIMARY KEY (`MENU_ID`,`MAIN_MENU_ID`),
   UNIQUE KEY `TBLMENU_PK` (`MENU_ID`,`MAIN_MENU_ID`),
   UNIQUE KEY `IDX_TBLMENU_1` (`MENU_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 
--- Dumping data for table school.menu: 44 rows
+-- Dumping data for table school.menu: 51 rows
 DELETE FROM `menu`;
 /*!40000 ALTER TABLE `menu` DISABLE KEYS */;
 INSERT INTO `menu` (`MENU_ID`, `MENU_NAME`, `MENU_KHMER_NAME`, `MAIN_MENU_ID`, `MENU_ORDER`, `IS_LEAF`, `check`, `LINK`, `LOAD_TYPE`, `STATUS_ID`, `icon`, `order_by`) VALUES
@@ -81,77 +80,12 @@ INSERT INTO `menu` (`MENU_ID`, `MENU_NAME`, `MENU_KHMER_NAME`, `MAIN_MENU_ID`, `
 	(66, 'Philine report', 'Philine report', 63, 3, 0, NULL, NULL, 1, 1, NULL, 3),
 	(67, 'Master Data', 'Master Data', 0, 9, 1, NULL, NULL, 1, 1, NULL, 9),
 	(68, 'Country Data', 'Country Data', 67, 1, 0, NULL, NULL, 1, 1, NULL, 1),
-	(69, 'Branch Data', 'Branch Data', 67, 2, 0, NULL, NULL, 1, 1, NULL, 2),
+	(69, 'Branch Data', 'Branch Data', 67, 2, 0, 'masterdata/master_data', 'masterdata/master_data', 1, 1, NULL, 2),
 	(70, 'Room Data', 'Room Data', 67, 3, 0, NULL, NULL, 1, 1, NULL, 3),
 	(71, 'Classes Data', 'Classes Data', 67, 4, 0, NULL, NULL, 1, 1, NULL, 4),
-	(72, 'Staffing', 'Staffing', 0, 10, 0, NULL, NULL, 1, 1, NULL, 10);
+	(72, 'Staffing', 'Staffing', 0, 10, 0, NULL, NULL, 1, 1, NULL, 10),
+	(73, 'Transportation', 'Transportation', 67, 5, 0, NULL, NULL, 1, 1, NULL, 5);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
-
--- Dumping structure for table school.menu_role
-DROP TABLE IF EXISTS `menu_role`;
-CREATE TABLE IF NOT EXISTS `menu_role` (
-  `ROLE_MENU_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `ROLE_ID` int(11) DEFAULT NULL,
-  `MENU_ID` int(11) DEFAULT NULL,
-  PRIMARY KEY (`ROLE_MENU_ID`),
-  KEY `GROUP_ID` (`ROLE_ID`,`MENU_ID`),
-  KEY `IDX_TBLGROUP_MENU_2` (`ROLE_ID`)
-) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
-
--- Dumping data for table school.menu_role: 22 rows
-DELETE FROM `menu_role`;
-/*!40000 ALTER TABLE `menu_role` DISABLE KEYS */;
-INSERT INTO `menu_role` (`ROLE_MENU_ID`, `ROLE_ID`, `MENU_ID`) VALUES
-	(1, 2, 1),
-	(2, 2, 49),
-	(3, 2, 58),
-	(4, 2, 59),
-	(5, 2, 60),
-	(6, 2, 62),
-	(7, 2, 61),
-	(28, 2, 70),
-	(27, 2, 69),
-	(26, 2, 68),
-	(11, 2, 4),
-	(12, 2, 6),
-	(13, 2, 8),
-	(14, 2, 9),
-	(15, 2, 57),
-	(16, 2, 15),
-	(17, 2, 16),
-	(18, 2, 44),
-	(19, 2, 17),
-	(20, 2, 53),
-	(21, 2, 21),
-	(22, 2, 22),
-	(23, 2, 11),
-	(24, 2, 12),
-	(25, 2, 13),
-	(29, 2, 71),
-	(30, 2, 72);
-/*!40000 ALTER TABLE `menu_role` ENABLE KEYS */;
-
--- Dumping structure for table school.role
-DROP TABLE IF EXISTS `role`;
-CREATE TABLE IF NOT EXISTS `role` (
-  `role_id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT '1',
-  PRIMARY KEY (`role_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- Dumping data for table school.role: ~2 rows (approximately)
-DELETE FROM `role`;
-/*!40000 ALTER TABLE `role` DISABLE KEYS */;
-INSERT INTO `role` (`role_id`, `name`, `description`, `status`) VALUES
-	(1, 'Teacher', 'Teacher', 1),
-	(2, 'Adminstrator', 'Adminstrator', 1),
-	(3, 'Staff', 'Staff', 1),
-	(4, 'Parents', 'Parents', 1),
-	(5, 'Quest', 'Quest', 1),
-	(6, 'Chairman', 'Chairman', 1);
-/*!40000 ALTER TABLE `role` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
