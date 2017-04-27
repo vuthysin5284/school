@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Room extends CI_Controller {
+class Floor extends CI_Controller {
  
 	function __construct()
 	{
@@ -9,6 +9,9 @@ class Room extends CI_Controller {
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
         $this->load->model("room_model","room_m");
+
+        $this->load->model('datatable_model');
+		
        /*cache control*/
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
@@ -17,7 +20,7 @@ class Room extends CI_Controller {
     /*
 	*	$page_name		=	The name of page
 	*/
-    function new_room($param1 = '',$param2 = '',$param3 = '')
+    function new_floor($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
         $obj->room_id = $param1;
@@ -26,31 +29,31 @@ class Room extends CI_Controller {
         $this->load->view('room/modal_new_room' ,$page_data);
     }
 
-    function room(){
+    function floor(){
 
-		$page_data['page_name']  = 'room/room';
-        $page_data['page_title'] = get_phrase('room');
+		$page_data['page_name']  = 'floor/floor';
+        $page_data['page_title'] = get_phrase('floor');
         $this->load->view('index', $page_data);
 	}
-    /*** room ***/
-    function room_list($param1='',$param2='',$param3=''){
-        $page_data['page_title'] = get_phrase('room');
-        $this->load->view('room/room_list',$page_data);
+    /*** floor ***/
+    function floor_list($param1='',$param2='',$param3=''){
+        $page_data['page_title'] = get_phrase('floor');
+        $this->load->view('floor/floor_list',$page_data);
     }
 
     /* create new room */
-    function create_new_room($param1='',$param2='',$param3=''){
+    function create_new_floor($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $data["floor"] 	= $this->input->post("floor");
+        $data["building"] 	= $this->input->post("building");
         $data["room_number"] 	= $this->input->post("room_number");
-        $data["room_name"] 	    = $this->input->post("room_name");
-        $data["floor"] 	        = $this->input->post("floor");
-        $data["building"] 	    = $this->input->post("building");
-        $data["status"] 	    = empty($this->input->post("status"))?0:1;
-        $data["description"]    = $this->input->post("description");
+        $data["room_name"] 	= $this->input->post("room_name");
+        $data["status"] 	= empty($this->input->post("status"))?0:1;
+        $data["description"] = $this->input->post("description");
 
 
         // got value hidden file for reference id price book
@@ -82,26 +85,22 @@ class Room extends CI_Controller {
         }
 
         $obj = new stdClass();
-        $obj->room_id = $param1;
+        $obj->pricebook_id = $param1;
         //
         $this->room_m->delete_room($obj);
     }
 
-
+    /*
     public function room_data(){
         // DB table to use
-        $table = 'room';
+        $table = 'deal';
         $primaryKey	= "id";
         // indexes
         $columns = array(
-            array( 'db' => 'id', 		    'dt'	=> "id", 			'field'	=> 'id'),
-            array( 'db' => 'room_number',   'dt'	=> "room_number", 	'field'	=> 'room_number' ),
-            array( 'db' => 'room_name',     'dt'	=> "room_name",     'field'	=> 'room_name' ),
-            array( 'db' => 'floor',         'dt'	=> "floor",         'field'	=> 'floor' ),
-            array( 'db' => 'building', 	    'dt'	=> "building",      'field'	=> 'building'  ),
-            array( 'db' => 'room_name',   	'dt'	=> "room_name",     'field'	=> 'room_name'  ),
-            array( 'db' => 'description',   'dt'	=> "description",   'field'	=> 'description'  ),
-            array( 'db'	=> 'status',        'dt'	=> "status",        'field'	=> 'status' )
+            array( 'db' => 'id', 		'dt'	=> "id", 			'field'	=> 'id'),
+            array( 'db' => 'deal_name', 'dt'	=> "deal_name", 	'field'	=> 'deal_name' ),
+            array( 'db' => 'contact',   'dt'	=> "contact",       'field'	=> 'contact' ),
+            array( 'db' => 'tags',      'dt'	=> "tags",          'field'	=> 'tags' )
         );
 
         $sql_details	= array(
@@ -115,10 +114,10 @@ class Room extends CI_Controller {
         $this->load->model('datatable');
         echo json_encode(Datatable::simple($_POST, $sql_details,$table,$primaryKey, $columns));
 
-    }
+    }*/
 
 
-   /* public function room_data(){
+    public function room_data(){
 
         // DB table to use
         $table = 'room';
@@ -128,16 +127,18 @@ class Room extends CI_Controller {
             array( 'db' => 'id', 			'dt' => 0 ),
             array( 'db' => 'room_number',  	'dt' => 1 ),
             array( 'db' => 'room_name',   	'dt' => 2 ),
-            array( 'db' => 'floor',   	    'dt' => 2 ),
-            array( 'db' => 'building', 	    'dt' => 2 ),
-            array( 'db' => 'room_name',   	'dt' => 2 ),
-            array( 'db' => 'description',    'dt' => 3 ),
-            array( 'db'	=> 'status',         'dt' => 4)
+            array( 'db' => 'building',   	'dt' => 3),
+            array( 'db' => 'floor   ',   	'dt' => 4 ),
+            array( 'db' => 'description',    'dt' => 5 ),
+            array( 'db'	=> 'status',         'dt' =>6)
         );
 
 
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
-    }*/
+
+
+
+    }
 
 } 

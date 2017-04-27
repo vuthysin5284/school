@@ -13,7 +13,7 @@
 <link href="<?php echo base_url();?>assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
 <link href="<?php echo base_url();?>assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
 <link href="<?php echo base_url();?>assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
-<link href="<?php echo base_url();?>assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>	
+<link href="<?php echo base_url();?>assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>
 
 <link href="<?php echo base_url();?>assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>	
 <link href="<?php echo base_url();?>assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/>	 
