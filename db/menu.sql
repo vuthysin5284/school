@@ -79,13 +79,43 @@ INSERT INTO `menu` (`MENU_ID`, `MENU_NAME`, `MENU_KHMER_NAME`, `MAIN_MENU_ID`, `
 	(65, 'Score report', 'Score report', 63, 2, 0, NULL, NULL, 1, 1, NULL, 2),
 	(66, 'Philine report', 'Philine report', 63, 3, 0, NULL, NULL, 1, 1, NULL, 3),
 	(67, 'Master Data', 'Master Data', 0, 9, 1, NULL, NULL, 1, 1, NULL, 9),
-	(68, 'Country Data', 'Country Data', 67, 1, 0, NULL, NULL, 1, 1, NULL, 1),
+	(68, 'Country Data', 'Country Data', 67, 1, 0, 'masterdata/master_data', 'masterdata/master_data', 1, 1, NULL, 1),
 	(69, 'Branch Data', 'Branch Data', 67, 2, 0, 'masterdata/master_data', 'masterdata/master_data', 1, 1, NULL, 2),
-	(70, 'Room Data', 'Room Data', 67, 3, 0, NULL, NULL, 1, 1, NULL, 3),
-	(71, 'Classes Data', 'Classes Data', 67, 4, 0, NULL, NULL, 1, 1, NULL, 4),
-	(72, 'Staffing', 'Staffing', 0, 10, 0, NULL, NULL, 1, 1, NULL, 10),
-	(73, 'Transportation', 'Transportation', 67, 5, 0, NULL, NULL, 1, 1, NULL, 5);
+	(70, 'Room Data', 'Room Data', 67, 3, 0, 'masterdata/master_data', 'masterdata/master_data', 1, 1, NULL, 3),
+	(71, 'Classes Data', 'Classes Data', 67, 4, 0, 'masterdata/master_data', 'masterdata/master_data', 1, 1, NULL, 4),
+	(72, 'Staffing', 'Staffing', 0, 10, 0, 'staff/staffing', 'staff/staffing', 1, 1, NULL, 10),
+	(73, 'Transportation', 'Transportation', 67, 5, 0, 'masterdata/master_data', 'masterdata/master_data', 1, 1, NULL, 5);
 /*!40000 ALTER TABLE `menu` ENABLE KEYS */;
+
+-- Dumping structure for table school.room
+CREATE TABLE IF NOT EXISTS `room` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `branch_id` int(11) NOT NULL DEFAULT '0',
+  `floor` int(11) NOT NULL DEFAULT '0',
+  `building` int(11) NOT NULL DEFAULT '0',
+  `room_number` varchar(50) NOT NULL DEFAULT '0',
+  `room_name` varchar(50) NOT NULL DEFAULT '0',
+  `width` float NOT NULL DEFAULT '0',
+  `height` float NOT NULL DEFAULT '0',
+  `description` varchar(500) NOT NULL DEFAULT '0',
+  `created_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `modified_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `created_by` int(11) NOT NULL DEFAULT '0',
+  `modified_by` int(11) NOT NULL DEFAULT '0',
+  `is_delete` int(11) NOT NULL DEFAULT '0',
+  `status` int(1) NOT NULL DEFAULT '0',
+  `delete_by` int(11) NOT NULL DEFAULT '0',
+  `delete_date` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+-- Dumping data for table school.room: 2 rows
+DELETE FROM `room`;
+/*!40000 ALTER TABLE `room` DISABLE KEYS */;
+INSERT INTO `room` (`id`, `branch_id`, `floor`, `building`, `room_number`, `room_name`, `width`, `height`, `description`, `created_date`, `modified_date`, `created_by`, `modified_by`, `is_delete`, `status`, `delete_by`, `delete_date`) VALUES
+	(1, 0, 333, 33, '21', 'Grad 12', 0, 0, 'Grad 12', '2017-04-26 11:39:25', '2017-04-27 11:52:36', 1, 1, 1, 1, 1, '2017-04-28 12:57:12'),
+	(2, 0, 22, 111, '22', 'Grad 12 A', 0, 0, 'Grad 12 A', '2017-04-26 11:37:46', '2017-04-27 11:45:36', 1, 1, 0, 1, 0, '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `room` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
