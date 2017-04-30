@@ -9,7 +9,6 @@
 <div style="padding:5px; border-bottom:2px solid #eee;"></div> <!-- end header -->
 <div style="clear:both"></div>
 <br />
-
 <table id="datable_transportation" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>

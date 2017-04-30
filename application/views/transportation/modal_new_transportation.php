@@ -12,7 +12,6 @@
 </style>
  
 <div class="panel-body">
-
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
 				'id'=>'frmUser', 'enctype' => 'multipart/form-data'));?>
       

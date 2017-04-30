@@ -3,6 +3,7 @@ var datable_result;
 var _url_path =  baseurl+'transportation/new_transportation/';
 var _url_del =  baseurl+'transportation/delete/';
 
+
 $(document).ready(function() {
     datable_result = $('#datable_transportation').DataTable( {
         "filter"		: true,
