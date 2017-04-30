@@ -1,7 +1,7 @@
  
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo get_phrase('create_new_branch');?></h4>
+    <h4 class="modal-title"><?php echo get_phrase('create_new_location');?></h4>
 </div>
 <hr style="margin-top: -10px;"/>
 
@@ -17,15 +17,15 @@
 				'id'=>'frmUser', 'enctype' => 'multipart/form-data'));?>
       
         <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('branch_name');?> <span class="red">*</span></label>
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('location_name');?> <span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" name="branch_name" placeholder="branch name" data-validate="required"
+                <input type="text" class="form-control" name="branch_name" placeholder="location name" data-validate="required"
                 	data-message-required="<?php echo get_phrase('value_required');?>" autofocus />
             </div>
         </div>  
         
         <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?><span class="red">*</span></label>
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description of location');?><span class="red">*</span></label>
             <div class="col-sm-8">  
                 <input type="text" class="form-control" name="description" />
              </div>
