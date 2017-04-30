@@ -45,8 +45,8 @@
                    data-url="<?php echo base_url();?>transportation/transportation_list">
                     <i class="fa fa-exclamation-circle"></i>Transportation</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>location/Location_list"
-                   data-url="<?php echo base_url();?>Location/Location_list">
+                <a href="<?php echo base_url();?>location/location_list"
+                   data-url="<?php echo base_url();?>location/location_list">
                     <i class="fa fa-exclamation-circle"></i>Location</a></li>
         </ul>
     </div>
