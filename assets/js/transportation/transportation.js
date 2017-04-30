@@ -1,10 +1,11 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'branch/new_branch/';
-var _url_del =  baseurl+'branch/delete/';
+var _url_path =  baseurl+'transportation/new_transportation/';
+var _url_del =  baseurl+'transportation/delete/';
+
 
 $(document).ready(function() {
-    datable_result = $('#datable_branch').DataTable( {
+    datable_result = $('#datable_transportation').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -23,10 +24,10 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "room_number" },
-            { "data" : "room_name"},
-            { "data" : "description" },
-            { "data" : "status" },
+            { "data" : "id" },
+            { "data" : "deal_name"},
+            { "data" : "contact" },
+            { "data" : "tags" },
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(

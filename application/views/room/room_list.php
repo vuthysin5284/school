@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>room/new_room');">
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>room/new_room/0/new');">
             <i class="fa fa-user-plus"></i>
             <?php echo get_phrase('new_room');?>
         </button>
@@ -15,6 +15,8 @@
         <tr>
             <th>Room Number</th>
             <th>Room Name</th>
+            <th>Building</th>
+            <th>Floor</th>
             <th>Description</th>
             <th>STATUS</th>
             <th></th>

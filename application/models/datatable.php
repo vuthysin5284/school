@@ -2,11 +2,10 @@
  
  
 
-class datatable  extends CI_Model{
+class Datatable  extends CI_Model{
 
 	function __construct() {
-		parent::__construct();
-		$this->db = $this->load->database('default', TRUE); 
+		parent::__construct(); 
 	}
 	
 	/**
@@ -92,7 +91,7 @@ class datatable  extends CI_Model{
 						'ASC' :
 						'DESC';
 
-					$orderBy[] = '`'.$column['db'].'` '.$dir;
+					$orderBy[] = ''.$column['db'].' '.$dir;
 				}
 			}
 
@@ -194,16 +193,18 @@ class datatable  extends CI_Model{
 	static function simple ( $request, $conn, $table, $primaryKey, $columns )
 	{
 		$bindings = array();
+		 $db = self::sql_connect( $conn );
 
 		// Build the SQL query string from the request
 		$limit = self::limit( $request, $columns );
 		$order = self::order( $request, $columns );
 		$where = self::filter( $request, $columns, $bindings );
+		 
 
 		// Main query to actually get the data
-		$data = self::sql_exec( $this->db, $bindings,
-			"SELECT `".implode("`, `", self::pluck($columns, 'db'))."`
-			 FROM `$table`
+		$data = self::sql_exec( $db, $bindings,
+			"SELECT SQL_CALC_FOUND_ROWS ".implode(", ", self::pluck($columns, 'db'))."
+			 FROM $table
 			 $where
 			 $order
 			 $limit"
@@ -212,7 +213,7 @@ class datatable  extends CI_Model{
 		// Data set length after filtering
 		$resFilterLength = self::sql_exec( $db, $bindings,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM   `$table`
+			 FROM   $table
 			 $where"
 		);
 		$recordsFiltered = $resFilterLength[0][0];
@@ -220,7 +221,7 @@ class datatable  extends CI_Model{
 		// Total data set length
 		$resTotalLength = self::sql_exec( $db,
 			"SELECT COUNT(`{$primaryKey}`)
-			 FROM   `$table`"
+			 FROM  $table"
 		);
 		$recordsTotal = $resTotalLength[0][0];
 
@@ -350,6 +351,7 @@ class datatable  extends CI_Model{
 				$sql_details['pass'],
 				array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION )
 			);
+			$db->exec("SET NAMES utf8");
 		}
 		catch (PDOException $e) {
 			self::fatal(

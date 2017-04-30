@@ -23,10 +23,17 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "id" },
-            { "data" : "deal_name"},
-            { "data" : "contact" },
-            { "data" : "tags" },
+            { "data" : "room_number" },
+            { "data" : "room_name"},
+            { "data" : "building"},
+            { "data" : "floor"},
+            { "data" : "description" },
+            { "data": "status",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    var yesno = oData.is_delete==0?'Active':'<font color="red">Delete</font>';
+                    $(nTd).html(yesno);
+                }
+            },
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
@@ -44,4 +51,21 @@ $(document).ready(function() {
         "order": [[0, 'desc']]
     });
 } );
+
+
+
+//
+function on_delete_data(url){
+    delete_data(url,remove_row);
+}
+//
+function remove_row(url){
+    $.ajax({
+        type: "POST",
+        url: url,
+        success: function(data){
+            datable_result.draw();
+        }
+    });
+}
 
