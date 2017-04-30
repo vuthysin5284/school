@@ -48,6 +48,14 @@
                 <a href="<?php echo base_url();?>location/Location_list"
                    data-url="<?php echo base_url();?>Location/Location_list">
                     <i class="fa fa-exclamation-circle"></i>Location</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>floor/floor_list"
+                   data-url="<?php echo base_url();?>floor/floor_list">
+                    <i class="fa fa-exclamation-circle"></i>Floor</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>building/building_list"
+                   data-url="<?php echo base_url();?>building/building_list">
+                    <i class="fa fa-exclamation-circle"></i>building</a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

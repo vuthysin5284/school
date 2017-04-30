@@ -23,10 +23,10 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "id" },
-            { "data" : "deal_name"},
-            { "data" : "contact" },
-            { "data" : "tags" },
+            { "data" : "room_number" },
+            { "data" : "room_name"},
+            { "data" : "description" },
+            { "data" : "status" },
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(

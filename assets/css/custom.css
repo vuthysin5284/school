@@ -17,4 +17,11 @@
 .container {
     width: 90%; 
 }
- 
+
+.panel .panel-body {
+    padding: 5px;
+}
+.tab-content {
+    padding: 5px;
+    background: #fff;
+}

@@ -7,15 +7,8 @@ class Datatable_model extends CI_Model{
 		$this->db=$this->load->database('default', TRUE);
 	}
 	
-	/*select data on Table is Multi*/
-	public function getMultirow($table=null,$con=null,$file=null)
-			{
-		if($con!=null){
-			$this->db->where($con);
-			}
-		$query=$this->db->get($table);
-		return $query->result();
-		}	
+	
+	
 	
 	function result_json ( $request, $table, $columns )
 	{
@@ -30,7 +23,7 @@ class Datatable_model extends CI_Model{
 		// Main query to actually get the data
 		$data = $this->db->query(
 			"SELECT 
-				`".implode("`, `", self::pluck($columns, 'db'))."`
+				".implode(", ", self::pluck($columns, 'db'))."
 			 FROM 
 			 
 			 $table
@@ -40,8 +33,6 @@ class Datatable_model extends CI_Model{
 			 $limit"
 		)->result_array();
 		 
-		 
-
 		// Data set length after filtering
 		$record_filtered = $this->db->query("SELECT COUNT(*) as number FROM  $table  $where")->row()->number; 
 		
@@ -143,7 +134,7 @@ class Datatable_model extends CI_Model{
 						'ASC' :
 						'DESC';
 
-					$orderBy[] = '`'.$column['db'].'` '.$dir;
+					$orderBy[] = ''.$column['db'].' '.$dir;
 				}
 			}
 
@@ -159,8 +150,8 @@ class Datatable_model extends CI_Model{
 	{
 		$globalSearch = array();
 		$columnSearch = array();
-		$dtColumns = self::pluck( $columns, 'dt' );
-
+		$dtColumns = self::pluck( $columns, 'field' );
+		
 		if ( isset($request['search']) && $request['search']['value'] != '' ) {
 			$str = $request['search']['value'];
 
@@ -168,13 +159,15 @@ class Datatable_model extends CI_Model{
 				$requestColumn = $request['columns'][$i];
 				$columnIdx = array_search( $requestColumn['data'], $dtColumns );
 				$column = $columns[ $columnIdx ];
-
+ 
 				if ( $requestColumn['searchable'] == 'true' ) {
 					$binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
-					$globalSearch[] = "`".$column['db']."` LIKE ".$binding;
+					$globalSearch[] = "".$column['field']." LIKE '".$str."'";
 				}
 			}
 		}
+
+		 
 
 		// Individual column filtering
 		if ( isset( $request['columns'] ) ) {
@@ -188,7 +181,7 @@ class Datatable_model extends CI_Model{
 				if ( $requestColumn['searchable'] == 'true' &&
 				 $str != '' ) {
 					$binding = self::bind( $bindings, '%'.$str.'%', PDO::PARAM_STR );
-					$columnSearch[] = "`".$column['db']."` LIKE ".$binding;
+					$columnSearch[] = "".$column['db']." LIKE ".$binding;
 				}
 			}
 		}
