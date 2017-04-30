@@ -101,7 +101,8 @@ class Room extends CI_Controller {
             array( 'db' => 'building', 	    'dt'	=> "building",      'field'	=> 'building'  ),
             array( 'db' => 'room_name',   	'dt'	=> "room_name",     'field'	=> 'room_name'  ),
             array( 'db' => 'description',   'dt'	=> "description",   'field'	=> 'description'  ),
-            array( 'db'	=> 'status',        'dt'	=> "status",        'field'	=> 'status' )
+            array( 'db'	=> 'status',        'dt'	=> "status",        'field'	=> 'status' ),
+            array( 'db'	=> 'is_delete',        'dt'	=> "is_delete",        'field'	=> 'is_delete' )
         );
 
         $sql_details	= array(

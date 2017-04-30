@@ -30,7 +30,7 @@ $(document).ready(function() {
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.status==0?'No':'Yes';
+                    var yesno = oData.is_delete==0?'Active':'<font color="red">Delete</font>';
                     $(nTd).html(yesno);
                 }
             },
