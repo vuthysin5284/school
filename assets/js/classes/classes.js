@@ -1,7 +1,6 @@
 // JavaScript Document
 var datable_result;
 var _url_path =  baseurl+'classes/new_classes/';
-var _url_path_edit = baseurl+'classes/edit_classes/';
 var _url_del =  baseurl+'classes/delete/';
 
 $(document).ready(function() {
@@ -24,10 +23,17 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "id" },
-            { "data" : "deal_name"},
-            { "data" : "contact" },
-            { "data" : "tags" },
+            { "data" : "classes_number" },
+            { "data" : "classes_name"},
+            { "data" : "building"},
+            { "data" : "floor"},
+            { "data" : "description" },
+            { "data": "status",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    var yesno = oData.is_delete==0?'Active':'<font color="red">Delete</font>';
+                    $(nTd).html(yesno);
+                }
+            },
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
@@ -35,7 +41,7 @@ $(document).ready(function() {
                         '<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'+
                         '<span class="caret"></span></a>'+
                         '<ul class="dropdown-menu dropdown-menu-right" role="menu">'+
-                        '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path_edit+oData.id+'/edit/share\');">Edit</a></li>'+
+                        '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');">Edit</a></li>'+
                         '<li><a href="#" onclick="on_delete_data(\''+_url_del+oData.id+'\');">Delete</a></li>'+
                         '</ul>'+
                         '</div>');
@@ -45,4 +51,21 @@ $(document).ready(function() {
         "order": [[0, 'desc']]
     });
 } );
+
+
+
+//
+function on_delete_data(url){
+    delete_data(url,remove_row);
+}
+//
+function remove_row(url){
+    $.ajax({
+        type: "POST",
+        url: url,
+        success: function(data){
+            datable_result.draw();
+        }
+    });
+}
 
