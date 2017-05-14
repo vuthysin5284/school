@@ -18,6 +18,25 @@
 			$this->db->where('id',$id);
 			return $this->db->update('room',$data);
 		}
+
+		//function get floor list
+        function get_floor_list($obj){
+            $sql = " select 
+						*
+					from floor 
+					where branch_id=?";
+           return $this->db->query($sql,array($obj->branch_id))->result();
+
+        }
+        //function get building list
+        function get_building_list($obj){
+            $sql = " select 
+						*
+					from building 
+					where branch_id=?";
+            return $this->db->query($sql,array($obj->branch_id))->result();
+
+        }
 		/*delete room*/
 		function delete_room($obj){
 			$this->db->where('id',$obj->room_id);
@@ -39,7 +58,7 @@
 		function get_room_detail($obj){
 			$sql = " select 
 						*
-					from room pb 
+					from room_v 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->room_id))->row();
 			return array( 
@@ -48,6 +67,8 @@
                         "room_name"=> empty($data->room_name)?'':$data->room_name,
                         "building"=> empty($data->building)?'':$data->building,
                         "floor"=> empty($data->floor)?'':$data->floor,
+                        "building_id"=> empty($data->building_id)?'':$data->building_id,
+                        "floor_id"=> empty($data->floor_id)?'':$data->floor_id,
                         "description"=> empty($data->description)?'':$data->description,
                         "status"=> empty($data->status)?'':$data->status,
                         "created_date"=> empty($data->created_date)?'':$data->created_date,

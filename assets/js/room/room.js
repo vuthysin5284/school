@@ -25,12 +25,12 @@ $(document).ready(function() {
         "columns"    : [
             { "data" : "room_number" },
             { "data" : "room_name"},
-            { "data" : "building"},
+            { "data" : "building_name"},
             { "data" : "floor"},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?'Active':'<font color="red">Delete</font>';
+                    var yesno = oData.status==1?'Active':'<font color="red">Inactive</font>';
                     $(nTd).html(yesno);
                 }
             },

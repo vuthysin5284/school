@@ -64,9 +64,10 @@ class Login extends CI_Controller {
             $this->session->set_userdata('user_id', $row->admin_id); 
             $this->session->set_userdata('sap_id', $row->SAP_ID);
             $this->session->set_userdata('name', $row->name);
-            $this->session->set_userdata('email', $row->email);  
-			
-			// is login
+            $this->session->set_userdata('email', $row->email);
+            $this->session->set_userdata('branch_id', 1);
+
+            // is login
 			$this->db->where('admin_id',$row->admin_id);
 			$this->db->set('is_login','online');
 			$this->db->update('user'); 
