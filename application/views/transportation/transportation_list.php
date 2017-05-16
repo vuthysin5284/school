@@ -9,14 +9,18 @@
 <div style="padding:5px; border-bottom:2px solid #eee;"></div> <!-- end header -->
 <div style="clear:both"></div>
 <br />
+
 <table id="datable_transportation" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Transportation Number</th>
-            <th>Transportation Name</th>
+            <th>Route Name</th>
+            <th>Vihecle Number</th>
             <th>Description</th>
+            <th>Route Fare</th>
+            <th>Two Way</th>
+            <th>One Way</th>
             <th>STATUS</th>
-            <th></th>
+            <th>Options</th>
         </tr>
     </thead>
 </table>
