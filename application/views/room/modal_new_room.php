@@ -76,5 +76,4 @@
         <?php echo form_close();?>
 </div>
 
-<script src="<?php echo base_url();?>assets/js/room/room_new.js"></script>
  

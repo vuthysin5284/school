@@ -22,4 +22,4 @@
     </thead>
 </table>
 
-<!-- scriptsrc="<?php echo base_url();?>assets/js/branch/branch.js"></script-->
+<script src="<?php echo base_url();?>assets/js/branch/branch.js"></script>
