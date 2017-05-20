@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>transportation/new_transportation');">
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>transportation/new_transportation/0/new');">
             <i class="fa fa-user-plus"></i>
             <?php echo get_phrase('new_transportation');?>
         </button>

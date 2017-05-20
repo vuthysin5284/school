@@ -42,7 +42,7 @@ $(document).ready(function() {
                         '<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'+
                         '<span class="caret"></span></a>'+
                         '<ul class="dropdown-menu dropdown-menu-right" role="menu">'+
-                        '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');">Edit</a></li>'+
+                        '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit\');">Edit</a></li>'+
                         '<li><a href="#" onclick="on_delete_data(\''+_url_del+oData.id+'\');">Delete</a></li>'+
                         '</ul>'+
                         '</div>');
