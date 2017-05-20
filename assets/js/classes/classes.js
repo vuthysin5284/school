@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'room/new_room/';
-var _url_del =  baseurl+'room/delete/';
+var _url_path =  baseurl+'classes/new_classes/';
+var _url_del =  baseurl+'classes/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_room').DataTable( {
+    datable_result = $('#datable_classes').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'room/room_data',
+            "url"    : baseurl+'classes/classes_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,14 +23,14 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "room_number" },
-            { "data" : "room_name"},
-            { "data" : "building_name"},
+            { "data" : "classes_number" },
+            { "data" : "classes_name"},
+            { "data" : "building"},
             { "data" : "floor"},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.status==1?'Active':'<font color="red">Inactive</font>';
+                    var yesno = oData.is_delete==0?'Active':'<font color="red">Delete</font>';
                     $(nTd).html(yesno);
                 }
             },

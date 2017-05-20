@@ -36,20 +36,38 @@
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('building');?> <span class="red">*</span></label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="building" name="building" placeholder="building" value="<?php echo $room_detail["building"]?>" />
+                <select class="form-control" id="building_id" name="building_id" >
+                    <option value="0">... building ...</option>
+                    <?php
+                    foreach($building_list as $bl){
+                        $selected = ($bl->id==$room_detail["building_id"])?" selected":"";
+                        echo "<option value='".$bl->id."' ".$selected.">".$bl->building_name."</option>";
+
+                    }
+                    ?>
+                </select>
             </div>
         </div>
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('floor');?> <span class="red">*</span></label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="floor" name="floor" placeholder="floor" value="<?php echo $room_detail["floor"]?>" />
+                <select class="form-control" id="floor_id" name="floor_id" >
+                    <option value="0">... floor ...</option>
+                    <?php
+                        foreach($floor_list as $fl){
+                            $selected = ($fl->id==$room_detail["floor_id"])?" selected":"";
+                            echo "<option value='".$fl->id."' ".$selected.">".$fl->floor."</option>";
+
+                        }
+                    ?>
+                </select>
             </div>
         </div>
 
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?><span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="description" name="description"  value="<?php echo $room_detail["description"]?>"/>
+                <textarea class="form-control" id="description" name="description"><?php echo $room_detail["description"]?></textarea>
              </div>
         </div> 
               
