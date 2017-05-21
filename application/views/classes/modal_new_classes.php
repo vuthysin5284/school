@@ -33,16 +33,19 @@
                 <input type="text" class="form-control" id="building" name="classes_name" placeholder="classes name" value="<?php echo $classes_detail["classes_name"]?>" />
             </div>
         </div>
-        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('building');?> <span class="red">*</span></label>
+       <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room');?> <span class="red">*</span></label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="building" name="building" placeholder="building" value="<?php echo $classes_detail["building"]?>" />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('floor');?> <span class="red">*</span></label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="floor" name="floor" placeholder="floor" value="<?php echo $classes_detail["floor"]?>" />
+                <select class="form-control" id="room_id" name="room_id" >
+                    <option value="0">... room ...</option>
+                    <?php
+                        foreach($room_list as $r){
+                            $selected = ($r->id==$room_detail["room_id"])?" selected":"";
+                            echo "<option value='".$r->id."' ".$selected.">".$r->room_name."</option>";
+
+                        }
+                    ?>
+                </select>
             </div>
         </div>
 

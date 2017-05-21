@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'classes/new_classes/';
-var _url_del =  baseurl+'classes/delete/';
+var _url_path =  baseurl+'building/new_building/';
+var _url_del =  baseurl+'building/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_classes').DataTable( {
+    datable_result = $('#datable_building').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'classes/classes_data',
+            "url"    : baseurl+'building/building_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,9 +23,7 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "classes_number" },
-            { "data" : "classes_name"},
-            { "data" : "room_id"},
+            { "data" : "building"},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {

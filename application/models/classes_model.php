@@ -46,14 +46,13 @@
                         "id"=> empty($data->id)?'':$data->id,
                         "classes_number"=> empty($data->classes_number)?'':$data->classes_number,
                         "classes_name"=> empty($data->classes_name)?'':$data->classes_name,
-                        "building"=> empty($data->building)?'':$data->building,
-                        "floor"=> empty($data->floor)?'':$data->floor,
+                        "room_id"=> empty($data->room_id)?'':$data->room_id,
                         "description"=> empty($data->description)?'':$data->description,
                         "status"=> empty($data->status)?'':$data->status,
                         "created_date"=> empty($data->created_date)?'':$data->created_date,
                         "modified_date"=> empty($data->modified_date)?'':$data->modified_date,
                         "created_by"=> empty($data->created_by)?'':$data->created_by,
-                        "modified_by"=> empty($data->modified_by)?'':$data->modified_by,
+                        "modified_by"=> empty($data->modified_by)?'':$data->modified_by
 				);     
 		}
 		
@@ -62,6 +61,15 @@
 			$sql = "select * from classes where status = 1 and classes like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
+		//function get floor list
+        function get_room_list($obj){
+            $sql = " select 
+						*
+					from room 
+					where branch_id=?";
+           return $this->db->query($sql,array($obj->branch_id))->result();
+
+        }
 		
 	}
 ?>
