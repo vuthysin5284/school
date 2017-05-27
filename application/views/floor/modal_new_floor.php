@@ -37,7 +37,7 @@
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-8">  
-                <input type="checkbox" name="status" id="status" checked <?php echo $floor_detail["status"]==0?'':'checked';?>/>
+                <input type="checkbox" name="status" id="status" <?php echo $floor_detail["status"]==0?'':'checked';?>/>
             	<label for="status"><?php echo get_phrase('status');?></label>
             </div>
         </div>        
