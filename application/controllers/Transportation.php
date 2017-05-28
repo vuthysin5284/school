@@ -14,6 +14,15 @@ class Transportation extends CI_Controller {
 		$this->output->set_header('Pragma: no-cache');
 		
     }
+
+    //
+    function index(){
+        $page_data['page_name']  = 'transportation/index';
+        $page_data['page_title'] = get_phrase('transportation');
+        $this->load->view('index', $page_data);
+    }
+
+
     /*
 	*	$page_name		=	The name of page
 	*/

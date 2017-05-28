@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Staff extends CI_Controller
+class Leave extends CI_Controller
 {
 
     function __construct()
@@ -14,10 +14,10 @@ class Staff extends CI_Controller
         $this->output->set_header('Pragma: no-cache');
 
     }
-    function staffing()
+    function index()
     {
-        $page_data['page_name']  = 'staff/staffing';
-        $page_data['page_title'] = get_phrase('staff');
+        $page_data['page_name']  = 'leave/index';
+        $page_data['page_title'] = get_phrase('leave');
         $this->load->view('index', $page_data);
     }
 }
