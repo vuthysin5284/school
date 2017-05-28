@@ -20,7 +20,7 @@
 		}
 		/*delete floor*/
 		function delete_floor($obj){
-			$this->db->where('id',$obj->floor_id);
+			$this->db->where('id',$obj->id);
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
@@ -41,7 +41,7 @@
 						*
 					from floor pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->floor_id))->row();
+			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "floor"=> empty($data->floor)?'':$data->floor,

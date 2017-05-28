@@ -82,7 +82,7 @@ class Building extends CI_Controller {
         }
 
         $obj = new stdClass();
-        $obj->pricebook_id = $param1;
+        $obj->id = $param1;
         //
         $this->building_m->delete_building($obj);
     }
@@ -117,7 +117,7 @@ class Building extends CI_Controller {
     public function building_data(){
 
         // DB table to use
-        $table = 'building';
+        $table = 'building where is_delete=0';
 		$primaryKey = "id";
         // indexes
         $columns = array(

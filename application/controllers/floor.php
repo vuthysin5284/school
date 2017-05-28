@@ -22,7 +22,7 @@ class Floor extends CI_Controller {
     function new_floor($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
-        $obj->floor_id = $param1;
+        $obj->id = $param1;
         $page_data["floor_detail"] = $this->floor_m->get_floor_detail($obj);
         $page_data["crud"] = $param2;
         $this->load->view('floor/modal_new_floor' ,$page_data);
@@ -40,7 +40,7 @@ class Floor extends CI_Controller {
         $this->load->view('floor/floor_list',$page_data);
     }
 
-    /* create new room */
+    /* create new floor */
     function create_new_floor($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
@@ -79,54 +79,26 @@ class Floor extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-
         $obj = new stdClass();
-        $obj->pricebook_id = $param1;
+        $obj->id = $param1;
         //
         $this->floor_m->delete_floor($obj);
     }
 
-    /*
-    public function room_data(){
-        // DB table to use
-        $table = 'deal';
-        $primaryKey	= "id";
-        // indexes
-        $columns = array(
-            array( 'db' => 'id', 		'dt'	=> "id", 			'field'	=> 'id'),
-            array( 'db' => 'deal_name', 'dt'	=> "deal_name", 	'field'	=> 'deal_name' ),
-            array( 'db' => 'contact',   'dt'	=> "contact",       'field'	=> 'contact' ),
-            array( 'db' => 'tags',      'dt'	=> "tags",          'field'	=> 'tags' )
-        );
-
-        $sql_details	= array(
-            'user'	=> $this->db->username,
-            'pass'	=> $this->db->password,
-            'port'	=> $this->db->port,
-            'db'	=> $this->db->database,
-            'host'	=> $this->db->hostname
-        );
-
-        $this->load->model('datatable');
-        echo json_encode(Datatable::simple($_POST, $sql_details,$table,$primaryKey, $columns));
-
-    }*/
-
-
     public function floor_data(){
 
         // DB table to use
-        $table = 'floor';
+        $table = 'floor where is_delete=0';
 		$primaryKey = "id";
         // indexes
         $columns = array(
-			array('db' => 'id', 'dt' => "id", 'field' => 'id'),
-			array('db' => 'floor', 'dt' => "floor", 'field' => 'floor'),
+			array('db' => 'id', 		 'dt' => "id", 			'field' => 'id'),
+			array('db' => 'floor', 		 'dt' => "floor", 		'field' => 'floor'),
 			array('db' => 'description', 'dt' => "description", 'field' => 'description'),
-			array('db' => 'status', 'dt' => "status", 'field' => 'status'),
-			array('db' => 'is_delete', 'dt' => "is_delete", 'field'	=> 'is_delete'),
+			array('db' => 'status', 	 'dt' => "status", 		'field' => 'status'),
+			array('db' => 'is_delete',   'dt' => "is_delete", 	'field'	=> 'is_delete')
         );
-
+		
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
 
