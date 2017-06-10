@@ -30,15 +30,17 @@
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?><span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="description" name="description"  value="<?php echo $floor_detail["description"]?>"/>
+                <input type="text" class="form-control" id="description"  name="description"  value="<?php echo $floor_detail["description"]?>"/>
              </div>
         </div> 
               
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-8">  
-                <input type="checkbox" name="status" id="status" <?php echo $floor_detail["status"]==0?'':'checked';?>/>
-            	<label for="status"><?php echo get_phrase('status');?></label>
+                <input type="checkbox" name="status" id="status" 
+				<?php echo $floor_detail["id"]==''?'checked':'';?>
+				<?php echo $floor_detail["status"]==0?'':'checked';?>/>
+            	<label for="status"><?php echo get_phrase('is active');?></label>
             </div>
         </div>        
         

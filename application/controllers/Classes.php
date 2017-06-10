@@ -92,7 +92,7 @@ class Classes extends CI_Controller {
 
     public function classes_data(){
         // DB table to use
-        $table = 'classes';
+        $table = 'classes where is_delete=0';
         $primaryKey	= "id";
         // indexes
         $columns = array(

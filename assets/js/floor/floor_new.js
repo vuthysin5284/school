@@ -7,10 +7,10 @@ $("#btnSubmit").on('click',function(e) {
         $("#floor").css('border','1px solid red');
         return false;
     }
-    if($("#description").val()==''){
+    /*if($("#description").val()==''){
         $("#description").css('border','1px solid red');
         return false;
-    }
+    }*/
 
     var url = baseurl+'floor/create_new_floor';
     $.ajax({
