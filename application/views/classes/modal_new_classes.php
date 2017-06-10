@@ -22,28 +22,34 @@
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
         <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('classes_number');?> <span class="red">*</span></label>
-            <div class="col-sm-8">  
-                <input type="text" class="form-control" id="classes_number" name="classes_number" value="<?php echo $classes_detail["classes_number"]?>" placeholder="classes number"  autofocus />
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('classes_number');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="classes_number" name="classes_number" placeholder="classes number"  value="<?php echo $classes_detail["classes_number"]?>" />
             </div>
         </div>
         <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('classes_name');?> <span class="red">*</span></label>
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('classes_name');?> <span class="red">*</span>
+           </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="building" name="classes_name" placeholder="classes name" value="<?php echo $classes_detail["classes_name"]?>" />
+                <input type="text" class="form-control" id="classes_name" name="classes_name" placeholder="classes name" value="<?php echo $classes_detail["classes_name"]?>" />
             </div>
         </div>
+        
        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room');?> <span class="red">*</span></label>
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room');?> <span class="red">*</span>
+            </label>
             <div class="col-sm-8">
                 <select class="form-control" id="room_id" name="room_id" >
                     <option value="0">... room ...</option>
                     <?php
-                        foreach($room_list as $r){
-                            $selected = ($r->id==$room_detail["room_id"])?" selected":"";
-                            echo "<option value='".$r->id."' ".$selected.">".$r->room_name."</option>";
+					
+                    foreach($room_list as $r){
+						
+                        $selected = ($r->room_number==$classes_detail["room_id"])?" selected":"";
+                        echo "<option value='".$r->room_number."' ".$selected.">".$r->room_number."</option>";
 
-                        }
+                    }
                     ?>
                 </select>
             </div>
@@ -52,15 +58,17 @@
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?><span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="description" name="description"  value="<?php echo $classes_detail["description"]?>"/>
+                <input type="text" class="form-control"  name="description"  value="<?php echo $classes_detail["description"]?>"/>
              </div>
         </div> 
               
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-8">  
-                <input type="checkbox" name="status" id="status" <?php echo $classes_detail["status"]==1?'':'checked';?>/>
-            	<label for="status"><?php echo get_phrase('status');?></label>
+                <input type="checkbox" name="status" id="status"
+                <?php echo $classes_detail["id"]==''?'checked':'';?>
+                 <?php echo $classes_detail["status"]==0?'':'checked';?>/>
+            	<label for="status"><?php echo get_phrase('is active');?></label>
             </div>
         </div>        
         

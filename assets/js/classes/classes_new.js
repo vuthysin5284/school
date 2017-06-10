@@ -3,12 +3,16 @@
 $("#btnSubmit").on('click',function(e) {
 
     // requirement
+    if($("#classes_number").val()==''){
+        $("#classes_number").css('border','1px solid red');
+        return false;
+    }
     if($("#classes_name").val()==''){
         $("#classes_name").css('border','1px solid red');
         return false;
     }
-    if($("#description").val()==''){
-        $("#description").css('border','1px solid red');
+	if($("#room_id").val()==0){
+        $("#room_id").css('border','1px solid red');
         return false;
     }
 

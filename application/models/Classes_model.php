@@ -66,7 +66,7 @@
             $sql = " select 
 						*
 					from room 
-					where branch_id=?";
+					";
            return $this->db->query($sql,array($obj->branch_id))->result();
 
         }
