@@ -56,7 +56,7 @@
         </div>
 
     <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?><span class="red">*</span></label>
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
             <div class="col-sm-8">  
                 <input type="text" class="form-control"  name="description"  value="<?php echo $classes_detail["description"]?>"/>
              </div>
