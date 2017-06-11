@@ -33,8 +33,8 @@
                    data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Employee List</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/employee_status"
+                   data-url="<?php echo base_url();?>staff/employee_status" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-file-text-o"></i>Employee Status</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
