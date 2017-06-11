@@ -20,4 +20,10 @@ class Staff extends CI_Controller
         $page_data['page_title'] = get_phrase('staff');
         $this->load->view('index', $page_data);
     }
+    //
+    function employee_status(){
+        $page_data['page_title'] = get_phrase('employee_status');
+        $this->load->view('staff/employee_status_list', $page_data);
+
+    }
 }
