@@ -10,6 +10,14 @@ $(document).ready(function(){
     var commune_id = 0;
     var village_id = 0;
 
+    function clear_warning(){
+        $('#'+'country_warning').text('');
+        $('#'+'province_warning').text('');
+        $('#'+'district_warning').text('');
+        $('#'+'commune_warning').text('');
+        $('#'+'village_warning').text('');
+    };
+
     $('#scountry').click(function(){
         country_id = $('#scountry').val();
         $('#country').val($('#scountry').find(":selected").text());
@@ -36,6 +44,7 @@ $(document).ready(function(){
         $('#district').val('');
         $('#scommune option').remove();
         $('#commune').val('');
+        clear_warning();
     });
 
     $('#sprovince').click(function(){
@@ -66,6 +75,7 @@ $(document).ready(function(){
         $('#commune').val('');
         $('#svillage option').remove();
         $('#village').val('');
+        clear_warning();
     });
 
     $('#sdistrict').click(function(){
@@ -95,6 +105,7 @@ $(document).ready(function(){
         });
         $('#svillage option').remove();
         $('#Village').val('');
+        clear_warning();
     });
 
     $('#scommune').click(function(){
@@ -123,11 +134,13 @@ $(document).ready(function(){
                     });
                 }
         });
+        clear_warning();
     });
 
     $('#svillage').click(function(){
         village_id = $('#svillage').val();
         $('#Village').val($('#svillage').find(":selected").text());
+        clear_warning();
     });
 
     $('#btnadd_country').click(function(event){
@@ -152,11 +165,14 @@ $(document).ready(function(){
                      $('#scountry').append('<option value="' + data.country_id + '" selected="selected">' 
                                                 + data.country_name + 
                                             '</option>');
-                     alert(data.message);
+                     //alert(data.message);
+                     $("#country_warning").text('');
                   }else if(data.status == 2){
-                    alert("Existing name");
+                    //alert("Existing name");
+                    $("#country_warning").text('Existing name !');
                   }else{
-                    alert("Failed to save");
+                    //alert("Failed to save");
+                    $("#country_warning").text('Failed to save !');
                   }
                 }
         });
@@ -179,7 +195,8 @@ $(document).ready(function(){
                    //alert(data);
 
                   if (data.status == 1) {
-                     alert(data.message);
+                     $("#province_warning").text('');
+                     //alert(data.message);
                      // $('#sprovince').append($('<option>', { 
                      //                    value: data.province_id,
                      //                    text : data.province_name
@@ -189,9 +206,11 @@ $(document).ready(function(){
                                             '</option>'); 
                      $("#sprovince").selectmenu("refresh");
                   }else if(data.status == 2){
-                    alert(data.message)
+                    //alert(data.message)
+                    $("#province_warning").text(data.message);
                   }else{
-                    alert(data.message);
+                    //alert(data.message);
+                    $("#province_warning").text(data.message);
                   } 
                 }
          }); 
@@ -215,15 +234,18 @@ $(document).ready(function(){
                    //alert(data);
 
                   if (data.status == 1) {
-                     alert(data.message);
+                     $("#district_warning").text('');
+                     //alert(data.message);
                      $('#sdistrict').append('<option value="' + data.district_id + '" selected="selected">' 
                                                 + data.district_name + 
                                             '</option>'); 
                      $("#sdistrict").selectmenu("refresh");
                   }else if(data.status == 2){
-                    alert(data.message)
+                    //alert(data.message)
+                    $("#district_warning").text(data.message);
                   }else{
-                    alert(data.message);
+                    //alert(data.message);
+                    $("#district_warning").text(data.message);
                   } 
                 }
          }); 
@@ -248,15 +270,18 @@ $(document).ready(function(){
                    //alert(data);
 
                   if (data.status == 1) {
-                     alert(data.message);
+                    $("#commune_warning").text('');
+                    // alert(data.message);
                      $('#scommune').append('<option value="' + data.commune_id + '" selected="selected">' 
                                                 + data.commune_name + 
                                             '</option>'); 
                      $("#scommune").selectmenu("refresh");
                   }else if(data.status == 2){
-                    alert(data.message);
+                    //alert(data.message);
+                    $("#commune_warning").text(data.message);
                   }else{
-                    alert(data.message);
+                    //alert(data.message);
+                    $("#commune_warning").text(data.message);
                   } 
                 }
          }); 
@@ -282,15 +307,18 @@ $(document).ready(function(){
                    //alert(data);
 
                   if (data.status == 1) {
-                     alert(data.message);
+                    $("#village_warning").text('');
+                     //alert(data.message);
                      $('#svillage').append('<option value="' + data.village_id + '" selected="selected">' 
                                                 + data.village_name + 
                                             '</option>'); 
                      $("#svillage").selectmenu("refresh");
                   }else if(data.status == 2){
-                    alert(data.message);
+                    //alert(data.message);
+                    $("#village_warning").text(data.message);
                   }else{
-                    alert(data.message);
+                    //alert(data.message);
+                    $("#village_warning").text(data.message);
                   } 
                 }
          }); 
@@ -314,7 +342,7 @@ $(document).ready(function(){
                 success: function(data){
                    //alert(data.country_id);
                    if (data.status == 1) {
-                        alert(data.message);
+                        //alert(data.message);
                         //$('#scountry option:selected').remove();
 
                         // $('#scountry').append('<option value="' + data.country_id + '" selected="selected">' 
@@ -347,7 +375,7 @@ $(document).ready(function(){
                 success: function(data){
                    //alert(data);
                    if (data.status == 1) {
-                        alert(data.message);
+                        //alert(data.message);
                         $('#sprovince option:selected').text(data.province_edit_name);
                    }else if(data.status == 0){
                             alert(data.message);
@@ -376,7 +404,7 @@ $(document).ready(function(){
                 success: function(data){
                    //alert(data);
                    if (data.status == 1) {
-                        alert(data.message);
+                        //alert(data.message);
                         $('#sdistrict option:selected').text(data.district_edit_name);
                    }else if(data.status == 0){
                         alert(data.message);
@@ -406,7 +434,7 @@ $(document).ready(function(){
                 success: function(data){
                    //alert(data);
                    if (data.status == 1) {
-                        alert(data.message);
+                        //alert(data.message);
                         $('#scommune option:selected').text(data.commune_edit_name);
                    }else if(data.status == 0){
                         alert(data.message);
@@ -437,7 +465,7 @@ $(document).ready(function(){
                 success: function(data){
                    //alert(data);
                    if (data.status == 1) {
-                        alert(data.message);
+                        //alert(data.message);
                         $('#svillage option:selected').text(data.village_edit_name);
                    }else if(data.status == 0){
                         alert(data.message);

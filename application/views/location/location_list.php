@@ -28,6 +28,11 @@
         height: 100%;
         padding: 0 auto;
     }
+    .warning{
+        color: red;
+        font-size: 14px;
+        margin-top: 5px;
+    }
 </style>
 
 <div class="wrap">
@@ -51,6 +56,7 @@
             <button id="btnupdate_country" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
+            <label class="warning" id='country_warning'></label>
             </form>
         </div>
     </div>
@@ -71,6 +77,7 @@
             <button id="btnupdate_province" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
+            <label class="warning" id='province_warning'></label>
         </div>
     </div>
     <div class="block_location">                        <!-- District -->
@@ -90,6 +97,7 @@
             <button id="btnupdate_district" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
+            <label class="warning" id='district_warning'></label>
         </div>
     </div>
     <div class="block_location">                           <!-- Commune -->
@@ -109,6 +117,7 @@
             <button id="btnupdate_commune" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
+            <label class="warning" id='commune_warning'></label>
         </div>
     </div>
     <div class="block_location">                        <!-- Village -->
@@ -128,6 +137,7 @@
             <button id="btnupdate_village" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
+            <label class="warning" id='village_warning'></label>
         </div>
     </div>
 </div>
