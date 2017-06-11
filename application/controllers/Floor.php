@@ -8,8 +8,7 @@ class Floor extends CI_Controller {
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
-        $this->load->model("room_model","room_m");
-
+        $this->load->model("floor_model","floor_m");
         $this->load->model('datatable_model');
 		
        /*cache control*/
@@ -23,10 +22,10 @@ class Floor extends CI_Controller {
     function new_floor($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
-        $obj->room_id = $param1;
-        $page_data["room_detail"] = $this->room_m->get_room_detail($obj);
+        $obj->id = $param1;
+        $page_data["floor_detail"] = $this->floor_m->get_floor_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('room/modal_new_room' ,$page_data);
+        $this->load->view('floor/modal_new_floor' ,$page_data);
     }
 
     function floor(){
@@ -41,7 +40,7 @@ class Floor extends CI_Controller {
         $this->load->view('floor/floor_list',$page_data);
     }
 
-    /* create new room */
+    /* create new floor */
     function create_new_floor($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
@@ -49,9 +48,6 @@ class Floor extends CI_Controller {
         }
 
         $data["floor"] 	= $this->input->post("floor");
-        $data["building"] 	= $this->input->post("building");
-        $data["room_number"] 	= $this->input->post("room_number");
-        $data["room_name"] 	= $this->input->post("room_name");
         $data["status"] 	= empty($this->input->post("status"))?0:1;
         $data["description"] = $this->input->post("description");
 
@@ -62,17 +58,17 @@ class Floor extends CI_Controller {
 
         // in case id is price book id
         if($crud=='new'){ // create new
-            $data["created_by"] 	= $this->session->userdata("user_id");
+			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
-            //
-            $data["room_id"] = $this->room_m->new_room($data);
+			//
+            $data["floor_id"] = $this->floor_m->new_floor($data);
 
         }else if($crud=='edit'){ // edit
-            $data["modified_by"] 	= $this->session->userdata("user_id");
+			$data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
             //
-            $this->room_m->edit_room($data,$id);
-            $data["room_id"] = $id;
+            $this->floor_m->edit_floor($data,$id);
+            $data["floor_id"] = $id;
         }
         echo json_encode(array("data"=>$data));
 
@@ -83,57 +79,26 @@ class Floor extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-
         $obj = new stdClass();
-        $obj->pricebook_id = $param1;
+        $obj->id = $param1;
         //
-        $this->room_m->delete_room($obj);
+        $this->floor_m->delete_floor($obj);
     }
 
-    /*
-    public function room_data(){
-        // DB table to use
-        $table = 'deal';
-        $primaryKey	= "id";
-        // indexes
-        $columns = array(
-            array( 'db' => 'id', 		'dt'	=> "id", 			'field'	=> 'id'),
-            array( 'db' => 'deal_name', 'dt'	=> "deal_name", 	'field'	=> 'deal_name' ),
-            array( 'db' => 'contact',   'dt'	=> "contact",       'field'	=> 'contact' ),
-            array( 'db' => 'tags',      'dt'	=> "tags",          'field'	=> 'tags' )
-        );
-
-        $sql_details	= array(
-            'user'	=> $this->db->username,
-            'pass'	=> $this->db->password,
-            'port'	=> $this->db->port,
-            'db'	=> $this->db->database,
-            'host'	=> $this->db->hostname
-        );
-
-        $this->load->model('datatable');
-        echo json_encode(Datatable::simple($_POST, $sql_details,$table,$primaryKey, $columns));
-
-    }*/
-
-
-    public function room_data(){
+    public function floor_data(){
 
         // DB table to use
-        $table = 'room';
-
+        $table = 'floor where is_delete=0';
+		$primaryKey = "id";
         // indexes
         $columns = array(
-            array( 'db' => 'id', 			'dt' => 0 ),
-            array( 'db' => 'room_number',  	'dt' => 1 ),
-            array( 'db' => 'room_name',   	'dt' => 2 ),
-            array( 'db' => 'building',   	'dt' => 3),
-            array( 'db' => 'floor   ',   	'dt' => 4 ),
-            array( 'db' => 'description',    'dt' => 5 ),
-            array( 'db'	=> 'status',         'dt' =>6)
+			array('db' => 'id', 		 'dt' => "id", 			'field' => 'id'),
+			array('db' => 'floor', 		 'dt' => "floor", 		'field' => 'floor'),
+			array('db' => 'description', 'dt' => "description", 'field' => 'description'),
+			array('db' => 'status', 	 'dt' => "status", 		'field' => 'status'),
+			array('db' => 'is_delete',   'dt' => "is_delete", 	'field'	=> 'is_delete')
         );
-
-
+		
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
 

@@ -8,8 +8,7 @@ class Building extends CI_Controller {
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
-        $this->load->model("room_model","room_m");
-
+        $this->load->model("building_model","building_m");
         $this->load->model('datatable_model');
 		
        /*cache control*/
@@ -23,35 +22,35 @@ class Building extends CI_Controller {
     function new_building($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
-        $obj->room_id = $param1;
-        $page_data["room_detail"] = $this->room_m->get_room_detail($obj);
+        $obj->id = $param1;
+        $page_data["building_detail"] = $this->building_m->get_building_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('room/modal_new_room' ,$page_data);
+        $this->load->view('building/modal_new_building' ,$page_data);
     }
 
-    function building(){
+    function floor(){
 
 		$page_data['page_name']  = 'building/building';
         $page_data['page_title'] = get_phrase('building');
         $this->load->view('index', $page_data);
 	}
-    /*** building_list ***/
+    /*** building ***/
     function building_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('building');
         $this->load->view('building/building_list',$page_data);
     }
 
-    /* create new room */
+    /* create new building */
     function create_new_building($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
 
-        $data["room_number"] 	= $this->input->post("room_number");
-        $data["room_name"] 	= $this->input->post("room_name");
-        $data["status"] 	= empty($this->input->post("status"))?0:1;
-        $data["description"] = $this->input->post("description");
+        $data["building"] 	= $this->input->post("building");
+		$data["description"] = $this->input->post("description");
+        $data["status"] = empty($this->input->post("status"))?0:1;
+        
 
 
         // got value hidden file for reference id price book
@@ -60,17 +59,17 @@ class Building extends CI_Controller {
 
         // in case id is price book id
         if($crud=='new'){ // create new
-            $data["created_by"] 	= $this->session->userdata("user_id");
+			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
-            //
-            $data["room_id"] = $this->room_m->new_room($data);
+			//
+            $data["id"] = $this->building_m->new_building($data);
 
         }else if($crud=='edit'){ // edit
-            $data["modified_by"] 	= $this->session->userdata("user_id");
+			$data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
             //
-            $this->room_m->edit_room($data,$id);
-            $data["room_id"] = $id;
+            $this->building_m->edit_building($data,$id);
+            $data["id"] = $id;
         }
         echo json_encode(array("data"=>$data));
 
@@ -83,9 +82,9 @@ class Building extends CI_Controller {
         }
 
         $obj = new stdClass();
-        $obj->pricebook_id = $param1;
+        $obj->id = $param1;
         //
-        $this->room_m->delete_room($obj);
+        $this->building_m->delete_building($obj);
     }
 
     /*
@@ -115,20 +114,19 @@ class Building extends CI_Controller {
     }*/
 
 
-    public function room_data(){
+    public function building_data(){
 
         // DB table to use
-        $table = 'room';
-
+        $table = 'building where is_delete=0';
+		$primaryKey = "id";
         // indexes
         $columns = array(
-            array( 'db' => 'id', 			'dt' => 0 ),
-            array( 'db' => 'room_number',  	'dt' => 1 ),
-            array( 'db' => 'room_name',   	'dt' => 2 ),
-            array( 'db' => 'description',    'dt' => 3 ),
-            array( 'db'	=> 'status',         'dt' => 4)
+			array('db' => 'id', 'dt' => "id", 'field' => 'id'),
+			array('db' => 'building', 'dt' => "building", 'field' => 'building'),
+			array('db' => 'description', 'dt' => "description", 'field' => 'description'),
+			array('db' => 'status', 'dt' => "status", 'field' => 'status'),
+			array('db' => 'is_delete', 'dt' => "is_delete", 'field'	=> 'is_delete' )
         );
-
 
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 

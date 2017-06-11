@@ -25,3 +25,16 @@
     padding: 5px;
     background: #fff;
 }
+.page-horizontal-bar.compact-menu .menu.accordion-menu ul li a {
+    padding: 10px 5px;
+}
+
+
+thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+    color: #fff;
+    background-color: #08A7C3;
+    border-color: transparent;
+}

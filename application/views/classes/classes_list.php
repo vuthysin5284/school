@@ -15,8 +15,7 @@
         <tr>
             <th>Classes Number</th>
             <th>Classes Name</th>
-            <th>Building</th>
-            <th>Floor</th>
+            <th>Room</th>
             <th>Description</th>
             <th>STATUS</th>
             <th></th>

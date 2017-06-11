@@ -3,25 +3,21 @@
 $("#btnSubmit").on('click',function(e) {
 
     // requirement
-    if($("#classes_number").val()==''){
-        $("#classes_number").css('border','1px solid red');
+    if($("#building").val()==''){
+        $("#building").css('border','1px solid red');
         return false;
     }
-    if($("#classes_name").val()==''){
-        $("#classes_name").css('border','1px solid red');
+    /*if($("#description").val()==''){
+        $("#description").css('border','1px solid red');
         return false;
-    }
-	if($("#room_id").val()==0){
-        $("#room_id").css('border','1px solid red');
-        return false;
-    }
+    }*/
 
-    var url = baseurl+'classes/create_new_classes';
+    var url = baseurl+'building/create_new_building';
     $.ajax({
         type: "POST",
         url: url,
         dataType:"JSON",
-        data: $("#frmNewClasses").serialize(), // serializes the form's elements.
+        data: $("#frmNewBuilding").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
             $('#modal_ajax').modal('hide');

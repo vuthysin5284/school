@@ -1,10 +1,26 @@
 
 // this is the id of the form
 $("#btnSubmit").on('click',function(e) {
+    e.preventDefault(); // avoid to execute the actual submit of the form.
 
+    // requirement
+    if($("#room_number").val()==''){
+        $("#room_number").css('border','1px solid red');
+        return false;
+    }
     // requirement
     if($("#room_name").val()==''){
         $("#room_name").css('border','1px solid red');
+        return false;
+    }
+    // requirement
+    if($("#building_id").val()=='0'){
+        $("#building_id").css('border','1px solid red');
+        return false;
+    }
+    // requirement
+    if($("#floor_id").val()=='0'){
+        $("#floor_id").css('border','1px solid red');
         return false;
     }
     if($("#description").val()==''){
@@ -26,6 +42,5 @@ $("#btnSubmit").on('click',function(e) {
         }
     });
 
-    e.preventDefault(); // avoid to execute the actual submit of the form.
 });
 

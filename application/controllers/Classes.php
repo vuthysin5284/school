@@ -21,7 +21,10 @@ class Classes extends CI_Controller {
     {
         $obj = new stdClass();
         $obj->classes_id = $param1;
+		
+        $obj->branch_id = $this->session->userdata("branch_id");
         $page_data["classes_detail"] = $this->classes_m->get_classes_detail($obj);
+        $page_data["room_list"] = $this->classes_m->get_room_list($obj);
         $page_data["crud"] = $param2;
         $this->load->view('classes/modal_new_classes' ,$page_data);
     }
@@ -47,8 +50,7 @@ class Classes extends CI_Controller {
 
         $data["classes_number"] 	= $this->input->post("classes_number");
         $data["classes_name"] 	    = $this->input->post("classes_name");
-        $data["floor"] 	        = $this->input->post("floor");
-        $data["building"] 	    = $this->input->post("building");
+        $data["room_id"] 	        = $this->input->post("room_id");
         $data["status"] 	    = empty($this->input->post("status"))?0:1;
         $data["description"]    = $this->input->post("description");
 
@@ -90,15 +92,14 @@ class Classes extends CI_Controller {
 
     public function classes_data(){
         // DB table to use
-        $table = 'classes';
+        $table = 'classes where is_delete=0';
         $primaryKey	= "id";
         // indexes
         $columns = array(
             array( 'db' => 'id', 		    	'dt'	=> "id", 				'field'	=> 'id'),
             array( 'db' => 'classes_number',    'dt'	=> "classes_number", 	'field'	=> 'classes_number' ),
             array( 'db' => 'classes_name',      'dt'	=> "classes_name",      'field'	=> 'classes_name' ),
-            array( 'db' => 'floor',         	'dt'	=> "floor",        	    'field'	=> 'floor' ),
-            array( 'db' => 'building', 	    	'dt'	=> "building",     	    'field'	=> 'building'  ),
+            array( 'db' => 'room_id',         	'dt'	=> "room_id",        	    'field'	=> 'room_id' ),
             array( 'db' => 'classes_name',   	'dt'	=> "classes_name",      'field'	=> 'classes_name'  ),
             array( 'db' => 'description',   	'dt'	=> "description",   	'field'	=> 'description'  ),
             array( 'db'	=> 'status',        	'dt'	=> "status",        	'field'	=> 'status' ),

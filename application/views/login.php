@@ -47,7 +47,7 @@
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control" placeholder="Password" required>
                                 </div>
-                                <button type="submit" class="btn btn-success btn-block">Login</button>
+                                <button type="submit" class="btn btn-info btn-block">Login</button>
                                 <a href="forgot.html" class="display-block text-center m-t-md text-sm">Forgot Password?</a>
                                 <!--p class="text-center m-t-xs text-sm">Do not have an account?</p>
                                <a href="<?php echo base_url();?>register" class="btn btn-default btn-block m-t-md">Create an account</a-->

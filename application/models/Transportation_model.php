@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Classes_model extends CI_Model {
+	class Transportation_model extends CI_Model {
 		
 		function __construct()
 		{ 
@@ -8,47 +8,45 @@
 			$this->db = $this->load->database('default', TRUE); 
 			 
 		}  
-		/*create new classes*/
-		function new_classes($data){
-			$this->db->insert('classes',$data);
+		/*create new transportation*/
+		function new_transportation($data){
+			$this->db->insert('transportation',$data);
 			return $this->db->insert_id(); 		
 		}
-		/*edit classes*/
-		function edit_classes($data,$id){
+		/*edit transportation*/
+		function edit_transportation($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('classes',$data);
+			return $this->db->update('transportation',$data);
 		}
-		/*delete classes*/
-		function delete_classes($obj){
-			$this->db->where('id',$obj->classes_id);
+		/*delete transportation*/
+		function delete_transportation($obj){
+			$this->db->where('id',$obj->id);
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('classes');
+			$this->db->update('transportation');
 		}
-		/*udate status classes*/
-		function update_status_classes($obj){
+		/*udate status transportation*/
+		function update_status_transportation($obj){
 			$this->db->where('id',$obj->pricebook_id); 
 			$this->db->set('status',$obj->status);
 			$this->db->set('modified_by',$this->session->userdata("user_id"));
 			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('classes');
+			$this->db->update('transportation');
 		}
 		
-		/* classes detail */
-		function get_classes_detail($obj){
-			$sql = " select 
-						*
-					from classes pb 
-					where id=?";
-			$data = $this->db->query($sql,array($obj->classes_id))->row();
+		/* transportation detail */
+		function get_transportation_detail($obj){
+			$sql = "select * from transportation pb where id=?";
+			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "classes_number"=> empty($data->classes_number)?'':$data->classes_number,
-                        "classes_name"=> empty($data->classes_name)?'':$data->classes_name,
-                        "building"=> empty($data->building)?'':$data->building,
-                        "floor"=> empty($data->floor)?'':$data->floor,
+                        "route_name"=> empty($data->route_name)?'':$data->route_name,
+                        "number_vehicle"=> empty($data->number_vehicle)?'':$data->number_vehicle,
                         "description"=> empty($data->description)?'':$data->description,
+						"route_fare"=> empty($data->route_fare)?'':$data->route_fare,
+						"two_way"=> empty($data->two_way)?'':$data->two_way,
+						"one_way"=> empty($data->one_way)?'':$data->one_way,
                         "status"=> empty($data->status)?'':$data->status,
                         "created_date"=> empty($data->created_date)?'':$data->created_date,
                         "modified_date"=> empty($data->modified_date)?'':$data->modified_date,
@@ -57,9 +55,9 @@
 				);     
 		}
 		
-		/* lookup_classes */
-		function lookup_classes($obj){
-			$sql = "select * from classes where status = 1 and classes like ?";
+		/* lookup_transportation */
+		function lookup_transportation($obj){
+			$sql = "select * from transportation where status = 1 and transportation like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
