@@ -41,19 +41,16 @@
 						*
 					from location pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->location_id))->row();
+			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "location_number"=> empty($data->location_number)?'':$data->location_number,
-                        "location_name"=> empty($data->location_name)?'':$data->location_name,
-                        "building"=> empty($data->building)?'':$data->building,
-                        "floor"=> empty($data->floor)?'':$data->floor,
-                        "description"=> empty($data->description)?'':$data->description,
-                        "status"=> empty($data->status)?'':$data->status,
-                        "created_date"=> empty($data->created_date)?'':$data->created_date,
-                        "modified_date"=> empty($data->modified_date)?'':$data->modified_date,
-                        "created_by"=> empty($data->created_by)?'':$data->created_by,
-                        "modified_by"=> empty($data->modified_by)?'':$data->modified_by,
+                        "name"=> empty($data->name)?'':$data->name,
+                        "type"=> empty($data->type)?'':$data->type,
+                        "country"=> empty($data->country)?'':$data->country,
+                        "province"=> empty($data->province)?'':$data->province,
+                        "district"=> empty($data->district)?'':$data->district,
+                        "commune"=> empty($data->commune)?'':$data->commune,
+                        "village"=> empty($data->village)?'':$data->village,
 				);     
 		}
 		

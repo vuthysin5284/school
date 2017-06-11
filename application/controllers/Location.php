@@ -20,10 +20,376 @@ class Location extends CI_Controller {
     function new_location($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
-        $obj->location_id = $param1;
+        $obj->id = $param1;
         $page_data["location_detail"] = $this->location_m->get_location_detail($obj);
         $page_data["crud"] = $param2;
         $this->load->view('location/modal_new_location' ,$page_data);
+    }
+
+    function check_exists($field,$key)
+    {
+        $this->db->where($field,$key);
+        $query = $this->db->get('location');
+        if ($query->num_rows() > 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function new_country(){
+       // echo $this->input->post('new_country');
+      /*  $country = $this->db->select_max('country')->from('location')->get()->result();
+        $result = $country->country;
+        echo $result; */
+
+      if(!$this->check_exists('name',$this->input->post('new_country'))){
+            $country = $this->db->select_max('country')->from('location')->get()->row();   
+            $country_id =  $country->country + 1;
+            
+
+            $data = array(
+               'name' => $this->input->post('new_country'),
+               'type' => 1 ,
+               'country' => $country_id,
+               'province' => 0,
+               'district' => 0,
+               'commune' => 0,
+               'village' => 0
+            );
+            
+           if ($this->db->insert('location', $data)){
+                $json = array('status' => 1, 
+                              'country_id' => $country_id, 
+                              'country_name' => $this->input->post('new_country'),
+                              'message' => 'Successfully add !');
+                echo json_encode($json);
+
+               // echo "Successfully";
+           }else{
+                $json = array('status' => 0);
+                echo json_encode($json);
+               // echo 'Failed';
+           }
+      }else{
+            $json = array('status' => 2);
+            echo json_encode($json);
+      }
+    }
+
+    function new_province(){
+        //echo $this->input->post('country_id');
+
+      if(!$this->check_exists('name',$this->input->post('new_province'))){
+            $province = $this->db->select_max('province')->from('location')->get()->row();   
+            $province_id =  $province->province + 1;
+            
+
+            $data = array(
+               'name' => $this->input->post('new_province'),
+               'type' => 2 ,
+               'country' => $this->input->post('country_id'),
+               'province' => $province_id,
+               'district' => 0,
+               'commune' => 0,
+               'village' => 0
+            );
+
+            
+           if ($this->db->insert('location', $data)){
+                $json = array('status' => 1, 
+                              'province_id' => $province_id, 
+                              'province_name' => $this->input->post('new_province'),
+                              'message' => 'Successfully add !');
+                echo json_encode($json);
+
+               // echo "Successfully";
+           }else{
+                $json = array('status' => 0,
+                              'message' => 'Failed to save !');
+                echo json_encode($json);
+               // echo 'Failed';
+           }
+      }else{
+            $json = array('status' => 2,
+                          'message' => 'Existing name !');
+            echo json_encode($json);
+      }
+
+    }
+
+    function new_district(){
+        //echo $this->input->post('province_id');
+
+      if(!$this->check_exists('name',$this->input->post('new_district'))){
+            $district = $this->db->select_max('district')->from('location')->get()->row();   
+            $district_id =  $district->district + 1;
+            
+
+            $data = array(
+               'name' => $this->input->post('new_district'),
+               'type' => 3 ,
+               'country' => $this->input->post('country_id'),
+               'province' => $this->input->post('province_id'),
+               'district' => $district_id,
+               'commune' => 0,
+               'village' => 0
+            );
+
+            
+           if ($this->db->insert('location', $data)){
+                $json = array('status' => 1, 
+                              'district_id' => $district_id, 
+                              'district_name' => $this->input->post('new_district'),
+                              'message' => 'Successfully add !');
+                echo json_encode($json);
+
+               // echo "Successfully";
+           }else{
+                $json = array('status' => 0,
+                              'message' => 'Failed to save !');
+                echo json_encode($json);
+               // echo 'Failed';
+           }
+      }else{
+            $json = array('status' => 2,
+                          'message' => 'Existing name !');
+            echo json_encode($json);
+      }
+
+    }
+
+    function new_commune(){
+       // echo $this->input->post('district_id');
+
+      if(!$this->check_exists('name',$this->input->post('new_commune'))){
+            $commune = $this->db->select_max('commune')->from('location')->get()->row();   
+            $commune_id =  $commune->commune + 1;
+            
+
+            $data = array(
+               'name' => $this->input->post('new_commune'),
+               'type' => 4 ,
+               'country' => $this->input->post('country_id'),
+               'province' => $this->input->post('province_id'),
+               'district' => $this->input->post('district_id'),
+               'commune' => $commune_id,
+               'village' => 0
+            );
+
+            
+           if ($this->db->insert('location', $data)){
+                $json = array('status' => 1, 
+                              'commune_id' => $commune_id, 
+                              'commune_name' => $this->input->post('new_commune'),
+                              'message' => 'Successfully add !');
+                echo json_encode($json);
+
+               // echo "Successfully";
+           }else{
+                $json = array('status' => 0,
+                              'message' => 'Failed to save !');
+                echo json_encode($json);
+               // echo 'Failed';
+           }
+      }else{
+            $json = array('status' => 2,
+                          'message' => 'Existing name !');
+            echo json_encode($json);
+      }
+
+    }
+
+    function new_village(){
+      //echo $this->input->post('commune_id');
+
+      if(!$this->check_exists('name',$this->input->post('new_village'))){
+            $village = $this->db->select_max('village')->from('location')->get()->row();   
+            $village_id =  $village->village + 1;
+            
+
+            $data = array(
+               'name' => $this->input->post('new_village'),
+               'type' => 5,
+               'country' => $this->input->post('country_id'),
+               'province' => $this->input->post('province_id'),
+               'district' => $this->input->post('district_id'),
+               'commune' => $this->input->post('commune_id'),
+               'village' => $village_id
+            );
+
+            
+           if ($this->db->insert('location', $data)){
+                $json = array('status' => 1, 
+                              'village_id' => $village_id, 
+                              'village_name' => $this->input->post('new_village'),
+                              'message' => 'Successfully add !');
+                echo json_encode($json);
+
+               // echo "Successfully";
+           }else{
+                $json = array('status' => 0,
+                              'message' => 'Failed to save !');
+                echo json_encode($json);
+               // echo 'Failed';
+           }
+      }else{
+            $json = array('status' => 2,
+                          'message' => 'Existing name !');
+            echo json_encode($json);
+      }
+
+    }
+
+    function update_country(){
+            //echo $this->input->post('country_id');
+        $this->db->where('country',$this->input->post('country_id'));
+        $this->db->where('type',1);
+        $this->db->where('province',0);
+        $this->db->where('district',0);
+        $this->db->where('commune',0);
+        $this->db->where('village',0);
+
+        $data = array(
+             'name' => $this->input->post('country_edit_name')
+        );
+
+        if ($this->db->update('location',$data)){
+            $json = array(
+                          'status' => 1,
+                          'country_edit_name' => $this->input->post('country_edit_name'),
+                          'message' => 'Successfully Updated !', 
+                    );
+            echo json_encode($json);
+        }else{
+            $json = array(
+                          'status' => 0,
+                          'message' => 'Updated Failed !', 
+                    );
+            echo json_encode($json);
+        }
+
+    }
+
+    function update_province(){
+        //echo "This is update province";
+
+        $this->db->where('country',$this->input->post('country_id'));
+        $this->db->where('type',2);
+        $this->db->where('province',$this->input->post('province_id'));
+        $this->db->where('district',0);
+        $this->db->where('commune',0);
+        $this->db->where('village',0);
+
+        $data = array(
+             'name' => $this->input->post('province_edit_name')
+        );
+
+        if ($this->db->update('location',$data)){
+            $json = array(
+                          'status' => 1,
+                          'province_edit_name' => $this->input->post('province_edit_name'),
+                          'message' => 'Successfully Updated !', 
+                    );
+            echo json_encode($json);
+        }else{
+            $json = array(
+                          'status' => 0,
+                          'message' => 'Updated Failed !', 
+                    );
+            echo json_encode($json);
+        }
+
+    }
+
+    function update_district(){
+
+        $this->db->where('country',$this->input->post('country_id'));
+        $this->db->where('type',3);
+        $this->db->where('province',$this->input->post('province_id'));
+        $this->db->where('district',$this->input->post('district_id'));
+        $this->db->where('commune',0);
+        $this->db->where('village',0);
+
+        $data = array(
+             'name' => $this->input->post('district_edit_name')
+        );
+
+        if ($this->db->update('location',$data)){
+            $json = array(
+                          'status' => 1,
+                          'district_edit_name' => $this->input->post('district_edit_name'),
+                          'message' => 'Successfully Updated !', 
+                    );
+            echo json_encode($json);
+        }else{
+            $json = array(
+                          'status' => 0,
+                          'message' => 'Updated Failed !', 
+                    );
+            echo json_encode($json);
+        }
+    }
+
+    function update_commune(){
+
+        $this->db->where('country',$this->input->post('country_id'));
+        $this->db->where('type',4);
+        $this->db->where('province',$this->input->post('province_id'));
+        $this->db->where('district',$this->input->post('district_id'));
+        $this->db->where('commune',$this->input->post('commune_id'));
+        $this->db->where('village',0);
+
+        $data = array(
+             'name' => $this->input->post('commune_edit_name')
+        );
+
+        if ($this->db->update('location',$data)){
+            $json = array(
+                          'status' => 1,
+                          'commune_edit_name' => $this->input->post('commune_edit_name'),
+                          'message' => 'Successfully Updated !', 
+                    );
+            echo json_encode($json);
+        }else{
+            $json = array(
+                          'status' => 0,
+                          'message' => 'Updated Failed !', 
+                    );
+            echo json_encode($json);
+        }
+
+    }
+
+    function update_village(){
+
+        $this->db->where('country',$this->input->post('country_id'));
+        $this->db->where('type',5);
+        $this->db->where('province',$this->input->post('province_id'));
+        $this->db->where('district',$this->input->post('district_id'));
+        $this->db->where('commune',$this->input->post('commune_id'));
+        $this->db->where('village',$this->input->post('village_id'));
+
+        $data = array(
+             'name' => $this->input->post('village_edit_name')
+        );
+
+        if ($this->db->update('location',$data)){
+            $json = array(
+                          'status' => 1,
+                          'village_edit_name' => $this->input->post('village_edit_name'),
+                          'message' => 'Successfully Updated !', 
+                    );
+            echo json_encode($json);
+        }else{
+            $json = array(
+                          'status' => 0,
+                          'message' => 'Updated Failed !', 
+                    );
+            echo json_encode($json);
+        }
+
     }
 
     function location(){
@@ -34,8 +400,62 @@ class Location extends CI_Controller {
     }
     /*** location ***/
     function location_list($param1='',$param2='',$param3=''){
+        $page_data['countries'] = $this->db->select("*")
+                                           ->from("location")
+                                           ->where('type',1)
+                                           //->order_by("name", "asc")
+                                           ->get()
+                                           ->result();
+       
         $page_data['page_title'] = get_phrase('location');
         $this->load->view('location/location_list',$page_data);
+    }
+
+    function location_list_province(){
+        echo json_encode($this->db->select("*")
+                                  ->from('location')
+                                  ->where('type',2)
+                                  ->where('country',$this->input->post('country_id'))
+                                  ->order_by('name','asc')
+                                  ->get()
+                                  ->result());
+
+    }
+
+    function location_list_district(){
+        echo json_encode($this->db->select("*")
+                                  ->from('location')
+                                  ->where('type',3)
+                                  ->where('country',$this->input->post('country_id'))
+                                  ->where('province',$this->input->post('province_id'))
+                                  ->order_by('name','asc')
+                                  ->get()
+                                  ->result());
+    }
+
+    function location_list_commune(){
+        echo json_encode($this->db->select("*")
+                                  ->from('location')
+                                  ->where('type',4)
+                                  ->where('country',$this->input->post('country_id'))
+                                  ->where('province',$this->input->post('province_id'))
+                                  ->where('district',$this->input->post('district_id'))
+                                  ->order_by('name','asc')
+                                  ->get()
+                                  ->result());
+    }
+
+    function location_list_village(){
+        echo json_encode($this->db->select("*")
+                                  ->from('location')
+                                  ->where('type',5)
+                                  ->where('country',$this->input->post('country_id'))
+                                  ->where('province',$this->input->post('province_id'))
+                                  ->where('district',$this->input->post('district_id'))
+                                  ->where('commune',$this->input->post('commune_id'))
+                                  ->order_by('name','asc')
+                                  ->get()
+                                  ->result());
     }
 
     /* create new location */
@@ -58,7 +478,7 @@ class Location extends CI_Controller {
         $crud = $this->input->post("pb_crud_id");
 
         // in case id is price book id
-        if($crud=='new'){ // create new
+        if($crud=='new'){       // create new
             $data["created_by"]     = $this->session->userdata("user_id");
             $data["created_date"]   = date('Y-m-d h:s:i');
             //
@@ -82,7 +502,7 @@ class Location extends CI_Controller {
         }
 
         $obj = new stdClass();
-        $obj->location_id = $param1;
+        $obj->id = $param1;
         //
         $this->location_m->delete_location($obj);
     }
@@ -95,14 +515,13 @@ class Location extends CI_Controller {
         // indexes
         $columns = array(
             array( 'db' => 'id',            'dt'    => "id",            'field' => 'id'),
-            array( 'db' => 'location_number',   'dt'    => "location_number",   'field' => 'location_number' ),
-            array( 'db' => 'location_name',     'dt'    => "location_name",     'field' => 'location_name' ),
-            array( 'db' => 'floor',         'dt'    => "floor",         'field' => 'floor' ),
-            array( 'db' => 'building',      'dt'    => "building",      'field' => 'building'  ),
-            array( 'db' => 'location_name',     'dt'    => "location_name",     'field' => 'location_name'  ),
-            array( 'db' => 'description',   'dt'    => "description",   'field' => 'description'  ),
-            array( 'db' => 'status',        'dt'    => "status",        'field' => 'status' ),
-            array( 'db' => 'is_delete',        'dt' => "is_delete",        'field'  => 'is_delete' )
+            array( 'db' => 'name',   'dt'    => "name",   'field' => 'name' ),
+            array( 'db' => 'type',     'dt'    => "type",     'field' => 'type' ),
+            array( 'db' => 'country',         'dt'    => "country",         'field' => 'country' ),
+            array( 'db' => 'province',      'dt'    => "province",      'field' => 'province'  ),
+            array( 'db' => 'district',     'dt'    => "district",     'field' => 'district'  ),
+            array( 'db' => 'commune',   'dt'    => "commune",   'field' => 'commune'  ),
+            array( 'db' => 'village',        'dt'    => "village",        'field' => 'village' )
         );
 
         $sql_details    = array(

@@ -33,66 +33,42 @@
 <div class="wrap">
     <div class="block_location">                        <!-- Country -->
         <div class="form-group">
+            <form>
             <label for="country" class="col-sm-3 control-label"><?php echo get_phrase('Country');?></label>
             <br/><br/>
-            <select size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
-                <option value="Khmer">Khmer</option>
-                <option value="United State">United State</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Khmer">Khmer</option>
-                <option value="United State">United State</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Portugal">Portugal</option>
-                <option value="Khmer">Khmer</option>
-                <option value="United State">United State</option>
-                <option value="Thailand">Thailand</option>
-                <option value="Portugal">Portugal</option>
+            <select id="scountry" name="scountry" size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
+                    <?php
+                            foreach ($countries as $country) {
+                                echo "<option value='$country->country'>$country->name</option>";
+                            }
+                    ?>
             </select>
             <input type="text" class="form-control" style="width: 180px" id="country" name="country" />
             <br/>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnadd_country" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Add New');?>
             </button>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnupdate_country" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
-        </div>
-    </div>
-    <div class="block_location">                        <!-- Nationality -->
-        <div class="form-group">
-            <label for="nationality" class="col-sm-3 control-label"><?php echo get_phrase('Nationality');?></label>
-            <br/><br/>
-            <select size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
-                <?php
-
-                ?>
-            </select>
-            <input type="text" class="form-control" style="width: 180px" id="nationality" name="nationality" />
-             <br/>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
-                <?php echo get_phrase('Add New');?>
-            </button>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
-                <?php echo get_phrase('Update');?>
-            </button>
+            </form>
         </div>
     </div>
     <div class="block_location">                        <!-- Province -->
         <div class="form-group">
             <label for="province" class="col-sm-3 control-label"><?php echo get_phrase('Province');?></label>
             <br/><br/>
-            <select size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
+            <select id="sprovince" name="sprovince" size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
                 <?php
 
                 ?>
             </select>
             <input type="text" class="form-control" style="width: 180px" id="province" name="province" />
              <br/>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnadd_province" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Add New');?>
             </button>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnupdate_province" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
         </div>
@@ -101,17 +77,17 @@
         <div class="form-group">
             <label for="district" class="col-sm-3 control-label"><?php echo get_phrase('District');?></label>
             <br/><br/>
-            <select size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
+            <select id="sdistrict" name="sdistrict" size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
                 <?php
 
                 ?>
             </select>
             <input type="text" class="form-control" style="width: 180px" id="district" name="district" />
              <br/>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnadd_district" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Add New');?>
             </button>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnupdate_district" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
         </div>
@@ -120,17 +96,36 @@
         <div class="form-group">
             <label for="commune" class="col-sm-3 control-label"><?php echo get_phrase('Commune');?></label>
             <br/><br/>
-            <select size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
+            <select id="scommune" name="scommune" size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
                 <?php
 
                 ?>
             </select>
             <input type="text" class="form-control" style="width: 180px" id="commune" name="commune" />
             <br/>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnadd_commune" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Add New');?>
             </button>
-            <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>location/new_location/0/new');">
+            <button id="btnupdate_commune" class="btn btn-info" onclick="">
+                <?php echo get_phrase('Update');?>
+            </button>
+        </div>
+    </div>
+    <div class="block_location">                        <!-- Village -->
+        <div class="form-group">
+            <label for="Village" class="col-sm-3 control-label"><?php echo get_phrase('Village');?></label>
+            <br/><br/>
+            <select id="svillage" name="svillage" size="10" class="col-sm-3 form-control" style="width: 180px;height: 197px;margin-bottom: 20px">
+                <?php
+
+                ?>
+            </select>
+            <input type="text" class="form-control" style="width: 180px" id="Village" name="Village" />
+             <br/>
+            <button id="btnadd_village" class="btn btn-info" onclick="">
+                <?php echo get_phrase('Add New');?>
+            </button>
+            <button id="btnupdate_village" class="btn btn-info" onclick="">
                 <?php echo get_phrase('Update');?>
             </button>
         </div>
