@@ -11,7 +11,7 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 -- Dumping structure for table aaiischo_ais1.room
-CREATE TABLE IF NOT EXISTS `room` (
+CREATE TABLE IF NOT EXISTS `room` (room
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `floor_id` int(10) NOT NULL,
   `room_number` varchar(30) NOT NULL,

@@ -10,13 +10,13 @@
 		}  
 		/*create new room*/
 		function new_room($data){
-			$this->db->insert('room',$data);
+			$this->db->insert('room_v',$data);
 			return $this->db->insert_id(); 		
 		}
 		/*edit room*/
 		function edit_room($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('room',$data);
+			return $this->db->update('room_v',$data);
 		}
 
 		//function get floor list
@@ -33,7 +33,7 @@
             $sql = " select 
 						*
 					from building 
-					where branch_id=?";
+					";
             return $this->db->query($sql,array($obj->branch_id))->result();
 
         }

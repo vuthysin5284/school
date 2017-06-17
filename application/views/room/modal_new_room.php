@@ -11,7 +11,7 @@
 	}
 </style>
 
-<?php //var_dump($room_detail);?>
+<?php //var_dump($rooms_detail);?>
  
 <div class="panel-body">
 
@@ -22,32 +22,39 @@
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
         <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room_number');?> <span class="red">*</span></label>
-            <div class="col-sm-8">  
-                <input type="text" class="form-control" id="room_number" name="room_number" value="<?php echo $room_detail["room_number"]?>" placeholder="room number"  autofocus />
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room_name');?> <span class="red">*</span></label>
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room_number');?> <span class="red">*</span>
+           </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="building" name="room_name" placeholder="room name" value="<?php echo $room_detail["room_name"]?>" />
+                <input type="text" class="form-control" id="room_number" name="room_number" placeholder="room number"  value="<?php echo $room_detail["room_number"]?>" />
             </div>
         </div>
         <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('building');?> <span class="red">*</span></label>
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room_name');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="room_name" name="room_name" placeholder="room name" value="<?php echo $room_detail["room_name"]?>" />
+            </div>
+        </div>
+        
+       <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('building');?> <span class="red">*</span>
+            </label>
             <div class="col-sm-8">
                 <select class="form-control" id="building_id" name="building_id" >
                     <option value="0">... building ...</option>
                     <?php
-                    foreach($building_list as $bl){
-                        $selected = ($bl->id==$room_detail["building_id"])?" selected":"";
-                        echo "<option value='".$bl->id."' ".$selected.">".$bl->building_name."</option>";
+					
+                    foreach($building_list as $r){
+						
+                        $selected = ($r->id==$room_detail["building_id"])?" selected":"";
+                        echo "<option value='".$r->id."' ".$selected.">".$r->building."</option>";
 
                     }
                     ?>
                 </select>
             </div>
         </div>
+        
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('floor');?> <span class="red">*</span></label>
             <div class="col-sm-8">
@@ -64,18 +71,21 @@
             </div>
         </div>
 
+
     <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?><span class="red">*</span></label>
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
             <div class="col-sm-8">  
-                <textarea class="form-control" id="description" name="description"><?php echo $room_detail["description"]?></textarea>
+                <input type="text" class="form-control"  name="description"  value="<?php echo $room_detail["description"]?>"/>
              </div>
         </div> 
               
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-8">  
-                <input type="checkbox" name="status" id="status" <?php echo $room_detail["status"]==0?'':'checked';?>/>
-            	<label for="status"><?php echo get_phrase('status');?></label>
+                <input type="checkbox" name="status" id="status"
+                <?php echo $room_detail["id"]==''?'checked':'';?>
+                 <?php echo $room_detail["status"]==0?'':'checked';?>/>
+            	<label for="status"><?php echo get_phrase('is active');?></label>
             </div>
         </div>        
         
@@ -94,4 +104,5 @@
         <?php echo form_close();?>
 </div>
 
+<script src="<?php echo base_url();?>assets/js/room/room_new.js"></script>
  

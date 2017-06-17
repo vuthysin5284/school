@@ -23,10 +23,7 @@ $("#btnSubmit").on('click',function(e) {
         $("#floor_id").css('border','1px solid red');
         return false;
     }
-    if($("#description").val()==''){
-        $("#description").css('border','1px solid red');
-        return false;
-    }
+   
 
     var url = baseurl+'room/create_new_room';
     $.ajax({
