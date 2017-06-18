@@ -19,7 +19,7 @@ class Branch extends CI_Controller {
         if ($this->session->userdata('is_login') != 1)
             redirect(base_url() . 'login', 'refresh');
 
-		$page_data['page_name']  = 'branch/branch';
+		$page_data['page_name']  = 'masterdata/branch/branch';
         $page_data['page_title'] = get_phrase('branch');
         $this->load->view('index', $page_data);
 	}
@@ -31,14 +31,14 @@ class Branch extends CI_Controller {
     function new_branch($param1 = '',$param2 = '',$param3 = '')
     {
         $page_data['page_name']  = 'test';
-        $this->load->view('branch/modal_new_branch' ,$page_data);
+        $this->load->view('masterdata/branch/modal_new_branch' ,$page_data);
     }
 
     /*** branch ***/
     function branch_list($param1='',$param2='',$param3=''){
 
         $page_data['page_title'] = get_phrase('branch');
-        $this->load->view('branch/branch_list',$page_data);
+        $this->load->view('masterdata/branch/branch_list',$page_data);
     }
 	 
 } 

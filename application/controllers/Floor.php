@@ -25,19 +25,19 @@ class Floor extends CI_Controller {
         $obj->id = $param1;
         $page_data["floor_detail"] = $this->floor_m->get_floor_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('floor/modal_new_floor' ,$page_data);
+        $this->load->view('masterdata/floor/modal_new_floor' ,$page_data);
     }
 
     function floor(){
 
-		$page_data['page_name']  = 'floor/floor';
+		$page_data['page_name']  = 'masterdata/floor/floor';
         $page_data['page_title'] = get_phrase('floor');
         $this->load->view('index', $page_data);
 	}
     /*** floor ***/
     function floor_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('floor');
-        $this->load->view('floor/floor_list',$page_data);
+        $this->load->view('masterdata/floor/floor_list',$page_data);
     }
 
     /* create new floor */

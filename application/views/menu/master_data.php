@@ -31,7 +31,7 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>branch/branch_list"
                    data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Branch Data <span class="badge badge-success pull-right">346</span></a></li>
+                    <i class="fa fa-inbox"></i>Branch Data</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
@@ -40,22 +40,6 @@
                 <a href="<?php echo base_url();?>classes/classes_list"
                    data-url="<?php echo base_url();?>classes/classes_list" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-file-text-o"></i>Class Data</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>transportation/transportation_list"
-                   data-url="<?php echo base_url();?>transportation/transportation_list">
-                    <i class="fa fa-exclamation-circle"></i>Transportation</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Location</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>floor/floor_list"
-                   data-url="<?php echo base_url();?>floor/floor_list">
-                    <i class="fa fa-exclamation-circle"></i>Floor</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>building/building_list"
-                   data-url="<?php echo base_url();?>building/building_list">
-                    <i class="fa fa-exclamation-circle"></i>building</a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

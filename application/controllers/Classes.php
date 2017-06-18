@@ -26,19 +26,19 @@ class Classes extends CI_Controller {
         $page_data["classes_detail"] = $this->classes_m->get_classes_detail($obj);
         $page_data["room_list"] = $this->classes_m->get_room_list($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('classes/modal_new_classes' ,$page_data);
+        $this->load->view('masterdata/classes/modal_new_classes' ,$page_data);
     }
 
     function room(){
 
-		$page_data['page_name']  = 'classes/classes';
+		$page_data['page_name']  = 'masterdata/classes/classes';
         $page_data['page_title'] = get_phrase('classes');
         $this->load->view('index', $page_data);
 	}
     /*** classes ***/
     function classes_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('classes');
-        $this->load->view('classes/classes_list',$page_data);
+        $this->load->view('masterdata/classes/classes_list',$page_data);
     }
 
     /* create new classes */

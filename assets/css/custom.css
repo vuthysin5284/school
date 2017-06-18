@@ -38,3 +38,8 @@ thead {
     background-color: #08A7C3;
     border-color: transparent;
 }
+
+#main-wrapper {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}

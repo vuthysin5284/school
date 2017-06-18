@@ -30,13 +30,13 @@ class Room extends CI_Controller
         $page_data["building_list"] = $this->room_m->get_building_list($obj);
 
         $page_data["crud"] = $param2;
-        $this->load->view('room/modal_new_room', $page_data);
+        $this->load->view('masterdata/room/modal_new_room', $page_data);
     }
 
     function room()
     {
 
-        $page_data['page_name'] = 'room/room';
+        $page_data['page_name'] = 'masterdata/room/room';
         $page_data['page_title'] = get_phrase('room');
         $this->load->view('index', $page_data);
     }
@@ -45,7 +45,7 @@ class Room extends CI_Controller
     function room_list($param1 = '', $param2 = '', $param3 = '')
     {
         $page_data['page_title'] = get_phrase('room');
-        $this->load->view('room/room_list', $page_data);
+        $this->load->view('masterdata/room/room_list', $page_data);
     }
 
     /* create new room */
