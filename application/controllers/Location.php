@@ -23,7 +23,7 @@ class Location extends CI_Controller {
         $obj->id = $param1;
         $page_data["location_detail"] = $this->location_m->get_location_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('location/modal_new_location' ,$page_data);
+        $this->load->view('masterdata/location/modal_new_location' ,$page_data);
     }
 
     function check_exists($field,$key)
@@ -408,7 +408,7 @@ class Location extends CI_Controller {
                                            ->result();
        
         $page_data['page_title'] = get_phrase('location');
-        $this->load->view('location/location_list',$page_data);
+        $this->load->view('masterdata/location/location_list',$page_data);
     }
 
     function location_list_province(){

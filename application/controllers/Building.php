@@ -25,19 +25,19 @@ class Building extends CI_Controller {
         $obj->id = $param1;
         $page_data["building_detail"] = $this->building_m->get_building_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('building/modal_new_building' ,$page_data);
+        $this->load->view('masterdata/building/modal_new_building' ,$page_data);
     }
 
     function floor(){
 
-		$page_data['page_name']  = 'building/building';
+		$page_data['page_name']  = 'masterdata/building/building';
         $page_data['page_title'] = get_phrase('building');
         $this->load->view('index', $page_data);
 	}
     /*** building ***/
     function building_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('building');
-        $this->load->view('building/building_list',$page_data);
+        $this->load->view('masterdata/building/building_list',$page_data);
     }
 
     /* create new building */
@@ -61,6 +61,7 @@ class Building extends CI_Controller {
         if($crud=='new'){ // create new
 			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
+            $data["branch_id"]      = $this->session->userdata("branch_id");
 			//
             $data["id"] = $this->building_m->new_building($data);
 

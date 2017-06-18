@@ -21,8 +21,8 @@ class Teacher extends CI_Controller {
      
 	public function index()
 	{ 
-		$page_data['page_name']  = 'inventory/general_master_data';
-        $page_data['page_title'] = get_phrase('general_master_data');
+		$page_data['page_name']  = 'teacher/index';
+        $page_data['page_title'] = get_phrase('teacher');
         $this->load->view('index', $page_data); 
 	}
 	

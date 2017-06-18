@@ -28,18 +28,23 @@
 <div class="row m-t-md">
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
+
             <li class="active default">
-                <a href="<?php echo base_url();?>branch/branch_list"
-                   data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Branch Data</a></li>
+                <a href="<?php echo base_url();?>floor/floor_list"
+                   data-url="<?php echo base_url();?>floor/floor_list">
+                    <i class="fa fa-exclamation-circle"></i>Teacher List</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-sign-out"></i>Room Data</a></li>
+                <a href="<?php echo base_url();?>building/building_list"
+                   data-url="<?php echo base_url();?>building/building_list">
+                    <i class="fa fa-exclamation-circle"></i>Assign Student Core</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>classes/classes_list"
-                   data-url="<?php echo base_url();?>classes/classes_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Class Data</a></li>
+                <a href="<?php echo base_url();?>location/location_list"
+                   data-url="<?php echo base_url();?>location/location_list">
+                    <i class="fa fa-exclamation-circle"></i>Lession Plan</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>location/location_list"
+                   data-url="<?php echo base_url();?>location/location_list">
+                    <i class="fa fa-exclamation-circle"></i>Reports</a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

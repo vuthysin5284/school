@@ -25,8 +25,8 @@ $(document).ready(function() {
         "columns"    : [
             { "data" : "room_number" },
             { "data" : "room_name"},
-            { "data" : "building_id"},
-            { "data" : "floor_id"},
+            { "data" : "building_name"},
+            { "data" : "floor"},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
