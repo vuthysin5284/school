@@ -37,14 +37,18 @@ $(document).ready(function() {
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
-                        '<div class="btn-group">'+
+                        /*'<div class="btn-group">'+
                         '<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'+
                         '<span class="caret"></span></a>'+
                         '<ul class="dropdown-menu dropdown-menu-right" role="menu">'+
                         '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');">Edit</a></li>'+
                         '<li><a href="#" onclick="on_delete_data(\''+_url_del+oData.id+'\');">Delete</a></li>'+
                         '</ul>'+
-                        '</div>');
+                        '</div>'*/
+						'<center>'+
+							'<a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
+							'<a href="#" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
+						'</center>');
                 }
             }
         ],
