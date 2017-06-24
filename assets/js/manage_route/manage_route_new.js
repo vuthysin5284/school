@@ -5,12 +5,12 @@ $("#btnSubmit").on('click',function(e) {
         $("#route_name").css('border','1px solid red');
         return false;
     }
-    var url = baseurl+'transportation/create_new_transportation';
+    var url = baseurl+'manage_route/create_new_route';
     $.ajax({
         type: "POST",
         url: url,
         dataType:"JSON",
-        data: $("#frmNewTransportation").serialize(), // serializes the form's elements.
+        data: $("#frmNewRoute").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
             $('#modal_ajax').modal('hide');
