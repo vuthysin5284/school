@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'transportation/new_transportation/';
-var _url_del =  baseurl+'transportation/delete/';
+var _url_path =  baseurl+'manage_route/new_route/';
+var _url_del =  baseurl+'manage_route/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_transportation').DataTable( {
+    datable_result = $('#datable_route').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'transportation/transportation_data',
+            "url"    : baseurl+'manage_route/route_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -24,11 +24,10 @@ $(document).ready(function() {
         },
         "columns"    : [
             { "data" : "route_name" },
-            { "data" : "number_vehicle"},
-            { "data" : "description"},
             { "data" : "route_fare"},
             { "data" : "two_way" },
 			{ "data" : "one_way" },
+			{ "data" : "description"},
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active': 'Inactive'): '<font color="red">Delete</font>';

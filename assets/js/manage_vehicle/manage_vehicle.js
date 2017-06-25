@@ -1,10 +1,11 @@
 // JavaScript Document
+// JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'transportation/new_transportation/';
-var _url_del =  baseurl+'transportation/delete/';
+var _url_path =  baseurl+'manage_vehicle/new_vehicle/';
+var _url_del =  baseurl+'manage_vehicle/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_transportation').DataTable( {
+    datable_result = $('#datable_vehicle').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,22 +14,20 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'transportation/transportation_data',
+            "url"    : baseurl+'manage_vehicle/vehicle_data',
             "type"   : 'POST',
             "destroy" : true
         },
         language: {
-            processing: "<img src='"+baseurl+"assets/images/reload.gif'>",
-            loadingRecords: "<img src='"+baseurl+"assets/images/reload.gif'>",
+            processing: "<img src='../manage_vehicle/"+baseurl+"assets/images/reload.gif'>",
+            loadingRecords: "<img src='../manage_vehicle/"+baseurl+"assets/images/reload.gif'>",
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "route_name" },
-            { "data" : "number_vehicle"},
-            { "data" : "description"},
-            { "data" : "route_fare"},
-            { "data" : "two_way" },
-			{ "data" : "one_way" },
+            { "data" : "vehicle_number"},
+            { "data" : "total_seat"},
+            { "data" : "total_seat_allow"},
+			{ "data" : "ownership_id" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active': 'Inactive'): '<font color="red">Delete</font>';
