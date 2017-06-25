@@ -18,6 +18,7 @@ class Transportation extends CI_Controller {
     //
     function index(){
         $page_data['page_name']  = 'transportation/index';
+        $page_data['page_width']  = 40;
         $page_data['page_title'] = get_phrase('transportation');
         $this->load->view('index', $page_data);
     }
