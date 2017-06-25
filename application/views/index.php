@@ -35,18 +35,19 @@
         <div class="page-inner">  
 			<div class="page-breadcrumb">
                 <ol class="breadcrumb container">
-                    <li><a href="<?php echo base_url();?>">Home</a></li> 
-                    <li class="active"><?php echo $page_title;?></li>
+                    <li>&nbsp;</li>
+                    <!--li><a href="<?php echo base_url();?>">Home</a></li>
+                    <li class="active"><?php echo $page_title;?></li-->
                 </ol>
             </div>
             
         	<div id="main-wrapper" class="container">
 			<?php include $page_name.'.php';?>  
             </div>
-            <?php include 'footer.php';?> 
              
          </div><!-- Page Inner -->
-	</main> 
+        <?php include 'footer.php';?>
+    </main>
     <?php include 'chat.php';?>
     <?php include 'modal.php';?>
     <?php include 'includes_bottom.php';?>

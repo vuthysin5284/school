@@ -50,7 +50,7 @@
                 <div class="menu-overly-mask"></div>
                 <!-- Mobile Filter bar End-->
 
-                <div class="adds-wrapper" style="margin-bottom:200px">
+                <div class="adds-wrapper">
                     <div class="tab-content">
                         <div class="tab-pane active" id="document_render">Loading...</div>
                     </div>
