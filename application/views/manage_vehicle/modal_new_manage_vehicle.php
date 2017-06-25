@@ -36,9 +36,9 @@
         </div>
         
         <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('total_seat_allow');?></label>
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('total_seat_allow');?> <span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="total_seat_allow" name="total_seat_allow"  value="<?php echo $vehicle_detail["total_seat_allow"]?>"/>
+                <input type="text" class="form-control" id="total_seat_allow" name="total_seat_allow" placeholder="total seat allow"  value="<?php echo $vehicle_detail["total_seat_allow"]?>"/>
              </div>
         </div> 
         

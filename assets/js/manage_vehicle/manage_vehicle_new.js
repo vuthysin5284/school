@@ -10,6 +10,10 @@ $("#btnSubmit").on('click',function(e) {
         $("#total_seat").css('border','1px solid red');
         return false;
     }
+	if($("#total_seat_allow").val()==''){
+        $("#total_seat_allow").css('border','1px solid red');
+        return false;
+    }
 
     var url = baseurl+'manage_vehicle/create_new_vehicle';
     $.ajax({
