@@ -1,4 +1,12 @@
 /* Write your custom CSS here */
+body, p {
+    font-size: 12px;
+}
+.btn {
+    font-size: 12px;
+    border: 1px solid transparent;
+    border-radius: 0;
+}
 
 .menu.accordion-menu>li.active{
     border-bottom: 3px solid blue;

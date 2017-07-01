@@ -31,7 +31,7 @@ $(document).ready(function() {
 			{ "data" : "one_way" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?'Active':'<font color="red">Delete</font>';
+                    var yesno = oData.is_delete==0?(oData.status==1?'Active': 'Inactive'): '<font color="red">Delete</font>';
                     $(nTd).html(yesno);
                 }
             },
@@ -49,7 +49,7 @@ $(document).ready(function() {
                 }
             }
         ],
-        "order": [[0, 'desc']]
+        "order": [[0, 'desc']],
     });
 } );
 

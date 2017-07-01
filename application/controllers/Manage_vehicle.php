@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Transportation extends CI_Controller {
+class Manage_vehicle extends CI_Controller {
  
 	function __construct()
 	{
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
-        $this->load->model("transportation_model","transportation_m");
+        $this->load->model("manage_vehicle_model","vehicle_m");
        /*cache control*/
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
@@ -18,7 +18,6 @@ class Transportation extends CI_Controller {
     //
     function index(){
         $page_data['page_name']  = 'transportation/index';
-        $page_data['page_width']  = 40;
         $page_data['page_title'] = get_phrase('transportation');
         $this->load->view('index', $page_data);
     }
@@ -27,42 +26,40 @@ class Transportation extends CI_Controller {
     /*
 	*	$page_name		=	The name of page
 	*/
-    function new_transportation($param1 = '',$param2 = '',$param3 = '')
+    function new_vehicle($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
         $obj->id = $param1;
-        $page_data["transportation_detail"] = $this->transportation_m->get_transportation_detail($obj);
-        $page_data["crud"] = $param2;
-        $this->load->view('transportation/modal_new_transportation' ,$page_data);
+	//	$obj->id = $this->session->userdata('id');
+		
+        $page_data["vehicle_detail"] = $this->vehicle_m->get_vehicle_detail($obj);
+		$page_data["crud"] = $param2;
+		$page_data['ownership_list']= $this->vehicle_m->get_ownership_list($obj);
+        $this->load->view('manage_vehicle/modal_new_manage_vehicle',$page_data);
     }
 
-    function transportation(){
-
-		$page_data['page_name']  = 'transportation/transportation';
-        $page_data['page_title'] = get_phrase('transportation');
+    function manage_vehicle(){
+		$page_data['page_name']  = 'manage_vehicle/manage_vehicle';
+        $page_data['page_title'] = get_phrase('manage_vehicle');
         $this->load->view('index', $page_data);
 	}
-    /*** transportation ***/
-    function transportation_list($param1='',$param2='',$param3=''){
-        $page_data['page_title'] = get_phrase('transportation');
-        $this->load->view('transportation/transportation_list',$page_data);
+    //vehicle_list
+	function manage_vehicle_list($param1='',$param2='',$param3=''){
+        $page_data['page_title'] = get_phrase('manage_vehicle');
+        $this->load->view('manage_vehicle/manage_vehicle_list',$page_data);
     }
 	
-	
-    /* create new transportation */
-    function create_new_transportation($param1='',$param2='',$param3=''){
+    /* create new vehicle */
+    function create_new_vehicle($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
 
-       
-        $data["route_name"] 	= $this->input->post("route_name");
-		$data["number_vehicle"] = $this->input->post("number_vehicle");
-		$data["description"]    = $this->input->post("description");
-        $data["route_fare"] 	= $this->input->post("route_fare");
-        $data["two_way"] 	    = $this->input->post("two_way");
-		$data["one_way"] 	    = $this->input->post("one_way");
+		$data["vehicle_number"] = $this->input->post("vehicle_number");
+		$data["total_seat"]    = $this->input->post("total_seat");
+        $data["total_seat_allow"] 	= $this->input->post("total_seat_allow");
+        $data["ownership_id"] 	    = $this->input->post("ownership_id");
         $data["status"] 	    = empty($this->input->post("status"))?0:1;
        
 
@@ -76,13 +73,13 @@ class Transportation extends CI_Controller {
             $data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
             //
-            $data["id"] = $this->transportation_m->new_transportation($data);
+            $data["id"] = $this->vehicle_m->new_vehicle($data);
 
         }else if($crud=='edit'){ // edit
             $data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
             //
-            $this->transportation_m->edit_transportation($data,$id);
+            $this->vehicle_m->edit_vehicle($data,$id);
             $data["id"] = $id;
         }
         echo json_encode(array("data"=>$data));
@@ -98,23 +95,21 @@ class Transportation extends CI_Controller {
         $obj = new stdClass();
         $obj->id = $param1;
         //
-        $this->transportation_m->delete_transportation($obj);
+        $this->vehicle_m->delete_vehicle($obj);
     }
-
-
-    public function transportation_data(){
+	
+	
+	 public function vehicle_data(){
         // DB table to use
-        $table = 'transportation where is_delete=0';
+        $table = 'manage_vehicle';
         $primaryKey	= "id";
         // indexes
         $columns = array(
             array( 'db' => 'id', 		    'dt'	=> "id", 			'field'	=> 'id'),
-            array( 'db' => 'route_name',   'dt'	=> "route_name", 	'field'	=> 'route_name' ),
-            array( 'db' => 'number_vehicle',     'dt'	=> "number_vehicle",     'field'	=> 'number_vehicle' ),
-            array( 'db' => 'description',         'dt'	=> "description",         'field'	=> 'description' ),
-            array( 'db' => 'route_fare', 	    'dt'	=> "route_fare",      'field'	=> 'route_fare'  ),
-            array( 'db' => 'two_way',   	'dt'	=> "two_way",     'field'	=> 'two_way'  ),
-            array( 'db' => 'one_way',   'dt'	=> "one_way",   'field'	=> 'one_way'  ),
+            array( 'db' => 'vehicle_number',     'dt'	=> "vehicle_number",     'field'	=> 'vehicle_number' ),
+     		array( 'db' => 'total_seat',   'dt'	=> "total_seat", 	'field'	=> 'total_seat' ),
+			array( 'db' => 'total_seat_allow',   'dt'	=> "total_seat_allow", 	'field'	=> 'total_seat_allow' ),
+			array( 'db' => 'ownership_id',   'dt'	=> "ownership_id", 	'field'	=> 'ownership_id' ),
             array( 'db'	=> 'status',        'dt'	=> "status",        'field'	=> 'status' ),
             array( 'db'	=> 'is_delete',        'dt'	=> "is_delete",        'field'	=> 'is_delete' )
         );
