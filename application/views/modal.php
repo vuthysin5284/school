@@ -20,7 +20,7 @@
 </script>
 
 <div class="modal fade" id="modal_ajax" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" style="width: <?php echo $page_width;?>%;">
+    <div class="modal-dialog" style="width: <?php if(isset($page_width)){echo $page_width;}?>%;">
         <div class="modal-content">
             <div class="modal-body" style="min-height:200px; overflow:auto;"></div>
         </div>

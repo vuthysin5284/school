@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Employee extends CI_Controller {
+class Department extends CI_Controller {
  
 	function __construct()
 	{
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
-        $this->load->model("employee_model","employee_m");
+        $this->load->model("department_model","department_m");
         $this->load->model('datatable_model');
 		
        /*cache control*/
@@ -19,35 +19,35 @@ class Employee extends CI_Controller {
     /*
 	*	$page_name		=	The name of page
 	*/
-    function new_employee($param1 = '',$param2 = '',$param3 = '')
+    function new_department($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
         $obj->id = $param1;
-        $page_data["employee_detail"] = $this->employee_m->get_employee_detail($obj);
+        $page_data["department_detail"] = $this->department_m->get_department_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('staff/employee_list/modal_new_employee' ,$page_data);
+        $this->load->view('staff/department_list/modal_new_department' ,$page_data);
     }
 
-    function employee(){
+    function department(){
 
-		$page_data['page_name']  = 'employee/employee';
-        $page_data['page_title'] = get_phrase('employee');
+		$page_data['page_name']  = 'department/department';
+        $page_data['page_title'] = get_phrase('department');
         $this->load->view('index', $page_data);
 	}
-    /*** employee ***/
-    function employee_list($param1='',$param2='',$param3=''){
-        $page_data['page_title'] = get_phrase('employee');
-        $this->load->view('employee/employee_list',$page_data);
+    /*** department ***/
+    function department_list($param1='',$param2='',$param3=''){
+        $page_data['page_title'] = get_phrase('department');
+        $this->load->view('department/department_list',$page_data);
     }
 
-    /* create new employee */
-    function create_new_employee($param1='',$param2='',$param3=''){
+    /* create new department */
+    function create_new_department($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
 
-        $data["employee_name"] 	= $this->input->post("employee_name");
+        $data["department_name"] 	= $this->input->post("department_name");
         $data["status"] 	= empty($this->input->post("status"))?0:1;
         $data["description"] = $this->input->post("description");
 		
@@ -62,13 +62,13 @@ class Employee extends CI_Controller {
 			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
 			$data['is_delete']=0;
-            $data["employee_id"] = $this->employee_m->new_employee($data);
+            $data["department_id"] = $this->department_m->new_department($data);
         }else if($crud=='edit'){ // edit
 			$data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
             //
-            $this->employee_m->edit_employee($data,$id);
-            $data["employee_id"] = $id;
+            $this->department_m->edit_department($data,$id);
+            $data["department_id"] = $id;
         }
         echo json_encode(array("data"=>$data));
 
@@ -82,18 +82,18 @@ class Employee extends CI_Controller {
         $obj = new stdClass();
         $obj->id = $param1;
         //
-        $this->employee_m->delete_employee($obj);
+        $this->department_m->delete_department($obj);
     }
 
-    public function employee_data(){
+    public function department_data(){
 
         // DB table to use
-        $table = 'employee where is_delete=0';
+        $table = 'department where is_delete=0';
 		$primaryKey = "id";
         // indexes
         $columns = array(
 			array('db' => 'id', 		 		'dt' => "id", 					'field' => 'id'),
-			array('db' => 'employee_name', 		'dt' => "employee_name", 		'field' => 'employee_name'),
+			array('db' => 'department_name', 		'dt' => "department_name", 		'field' => 'department_name'),
 			array('db' => 'description', 		'dt' => "description", 			'field' => 'description'),
 			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
