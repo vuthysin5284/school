@@ -42,12 +42,15 @@ thead {
     display: table-header-group;
     vertical-align: middle;
     border-color: inherit;
-    color: #fff;
-    background-color: #08A7C3;
+    /*color: #fff;
+    background-color: #08A7C3;*/
     border-color: transparent;
 }
 
 #main-wrapper {
     margin-top: 0px;
     margin-bottom: 20px;
+}
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 5px 10px;
 }

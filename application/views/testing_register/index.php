@@ -30,24 +30,24 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
 
             <li class="active default">
-                <a href="<?php echo base_url();?>floor/floor_list"
-                   data-url="<?php echo base_url();?>floor/floor_list">
-                    <i class="fa fa-exclamation-circle"></i>Student List</a></li>
+                <a href="<?php echo base_url();?>testingregister/testing_record_list"
+                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
+                    <i class="fa fa-exclamation-circle"></i>Testing Records</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>building/building_list"
                    data-url="<?php echo base_url();?>building/building_list">
-                    <i class="fa fa-exclamation-circle"></i>Enrolment</a></li>
+                    <i class="fa fa-exclamation-circle"></i>Waiting Register</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
+                <a href="<?php echo base_url();?>testingregister/testing_record_list"
+                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
+                    <i class="fa fa-exclamation-circle"></i>Testing Result</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>testingregister/testing_record_list"
+                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
                     <i class="fa fa-exclamation-circle"></i>Fees Management</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Tasks</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
+                <a href="<?php echo base_url();?>testingregister/testing_record_list"
+                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
                     <i class="fa fa-exclamation-circle"></i>Reports</a></li>
         </ul>
     </div>
