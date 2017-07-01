@@ -1,7 +1,7 @@
  
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo get_phrase('create_new_employee');?></h4>
+    <h4 class="modal-title"><?php echo get_phrase('create_new_employeelist');?></h4>
 </div>
 <hr style="margin-top: -10px;"/>
 
@@ -11,21 +11,21 @@
 	}
 </style>
 
-<?php //var_dump($employee_detail);?>
+<?php //var_dump($employeelist_detail);?>
  
 <div class="panel-body">
 
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
-				'id'=>'frmNewEmployee', 'enctype' => 'multipart/form-data'));?>
+				'id'=>'frmNewEmployeelist', 'enctype' => 'multipart/form-data'));?>
 
-    <input type="hidden" name="pb_hidden_id" value="<?php echo $employee_detail["id"]?>"/>
+    <input type="hidden" name="pb_hidden_id" value="<?php echo $employeelist_detail["id"]?>"/>
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
         <div class="form-group">
            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('employee_name');?> <span class="red">*</span>
            </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="employee_name" name="employee_name" placeholder="employee status name"  value="<?php echo $employee_detail["employee_name"]?>" />
+                <input type="text" class="form-control" id="employeelist_name" name="employeelist_name" placeholder="employee list name"  value="<?php echo $employeelist_detail["employeelist_name"]?>" />
             </div>
         </div>        
        <div class="form-group">
@@ -33,7 +33,7 @@
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control"  name="description"  value="<?php echo $employee_detail["description"]?>"/>
+                <input type="text" class="form-control"  name="description"  value="<?php echo $employeelist_detail["description"]?>"/>
              </div>
         </div> 
               
@@ -41,8 +41,8 @@
             <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-8">  
                 <input type="checkbox" name="status" id="status"
-                <?php echo $employee_detail["id"]==''?'checked':'';?>
-                 <?php echo $employee_detail["status"]==0?'':'checked';?>/>
+                <?php echo $employeelist_detail["id"]==''?'checked':'';?>
+                 <?php echo $employeelist_detail["status"]==0?'':'checked';?>/>
             	<label for="status"><?php echo get_phrase('is active');?></label>
             </div>
         </div>        
@@ -52,7 +52,7 @@
             <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
             <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
             <button type="button" id="btnSubmit" class="btn btn-info">
-                <?php if($employee_detail["id"]==''){?>
+                <?php if($employeelist_detail["id"]==''){?>
                     <?php echo get_phrase('save');?>
                 <?php }else {?>
                     <?php echo get_phrase('edit');?>
@@ -62,5 +62,5 @@
         <?php echo form_close();?>
 </div>
 
-<script src="<?php echo base_url();?>assets/js/employee/employee_new.js"></script>
+<script src="<?php echo base_url();?>assets/js/employeelist/employeelist_new.js"></script>
  

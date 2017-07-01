@@ -29,28 +29,28 @@
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
             <li class="active default">
-                <a href="<?php echo base_url();?>branch/branch_list"
-                   data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/employeelist_status"
+                   data-url="<?php echo base_url();?>staff/employeelist_status" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Employee List</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>staff/employee_status"
                    data-url="<?php echo base_url();?>staff/employee_status" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-file-text-o"></i>Employee Status</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/position_status"
+                   data-url="<?php echo base_url();?>staff/position_status" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-sign-out"></i>Position Status</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/department_status"
+                   data-url="<?php echo base_url();?>staff/department_status"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Department</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>finance/voucher_entry"
                    data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i> Position</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/section"
+                   data-url="<?php echo base_url();?>staff/section"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Section</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
