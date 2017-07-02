@@ -61,7 +61,7 @@
 			$sql = "select * from classes where status = 1 and classes like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
-		//function get floor list
+		//function get classes list
         function get_room_list($obj){
             $sql = " select 
 						*

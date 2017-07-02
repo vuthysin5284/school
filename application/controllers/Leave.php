@@ -20,4 +20,6 @@ class Leave extends CI_Controller
         $page_data['page_title'] = get_phrase('leave');
         $this->load->view('index', $page_data);
     }
+	
+	
 }

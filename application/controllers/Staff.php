@@ -88,16 +88,16 @@ class Staff extends CI_Controller
     //employee status
     function employee_status(){
         $page_data['page_title'] = get_phrase('employee');
-        $this->load->view('staff/employee_list/employee_list', $page_data);
+        $this->load->view('staff/employee_status/employee_status', $page_data);
     }
-	 public function get_employee_data(){
+	 public function get_employee_status_data(){
         // DB table to use
-        $table = 'employee where is_delete=0' ;
+        $table = 'employee_status where is_delete=0' ;
 		$primaryKey = "id";
         // indexes
         $columns = array(
 			array('db' => 'id', 		 		'dt' => "id", 					'field' => 'id'),
-			array('db' => 'employee_name', 		'dt' => "employee_name", 		'field' => 'employee_name'),
+			array('db' => 'employee_status_name', 		'dt' => "employee_status_name", 		'field' => 'employee_status_name'),
 			array('db' => 'description', 		'dt' => "description", 			'field' => 'description'),
 			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
@@ -126,5 +126,11 @@ class Staff extends CI_Controller
 		 $this->load->model('datatable_model');
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
     }//end position status
+	
+	
+	 function location(){
+        $page_data['page_title'] = get_phrase('location');
+        $this->load->view('staff/location/location_list', $page_data);
+    }
 
 }
