@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>position/new_position/0/new');">
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>leave_reason/new_leave_reason/0/new');">
             <i class="fa fa-user-plus"></i>
-            <?php echo get_phrase('new_position');?>
+            <?php echo get_phrase('create_new_leave_reason');?>
         </button>
     </div>
 </div>
@@ -10,10 +10,10 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_position" class="display" cellspacing="0" width="100%">
+<table id="datable_leave_reason" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Position Status Name</th>
+            <th>Leave Reason Name</th>
             <th>Description</th>
             <th>STATUS</th>
             <th></th>
@@ -21,4 +21,4 @@
     </thead>
 </table>
 
-<script src="<?php echo base_url();?>assets/js/position/position.js"></script>
+<script src="<?php echo base_url();?>assets/js/leave_reason/leave_reason.js"></script>

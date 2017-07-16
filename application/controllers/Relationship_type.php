@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Position extends CI_Controller {
+class Relationship_type extends CI_Controller {
  
 	function __construct()
 	{
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
-        $this->load->model("position_model","position_m");
+        $this->load->model("relationship_type_model","relationship_type_m");
         $this->load->model('datatable_model');
 		
        /*cache control*/
@@ -19,38 +19,39 @@ class Position extends CI_Controller {
     /*
 	*	$page_name		=	The name of page
 	*/
-    function new_position($param1 = '',$param2 = '',$param3 = '')
+    function new_relationship_type($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
         $obj->id = $param1;
-        $page_data["position_detail"] = $this->position_m->get_position_detail($obj);
+        $page_data["relationship_type_detail"] = $this->relationship_type_m->get_relationship_type_detail($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('staff/position/modal_new_position' ,$page_data);
+        $this->load->view('staff/relationship_type/modal_new_relationship_type' ,$page_data);
     }
 
-    function position(){
+    function relationship_type(){
 
-		$page_data['page_name']  = 'position/position';
-        $page_data['page_title'] = get_phrase('position');
+		$page_data['page_name']  = 'relationship_type/relationship_type';
+        $page_data['page_title'] = get_phrase('relationship_type');
         $this->load->view('index', $page_data);
 	}
-    /*** position ***/
-    function position_list($param1='',$param2='',$param3=''){
-        $page_data['page_title'] = get_phrase('position');
-        $this->load->view('position/position_list',$page_data);
+    /*** relationship_type ***/
+    function relationship_type_list($param1='',$param2='',$param3=''){
+        $page_data['page_title'] = get_phrase('relationship_type');
+        $this->load->view('relationship_type/relationship_type_list',$page_data);
     }
 
-    /* create new position */
-    function create_new_position($param1='',$param2='',$param3=''){
+    /* create new relationship_type */
+    function create_new_relationship_type($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-		
-        $data["position_name"] 	= $this->input->post("position_name");
+
+        $data["relationship_type_name"] 	= $this->input->post("relationship_type_name");
+        $data["status"] 	= empty($this->input->post("status"))?0:1;
         $data["description"] = $this->input->post("description");
-		$data["status"] 	= empty($this->input->post("status"))?0:1;
 		
+
 
         // got value hidden file for reference id price book
         $id = empty($this->input->post("pb_hidden_id"))?0:$this->input->post("pb_hidden_id");
@@ -61,15 +62,14 @@ class Position extends CI_Controller {
 			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
 			$data['is_delete']=0;
-            $data["position_id"] = $this->position_m->new_position($data);
+            $data["relationship_type_id"] = $this->relationship_type_m->new_relationship_type($data);
         }else if($crud=='edit'){ // edit
 			$data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
             //
-            $this->position_m->edit_position($data,$id);
-            $data["position_id"] = $id;
+            $this->relationship_type_m->edit_relationship_type($data,$id);
+            $data["relationship_type_id"] = $id;
         }
-		
         echo json_encode(array("data"=>$data));
 
     }
@@ -82,22 +82,21 @@ class Position extends CI_Controller {
         $obj = new stdClass();
         $obj->id = $param1;
         //
-        $this->position_m->delete_position($obj);
+        $this->relationship_type_m->delete_relationship_type($obj);
     }
 
-    public function position_data(){
+    public function relationship_type_data(){
 
         // DB table to use
-        $table = 'position where is_delete=0';
+        $table = 'relationship_type where is_delete=0';
 		$primaryKey = "id";
         // indexes
         $columns = array(
-			array('db' => 'id', 		 			'dt' => "id", 					'field' => 'id'),
-			array('db' => 'position_name', 	  		'dt' => "position_name", 		'field' => 'position_name'),
-			array('db' => 'description', 			'dt' => "description", 			'field' => 'description'),
-			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
-			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
-			
+			array('db' => 'id', 		 				'dt' => "id", 						'field' => 'id'),
+			array('db' => 'relationship_type_name', 	'dt' => "relationship_type_name", 	'field' => 'relationship_type_name'),
+			array('db' => 'description', 				'dt' => "description", 				'field' => 'description'),
+			array('db' => 'status', 	 				'dt' => "status", 					'field' => 'status'),
+			array('db' => 'is_delete',   				'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
 		
 		

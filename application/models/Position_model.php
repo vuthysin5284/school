@@ -26,7 +26,7 @@
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
 			$this->db->update('position');
 		}
-		/*update status position*/
+		/*update  position*/
 		function update_status_position($obj){
 			$this->db->where('id',$obj->pricebook_id); 
 			$this->db->set('status',$obj->status);
@@ -37,10 +37,7 @@
 		
 		/* position detail */
 		function get_position_detail($obj){
-			$sql = " select 
-						*
-					from position pb 
-					where id=?";
+			$sql = " select	* from position pb where id=?";
 			$data = $this->db->query($sql,array($obj->id))->row(); 
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
@@ -54,7 +51,7 @@
 						);     
 		}
 		
-		/* lookup employee */
+		/* lookup position_status */
 		function lookup_position($obj){
 			$sql = "select * from position where status = 1 and position like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();

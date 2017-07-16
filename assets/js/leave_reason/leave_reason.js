@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'employee_status/new_employee_status/';
-var _url_del =  baseurl+'employee_status/delete/';
+var _url_path =  baseurl+'leave_reason/new_leave_reason/';
+var _url_del =  baseurl+'leave_reason/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_employee_status').DataTable( {
+    datable_result = $('#datable_leave_reason').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'staff/get_employee_status_data',
+            "url"    : baseurl+'staff/get_leave_reason_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,7 +23,7 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "employee_status_name"},
+            { "data" : "leave_reason_name"},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
@@ -32,9 +32,9 @@ $(document).ready(function() {
                 }
             },
             { "data" : "id",
-                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
-                        '<center>'+
+                         '<center>'+
                         '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
                         '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
                         '</center>');

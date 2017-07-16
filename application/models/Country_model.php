@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Department_model extends CI_Model {
+	class Country_model extends CI_Model {
 		
 		function __construct()
 		{ 
@@ -8,43 +8,45 @@
 			$this->db = $this->load->database('default', TRUE); 
 			 
 		}  
-		/*create new department*/
-		function new_department($data){
-			$this->db->insert('department',$data);
+		/*create new country*/
+		function new_country($data){
+			$this->db->insert('country',$data);
 			return $this->db->insert_id(); 		
 		}
 		/*edit department*/
-		function edit_department($data,$id){
+		function edit_country($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('department',$data);
+			return $this->db->update('country',$data);
 		}
 		/*delete department*/
-		function delete_department($obj){
+		function delete_country($obj){
 			$this->db->where('id',$obj->id);
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('country');
 		}
 		/*update status department*/
-		function update_status_department($obj){
+		function update_status_country($obj){
 			$this->db->where('id',$obj->pricebook_id); 
 			$this->db->set('status',$obj->status);
 			$this->db->set('modified_by',$this->session->userdata("user_id"));
 			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('country');
 		}
 		
-		/* department detail */
-		function get_department_detail($obj){
+		/* country detail */
+		function get_country_detail($obj){
 			$sql = " select 
 						*
-					from department pb 
+					from country pb 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "department_name"=> empty($data->department_name)?'':$data->department_name,
+                        "country_name"=> empty($data->country_name)?'':$data->country_name,
+						"nationality"=> empty($data->nationality)?'':$data->nationality,
+						"short_name"=> empty($data->short_name)?'':$data->short_name,
                         "description"=> empty($data->description)?'':$data->description,
                         "status"=> empty($data->status)?'':$data->status,
 						"created_date"=> empty($data->created_date)?'':$data->created_date,
@@ -55,8 +57,8 @@
 		}
 		
 		/* lookup department */
-		function lookup_employee($obj){
-			$sql = "select * from department where status = 1 and department like ?";
+		function lookup_country($obj){
+			$sql = "select * from country where status = 1 and country like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		

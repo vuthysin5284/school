@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Department_model extends CI_Model {
+	class Job_level_model extends CI_Model {
 		
 		function __construct()
 		{ 
@@ -9,42 +9,42 @@
 			 
 		}  
 		/*create new department*/
-		function new_department($data){
-			$this->db->insert('department',$data);
+		function new_job_level($data){
+			$this->db->insert('job_level',$data);
 			return $this->db->insert_id(); 		
 		}
 		/*edit department*/
-		function edit_department($data,$id){
+		function edit_job_level($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('department',$data);
+			return $this->db->update('job_level',$data);
 		}
 		/*delete department*/
-		function delete_department($obj){
+		function delete_job_level($obj){
 			$this->db->where('id',$obj->id);
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('job_level');
 		}
 		/*update status department*/
-		function update_status_department($obj){
+		function update_status_job_level($obj){
 			$this->db->where('id',$obj->pricebook_id); 
 			$this->db->set('status',$obj->status);
 			$this->db->set('modified_by',$this->session->userdata("user_id"));
 			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('job_level');
 		}
 		
 		/* department detail */
-		function get_department_detail($obj){
+		function get_job_level_detail($obj){
 			$sql = " select 
 						*
-					from department pb 
+					from job_level pb 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "department_name"=> empty($data->department_name)?'':$data->department_name,
+                        "job_level_name"=> empty($data->job_level_name)?'':$data->job_level_name,
                         "description"=> empty($data->description)?'':$data->description,
                         "status"=> empty($data->status)?'':$data->status,
 						"created_date"=> empty($data->created_date)?'':$data->created_date,
@@ -56,7 +56,7 @@
 		
 		/* lookup department */
 		function lookup_employee($obj){
-			$sql = "select * from department where status = 1 and department like ?";
+			$sql = "select * from job_level where status = 1 and job_level like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		

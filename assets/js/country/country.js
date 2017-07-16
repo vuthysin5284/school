@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'employee_status/new_employee_status/';
-var _url_del =  baseurl+'employee_status/delete/';
+var _url_path =  baseurl+'country/new_country/';
+var _url_del =  baseurl+'country/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_employee_status').DataTable( {
+    datable_result = $('#datable_country').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'staff/get_employee_status_data',
+            "url"    : baseurl+'staff/get_country_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,7 +23,9 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "employee_status_name"},
+            { "data" : "country_name"},
+			{ "data" : "nationality"},
+			{ "data" : "short_name"},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {

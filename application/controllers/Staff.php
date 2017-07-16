@@ -108,20 +108,20 @@ class Staff extends CI_Controller
 	
 	//possition status
 	function position_status(){
-        $page_data['page_title'] = get_phrase('position');
-        $this->load->view('staff/position_list/position_list', $page_data);
+        $page_data['page_title'] = get_phrase('position_status');
+        $this->load->view('staff/position_status/position_status', $page_data);
     }
-	 public function get_position_data(){
+	 public function get_position_status_data(){
         // DB table to use
-        $table = 'position where is_delete=0' ;
+        $table = 'position_status where is_delete=0' ;
 		$primaryKey = "id";
         // indexes
         $columns = array(
-			array('db' => 'id', 		 				'dt' => "id", 							'field' => 'id'),
-			array('db' => 'position_name', 				'dt' => "position_name", 				'field' => 'position_name'),	
-			array('db' => 'description', 				'dt' => "description", 					'field' => 'description'),
-			array('db' => 'status', 	 				'dt' => "status", 						'field' => 'status'),
-			array('db' => 'is_delete',   				'dt' => "is_delete", 					'field'	=> 'is_delete')
+			array('db' => 'id', 		 			'dt' => "id", 						'field' => 'id'),
+			array('db' => 'position_status_name', 	'dt' => "position_status_name", 	'field' => 'position_status_name'),	
+			array('db' => 'description', 			'dt' => "description", 				'field' => 'description'),
+			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
+			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
 		 $this->load->model('datatable_model');
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
@@ -133,4 +133,184 @@ class Staff extends CI_Controller
         $this->load->view('staff/location/location_list', $page_data);
     }
 
+	//job level
+	function job_level(){
+        $page_data['page_title'] = get_phrase('job_level');
+        $this->load->view('staff/job_level/job_level', $page_data);
+    }
+	public function get_job_level_data(){
+
+        // DB table to use
+        $table = 'job_level where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 		'dt' => "id", 					'field' => 'id'),
+			array('db' => 'job_level_name', 	'dt' => "job_level_name", 		'field' => 'job_level_name'),
+			array('db' => 'description', 		'dt' => "description", 			'field' => 'description'),
+			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
+			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
+        );
+       $this->load->model('datatable_model');
+        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+    }
+
+		//country
+		function country(){
+        $page_data['page_title'] = get_phrase('country');
+        $this->load->view('staff/country/country', $page_data);
+    }
+
+		public function get_country_data(){
+
+        // DB table to use
+        $table = 'country where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 		'dt' => "id", 					'field' => 'id'),
+			array('db' => 'country_name', 		'dt' => "country_name", 		'field' => 'country_name'),
+			array('db' => 'nationality', 		'dt' => "nationality", 			'field' => 'nationality'),
+			array('db' => 'short_name', 		'dt' => "short_name", 			'field' => 'short_name'),
+			array('db' => 'description', 		'dt' => "description", 			'field' => 'description'),
+			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
+			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
+        );
+		 $this->load->model('datatable_model');
+  			echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+   	 }
+	
+		function relationship_type(){
+       		 $page_data['page_title'] = get_phrase('relationship_type');
+       		 $this->load->view('staff/relationship_type/relationship_type', $page_data);
+   	 }
+		public function get_relationship_type_data(){
+			
+			 // DB table to use
+        $table = 'relationship_type where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 				'dt' => "id", 						'field' => 'id'),
+			array('db' => 'relationship_type_name', 	'dt' => "relationship_type_name", 	'field' => 'relationship_type_name'),
+			array('db' => 'description', 				'dt' => "description", 				'field' => 'description'),
+			array('db' => 'status', 	 				'dt' => "status", 					'field' => 'status'),
+			array('db' => 'is_delete',   				'dt' => "is_delete", 				'field'	=> 'is_delete')
+        );	
+	
+	 		$this->load->model('datatable_model');
+  			echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+		}
+	
+	//
+		function leave_reason(){
+       		 $page_data['page_title'] = get_phrase('leave_reason');
+       		 $this->load->view('staff/leave_reason/leave_reason', $page_data);
+   	 }
+	 public function get_leave_reason_data(){
+        // DB table to use
+        $table = 'leave_reason where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 			'dt' => "id", 					'field' => 'id'),
+			array('db' => 'leave_reason_name', 		'dt' => "leave_reason_name", 	'field' => 'leave_reason_name'),
+			array('db' => 'description', 			'dt' => "description", 			'field' => 'description'),
+			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
+			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
+        );
+		 $this->load->model('datatable_model');
+  		echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+
+    }
+			function education_type(){
+       		 $page_data['page_title'] = get_phrase('education_type');
+       		 $this->load->view('staff/education_type/education_type', $page_data);
+   	 }
+
+		 public function get_education_type_data(){
+
+        // DB table to use
+        $table = 'education_type where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 				'dt' => "id", 						'field' => 'id'),
+			array('db' => 'education_type_name', 		'dt' => "education_type_name", 		'field' => 'education_type_name'),
+			array('db' => 'description', 				'dt' => "description", 				'field' => 'description'),
+			array('db' => 'status', 	 				'dt' => "status", 					'field' => 'status'),
+			array('db' => 'is_delete',   				'dt' => "is_delete", 				'field'	=> 'is_delete')
+        );
+		
+		$this->load->model('datatable_model');
+        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+
+    }
+
+		function position(){
+       		 $page_data['page_title'] = get_phrase('position');
+       		 $this->load->view('staff/position/position', $page_data);
+   	 }
+
+		public function get_position_data(){
+
+        // DB table to use
+        $table = 'position where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 			'dt' => "id", 					'field' => 'id'),
+			array('db' => 'position_name', 	  		'dt' => "position_name", 		'field' => 'position_name'),
+			array('db' => 'description', 			'dt' => "description", 			'field' => 'description'),
+			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
+			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
+			
+        );
+		$this->load->model('datatable_model');
+        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+		}
+		
+		function main_station(){
+       		 $page_data['page_title'] = get_phrase('main_station');
+       		 $this->load->view('staff/main_station/main_station', $page_data);
+   	 }
+		public function get_main_station_data(){
+
+        // DB table to use
+        $table = 'main_station where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 			'dt' => "id", 					'field' => 'id'),
+			array('db' => 'main_station', 			'dt' => "main_station", 		'field' => 'main_station'),
+			array('db' => 'section_name', 			'dt' => "section_name", 		'field' => 'section_name'),
+			array('db' => 'description', 			'dt' => "description", 			'field' => 'description'),
+			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
+			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
+        );
+		$this->load->model('datatable_model');
+        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+	}
+	//Locations
+	function employee_location(){
+       		 $page_data['page_title'] = get_phrase('employee_location');
+       		 $this->load->view('staff/employee_location/employee_location', $page_data);
+   	 }
+	public function get_employee_location_data(){
+
+        // DB table to use
+        $table = 'employee_location where is_delete=0';
+		$primaryKey = "id";
+        // indexes
+        $columns = array(
+			array('db' => 'id', 		 			'dt' => "id", 					'field' => 'id'),
+			array('db' => 'employee_location', 		'dt' => "employee_location", 	'field' => 'employee_location'),
+			array('db' => 'main_station', 			'dt' => "main_station", 		'field' => 'main_station'),
+			array('db' => 'description', 			'dt' => "description", 			'field' => 'description'),
+			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
+			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
+        );	
+		$this->load->model('datatable_model');
+        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+	}
 }

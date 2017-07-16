@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>employee_status/new_employee_status/0/new');">
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>section/new_section/0/new');">
             <i class="fa fa-user-plus"></i>
-            <?php echo get_phrase('add_new');?>
+            <?php echo get_phrase('new_section');?>
         </button>
     </div>
 </div>
@@ -10,10 +10,11 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_employee_status" class="display" cellspacing="0" width="100%">
+<table id="datable_section" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Employee Status Name</th>
+            <th>Section Name</th>
+            <th>Department Name</th>
             <th>Description</th>
             <th>STATUS</th>
             <th></th>
@@ -21,4 +22,4 @@
     </thead>
 </table>
 
-<script src="<?php echo base_url();?>assets/js/employee_status/employee_status.js"></script>
+<script src="<?php echo base_url();?>assets/js/section/section.js"></script>

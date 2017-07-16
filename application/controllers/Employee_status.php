@@ -37,7 +37,7 @@ class Employee_status extends CI_Controller {
     /*** employee ***/
     function employee_status_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('employee_status');
-        $this->load->view('employee_status/employee_status',$page_data);
+        $this->load->view('employee_status/employee_status_list',$page_data);
     }
 
     /* create new employee */
@@ -88,15 +88,15 @@ class Employee_status extends CI_Controller {
     public function employee_status_data(){
 
         // DB table to use
-        $table = 'employe_statuse where is_delete=0';
+        $table = 'employee_status where is_delete=0';
 		$primaryKey = "id";
         // indexes
         $columns = array(
-			array('db' => 'id', 		 		'dt' => "id", 					'field' => 'id'),
-			array('db' => 'employee_status_name', 		'dt' => "employee_status_name", 		'field' => 'employee_status_name'),
-			array('db' => 'description', 		'dt' => "description", 			'field' => 'description'),
-			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
-			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
+			array('db' => 'id', 		 			'dt' => "id", 						'field' => 'id'),
+			array('db' => 'employee_status_name', 	'dt' => "employee_status_name", 	'field' => 'employee_status_name'),
+			array('db' => 'description', 			'dt' => "description", 				'field' => 'description'),
+			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
+			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
 		
 		

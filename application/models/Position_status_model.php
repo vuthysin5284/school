@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Department_model extends CI_Model {
+	class Position_status_model extends CI_Model {
 		
 		function __construct()
 		{ 
@@ -8,43 +8,43 @@
 			$this->db = $this->load->database('default', TRUE); 
 			 
 		}  
-		/*create new department*/
-		function new_department($data){
-			$this->db->insert('department',$data);
+		/*create new position*/
+		function new_position_status($data){
+			$this->db->insert('position_status',$data);
 			return $this->db->insert_id(); 		
 		}
-		/*edit department*/
-		function edit_department($data,$id){
+		/*edit position*/
+		function edit_position_status($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('department',$data);
+			return $this->db->update('position_status',$data);
 		}
-		/*delete department*/
-		function delete_department($obj){
+		/*delete position*/
+		function delete_position_status($obj){
 			$this->db->where('id',$obj->id);
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('position_status');
 		}
-		/*update status department*/
-		function update_status_department($obj){
+		/*update status position*/
+		function update_status_position_status($obj){
 			$this->db->where('id',$obj->pricebook_id); 
 			$this->db->set('status',$obj->status);
 			$this->db->set('modified_by',$this->session->userdata("user_id"));
 			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('position_status');
 		}
 		
-		/* department detail */
-		function get_department_detail($obj){
+		/* position detail */
+		function get_position_status_detail($obj){
 			$sql = " select 
 						*
-					from department pb 
+					from position_status pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->db->query($sql,array($obj->id))->row(); 
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "department_name"=> empty($data->department_name)?'':$data->department_name,
+                        "position_status_name"=> empty($data->position_status_name)?'':$data->position_status_name,
                         "description"=> empty($data->description)?'':$data->description,
                         "status"=> empty($data->status)?'':$data->status,
 						"created_date"=> empty($data->created_date)?'':$data->created_date,
@@ -54,9 +54,9 @@
 						);     
 		}
 		
-		/* lookup department */
-		function lookup_employee($obj){
-			$sql = "select * from department where status = 1 and department like ?";
+		/* lookup position_status */
+		function lookup_position($obj){
+			$sql = "select * from position_status where status = 1 and position_status like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		

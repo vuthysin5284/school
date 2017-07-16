@@ -1,14 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Position extends CI_Controller {
+class Main_station extends CI_Controller {
  
 	function __construct()
 	{
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
-        $this->load->model("position_model","position_m");
+        $this->load->model("main_station_model","main_station_m");
         $this->load->model('datatable_model');
 		
        /*cache control*/
@@ -19,38 +19,41 @@ class Position extends CI_Controller {
     /*
 	*	$page_name		=	The name of page
 	*/
-    function new_position($param1 = '',$param2 = '',$param3 = '')
+    function new_main_station($param1 = '',$param2 = '',$param3 = '')
     {
         $obj = new stdClass();
         $obj->id = $param1;
-        $page_data["position_detail"] = $this->position_m->get_position_detail($obj);
+        $page_data["main_station_detail"] = $this->main_station_m->get_main_station_detail($obj);
+		$page_data["section_list"] = $this->main_station_m->get_section_list($obj);
         $page_data["crud"] = $param2;
-        $this->load->view('staff/position/modal_new_position' ,$page_data);
+        $this->load->view('staff/main_station/modal_new_main_station' ,$page_data);
     }
 
-    function position(){
+    function main_station(){
 
-		$page_data['page_name']  = 'position/position';
-        $page_data['page_title'] = get_phrase('position');
+		$page_data['page_name']  = 'main_station/main_station';
+        $page_data['page_title'] = get_phrase('main_station');
         $this->load->view('index', $page_data);
 	}
-    /*** position ***/
-    function position_list($param1='',$param2='',$param3=''){
-        $page_data['page_title'] = get_phrase('position');
-        $this->load->view('position/position_list',$page_data);
+    /*** section ***/
+    function main_station_list($param1='',$param2='',$param3=''){
+        $page_data['page_title'] = get_phrase('main_station');
+        $this->load->view('main_station/main_station_list',$page_data);
     }
 
-    /* create new position */
-    function create_new_position($param1='',$param2='',$param3=''){
+    /* create new section */
+    function create_new_main_station($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-		
-        $data["position_name"] 	= $this->input->post("position_name");
+
+        $data["main_station"] 	= $this->input->post("main_station");
+        $data["section_name"] 	= $this->input->post("section_name");
+        $data["status"] 	= empty($this->input->post("status"))?0:1;
         $data["description"] = $this->input->post("description");
-		$data["status"] 	= empty($this->input->post("status"))?0:1;
 		
+
 
         // got value hidden file for reference id price book
         $id = empty($this->input->post("pb_hidden_id"))?0:$this->input->post("pb_hidden_id");
@@ -61,15 +64,14 @@ class Position extends CI_Controller {
 			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
 			$data['is_delete']=0;
-            $data["position_id"] = $this->position_m->new_position($data);
+            $data["main_station_id"] = $this->main_station_m->new_main_station($data);
         }else if($crud=='edit'){ // edit
 			$data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
             //
-            $this->position_m->edit_position($data,$id);
-            $data["position_id"] = $id;
+            $this->main_station_m->edit_main_station($data,$id);
+            $data["main_station_id"] = $id;
         }
-		
         echo json_encode(array("data"=>$data));
 
     }
@@ -82,22 +84,22 @@ class Position extends CI_Controller {
         $obj = new stdClass();
         $obj->id = $param1;
         //
-        $this->position_m->delete_position($obj);
+        $this->main_station_m->delete_main_station($obj);
     }
 
-    public function position_data(){
+    public function main_station_data(){
 
         // DB table to use
-        $table = 'position where is_delete=0';
+        $table = 'main_station where is_delete=0';
 		$primaryKey = "id";
         // indexes
         $columns = array(
 			array('db' => 'id', 		 			'dt' => "id", 					'field' => 'id'),
-			array('db' => 'position_name', 	  		'dt' => "position_name", 		'field' => 'position_name'),
+			array('db' => 'main_station', 			'dt' => "main_station", 		'field' => 'main_station'),
+			array('db' => 'section_name', 			'dt' => "section_name", 		'field' => 'section_name'),
 			array('db' => 'description', 			'dt' => "description", 			'field' => 'description'),
 			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
-			
         );
 		
 		

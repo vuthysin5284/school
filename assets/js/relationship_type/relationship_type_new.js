@@ -3,8 +3,8 @@
 $("#btnSubmit").on('click',function(e) {
 
     // requirement
-    if($("#employee_name").val()==''){
-        $("#employee_name").css('border','1px solid red');
+    if($("#relationship_type_namev").val()==''){
+        $("#relationship_type_name").css('border','1px solid red');
         return false;
     }
     /*if($("#description").val()==''){
@@ -12,12 +12,12 @@ $("#btnSubmit").on('click',function(e) {
         return false;
     }*/
 
-    var url = baseurl+'employee/create_new_employee';
+    var url = baseurl+'relationship_type/create_new_relationship_type';
     $.ajax({
         type: "POST",
         url: url,
         dataType:"JSON",
-        data: $("#frmNewEmployee").serialize(), // serializes the form's elements.
+        data: $("#frmNewRelationshiptype").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
             $('#modal_ajax').modal('hide');

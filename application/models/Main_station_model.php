@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	class Department_model extends CI_Model {
+	class Main_station_model extends CI_Model {
 		
 		function __construct()
 		{ 
@@ -8,43 +8,44 @@
 			$this->db = $this->load->database('default', TRUE); 
 			 
 		}  
-		/*create new department*/
-		function new_department($data){
-			$this->db->insert('department',$data);
+		/*create new section*/
+		function new_main_station($data){
+			$this->db->insert('main_station',$data);
 			return $this->db->insert_id(); 		
 		}
-		/*edit department*/
-		function edit_department($data,$id){
+		/*edit section*/
+		function edit_main_station($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('department',$data);
+			return $this->db->update('main_station',$data);
 		}
-		/*delete department*/
-		function delete_department($obj){
+		/*delete section*/
+		function delete_main_station($obj){
 			$this->db->where('id',$obj->id);
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('main_station');
 		}
-		/*update status department*/
-		function update_status_department($obj){
+		/*update status section*/
+		function update_status_main_station($obj){
 			$this->db->where('id',$obj->pricebook_id); 
 			$this->db->set('status',$obj->status);
 			$this->db->set('modified_by',$this->session->userdata("user_id"));
 			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('department');
+			$this->db->update('main_station');
 		}
 		
-		/* department detail */
-		function get_department_detail($obj){
+		/* section detail */
+		function get_main_station_detail($obj){
 			$sql = " select 
 						*
-					from department pb 
+					from main_station pb 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "department_name"=> empty($data->department_name)?'':$data->department_name,
+                        "main_station"=> empty($data->main_station)?'':$data->main_station,
+						"section_name"=> empty($data->section_name)?'':$data->section_name,
                         "description"=> empty($data->description)?'':$data->description,
                         "status"=> empty($data->status)?'':$data->status,
 						"created_date"=> empty($data->created_date)?'':$data->created_date,
@@ -54,11 +55,20 @@
 						);     
 		}
 		
-		/* lookup department */
-		function lookup_employee($obj){
-			$sql = "select * from department where status = 1 and department like ?";
+		/* lookup section */
+		function lookup_main_station($obj){
+			$sql = "select * from main_station where status = 1 and main_station like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
+		//function get department list
+        function get_main_station_list($obj){
+            $sql = " select 
+						*
+					from section 
+					";
+           return $this->db->query($sql,array($obj->id))->result();
+
+        }
 		
 	}
 ?>

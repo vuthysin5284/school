@@ -45,40 +45,40 @@
                    data-url="<?php echo base_url();?>staff/department_status"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Department</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>finance/voucher_entry"
-                   data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/position"
+                   data-url="<?php echo base_url();?>staff/position"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i> Position</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>staff/section"
                    data-url="<?php echo base_url();?>staff/section"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Section</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/main_station"
+                   data-url="<?php echo base_url();?>staff/main_station"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Main Station</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Location</a></li>
+                <a href="<?php echo base_url();?>staff/employee_location"
+                  data-url="<?php echo base_url();?>employee_location/employee_location"  data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-exclamation-circle"></i>Employee Location</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/job_level"
+                   data-url="<?php echo base_url();?>staff/job_level"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Job Level</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/country"
+                   data-url="<?php echo base_url();?>staff/country"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Country</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/education_type"
+                   data-url="<?php echo base_url();?>staff/education_type"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Education Type</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/relationship_type"
+                   data-url="<?php echo base_url();?>staff/relationship_type"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Relationship Type</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>staff/leave_reason"
+                   data-url="<?php echo base_url();?>staff/leave_reason"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>Leave Reason</a></li>
         </ul>
     </div>

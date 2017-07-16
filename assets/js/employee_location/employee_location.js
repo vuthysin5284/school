@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'employee/new_employee/';
-var _url_del =  baseurl+'employee/delete/';
+var _url_path =  baseurl+'employee_location/new_employee_location/';
+var _url_del =  baseurl+'employee_location/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_employee').DataTable( {
+    datable_result = $('#datable_employee_location').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'staff/get_employee_data',
+            "url"    : baseurl+'staff/get_employee_location_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,7 +23,8 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "employee_name"},
+            { "data" : "employee_location"},
+			{ "data" : "main_station" },
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
@@ -34,14 +35,10 @@ $(document).ready(function() {
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
-                        '<div class="btn-group">'+
-                        '<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'+
-                        '<span class="caret"></span></a>'+
-                        '<ul class="dropdown-menu dropdown-menu-right" role="menu">'+
-                        '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');">Edit</a></li>'+
-                        '<li><a href="#" onclick="on_delete_data(\''+_url_del+oData.id+'\');">Delete</a></li>'+
-                        '</ul>'+
-                        '</div>');
+                         '<center>'+
+                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
+                        '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
+                        '</center>');
                 }
             }
         ],

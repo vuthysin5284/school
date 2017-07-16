@@ -11,9 +11,10 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
--- Dumping structure for table school.department
-CREATE TABLE IF NOT EXISTS `department` (
+-- Dumping structure for table school.section
+CREATE TABLE IF NOT EXISTS `section` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `section_name` varchar(50) NOT NULL DEFAULT '0',
   `department_name` varchar(50) NOT NULL DEFAULT '0',
   `description` varchar(150) NOT NULL DEFAULT '0',
   `status` int(1) NOT NULL DEFAULT '1',
@@ -25,16 +26,16 @@ CREATE TABLE IF NOT EXISTS `department` (
   `delete_by` int(11) NOT NULL,
   `delete_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
--- Dumping data for table school.department: ~2 rows (approximately)
-DELETE FROM `department`;
-/*!40000 ALTER TABLE `department` DISABLE KEYS */;
-INSERT INTO `department` (`id`, `department_name`, `description`, `status`, `created_by`, `created_date`, `modified_by`, `modified_date`, `is_delete`, `delete_by`, `delete_date`) VALUES
-	(1, 'building A', 'for rent', 1, 0, '0000-00-00 00:00:00', 1, '2017-06-21 02:45:58', 1, 1, '2017-06-21 02:51:58'),
-	(2, 'building B', 'for rent', 1, 1, '2017-06-21 02:34:58', 1, '2017-07-09 02:38:13', 0, 0, '0000-00-00 00:00:00'),
-	(3, 'building A', 'comfortable', 1, 1, '2017-06-23 07:16:13', 0, '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00');
-/*!40000 ALTER TABLE `department` ENABLE KEYS */;
+-- Dumping data for table school.section: ~3 rows (approximately)
+DELETE FROM `section`;
+/*!40000 ALTER TABLE `section` DISABLE KEYS */;
+INSERT INTO `section` (`id`, `section_name`, `department_name`, `description`, `status`, `created_by`, `created_date`, `modified_by`, `modified_date`, `is_delete`, `delete_by`, `delete_date`) VALUES
+	(2, 'morning', 'building B', 'nothing', 0, 1, '2017-07-16 01:17:36', 1, '2017-07-16 01:52:37', 1, 1, '2017-07-16 01:00:40'),
+	(3, 'afternoon', 'building A', 'nothing', 1, 1, '2017-07-16 01:23:37', 0, '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00'),
+	(4, 'evening', 'building A', 'nothing', 1, 1, '2017-07-16 01:07:38', 0, '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `section` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
