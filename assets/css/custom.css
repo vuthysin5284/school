@@ -14,7 +14,7 @@ input[type="text"], select.form-control, textarea.form-control {
 }
 .dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_length select {
     -moz-border-radius: 6px;
-    -webkit-border-radius: 6px; 
+    -webkit-border-radius: 6px;
 }
 
 .menu.accordion-menu>li.active{
