@@ -30,13 +30,9 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
 
             <li class="active default">
-                <a href="<?php echo base_url();?>floor/floor_list"
-                   data-url="<?php echo base_url();?>floor/floor_list">
-                    <i class="fa fa-exclamation-circle"></i>Student List</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>building/building_list"
-                   data-url="<?php echo base_url();?>building/building_list">
-                    <i class="fa fa-exclamation-circle"></i>Enrolment</a></li>
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
+                    <i class="fa fa-exclamation-circle"></i>Enrolment List</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>location/location_list"
                    data-url="<?php echo base_url();?>location/location_list">
