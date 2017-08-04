@@ -101,6 +101,10 @@ class Course extends CI_Controller {
 
 
     public function course_data(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
         // DB table to use
         $table = 'course where is_delete=0';
         $primaryKey = "id";
