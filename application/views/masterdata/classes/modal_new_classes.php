@@ -1,7 +1,7 @@
  
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo get_phrase('create_new_classes');?></h4>
+    <h4 class="modal-title"><?php echo get_phrase($crud.'_class');?></h4>
 </div>
 <hr style="margin-top: -10px;"/>
 

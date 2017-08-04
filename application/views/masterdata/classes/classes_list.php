@@ -1,8 +1,8 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>classes/new_classes/0/new');">
-            <i class="fa fa-user-plus"></i>
-            <?php echo get_phrase('new_classes');?>
+            <i class="fa fa-plus"></i>
+            <?php echo get_phrase('new_class');?>
         </button>
     </div>
 </div>

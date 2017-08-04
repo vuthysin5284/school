@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>branch/new_branch');">
-            <i class="fa fa-user-plus"></i>
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>branch/new_branch/0/new');">
+            <i class="fa fa-plus"></i>
             <?php echo get_phrase('new_branch');?>
         </button>
     </div>
@@ -13,10 +13,12 @@
 <table id="datable_branch" class="display" cellspacing="0" width="100%">
     <thead>
     <tr>
-        <th>Branch Number</th>
-        <th>Branch Name</th>
-        <th>Description</th>
-        <th>STATUS</th>
+        <th>Khmer name</th>
+        <th>Latin Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Prefix</th>
+        <th>Status</th>
         <th></th>
     </tr>
     </thead>

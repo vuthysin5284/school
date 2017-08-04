@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'room/new_room/';
-var _url_del =  baseurl+'room/delete/';
+var _url_path =  baseurl+'times/new_times/';
+var _url_del =  baseurl+'times/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_room').DataTable( {
+    datable_result = $('#datable_times').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'room/room_data',
+            "url"    : baseurl+'times/times_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,28 +23,17 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "room_number" },
-            { "data" : "room_name"},
-            { "data" : "building_name"},
-            { "data" : "floor"},
+            { "data" : "times_name" },
             { "data" : "description" },
-            { "data": "status",
+            { "data" : "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?(oData.status==1?'Active': '<font color="red">Inactive</font>'): '<font color="red">Delete</font>';
-                    $(nTd).html(yesno);
+                    var status = (oData.status==1)?'Active':'<font color="red">Inactive</font>';
+                    $(nTd).html(status);
                 }
             },
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    $(nTd).html(
-                        /*'<div class="btn-group">'+
-                        '<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">'+
-                        '<span class="caret"></span></a>'+
-                        '<ul class="dropdown-menu dropdown-menu-right" role="menu">'+
-                        '<li><a href="javascript:void(0);" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');">Edit</a></li>'+
-                        '<li><a href="#" onclick="on_delete_data(\''+_url_del+oData.id+'\');">Delete</a></li>'+
-                        '</ul>'+
-                        '</div>'*/
+                    $(nTd).html( 
 						'<center>'+
 							'<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
 							'<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
@@ -55,9 +44,6 @@ $(document).ready(function() {
         "order": [[0, 'desc']]
     });
 } );
-
-
-
 //
 function on_delete_data(url){
     delete_data(url,remove_row);
@@ -72,4 +58,5 @@ function remove_row(url){
         }
     });
 }
+
 

@@ -21,14 +21,13 @@
     <input type="hidden" name="pb_hidden_id" value="<?php echo $position_detail["id"]?>"/>
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
-        <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('position_name');?> <span class="red">*</span>
-           </label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="position_name" name="position_name" placeholder="position name"  value="<?php echo $position_detail["position_name"]?>" />
-            </div>
-        </div>        
-       <div class="form-group">
+    <div class="form-group">
+        <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('position_name');?> <span class="red">*</span>
+        </label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="position_name" name="position_name" placeholder="position name"  value="<?php echo $position_detail["position_name"]?>" />
+        </div>
+    </div>         
 
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>

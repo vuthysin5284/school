@@ -10,7 +10,7 @@
 		}  
 		/*create new room*/
 		function new_room($data){
-			$this->db->insert('room_v',$data);
+			$this->db->insert('room',$data);
 			return $this->db->insert_id(); 		
 		}
 		/*edit room*/

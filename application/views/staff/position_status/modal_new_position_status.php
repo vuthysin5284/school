@@ -21,18 +21,17 @@
     <input type="hidden" name="pb_hidden_id" value="<?php echo $position_status_detail["id"]?>"/>
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
-        <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('position_status_name');?> <span class="red">*</span>
-           </label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="position_status_name" name="position_status_name" placeholder="position status name"  value="<?php echo $position_status_detail["position_status_name"]?>" />
-            </div>
-        </div>        
-       <div class="form-group">
+    <div class="form-group">
+        <label for="field-1" class="col-sm-4 control-label"><?php echo get_phrase('position_status_name');?> <span class="red">*</span>
+        </label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" id="position_status_name" name="position_status_name" placeholder="position status name"  value="<?php echo $position_status_detail["position_status_name"]?>" />
+        </div>
+    </div>         
 
     <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
-            <div class="col-sm-8">  
+            <label for="field-1" class="col-sm-4 control-label"><?php echo get_phrase('description');?></label>
+            <div class="col-sm-7">  
                 <input type="text" class="form-control"  name="description"  value="<?php echo $position_status_detail["description"]?>"/>
              </div>
         </div> 

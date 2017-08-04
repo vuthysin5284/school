@@ -31,15 +31,27 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>branch/branch_list"
                    data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Branch Data</a></li>
+                    <i class="fa fa-building"></i>Branch Data</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-sign-out"></i>Room Data</a></li>
+                    <i class="fa fa-building-o"></i>Room Data</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>classes/classes_list"
                    data-url="<?php echo base_url();?>classes/classes_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Class Data</a></li>
+                    <i class="fa fa-table"></i>Class Data</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>times/times_list"
+                   data-url="<?php echo base_url();?>times/times_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-clock-o"></i>Times Data</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>schedule/schedule_list"
+                   data-url="<?php echo base_url();?>schedule/schedule_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-calendar-o"></i>Schedule Data</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>course/course_list"
+                   data-url="<?php echo base_url();?>course/course_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-file-text"></i>Course Data</a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

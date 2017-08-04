@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'branch/new_branch/';
-var _url_del =  baseurl+'branch/delete/';
+var _url_path =  baseurl+'schedule/new_schedule/';
+var _url_del =  baseurl+'schedule/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_branch').DataTable( {
+    datable_result = $('#datable_schedule').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'branch/branch_data',
+            "url"    : baseurl+'schedule/schedule_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,11 +23,8 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "branch_name_kh" },
-            { "data" : "branch_name"},
-            { "data" : "phone_number" },
-            { "data" : "email" },
-            { "data" : "prefix" },
+            { "data" : "schedule_name" },
+            { "data" : "description" },
             { "data" : "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var status = (oData.status==1)?'Active':'<font color="red">Inactive</font>';
@@ -36,19 +33,17 @@ $(document).ready(function() {
             },
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    $(nTd).html( 
-						'<center>'+
-							'<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
-							'<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
-						'</center>');
+                    $(nTd).html(
+                        '<center>'+
+                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
+                        '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
+                        '</center>');
                 }
             }
         ],
         "order": [[0, 'desc']]
     });
 } );
-
-
 //
 function on_delete_data(url){
     delete_data(url,remove_row);
@@ -63,4 +58,5 @@ function remove_row(url){
         }
     });
 }
+
 

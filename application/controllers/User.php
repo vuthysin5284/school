@@ -30,6 +30,7 @@ class User extends CI_Controller {
 		$data["sap_id"] = $this->input->post("sap_id");
 		$data["username"] = $this->input->post("username");
 		$data["role_id"] =  $this->input->post("role_id");
+        $data["branch_id"] =  $this->session->userdata("branch_id");
 		$data["email"] = $this->input->post("email");
 		$data["phone"] = $this->input->post("phone");
 		

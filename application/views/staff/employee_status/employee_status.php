@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>employee_status/new_employee_status/0/new');">
-            <i class="fa fa-user-plus"></i>
+            <i class="fa fa-plus"></i>
             <?php echo get_phrase('add_new');?>
         </button>
     </div>
