@@ -12,9 +12,10 @@ $( document ).ready(function() {
             progressBar: true,
             showMethod: 'fadeIn',
             hideMethod: 'fadeOut',
-            timeOut: 5000
+            timeOut: 5000,
+            positionClass : "toast-top-center"
         };
-        toastr.success('Checkout settings menu on left!', 'Welcome to EDS!');
+        toastr.success('Education management system!', 'Welcome to EDS!');
     }, 1800);
     
     var flot2 = function () {
