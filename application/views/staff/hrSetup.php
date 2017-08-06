@@ -28,11 +28,7 @@
 <div class="row m-t-md">
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
-            <li class="active default">
-                <a href="<?php echo base_url();?>staff/employeelist_status"
-                   data-url="<?php echo base_url();?>staff/employeelist_status" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Employee List</a></li>
-            <!--li class="default">
+            <li class="default">
                 <a href="<?php echo base_url();?>staff/employee_status"
                    data-url="<?php echo base_url();?>staff/employee_status" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-file-text-o"></i>Employee Status</a></li>
@@ -79,7 +75,7 @@
             <li class="default">
                 <a href="<?php echo base_url();?>staff/leave_reason"
                    data-url="<?php echo base_url();?>staff/leave_reason"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Leave Reason</a></li-->
+                    <i class="fa fa-exclamation-circle"></i>Leave Reason</a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">
