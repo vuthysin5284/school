@@ -32,8 +32,8 @@ class Staff extends CI_Controller
         // indexes
         $columns = array(
 			array('db' => 'id', 		 		'dt' => "id", 					'field' => 'id'),
-			array('db' => 'section_name', 			'dt' => "section_name", 		'field' => 'section_name'),
-			array('db' => 'department_name', 		'dt' => "department_name", 		'field' => 'department_name'),
+			array('db' => 'section_name', 		'dt' => "section_name", 		'field' => 'section_name'),
+			array('db' => 'department_name', 	'dt' => "department_name", 		'field' => 'department_name'),
 			array('db' => 'description', 		'dt' => "description", 			'field' => 'description'),
 			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
@@ -43,13 +43,13 @@ class Staff extends CI_Controller
     }//end section status
 	
 	//employeelist status
-    function employee_list_status(){
-        $page_data['page_title'] = get_phrase('employee_list');
-        $this->load->view('staff/employee_list/employee_list', $page_data);
+    function employee(){
+        $page_data['page_title'] = get_phrase('employee');
+        $this->load->view('staff/employee/employee', $page_data);
     }
-	 public function get_employee_list_data(){
+	 public function get_employee_data(){
         // DB table to use
-        $table = 'employee_list where is_delete=0' ;
+        $table = 'employee where is_delete=0' ;
 		$primaryKey = "id";
         // indexes
         $columns = array(
@@ -59,6 +59,7 @@ class Staff extends CI_Controller
 			array('db' => 'khmer_name', 			'dt' => "khmer_name", 				'field' => 'khmer_name'),
 			array('db' => 'gender', 				'dt' => "gender", 					'field' => 'gender'),
 			array('db' => 'position', 				'dt' => "position", 				'field' => 'position'),
+			array('db' => 'department', 			'dt' => "department", 				'field' => 'department'),
 			array('db' => 'phone', 					'dt' => "phone", 					'field' => 'phone'),
 			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
 			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
