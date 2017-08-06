@@ -43,25 +43,29 @@ class Staff extends CI_Controller
     }//end section status
 	
 	//employeelist status
-    function employeelist_status(){
-        $page_data['page_title'] = get_phrase('employeelist');
-        $this->load->view('staff/employeelist/employeelist', $page_data);
+    function employee_list_status(){
+        $page_data['page_title'] = get_phrase('employee_list');
+        $this->load->view('staff/employee_list/employee_list', $page_data);
     }
-	 public function get_employeelist_data(){
+	 public function get_employee_list_data(){
         // DB table to use
-        $table = 'employeelist where is_delete=0' ;
+        $table = 'employee_list where is_delete=0' ;
 		$primaryKey = "id";
         // indexes
         $columns = array(
 			array('db' => 'id', 		 			'dt' => "id", 						'field' => 'id'),
-			array('db' => 'employeelist_name', 		'dt' => "employeelist_name", 		'field' => 'employeelist_name'),
-			array('db' => 'description', 			'dt' => "description", 				'field' => 'description'),
+			array('db' => 'employee_number', 		'dt' => "employee_number", 			'field' => 'employee_number'),
+			array('db' => 'latin_name', 			'dt' => "latin_name", 				'field' => 'latin_name'),
+			array('db' => 'khmer_name', 			'dt' => "khmer_name", 				'field' => 'khmer_name'),
+			array('db' => 'gender', 				'dt' => "gender", 					'field' => 'gender'),
+			array('db' => 'position', 				'dt' => "position", 				'field' => 'position'),
+			array('db' => 'phone', 					'dt' => "phone", 					'field' => 'phone'),
 			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
 			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
 		 $this->load->model('datatable_model');
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
-    }//end employee statu
+    }//end employee List
 	
 	
 	//department status
