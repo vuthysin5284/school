@@ -21,6 +21,10 @@ class Country extends CI_Controller {
 	*/
     function new_country($param1 = '',$param2 = '',$param3 = '')
     {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
         $obj = new stdClass();
         $obj->id = $param1;
         $page_data["country_detail"] = $this->country_m->get_country_detail($obj);
@@ -30,12 +34,20 @@ class Country extends CI_Controller {
 
     function country(){
 
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
 		$page_data['page_name']  = 'country/country';
         $page_data['page_title'] = get_phrase('country');
         $this->load->view('index', $page_data);
 	}
     /*** country ***/
     function country_list($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('country');
         $this->load->view('country/country_list',$page_data);
     }
@@ -88,6 +100,10 @@ class Country extends CI_Controller {
     }
 
     public function country_data(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
 
         // DB table to use
         $table = 'country where is_delete=0';

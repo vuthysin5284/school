@@ -28,23 +28,16 @@
 <div class="row m-t-md">
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
-
             <li class="active default">
-                <a href="<?php echo base_url();?>floor/floor_list"
-                   data-url="<?php echo base_url();?>floor/floor_list">
-                    <i class="fa fa-exclamation-circle"></i>Floor</a></li>
+                <a href="<?php echo base_url();?>leave/leave_type"
+                   data-url="<?php echo base_url();?>leave_type/leave_type_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-inbox"></i>Leave Type</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>building/building_list"
-                   data-url="<?php echo base_url();?>building/building_list">
-                    <i class="fa fa-exclamation-circle"></i>building</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Location</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>leave/leave_type" data-url="<?php echo base_url();?>leave_type/leave_type_list"
-                data-toggle="tab" aria-expanded="false">
-                <i class="fa fa-inbox"></i>Leave Type</a></li>
+                <a href="<?php echo base_url();?>leave/leave"
+                   data-url="<?php echo base_url();?>leave/leave_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-sign-out"></i>Employee Leave Setup</a></li>
+
+
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">
@@ -54,7 +47,7 @@
                 <div class="menu-overly-mask"></div>
                 <!-- Mobile Filter bar End-->
 
-                <div class="adds-wrapper">
+                <div class="adds-wrapper" style="margin-bottom:200px">
                     <div class="tab-content">
                         <div class="tab-pane active" id="document_render">Loading...</div>
                     </div>

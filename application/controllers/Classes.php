@@ -19,6 +19,10 @@ class Classes extends CI_Controller {
 	*/
     function new_classes($param1 = '',$param2 = '',$param3 = '')
     {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
         $obj = new stdClass();
         $obj->classes_id = $param1;
 		
@@ -30,6 +34,10 @@ class Classes extends CI_Controller {
     }
 
     function room(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
 
 		$page_data['page_name']  = 'masterdata/classes/classes';
         $page_data['page_title'] = get_phrase('classes');
@@ -37,6 +45,10 @@ class Classes extends CI_Controller {
 	}
     /*** classes ***/
     function classes_list($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('classes');
         $this->load->view('masterdata/classes/classes_list',$page_data);
     }
@@ -91,6 +103,10 @@ class Classes extends CI_Controller {
 
 
     public function classes_data(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
         // DB table to use
         $table = 'classes where is_delete=0';
         $primaryKey	= "id";
