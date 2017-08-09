@@ -30,16 +30,16 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
 
             <li class="active default">
-                <a href="<?php echo base_url();?>testingregister/testing_record_list"
-                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
+                <a href="<?php echo base_url();?>testing_register/testing_record_list"
+                   data-url="<?php echo base_url();?>testing_register/testing_record_list">
                     <i class="fa fa-exclamation-circle"></i>Testing Records</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>building/building_list"
-                   data-url="<?php echo base_url();?>building/building_list">
+                <a href="<?php echo base_url();?>testing_register/testing_information"
+                   data-url="<?php echo base_url();?>testing_register/testing_information">
                     <i class="fa fa-exclamation-circle"></i>Waiting Register</a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>testingregister/testing_record_list"
-                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
+                <a href="<?php echo base_url();?>testing_register/testing_information"
+                   data-url="<?php echo base_url();?>testing_register/testing_information">
                     <i class="fa fa-exclamation-circle"></i>Testing Result</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>testingregister/testing_record_list"
