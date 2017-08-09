@@ -28,19 +28,15 @@
 <div class="row m-t-md">
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
+            <li class="active default">
+                <a href="<?php echo base_url();?>leave/leave_type"
+                   data-url="<?php echo base_url();?>leave_type/leave_type_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-inbox"></i>Leave Type</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>leave/leave"
+                   data-url="<?php echo base_url();?>leave/leave_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-sign-out"></i>Employee Leave Setup</a></li>
 
-            <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Leave Entry View</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Leave(s) Report</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>finance/voucher_entry"
-                   data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Employee Leave Balance</a></li>
 
         </ul>
     </div>
