@@ -39,7 +39,7 @@
                 
             </div>
             
-<<<<<<< HEAD
+
             <div class="form-group">               
                 <input type="checkbox" name="status" id="status"
                  <?php echo $data->status==0?'':'checked';?> />
@@ -54,13 +54,6 @@
             </div>
 
             <?php echo form_close();?>
-=======
-            id : <input type="text" id="id" class="form-control" placeholder="employee id" style="width: 200px" /></br>
-          
-            Name : <input type="text" id="name" class="form-control" placeholder="employeelist name" style="width: 200px" /></br>
-           
-            Description : <input type="text" id="name" class="form-control" placeholder="description" style="width: 200px" /></br>
->>>>>>> 0f20f13fe51112017baffeacc88448465ca4ffbd
         </div>
 
         <div role="tabpanel" class="tab-pane" id="tab3">
