@@ -1,4 +1,3 @@
-
 // this is the id of the form
 $("#btnSaveNew").on('click',function(e) {
     //alert("Save new");
@@ -19,6 +18,23 @@ $("#btnSaveNew").on('click',function(e) {
         return false;
     }
 
+    var url = baseurl+'enrolment/create_new_enrolment';
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType:"JSON",
+        data: $("#frmNewEnrolment").serialize(), // serializes the form's elements.
+        success: function(data){
+            // close modal add product
+            //$('#modal_ajax').modal('hide');
+            //$('#document_render').html(data);
+            $("#enrolment_name").val('');
+            $("#enrolment_email").val('');
+            $("#enrolment_address").val('');
+            datable_result.ajax.reload();
+        }
+    });
+
     e.preventDefault();
 });
 
@@ -28,6 +44,9 @@ $("#btnSubmit").on('click',function(e) {
     //$('#document_render').html();
 
     // Requirement
+    // load_ajax(123);
+    // return false;
+
      if($("#enrolment_name").val()==''){
          $("#enrolment_name").css('border','1px solid red');
          return false;
@@ -43,22 +62,53 @@ $("#btnSubmit").on('click',function(e) {
         return false;
     }
 
-
-
+    var id = 0;
+    var url = baseurl+'enrolment/create_new_enrolment';
     $.ajax({
         type: "POST",
-        url: baseurl+'student/enrolment_detail_info',
-        //dataType:"JSON",
-        //data: $("#frmNewEnrolment").serialize(), // serializes the form's elements.
+        url: url,
+        dataType:"JSON",
+        data: $("#frmNewEnrolment").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
-            $('#modal_ajax').modal('hide');
-            $('#document_render').html(data);
+
+            //$('#document_render').html(data);
+            
+            id = data.enrolment_id;
+            //alert(id);
+            $.ajax({
+                type: "POST",
+                url: baseurl + "student/enrolment_detail_info",
+                data:{
+                    en_id : id
+                },
+                //dataType:"json",
+                //cache: "false",
+                success: function (data1) {
+                    $('#modal_ajax').modal('hide');
+                    $('#document_render').html(data1);
+                }
+             });
+            
         }
     });
 
-    
+    // $.ajax({
+    //     type: "POST",
+    //     url: baseurl + 'student/enrolment_detail_info',
+    //     // data:{
+    //     //     en_id : id
+    //     // },
+    //     //dataType:"json",
+    //     //cache: "false",
+    //     success: function (data) {
+    //         $('#modal_ajax').modal('hide');
+    //         $('#document_render').html(data);
+    //     }
+    // });
 
+
+    // datable_result.ajax.reload();
     // var url = baseurl+'enrolment/create_new_enrolment';
     // $.ajax({
     //     type: "POST",
