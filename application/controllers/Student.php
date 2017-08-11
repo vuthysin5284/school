@@ -36,9 +36,25 @@ class Student extends CI_Controller {
     }
 
     function enrolment_detail_info(){
+        
+        //echo $this->input->post("enrolment_id");
+           
+        $en_id = $this->input->post('en_id');
         $page_data['page_title'] = get_phrase('enrolment detail info');
-        $page_data['page_data'] = $this->db->select('*')->from('enrolment')->get()->result();
+        $page_data['data'] = $this->db->select('*')->from('enrolment')->where('id',$en_id)->get()->row();
+        
         $this->load->view('student/enrolment/enrolment_detail_info', $page_data);
+    }
+
+    function edit_enrolment_detail_info($param1=''){
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+
+        $page_data['page_title'] = get_phrase('edit enrolment detail info');
+        $page_data['data'] = $this->db->select('*')->from('enrolment')->where('id',$obj->id)->get()->row();
+        $this->load->view('student/enrolment/enrolment_detail_info', $page_data);
+
     }
 
     public function get_enrolment_data(){

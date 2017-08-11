@@ -25,21 +25,21 @@
            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('enrolment_name');?> <span class="red">*</span>
            </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="enrolment_name" name="enrolment_name" placeholder="enrolment name" />
+                <input type="text" class="form-control" id="enrolment_name" name="enrolment_name" placeholder="enrolment name" value="<?php echo $enrolment_detail["name"]?>" />
             </div>
     </div>        
 
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('enrolment_email');?><span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="enrolment_email" name="enrolment_email" placeholder="enrolment email "/>
+                <input type="text" class="form-control" id="enrolment_email" name="enrolment_email" placeholder="enrolment email " value="<?php echo $enrolment_detail["email"]?>"/>
              </div>
     </div> 
 
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('enrolment_address');?><span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="enrolment_address" name="enrolment_address" placeholder="enrolment adress "/>
+                <input type="text" class="form-control" id="enrolment_address" name="enrolment_address" placeholder="enrolment adress " value="<?php echo $enrolment_detail["address"]?>"/>
              </div>
     </div>
               
@@ -58,7 +58,11 @@
             <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
             <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
             <button type="button" id="btnSubmit" class="btn btn-info">
-                <?php echo get_phrase('save');?>
+                <?php if($enrolment_detail["id"]==''){?>
+                    <?php echo get_phrase('save');?>
+                <?php }else {?>
+                    <?php echo get_phrase('edit');?>
+                <?php } ?>
             </button>
             <button type="button" id="btnSaveNew" class="btn btn-info"><?php echo get_phrase('save_new');?></button>
         </div>
