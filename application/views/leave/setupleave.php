@@ -32,12 +32,6 @@
                 <a href="<?php echo base_url();?>leave/leave_type"
                    data-url="<?php echo base_url();?>leave_type/leave_type_list" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Leave Type</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>leave/leave"
-                   data-url="<?php echo base_url();?>leave/leave_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-sign-out"></i>Employee Leave Setup</a></li>
-
-
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">
