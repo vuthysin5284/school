@@ -19,37 +19,14 @@ class TestingRegister extends CI_Controller {
     function index(){
         $page_data['page_name']  = 'testing_register/index';
         $page_data['page_width'] = 40;
-        $page_data['page_title'] = get_phrase('student');
+        $page_data['page_title'] = get_phrase('testing_register');
         $this->load->view('index', $page_data);
 
     }
-
-    /*** testing register ***/
-    function testing_record_list($param1='',$param2='',$param3=''){
-        $page_data['page_title'] = get_phrase('testing_records');
-        $this->load->view('testing_register/testing_records',$page_data);
-    }
-    public function testing_record_data(){
-
-        // DB table to use
-        $table = 'deal';
-        $primaryKey = "id";
-        // indexes
-        $columns = array(
-            array('db' => 'id', 		'dt' => "id", 			'field' => 'id'),
-            array('db' => 'deal_name', 	'dt' => "deal_name", 	'field' => 'deal_name'),
-            array('db' => 'contact',    'dt' => "contact",      'field' => 'contact'),
-            array('db' => 'status', 	'dt' => "status", 		'field' => 'status'),
-            array('db' => 'company',    'dt' => "company", 	    'field'	=> 'company')
-        );
-
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
-
-
-
-
-    }
-
+	
+   	/*
+	*	$page_name		=	The name of page
+	*/
 
 
 } 
