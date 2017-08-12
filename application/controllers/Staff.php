@@ -42,10 +42,18 @@ class Staff extends CI_Controller
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
     }//end section status
 	
-	//employeelist status
+	//employee status
     function employee(){
         $page_data['page_title'] = get_phrase('employee');
         $this->load->view('staff/employee/employee', $page_data);
+    }
+	function employee_detail_info(){
+		
+        $page_data['page_name']  = 'staff/employee/employee_detail_info'; 
+		
+        $page_data['page_title'] = get_phrase('employee detail info');
+        $page_data['page_data'] = $this->db->select('*')->from('employee')->get()->result();
+        $this->load->view('index', $page_data);
     }
 	 public function get_employee_data(){
         // DB table to use
@@ -61,6 +69,9 @@ class Staff extends CI_Controller
 			array('db' => 'position', 				'dt' => "position", 				'field' => 'position'),
 			array('db' => 'department', 			'dt' => "department", 				'field' => 'department'),
 			array('db' => 'phone', 					'dt' => "phone", 					'field' => 'phone'),
+			array('db' => 'joined_date', 			'dt' => "joined_date", 				'field' => 'joined_date'),
+			array('db' => 'hired_date', 			'dt' => "hired_date", 				'field' => 'hired_date'),
+			array('db' => 'email', 					'dt' => "email", 					'field' => 'email'),
 			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
 			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
@@ -318,4 +329,29 @@ class Staff extends CI_Controller
 		$this->load->model('datatable_model');
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 	}
+	
+	
+	/* section employee detail */
+	//employee general
+    function employee_general(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_general');
+        $this->load->view('staff/employee/employee_general', $page_data);
+    }
+	
+	// employee contact
+	function employee_contact(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_contact');
+        $this->load->view('staff/employee/employee_contact', $page_data);
+    }
+	
 }

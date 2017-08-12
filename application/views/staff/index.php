@@ -32,11 +32,11 @@
                 <a href="<?php echo base_url();?>staff/employee"
                    data-url="<?php echo base_url();?>staff/employee" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Employee</a></li>
-            <li class="active default">
+            <li class="default">
                 <a href="<?php echo base_url();?>staff/employee"
                    data-url="<?php echo base_url();?>staff/employee" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Employee Attendance</a></li>
-            <li class="active default">
+            <li class="default">
                 <a href="<?php echo base_url();?>staff/employee"
                    data-url="<?php echo base_url();?>staff/employee" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Salary Adjustment</a></li>

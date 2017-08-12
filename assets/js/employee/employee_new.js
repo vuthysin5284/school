@@ -7,12 +7,24 @@ $("#btnSubmit").on('click',function(e) {
         $("#employee_number").css('border','1px solid red');
         return false;
     }
+	
+	 $.ajax({
+        type: "POST",
+        url: baseurl+'staff/employee_detail_info',
+        //dataType:"JSON",
+        //data: $("#frmNewEnrolment").serialize(), // serializes the form's elements.
+        success: function(data){
+            // close modal add product
+            $('#modal_ajax').modal('hide');
+            $('#document_render').html(data);
+        }
+    });
     /*if($("#description").val()==''){
         $("#description").css('border','1px solid red');
         return false;
     }*/
 
-    var url = baseurl+'employee/create_new_employee';
+   /* var url = baseurl+'employee/create_new_employee';
     $.ajax({
         type: "POST",
         url: url,
@@ -24,7 +36,7 @@ $("#btnSubmit").on('click',function(e) {
             // this table call from pricebook js to modal add product
             datable_result.ajax.reload();
         }
-    });
+    });*/
 
     e.preventDefault(); // avoid to execute the actual submit of the form.
 });

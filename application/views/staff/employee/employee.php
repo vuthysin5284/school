@@ -20,7 +20,9 @@
             <th>Position</th>
             <th>Department</th>
             <th>Phone</th>
-            <th>Phone</th>
+            <th>Joined Date</th>
+            <th>Hired Date</th>
+            <th>Email</th>
             <th>Status</th>
             <th></th>
         </tr>

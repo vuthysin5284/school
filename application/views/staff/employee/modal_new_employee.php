@@ -74,7 +74,34 @@
                 </select>
             </div>
         </div>
-              
+      <div class="form-group">
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('phone');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="phone" name="phone" placeholder="phone" />
+            </div>
+    </div>   
+    <div class="form-group">
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('joined_date');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="joined_date" name="joined_date" placeholder="joined date" />
+            </div>
+    </div>    
+    <div class="form-group">
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('hired_date');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="hired_date" name="hired_date" placeholder="hired date" />
+            </div>
+    </div>       
+       <div class="form-group">
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('email');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="email" class="form-control" id="email" name="email" placeholder="email" />
+            </div>
+    </div>       
         <div class="form-group">
            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('status');?> <span class="red">*</span>
            </label>
