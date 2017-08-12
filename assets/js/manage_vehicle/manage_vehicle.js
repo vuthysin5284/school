@@ -12,15 +12,18 @@ $(document).ready(function() {
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
-
         "ajax"       : {
             "url"    : baseurl+'manage_vehicle/vehicle_data',
             "type"   : 'POST',
-            "destroy" : true
+            "destroy" : true,
+            "data"  : function (d) {
+                d.min_data = $("#min").val(),
+                d.max_data = $("#max").val()
+            }
         },
         language: {
-            processing: "<img src='../manage_vehicle/"+baseurl+"assets/images/reload.gif'>",
-            loadingRecords: "<img src='../manage_vehicle/"+baseurl+"assets/images/reload.gif'>",
+            processing: "<img src="+baseurl+"assets/images/reload.gif>",
+            loadingRecords: "<img src="+baseurl+"assets/images/reload.gif>",
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
@@ -55,6 +58,12 @@ $(document).ready(function() {
         ],
         "order": [[0, 'desc']],
     });
+
+    // Event listener to the two range filtering inputs to redraw on input
+    $('#min, #max').keyup( function() {
+        datable_result.ajax.reload();
+    } );
+
 } );
 
 

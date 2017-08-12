@@ -30,9 +30,9 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
 
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Leave Entry View</a></li>
+                <a href="<?php echo base_url();?>leave/leave_list"
+                   data-url="<?php echo base_url();?>leave/leave_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-file-text-o"></i>Your leave</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
@@ -40,7 +40,16 @@
             <li class="default">
                 <a href="<?php echo base_url();?>finance/voucher_entry"
                    data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Employee Leave Balance</a></li>
+                    <i class="fa fa-exclamation-circle"></i>Leave Balance</a></li>
+
+            <li class="default">
+                <a href="<?php echo base_url();?>finance/voucher_entry"
+                   data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-exclamation-circle"></i>MTD Report</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>finance/voucher_entry"
+                   data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-exclamation-circle"></i>YTD Report</a></li>
 
         </ul>
     </div>

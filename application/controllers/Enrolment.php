@@ -47,8 +47,9 @@ class Enrolment extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
-        $data["code"] 	= $this->input->post("code");                                    // Field
-        $data["name"]   = $this->input->post("name");
+        $data["name"] 	= $this->input->post("enrolment_name");                                 //Field
+        $data["email"]   = $this->input->post("enrolment_email");
+        $data["address"]   = $this->input->post("enrolment_address");
         $data["status"] = empty($this->input->post("status"))?0:1;
 		
 
@@ -62,7 +63,10 @@ class Enrolment extends CI_Controller {
 			$data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
 			$data['is_delete']=0;
-            $data["enrolment_id"] = $this->enrolment_m->new_enrolment($data);
+            // $data["enrolment_id"] = $this->enrolment_m->new_enrolment($data);
+            $enrolment_id = $this->enrolment_m->new_enrolment($data);
+
+            //$this->load->view('student/enrolment/enrolment_detail_info', $data);
         }else if($crud=='edit'){ // edit
 			$data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
@@ -70,15 +74,50 @@ class Enrolment extends CI_Controller {
             $this->enrolment_m->edit_enrolment($data,$id);
             $data["enrolment_id"] = $id;
         }
-        echo json_encode(array("data"=>$data));
+        echo json_encode(array("enrolment_id"=>$enrolment_id));
 
     }
+    /* update  */
+
+    function edit_enrolment($param1='',$param2='',$param3=''){
+        //echo "data recieve";
+
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+
+        $data["name"]   = $this->input->post("name");                                 //Field
+        $data["email"]   = $this->input->post("email");
+        $data["address"]   = $this->input->post("address");
+        $data["status"] = empty($this->input->post("status"))?0:1;
+
+        $id = empty($this->input->post("pb_hidden_id"))?0:$this->input->post("pb_hidden_id");
+        $crud = $this->input->post("pb_crud_id");
+
+        if($crud=='edit'){ // edit
+            $data["modified_by"]    = $this->session->userdata("user_id");
+            $data["modified_date"]  = date('Y-m-d h:s:i');
+            //
+            $this->enrolment_m->edit_enrolment($data,$id);
+            //$data["enrolment_id"] = $id;
+            $enrolment_id = $id;
+        }
+
+        //echo json_encode(array("enrolment_id"=>$enrolment_id));
+        $page_data['page_title'] = get_phrase('enrolment');
+        $this->load->view('student/enrolment/enrolment_list', $page_data);
+    }
+
+
+
     /* delete */
     function delete($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
+
         $obj = new stdClass();
         $obj->id = $param1;
         //

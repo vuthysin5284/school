@@ -3,21 +3,27 @@
 $("#btnSubmit").on('click',function(e) {
 
     // requirement
-    if($("#employeelist_name").val()==''){
-        $("#employeelist_name").css('border','1px solid red');
+    if($("#code").val()==''){
+        $("#code").css('border','1px solid red');
         return false;
     }
+
+    if($("#name").val()==''){
+        $("#name").css('border','1px solid red');
+        return false;
+    }
+    
     /*if($("#description").val()==''){
         $("#description").css('border','1px solid red');
         return false;
     }*/
 
-    var url = baseurl+'employeelist/create_new_employeelist';
+    var url = baseurl+'leave_type/create_new_leave_type';
     $.ajax({
         type: "POST",
         url: url,
         dataType:"JSON",
-        data: $("#frmNewEmployeelist").serialize(), // serializes the form's elements.
+        data: $("#frmNewLeavetype").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
             $('#modal_ajax').modal('hide');

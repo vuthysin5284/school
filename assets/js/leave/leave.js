@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'employee_list/new_employee_list/';
-var _url_del =  baseurl+'employee_list/delete/';
+var _url_path =  baseurl+'leave_type/new_leave_type/';
+var _url_del =  baseurl+'leave_type/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_employee_list').DataTable( {
+    datable_result = $('#datable_leave_type').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'staff/get_employee_list_data',
+            "url"    : baseurl+'leave/get_leave_type_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,13 +23,8 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "employee_number"},
-            { "data" : "latin_name" },
-			{ "data" : "khmer_name" },
-			{ "data" : "gender" },
-			{ "data" : "position" },
-			{ "data" : "department" },
-			{ "data" : "phone" },
+            { "data" : "code"},
+            { "data" : "name" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';

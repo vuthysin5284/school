@@ -30,20 +30,16 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
             <li class="active default">
                 <a href="<?php echo base_url();?>manage_vehicle/manage_vehicle_list"
+                   data-url="<?php echo base_url();?>manage_vehicle/manage_vehicle_list">
+                    <i class="fa fa-exclamation-circle"></i>Report</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>manage_vehicle/manage_vehicle_list"
                    data-url="<?php echo base_url();?>manage_vehicle/manage_vehicle_list" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Manage Vehicle<span class="badge badge-success pull-right">346</span></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>manage_route/manage_route_list"
                    data-url="<?php echo base_url();?>manage_route/manage_route_list" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-sign-out"></i>Manage Route</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>classes/classes_list"
-                   data-url="<?php echo base_url();?>classes/classes_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Student-Vehicle Mapping</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>transportation/transportation_list"
-                   data-url="<?php echo base_url();?>transportation/transportation_list">
-                    <i class="fa fa-exclamation-circle"></i>Report</a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

@@ -22,9 +22,9 @@
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
         <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('vehicle_number');?> <span class="red">*</span></label>
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('vehicle_Plate');?> <span class="red">*</span></label>
             <div class="col-sm-8">  
-                <input type="text" class="form-control" id="vehicle_number" name="vehicle_number" value="<?php echo $vehicle_detail["vehicle_number"]?>" placeholder="vehicle number"  autofocus />
+                <input type="text" class="form-control" id="vehicle_number" name="vehicle_number" value="<?php echo $vehicle_detail["vehicle_number"]?>" placeholder="vehicle plate"  autofocus />
             </div>
         </div>
         
