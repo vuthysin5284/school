@@ -16,6 +16,8 @@ class Staff extends CI_Controller
     }
     function index()
     {
+
+        $page_data['page_width']  = "90";
         $page_data['page_name']  = 'staff/index';
         $page_data['page_title'] = get_phrase('staff');
         $this->load->view('index', $page_data);
@@ -53,7 +55,7 @@ class Staff extends CI_Controller
 		
         $page_data['page_title'] = get_phrase('employee detail info');
         $page_data['page_data'] = $this->db->select('*')->from('employee')->get()->result();
-        $this->load->view('index', $page_data);
+        $this->load->view('staff/employee/employee_detail_info', $page_data);
     }
 	 public function get_employee_data(){
         // DB table to use

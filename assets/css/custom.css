@@ -8,7 +8,7 @@ body, p {
     border-radius: 0;
 }
 
-input[type="text"], select.form-control, textarea.form-control {
+input[type="text"], select.form-control, textarea.form-control, input[type="password"],input[type="date"] {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
 }
@@ -62,4 +62,8 @@ thead {
 }
 table.dataTable tbody th, table.dataTable tbody td {
     padding: 5px 10px;
+}
+
+.form-group {
+    margin-bottom: 5px;
 }

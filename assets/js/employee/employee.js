@@ -1,7 +1,7 @@
 // JavaScript Document
 var datable_result;
 var _url_path =  baseurl+'employee/new_employee/';
-var _url_edit = baseurl+'student/employee_detail_info/';
+var _url_edit = baseurl+'staff/employee_detail_info/';
 var _url_del =  baseurl+'employee/delete/';
 
 $(document).ready(function() {
@@ -44,7 +44,7 @@ $(document).ready(function() {
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
                         '<center>'+                                             
-                        '<a href="javascript:void(0);" class="label label-info" onclick="edit_employee_data(\''+_url_edit+'\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
+                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
                         '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
                         '</center>');
                 }
