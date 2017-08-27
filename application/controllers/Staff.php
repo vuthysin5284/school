@@ -356,4 +356,116 @@ class Staff extends CI_Controller
         $this->load->view('staff/employee/employee_contact', $page_data);
     }
 	
+	// employee background
+	function employee_background(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_background');
+        $this->load->view('staff/employee/employee_background', $page_data);
+    }
+	// employee skills
+	function employee_skills(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_skills');
+        $this->load->view('staff/employee/employee_skills', $page_data);
+    }
+	// employee_language
+	function employee_language(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_language');
+        $this->load->view('staff/employee/employee_language', $page_data);
+    }
+	// employee_experience
+	function employee_experience(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_experience');
+        $this->load->view('staff/employee/employee_experience', $page_data);
+    }
+	
+	// employee_family
+	function employee_family(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_family');
+        $this->load->view('staff/employee/employee_family', $page_data);
+    }
+	// employee_referrence
+	function employee_referrence(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_referrence');
+        $this->load->view('staff/employee/employee_referrence', $page_data);
+    }
+	// employee_tracking
+	function employee_tracking(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_tracking');
+        $this->load->view('staff/employee/employee_tracking', $page_data);
+    }
+	// employee_document
+	function employee_document(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_document');
+        $this->load->view('staff/employee/employee_document', $page_data);
+    }
+	// employee_internal_training
+	function employee_internal_training(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_internal_training');
+        $this->load->view('staff/employee/employee_internal_training', $page_data);
+    }
+	// employee_payslip
+	function employee_payslip(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_payslip');
+        $this->load->view('staff/employee/employee_payslip', $page_data);
+    }
+	// employee_discipline
+	function employee_discipline(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('employee_discipline');
+        $this->load->view('staff/employee/employee_discipline', $page_data);
+    }
+	
 }
