@@ -55,7 +55,7 @@
                         "gender_id"=> empty($data->gender_id)?'':$data->gender_id,
 						"nationality"=> empty($data->nationality)?'':$data->nationality,
 						"date_of_birth"=> empty($data->date_of_birth)?'':$data->date_of_birth,
-						"address"=> empty($data->address)?'':$data->address,
+						"age"=> empty($data->age)?'':$data->age,
 						"test_id"=> empty($data->test_id)?'':$data->test_id,
                         "status"=> empty($data->status)?'':$data->status,
 						"created_by"=> empty($data->create_by)?'':$data->create_by,
