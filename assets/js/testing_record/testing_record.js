@@ -3,6 +3,7 @@
 var datable_result;
 var _url_path =  baseurl+'testing_register/new_record/';
 var _url_del =  baseurl+'testing_register/delete/';
+var _url_edit = baseurl+'testing_register/testing_record_detail_info/';
 
 $(document).ready(function() {
     datable_result = $('#datable_register').DataTable( {
@@ -24,13 +25,19 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "student_name" },
-            { "data" : "middle_name"},
+			{ "data" : "testing_id" },
+            { "data" : "latin_name" },
+            { "data" : "khmer_name"},
             { "data" : "gender_id" },
 			{ "data" : "nationality" },
 			{ "data" : "date_of_birth" },
-			{ "data" : "address"},
-			{ "data" : "test_id"},
+			{ "data" : "age"},
+			{ "data" : "academic_year"},
+			{ "data" : "expected_class"},
+			{ "data" : "language"},
+			{ "data" : "relative_name"},
+			{ "data" : "contact_number"},
+			{ "data" : "relative"},
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
@@ -41,7 +48,7 @@ $(document).ready(function() {
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html( 
 						'<center>'+
-							'<a href="javascript:void(0);" class="label label-info" onclick="test(\''+oData.id+'\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
+							'<a href="javascript:void(0);" class="label label-info" onclick="edit_testing(\''+_url_edit+oData.id+'\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
 							'<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
 						'</center>');
                 }
@@ -68,12 +75,16 @@ function remove_row(url){
     });
 }
 
-function test(id){
+function edit_testing(url){
 	$.ajax({
         type: "POST",
-        url: baseurl+"testing_register/load_ajax",
-		data: {id : id},
+        url: url,
+        //dataType:"JSON",
+        //data: $("#frmNewEnrolment").serialize(), // serializes the form's elements.
         success: function(data){
+            //alert(data);
+            
+            $('#modal_ajax').modal('hide');
             $('#document_render').html(data);
         }
     });

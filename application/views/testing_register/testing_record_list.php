@@ -13,13 +13,19 @@
 <table id="datable_register" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Middle Name</th>
+        	<th>Auto Number</th>
+            <th>Khmer Name</th>
+            <th>English Name</th>
             <th>Gender</th>
             <th>Nationality</th>
             <th>Date of Birth</th>
-            <th>Address</th>
-            <th>Test ID</th>
+            <th>Age</th>
+            <th>Academic Year</th>
+            <th>Expected Class</th>
+            <th>Language</th>
+            <th>Relative Name</th>
+            <th>Contact Number</th>
+            <th>Relative</th>
             <th>STATUS</th>
             <th>Options</th>
         </tr>
