@@ -21,6 +21,10 @@ class Employee extends CI_Controller {
 	*/
     function new_employee($param1 = '',$param2 = '',$param3 = '')
     {
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $obj = new stdClass();
         $obj->id = $param1;
         $page_data["employee_detail"] = $this->employee_m->get_employee_detail($obj);
@@ -29,6 +33,10 @@ class Employee extends CI_Controller {
     }
 
     function employee(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 
 		$page_data['page_name']  = 'employee/employee';
         $page_data['page_title'] = get_phrase('employee');
@@ -36,6 +44,10 @@ class Employee extends CI_Controller {
 	}
     /*** employee list ***/
     function employee_list($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('employee');
         $this->load->view('employee/employee_list',$page_data);
     }

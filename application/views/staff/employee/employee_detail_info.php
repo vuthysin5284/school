@@ -83,7 +83,7 @@
         <div class="form-actions pull-right" style="margin-right:20px;">
             <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
             <button type="button" class="btn btn-info"><?php echo get_phrase('transfer');?></button>
-            <button type="button" class="btn btn-info"><?php echo get_phrase('transfer');?></button>
+            <button type="button" class="btn btn-info"><?php echo get_phrase('terminate');?></button>
             <button type="button" class="btn btn-info"><?php echo get_phrase('Review');?></button>
             <button type="button" id="btnSubmit" class="btn btn-info"><?php echo get_phrase('save');?></button>
         </div>

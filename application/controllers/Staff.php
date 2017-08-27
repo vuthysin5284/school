@@ -16,6 +16,10 @@ class Staff extends CI_Controller
     }
     function index()
     {
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 
         $page_data['page_width']  = "90";
         $page_data['page_name']  = 'staff/index';
@@ -24,10 +28,18 @@ class Staff extends CI_Controller
     }
 	//section
     function section(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('section');
         $this->load->view('staff/section/section', $page_data);
     }
 	public function get_section_data(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         // DB table to use
         $table = 'section where is_delete=0' ;
 		$primaryKey = "id";
@@ -46,10 +58,18 @@ class Staff extends CI_Controller
 	
 	//employee status
     function employee(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('employee');
         $this->load->view('staff/employee/employee', $page_data);
     }
 	function employee_detail_info(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 		
         $page_data['page_name']  = 'staff/employee/employee_detail_info'; 
 		
@@ -58,6 +78,10 @@ class Staff extends CI_Controller
         $this->load->view('staff/employee/employee_detail_info', $page_data);
     }
 	 public function get_employee_data(){
+         if ($this->session->userdata('is_login') != 1){
+             $this->session->set_userdata('last_page', current_url());
+             redirect(base_url(). 'login', 'refresh');
+         }
         // DB table to use
         $table = 'employee where is_delete=0' ;
 		$primaryKey = "id";
