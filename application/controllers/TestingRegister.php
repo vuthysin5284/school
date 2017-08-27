@@ -18,7 +18,7 @@ class TestingRegister extends CI_Controller {
 
     function index(){
         $page_data['page_name']  = 'testing_register/index';
-        $page_data['page_width'] = 40;
+        $page_data['page_width']  = "90";
         $page_data['page_title'] = get_phrase('testing_register');
         $this->load->view('index', $page_data);
 
