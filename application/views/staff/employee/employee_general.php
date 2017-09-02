@@ -126,6 +126,13 @@
          
          
          <div class="col-md-6">
+         
+         	<div class="form-group">
+                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('remark');?></label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" readonly placeholder="Address" />  
+                </div>
+           	 </div>
          	 <div class="form-group">
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('pos_class');?> <span class="red">*</span></label>
             <div class="col-sm-8">
