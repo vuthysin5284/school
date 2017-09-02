@@ -54,6 +54,8 @@ class Testing_register extends CI_Controller {
         $obj->id = $param1;
         $page_data["record_detail"] = $this->record_m->get_record_detail($obj);
 		$page_data["gender_list"] = $this->record_m->get_record_list($obj);
+		$page_data["expected_class_list"] = $this->record_m->get_expected_class_list($obj);
+		$page_data["academic_year_list"] = $this->record_m->get_academic_year_list($obj);
         $page_data["crud"] = $param2;
         $this->load->view('testing_register/model_new_testing_record' ,$page_data);
     }
@@ -96,7 +98,7 @@ class Testing_register extends CI_Controller {
 		$data["testing_id"] = $this->input->post("testing_id");
 		$data["latin_name"]    = $this->input->post("latin_name");
 		$data["khmer_name"] = $this->input->post("khmer_name");
-        $data["gender_id"] 	= $this->input->post("gender_id");
+        $data["gender"] 	= $this->input->post("gender");
         $data["nationality"] 	    = $this->input->post("nationality");
 		$data["date_of_birth"] 	    = $this->input->post("date_of_birth");
 		$data["age"] 	    = $this->input->post("age");
@@ -142,7 +144,7 @@ class Testing_register extends CI_Controller {
 		$data["testing_id"] = $this->input->post("testing_id");
 		$data["latin_name"]    = $this->input->post("latin_name");
 		$data["khmer_name"] = $this->input->post("khmer_name");
-        $data["gender_id"] 	= $this->input->post("gender_id");
+        $data["gender"] 	= $this->input->post("gender");
         $data["nationality"] 	    = $this->input->post("nationality");
 		$data["date_of_birth"] 	    = $this->input->post("date_of_birth");
 		$data["age"] 	    = $this->input->post("age");
@@ -197,7 +199,7 @@ class Testing_register extends CI_Controller {
 			array( 'db' => 'latin_name',     'dt'	=> "latin_name",     'field'	=> 'latin_name' ),
             array( 'db' => 'khmer_name',     'dt'	=> "khmer_name",     'field'	=> 'khmer_name' ),
 			
-     		array( 'db' => 'gender_id',   'dt'	=> "gender_id", 	'field'	=> 'gender_id' ),
+     		array( 'db' => 'gender',   'dt'	=> "gender", 	'field'	=> 'gender' ),
 			array( 'db' => 'nationality',   'dt'	=> "nationality", 	'field'	=> 'nationality' ),
 			array( 'db' => 'date_of_birth',   'dt'	=> "date_of_birth", 	'field'	=> 'date_of_birth' ),
 			array( 'db' => 'age',   'dt'	=> "age", 	'field'	=> 'age' ),
@@ -234,6 +236,16 @@ class Testing_register extends CI_Controller {
 		
         $page_data['page_title'] = get_phrase('student_information');
         $this->load->view('testing_register/student_information', $page_data);
+    }
+	
+	function expected_class(){
+		if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+		
+        $page_data['page_title'] = get_phrase('expected_class');
+        $this->load->view('testing_register/expected_class', $page_data);
     }
 
 } 

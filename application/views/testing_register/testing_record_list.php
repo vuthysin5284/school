@@ -14,8 +14,8 @@
     <thead>
         <tr>
         	<th>Auto Number</th>
+            <th>Latin Name</th>
             <th>Khmer Name</th>
-            <th>English Name</th>
             <th>Gender</th>
             <th>Nationality</th>
             <th>Date of Birth</th>

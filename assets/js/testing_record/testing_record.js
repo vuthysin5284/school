@@ -28,7 +28,7 @@ $(document).ready(function() {
 			{ "data" : "testing_id" },
             { "data" : "latin_name" },
             { "data" : "khmer_name"},
-            { "data" : "gender_id" },
+            { "data" : "gender" },
 			{ "data" : "nationality" },
 			{ "data" : "date_of_birth" },
 			{ "data" : "age"},

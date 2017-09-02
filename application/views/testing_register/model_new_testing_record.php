@@ -27,7 +27,7 @@
             <div class="form-group">
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('testing_id');?></label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="testing_id" name="testing_id" placeholder="Auto number" />
+                    <input type="text" class="form-control" id="testing_id" name="testing_id" placeholder="Auto number" value="<?php echo $record_detail["testing_id"]?>"/>
                 </div>
             </div>
 
@@ -35,21 +35,28 @@
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('latin_name');?> <span class="red">*</span>
                 </label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="latin_name" name="latin_name" placeholder="latin name" />
+                    <input type="text" class="form-control" id="latin_name" name="latin_name" placeholder="latin name" value="<?php echo $record_detail["latin_name"]?>"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('Khmer_name');?> <span class="red">*</span>
                 </label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="khmer_name" name="khmer_name" placeholder="khmer name" />
+                    <input type="text" class="form-control" id="khmer_name" name="khmer_name" placeholder="khmer name" value="<?php echo $record_detail["khmer_name"]?>" />
                 </div>
             </div>
             <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('gender_id');?> <span class="red">*</span></label>
+                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('gender');?> <span class="red">*</span></label>
                 <div class="col-sm-8">
-                    <select class="form-control" id="gender_id" name="gender_id" >
-                        <option value="0">... gender ...</option>
+                    <select class="form-control" id="gender" name="gender" >
+                        
+                        <?php
+						foreach($gender_list as $list){
+							$select = ($list->id == $record_detail['id'])?" selected":"";
+							echo "<option value='".$list->gender."' ".$select.">".$list->gender."</option>";
+						}
+					?>
+					?>
                     </select>
                 </div>
             </div>
@@ -57,7 +64,7 @@
                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('nationality');?> <span class="red">*</span>
                    </label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="nationality" name="nationality" placeholder="nationality" />
+                        <input type="text" class="form-control" id="nationality" name="nationality" placeholder="nationality" value="<?php echo $record_detail["nationality"]?>" />
                     </div>
             </div>
 
@@ -73,7 +80,7 @@
                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('age');?> <span class="red">*</span>
                    </label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="age" name="age" placeholder=""/>
+                        <input type="text" class="form-control" id="age" name="age"/>
                     </div>
             </div>
             
@@ -82,7 +89,12 @@
                    </label>
                     <div class="col-sm-8">
                      <select class="form-control" id="academic_year" name="academic_year" >
-                        <option value="0">... academic year ...</option>
+                     <?php
+						foreach($academic_year_list as $list){
+							$select = ($list->id == $record_detail['id'])?" selected":"";
+							echo "<option value='".$list->academic_year."' ".$select.">".$list->academic_year."</option>";
+						}
+					?>
                      </select>
                     </div>
             </div>
@@ -91,7 +103,12 @@
                    </label>
                     <div class="col-sm-8">
                       <select class="form-control" id="expected_class" name="expected_class" >
-                        <option value="0">... expected class ...</option>
+                        <?php
+						foreach($expected_class_list as $list){
+							$select = ($list->id == $record_detail['id'])?" selected":"";
+							echo "<option value='".$list->expected_class."' ".$select.">".$list->expected_class."</option>";
+						}
+					?>
                       </select>
                     </div>
             </div>
@@ -100,7 +117,7 @@
                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('language');?> <span class="red">*</span>
                    </label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="language" name="language" placeholder="language" />
+                        <input type="text" class="form-control" id="language" name="language" placeholder="language" value="<?php echo $record_detail["language"]?>"/>
                     </div>
             </div>
             
@@ -120,7 +137,7 @@
                        <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('address');?> <span class="red">*</span>
                        </label>
                         <div class="col-sm-8">
-                            <input type="address" class="form-control" id="address" name="address" placeholder="address" />
+                            <textarea class="form-control" id="address" name="address" value="<?php echo $record_detail["address"]?>"></textarea>
                         </div>
             </div>
 
@@ -129,7 +146,7 @@
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('relative_name');?> <span class="red">*</span>
                 </label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="relative_name" name="relative_name" placeholder="relative name" />
+                    <input type="text" class="form-control" id="relative_name" name="relative_name" placeholder="relative name" value="<?php echo $record_detail["relative_name"]?>" />
                 </div>
             </div>
         </div>
@@ -139,7 +156,7 @@
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('contact_number');?> <span class="red">*</span>
                 </label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="contact_number" name="contact_number" placeholder="contact number" />
+                    <input type="text" class="form-control" id="contact_number" name="contact_number" placeholder="contact number" value="<?php echo $record_detail["contact_number"]?>" />
                 </div>
             </div>
         </div>
@@ -149,7 +166,7 @@
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('relative');?> <span class="red">*</span>
                 </label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" id="relative" name="relative" placeholder="relative" />
+                    <input type="text" class="form-control" id="relative" name="relative" placeholder="relative" value="<?php echo $record_detail["relative"]?>"/>
                 </div>
             </div>
         </div>
