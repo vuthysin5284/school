@@ -125,14 +125,14 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
         // DB table to use
-        $table = 'enrolment where is_delete=0' ;														// Field
+        $table = 'enroll_general where is_delete=0' ;														// Field
         $primaryKey = "id";
         // indexes
         $columns = array(
             array('db' => 'id',                     'dt' => "id",                   'field' => 'id'),
-            array('db' => 'name',                   'dt' => "name",                 'field' => 'name'),
-            array('db' => 'email',                  'dt' => "email",                'field' => 'email'),
-            array('db' => 'address',                'dt' => "address",              'field' => 'address'),
+            array('db' => 'khmer_name',                   'dt' => "khmer_name",                 'field' => 'khmer_name'),
+            array('db' => 'latin_name',                  'dt' => "latin_name",                'field' => 'latin_name'),
+            array('db' => 'middle_name',                'dt' => "middle_name",              'field' => 'middle_name'),
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),
             array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete')
         );
