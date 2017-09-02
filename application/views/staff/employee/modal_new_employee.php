@@ -124,6 +124,21 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('staff_type');?> <span class="red">*</span>
+                </label>
+                <div class="col-sm-8">
+                    <select class="form-control" >
+                        <option>Office</option>
+                        <option>Teacher</option>
+                        <option>Cashie</option>
+                        <option>Security</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
     </div>
 
     <hr style="margin-top: 10px;"/>
