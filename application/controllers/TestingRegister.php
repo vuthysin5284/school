@@ -17,6 +17,10 @@ class TestingRegister extends CI_Controller {
     }
 
     function index(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_name']  = 'testing_register/index';
         $page_data['page_width']  = "90";
         $page_data['page_title'] = get_phrase('testing_register');

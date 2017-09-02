@@ -17,6 +17,11 @@ class Student extends CI_Controller {
     }
 
     function index(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+        $page_data['page_width']  = "60";
         $page_data['page_name']  = 'student/index';
         $page_data['page_title'] = get_phrase('student');
         $this->load->view('index', $page_data);
@@ -24,6 +29,10 @@ class Student extends CI_Controller {
     }
 
 	function profile(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 		
 		$page_data['page_name']  = 'student/profile/profile';
         $page_data['page_title'] = get_phrase('profile');
@@ -31,11 +40,19 @@ class Student extends CI_Controller {
 	} 
 
 	function enrolment(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('enrolment');
         $this->load->view('student/enrolment/enrolment_list', $page_data);
     }
 
     function enrolment_detail_info(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         
         //echo $this->input->post("enrolment_id");
            
@@ -47,6 +64,10 @@ class Student extends CI_Controller {
     }
 
     function edit_enrolment_detail_info($param1=''){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 
         $obj = new stdClass();
         $obj->id = $param1;
@@ -56,17 +77,62 @@ class Student extends CI_Controller {
         $this->load->view('student/enrolment/enrolment_detail_info', $page_data);
 
     }
+    // student general info
+    function student_general(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
 
+        $page_data['page_title'] = get_phrase('student_general');
+        $this->load->view('student/enrolment/student_general', $page_data);
+    }
+    // parent info
+    function parent(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_title'] = get_phrase('parent');
+        $this->load->view('student/enrolment/parent', $page_data);
+    }
+    // responsible
+    function responsible(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_title'] = get_phrase('responsible');
+        $this->load->view('student/enrolment/responsible', $page_data);
+    }
+    // assign_class
+    function assign_class(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_title'] = get_phrase('assign_class');
+        $this->load->view('student/enrolment/assign_class', $page_data);
+    }
+
+    // get enrolment data grid
     public function get_enrolment_data(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         // DB table to use
-        $table = 'enrolment where is_delete=0' ;														// Field
+        $table = 'enroll_general where is_delete=0' ;														// Field
         $primaryKey = "id";
         // indexes
         $columns = array(
             array('db' => 'id',                     'dt' => "id",                   'field' => 'id'),
-            array('db' => 'name',                   'dt' => "name",                 'field' => 'name'),
-            array('db' => 'email',                  'dt' => "email",                'field' => 'email'),
-            array('db' => 'address',                'dt' => "address",              'field' => 'address'),
+            array('db' => 'khmer_name',                   'dt' => "khmer_name",                 'field' => 'khmer_name'),
+            array('db' => 'latin_name',                  'dt' => "latin_name",                'field' => 'latin_name'),
+            array('db' => 'middle_name',                'dt' => "middle_name",              'field' => 'middle_name'),
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),
             array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete')
         );

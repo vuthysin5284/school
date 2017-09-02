@@ -32,7 +32,7 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-exclamation-circle"></i>Enrolment List</a></li>
+                    <i class="fa fa-exclamation-circle"></i>Enrollment List</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>location/location_list"
                    data-url="<?php echo base_url();?>location/location_list">

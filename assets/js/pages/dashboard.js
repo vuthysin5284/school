@@ -6,7 +6,7 @@ $( document ).ready(function() {
         time: 1000
     });
     
-    setTimeout(function() {
+    /*setTimeout(function() {
         toastr.options = {
             closeButton: true,
             progressBar: true,
@@ -16,7 +16,7 @@ $( document ).ready(function() {
             positionClass : "toast-top-center"
         };
         toastr.success('Education management system!', 'Welcome to EDS!');
-    }, 1800);
+    }, 1800);*/
     
     var flot2 = function () {
 

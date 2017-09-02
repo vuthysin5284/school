@@ -17,6 +17,10 @@ class Testing_register extends CI_Controller {
 	
 	
 	function testing_record_detail_info(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 		
         $page_data['page_name']  = 'testing_register/testing_record_detail_info'; 
         $page_data['page_title'] = get_phrase('testing record detail info');
@@ -26,6 +30,10 @@ class Testing_register extends CI_Controller {
 
     //
     function index(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_name']  = 'testing_register/index';
 		$page_data['page_width']  = "90";
         $page_data['page_title'] = get_phrase('testing_register');
@@ -38,6 +46,10 @@ class Testing_register extends CI_Controller {
 	*/
 	function new_record($param1 = '',$param2 = '',$param3 = '')
     {
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $obj = new stdClass();
         $obj->id = $param1;
         $page_data["record_detail"] = $this->record_m->get_record_detail($obj);
@@ -48,18 +60,30 @@ class Testing_register extends CI_Controller {
         $this->load->view('testing_register/model_new_testing_record' ,$page_data);
     }
 	function testing_information(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 	//	$page_data['page_name']  = 'testing_register/testing_information';
         $page_data['page_title'] = get_phrase('testing_information');
         $this->load->view('testing_register/testing_information', $page_data);
 	}
 	
    function testing_register(){
+       if ($this->session->userdata('is_login') != 1){
+           $this->session->set_userdata('last_page', current_url());
+           redirect(base_url(). 'login', 'refresh');
+       }
 		$page_data['page_name']  = 'testing_register/testing_record';
         $page_data['page_title'] = get_phrase('testing_register');
         $this->load->view('index', $page_data);
 	}
     //testing_record_list
 	function testing_record_list($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('testing_register');
         $this->load->view('testing_register/testing_record_list',$page_data);
     }

@@ -1,7 +1,8 @@
 <div class="row">
     <div class="col-md-6 pull-right text-right">
     <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>enrolment/new_enrolment/0/new');">
-            <?php echo get_phrase('new_enrolment');?>
+        <i class="fa fa-graduation-cap"></i>
+        <?php echo get_phrase('enroll_new');?>
         </button>
     </div>
 </div>
@@ -12,10 +13,13 @@
 <table id="datable_enrolment" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Enrolment Name</th>
-            <th>Enrolment Email</th>
-            <th>Address</th>
-            <th>Status</th>
+            <th>Student Name</th>
+            <th>Date Of Birth</th>
+            <th>Gender</th>
+            <th>Academic Year</th>
+            <th>Grade</th>
+            <th>Time Study</th>
+            <th>Children</th>
             <th></th>
         </tr>
     </thead>
