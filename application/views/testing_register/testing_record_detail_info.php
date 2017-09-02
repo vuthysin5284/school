@@ -30,15 +30,11 @@
                            </a>
                 </li>
                 <li role="presentation">
-                     <a href="<?php echo base_url();?>"
-                           data-url="<?php echo base_url();?> data-toggle="tab" aria-expanded="false">
-                           Contact
+                     <a href="<?php echo base_url();?>testing_register/expected_class"
+                           data-url="<?php echo base_url();?>testing_register/expected_class" data-toggle="tab" aria-expanded="false">
+                           Expected Class
                            </a>
                 </li>
-                <li role="presentation"><a href="<?php echo base_url();?>staff/employee_contact/1233"
-                                           data-url="<?php echo base_url();?>staff/employee_contact/1233" data-toggle="tab">Background</a></li>
-                <li role="presentation"><a href="<?php echo base_url();?>staff/employee_contact/1233"
-                                           data-url="<?php echo base_url();?>staff/employee_contact/1233" data-toggle="tab">Skills</a></li>
                 <li role="presentation"><a href="<?php echo base_url();?>staff/employee_contact/1233"
                                            data-url="<?php echo base_url();?>staff/employee_contact/1233" data-toggle="tab">Language</a></li>
 
