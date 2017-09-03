@@ -39,14 +39,14 @@
 		function get_enrolment_detail($obj){												// Field
 			$sql = " select 																		
 						*
-					from enroll_general pb 
+					from enrolment pb 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "khmer_name"=> empty($data->khmer_name)?'':$data->khmer_name,
-                        "latin_name"=> empty($data->latin_name)?'':$data->latin_name,
-                        "middle_name"=> empty($data->middle_name)?'':$data->middle_name,
+                        "name"=> empty($data->name)?'':$data->name,
+                        "email"=> empty($data->email)?'':$data->email,
+                        "address"=> empty($data->address)?'':$data->address,
                         "status"=> empty($data->status)?'':$data->status,
 						"created_date"=> empty($data->created_date)?'':$data->created_date,
                         "modified_date"=> empty($data->modified_date)?'':$data->modified_date,

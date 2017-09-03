@@ -24,12 +24,12 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "khmer_name"},
-            { "data" : "latin_name" },
-            { "data" : "middle_name" },
-            { "data" : "middle_name" },
-            { "data" : "middle_name" },
-            { "data" : "middle_name" },
+            { "data" : "name"},
+            { "data" : "email" },
+            { "data" : "address" },
+            { "data" : "address" },
+            { "data" : "address" },
+            { "data" : "address" },
             { "data" : "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
