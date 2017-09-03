@@ -86,7 +86,7 @@
             <div class="form-group">
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('hired_date');?></label>
                 <div class="col-sm-8">
-                    <input type="text" class="form-control" placeholder="hired date" />
+                    <input type="text" class="form-control datepicker" placeholder="hired date" />
                 </div>
             </div>
 
