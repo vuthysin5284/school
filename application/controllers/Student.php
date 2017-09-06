@@ -2,18 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Student extends CI_Controller {
- 
-	function __construct()
-	{
-		parent::__construct();
-		$this->load->database('default', TRUE); 
+
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->database('default', TRUE);
         $this->load->library('session');
-		//$this->load->library('googlemaps');
-		
-       /*cache control*/
-		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
-		$this->output->set_header('Pragma: no-cache');
-		
+        //$this->load->library('googlemaps');
+
+        /*cache control*/
+        $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
+        $this->output->set_header('Pragma: no-cache');
+
     }
 
     function index(){
@@ -28,18 +28,18 @@ class Student extends CI_Controller {
 
     }
 
-	function profile(){
+    function profile(){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-		
-		$page_data['page_name']  = 'student/profile/profile';
+
+        $page_data['page_name']  = 'student/profile/profile';
         $page_data['page_title'] = get_phrase('profile');
         $this->load->view('index', $page_data);
-	} 
+    }
 
-	function enrolment(){
+    function enrolment(){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
@@ -53,13 +53,13 @@ class Student extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-        
+
         //echo $this->input->post("enrolment_id");
-           
+
         $en_id = $this->input->post('en_id');
         $page_data['page_title'] = get_phrase('enrolment detail info');
         $page_data['data'] = $this->db->select('*')->from('enrolment')->where('id',$en_id)->get()->row();
-        
+
         $this->load->view('student/enrolment/enrolment_detail_info', $page_data);
     }
 
@@ -125,19 +125,19 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
         // DB table to use
-        $table = 'enrolment where is_delete=0' ;														// Field
+        $table = 'enroll_general where is_delete=0' ;														// Field
         $primaryKey = "id";
         // indexes
         $columns = array(
             array('db' => 'id',                     'dt' => "id",                   'field' => 'id'),
-            array('db' => 'name',                   'dt' => "name",                 'field' => 'name'),
-            array('db' => 'email',                  'dt' => "email",                'field' => 'email'),
-            array('db' => 'address',                'dt' => "address",              'field' => 'address'),
+            array('db' => 'khmer_name',                   'dt' => "khmer_name",                 'field' => 'khmer_name'),
+            array('db' => 'latin_name',                  'dt' => "latin_name",                'field' => 'latin_name'),
+            array('db' => 'middle_name',                'dt' => "middle_name",              'field' => 'middle_name'),
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),
             array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete')
         );
-         $this->load->model('datatable_model');
+        $this->load->model('datatable_model');
         echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
     }
-	 
+
 } 

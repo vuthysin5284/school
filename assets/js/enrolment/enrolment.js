@@ -24,12 +24,12 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "name"},
-            { "data" : "email" },
-            { "data" : "address" },
-            { "data" : "address" },
-            { "data" : "address" },
-            { "data" : "address" },
+            { "data" : "khmer_name"},
+            { "data" : "latin_name" },
+            { "data" : "middle_name" },
+            { "data" : "middle_name" },
+            { "data" : "middle_name" },
+            { "data" : "middle_name" },
             { "data" : "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
@@ -39,7 +39,7 @@ $(document).ready(function() {
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
-                        '<center>'+                                             
+                        '<center>'+
                         '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
                         '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>&nbsp;|&nbsp;'+
                         '<a href="#" class="label label-info" onclick="edit_enrolment_data(\''+_url_edit+oData.id+'\');"><i class="fa fa-wrench"></i></a>'+
@@ -59,7 +59,7 @@ function edit_enrolment_data(url){
         //data: $("#frmNewEnrolment").serialize(), // serializes the form's elements.
         success: function(data){
             //alert(data);
-            
+
             $('#modal_ajax').modal('hide');
             $('#document_render').html(data);
         }
