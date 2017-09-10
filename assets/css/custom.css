@@ -72,3 +72,9 @@ table.dataTable tbody th, table.dataTable tbody td {
     margin-bottom: 0;
     text-align: left;
 }
+
+.compact-menu .horizontal-bar .accordion-menu li a p {
+    display: inline;
+    font-size: 15px;
+    font-weight: bold;
+}

@@ -65,7 +65,7 @@
 							echo '<li class="droplink '.$open.'">
 									<a href="#">
 										<span class="menu-icon '.$row["icon"].'"></span>
-										<p>'.$row["MENU_NAME"].'</p><span class="arrow"></span>
+										<p>'.$row["MENU_KHMER_NAME"].'</p><span class="arrow"></span>
 									</a>
 								<ul  class="sub-menu">'; 
 								  
@@ -77,7 +77,7 @@
 										echo '<li class="droplink">
 													<a href="#">
 														<span class="menu-icon '.$sub["icon"].'"></span>
-														<p>'.$sub["MENU_NAME"].'</p><span class="arrow"></span>
+														<p>'.$sub["MENU_KHMER_NAME"].'</p><span class="arrow"></span>
 													</a>
 												<ul  class="sub-menu">';  
 										$result2 = $this->db->query($sql,array(0,$sub["MENU_ID"]))->result_array();
@@ -86,7 +86,7 @@
 											echo '<li class="'.(($page_name == $sub2["check"])?"active" :" ").'">
 													<a href="'.base_url().$sub2["LINK"].'" onClick="onClick();">
 														<span class="menu-icon '.$sub2["icon"].'"></span>
-														<p>'.$sub2["MENU_NAME"].'</p>
+														<p>'.$sub2["MENU_KHMER_NAME"].'</p>
 													</a>
 												</li>';  
 										} 
@@ -97,7 +97,7 @@
 										echo '<li class="'.(($page_name == $sub["check"])?"active" :" ").'">
 												<a href="'.base_url().$sub["LINK"].'" onClick="onClick();">
 													<span class="menu-icon '.$sub["icon"].'"></span>
-													<p>'.$sub["MENU_NAME"].'</p>
+													<p>'.$sub["MENU_KHMER_NAME"].'</p>
 												</a>
 											</li>'; 
 									}
@@ -108,7 +108,7 @@
 							 echo '<li class="'.(($page_name == $row["check"])?"active" :" ").'">
 									<a href="'.base_url().$row["LINK"].'" onClick="onClick();">
 										<span class="menu-icon '.$row["icon"].'"></span>
-										<p>'.$row["MENU_NAME"].'</p>
+										<p>'.$row["MENU_KHMER_NAME"].'</p>
 									</a>
 								</li>';
 						}

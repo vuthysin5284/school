@@ -47,6 +47,12 @@
                     <?php echo get_phrase('assign_class');?>
                 </a>
             </li>
+            <li role="presentation">
+                <a href="<?php echo base_url();?>student/assign_class"
+                   data-url="<?php echo base_url();?>student/assign_class" data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('picture');?>
+                </a>
+            </li>
         </ul>
         <!-- Tab panes -->
         <div class="col-md-12" style="padding-right:0px; padding-left: 0px;">
@@ -74,6 +80,7 @@
         <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
         <button type="button" class="btn btn-info"><?php echo get_phrase('reset');?></button>
         <button type="button" class="btn btn-info"><?php echo get_phrase('admin_paid');?></button>
+        <button type="button" class="btn btn-info"><?php echo get_phrase('submit & new');?></button>
         <button type="button" class="btn btn-info"><?php echo get_phrase('submit');?></button>
     </div>
     <?php echo form_close();?>

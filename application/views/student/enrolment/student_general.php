@@ -100,7 +100,7 @@
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"></label>
             <div class="col-sm-8">
-                <input type="checkbox" id="field-1" name="chIsTestNext"> <label for="field-1"><?php echo get_phrase('waiting_test');?></label>
+                <input type="checkbox" id="field-2" name="chIsTestNext"> <label for="field-2"><?php echo get_phrase('waiting_test');?></label>
             </div>
         </div>
 
