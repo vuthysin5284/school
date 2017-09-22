@@ -35,8 +35,8 @@ class Enrolment_model extends CI_Model {
         $this->db->update('enrolment');
     }
 
-    /* employee detail */
-    function get_enrolment_detail($obj){												// Field
+    /* get enrolment general */
+    function get_enrolment_general($obj){												// Field
         $sql = " select 																		
 						*
 					from enroll_general pb 
@@ -47,6 +47,15 @@ class Enrolment_model extends CI_Model {
             "khmer_name"=> empty($data->khmer_name)?'':$data->khmer_name,
             "latin_name"=> empty($data->latin_name)?'':$data->latin_name,
             "middle_name"=> empty($data->middle_name)?'':$data->middle_name,
+            "dob"=> empty($data->dob)?'':$data->dob,
+            "gender_id"=> empty($data->gender_id)?'':$data->gender_id,
+            "academic_id"=> empty($data->academic_id)?'':$data->academic_id,
+            "time_study_id"=> empty($data->time_study_id)?'':$data->time_study_id,
+            "children_number"=> empty($data->children_number)?'':$data->children_number,
+            "testing_id"=> empty($data->testing_id)?'':$data->testing_id,
+            "former_school"=> empty($data->former_school)?'':$data->former_school,
+            "year"=> empty($data->year)?'':$data->year,
+            "is_waiting_testing"=> $data->is_waiting_testing,
             "status"=> empty($data->status)?'':$data->status,
             "created_date"=> empty($data->created_date)?'':$data->created_date,
             "modified_date"=> empty($data->modified_date)?'':$data->modified_date,
@@ -54,12 +63,103 @@ class Enrolment_model extends CI_Model {
             "modified_by"=> empty($data->modified_by)?'':$data->modified_by
         );
     }
+    /*get enrolment parent*/
+    function get_enrolment_parent($obj){												// Field
+        $sql = " select
+                    p.* 
+                from parent p
+                inner join enroll_general eg on eg.parent_id = p.id and p.`type`=2
+                where eg.id = ?";
+        $data = $this->db->query($sql,array($obj->id))->row();
+        return array(
+            "id"=> empty($data->id)?'':$data->id,
+            "father_name_kh"=> empty($data->father_name_kh)?'':$data->father_name_kh,
+            "father_name_en"=> empty($data->father_name_en)?'':$data->father_name_en,
+            "f_occupation"=> empty($data->f_occupation)?'':$data->f_occupation,
+            "f_number"=> empty($data->f_number)?'':$data->f_number,
+            "mother_name_kh"=> empty($data->mother_name_kh)?'':$data->mother_name_kh,
+            "mother_name_en"=> empty($data->mother_name_en)?'':$data->mother_name_en,
+            "m_occupation"=> empty($data->m_occupation)?'':$data->m_occupation,
+            "m_number"=> empty($data->m_number)?'':$data->m_number,
+            "address"=> empty($data->address)?'':$data->address,
+            "address1"=> empty($data->address1)?'':$data->address1,
+            "address2"=> empty($data->address2)?'':$data->address2,
+            "address3"=> empty($data->address3)?'':$data->address3,
+            "address4"=> empty($data->address4)?'':$data->address4
+        );
 
+    }
+
+    //function get gender list
+    function get_gender_list(){
+        $sql = " select 
+						*
+					from genders 
+					";
+        return $this->db->query($sql)->result();
+
+    }
+    //function get timestudy list
+    function get_timestudy_list(){
+        $sql = " select 
+						*
+					from times 
+					";
+        return $this->db->query($sql)->result();
+
+    }
+    //function get get_child_list list
+    function get_child_list(){
+        $sql = " select 
+						*
+					from child 
+					";
+        return $this->db->query($sql)->result();
+
+    }
     /* lookup employee */
     function lookup_enrolment($obj){
         $sql = "select * from enroll_general where status = 1 and enrolment like ?";
         return $this->db->query($sql,array($obj["keyword"].'%'))->result();
     }
-
+    // insert general enrollment
+    function insertGeneralEnroll($obj){
+        $this->db->insert('enroll_general',$obj);
+        return $this->db->insert_id();
+    }
+    // edit general enrollment
+    function editGeneralEnroll($obj,$enrolment_id){
+        $this->db->where('id',$enrolment_id);
+        $this->db->update('enroll_general',$obj);
+    }
+    // insert edit Enroll
+    function editEnroll($parent_id,$student_id){
+        $this->db->where('id',$student_id);
+        $this->db->set('parent_id',$parent_id);
+        $this->db->update('enroll_general');
+    }
+    // insert Parent enrollment
+    function insertParentEnroll($obj){
+        $this->db->insert('parent',$obj);
+        return $this->db->insert_id();
+    }
+    // edit Parent Enroll
+    function editParentEnroll($obj,$parent_id){
+        $this->db->where('id',$parent_id);
+        $this->db->update('parent',$obj);
+    }
+    // insert responsible enrollment
+    function insertResponsibleEnroll($obj){
+        $this->db->insert('parent',$obj);
+        return $this->db->insert_id();
+    }
+    /*delete enrol*/
+    function delete_enrol($obj){
+        $this->db->where('id',$obj->id);
+        $this->db->set('is_delete',1);
+        $this->db->set('delete_by',$this->session->userdata("user_id"));
+        $this->db->set('delete_date',date('Y-m-d h:s:i'));
+        $this->db->update('enroll_general');
+    }
 }
 ?>

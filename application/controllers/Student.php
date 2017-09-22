@@ -8,7 +8,7 @@ class Student extends CI_Controller {
         parent::__construct();
         $this->load->database('default', TRUE);
         $this->load->library('session');
-        //$this->load->library('googlemaps');
+        $this->load->model("Enrolment_model","enrolment_m");
 
         /*cache control*/
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -22,13 +22,13 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
         $page_data['page_width']  = "60";
-        $page_data['page_name']  = 'student/index';
+        $page_data['page_name']  = 'student/enrolment/enrolment_list';
         $page_data['page_title'] = get_phrase('student');
         $this->load->view('index', $page_data);
 
     }
 
-    function profile(){
+    function profile($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
@@ -39,7 +39,7 @@ class Student extends CI_Controller {
         $this->load->view('index', $page_data);
     }
 
-    function enrolment(){
+    function enrolment($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
@@ -48,7 +48,7 @@ class Student extends CI_Controller {
         $this->load->view('student/enrolment/enrolment_list', $page_data);
     }
 
-    function enrolment_detail_info(){
+    function enrolment_detail_info($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
@@ -63,7 +63,7 @@ class Student extends CI_Controller {
         $this->load->view('student/enrolment/enrolment_detail_info', $page_data);
     }
 
-    function edit_enrolment_detail_info($param1=''){
+    function edit_enrolment_detail_info($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
@@ -78,41 +78,61 @@ class Student extends CI_Controller {
 
     }
     // student general info
-    function student_general(){
+    function student_general($param1='',$param2='',$param3='')
+    {
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            $page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+        $page_data["gender_list"] = $this->enrolment_m->get_gender_list();
+        $page_data["time_study"] = $this->enrolment_m->get_timestudy_list();
+        $page_data["child_number"] = $this->enrolment_m->get_child_list();
 
         $page_data['page_title'] = get_phrase('student_general');
         $this->load->view('student/enrolment/student_general', $page_data);
     }
     // parent info
-    function parent(){
+    function parent($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
 
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll parent
+        if ($param2 == 'edit') {
+            $page_data['parent_data'] = $this->enrolment_m->get_enrolment_parent($obj);
+        }
         $page_data['page_title'] = get_phrase('parent');
         $this->load->view('student/enrolment/parent', $page_data);
     }
     // responsible
-    function responsible(){
+    function responsible($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
+        $page_data['enroll_id']= $param1;
 
         $page_data['page_title'] = get_phrase('responsible');
         $this->load->view('student/enrolment/responsible', $page_data);
     }
     // assign_class
-    function assign_class(){
+    function assign_class($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
+        $page_data['enroll_id']= $param1;
 
         $page_data['page_title'] = get_phrase('assign_class');
         $this->load->view('student/enrolment/assign_class', $page_data);
@@ -125,14 +145,20 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
         // DB table to use
-        $table = 'enroll_general where is_delete=0' ;														// Field
+        $table = 'student_info where is_delete=0' ;														// Field
         $primaryKey = "id";
         // indexes
         $columns = array(
             array('db' => 'id',                     'dt' => "id",                   'field' => 'id'),
-            array('db' => 'khmer_name',                   'dt' => "khmer_name",                 'field' => 'khmer_name'),
-            array('db' => 'latin_name',                  'dt' => "latin_name",                'field' => 'latin_name'),
-            array('db' => 'middle_name',                'dt' => "middle_name",              'field' => 'middle_name'),
+            array('db' => 'enrolment_id',           'dt' => "enrolment_id",         'field' => 'enrolment_id'),
+            array('db' => 'khmer_name',             'dt' => "khmer_name",           'field' => 'khmer_name'),
+            array('db' => 'latin_name',             'dt' => "latin_name",           'field' => 'latin_name'),
+            array('db' => 'middle_name',            'dt' => "middle_name",          'field' => 'middle_name'),
+            array('db' => 'gender',                 'dt' => "gender",               'field' => 'gender'),
+            array('db' => 'dob',                    'dt' => "dob",                  'field' => 'dob'),
+            array('db' => 'academic_id',            'dt' => "academic_id",          'field' => 'academic_id'),
+            array('db' => 'times_name',             'dt' => "times_name",           'field' => 'times_name'),
+            array('db' => 'child_number',           'dt' => "child_number",         'field' => 'child_number'),
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),
             array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete')
         );

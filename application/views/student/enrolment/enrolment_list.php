@@ -1,8 +1,24 @@
+<div style="padding:5px;"></div>
 <div class="row">
-    <div class="col-md-6 pull-right text-right">
-    <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>enrolment/new_enrolment/0/new');">
-        <i class="fa fa-graduation-cap"></i>
-        <?php echo get_phrase('enroll_new');?>
+    <div class="col-md-10">
+        <a href="<?php echo base_url();?>location/location_list"
+           data-url="<?php echo base_url();?>location/location_list">
+            <i class="fa fa-exclamation-circle"></i>Fees Management</a>
+        &nbsp;
+        <a href="<?php echo base_url();?>location/location_list"
+           data-url="<?php echo base_url();?>location/location_list">
+            <i class="fa fa-exclamation-circle"></i>Tasks</a>
+        &nbsp;
+        <a href="<?php echo base_url();?>location/location_list"
+           data-url="<?php echo base_url();?>location/location_list">
+            <i class="fa fa-exclamation-circle"></i>Reports</a>
+    </div>
+
+    <!-- button create new enrollment-->
+    <div class="col-md-2 pull-right text-right">
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>enrolment/new_enrolment/0/new');">
+            <i class="fa fa-graduation-cap"></i>
+            <?php echo get_phrase('enroll_new');?>
         </button>
     </div>
 </div>
@@ -20,6 +36,7 @@
             <th>Grade</th>
             <th>Time Study</th>
             <th>Children</th>
+            <th>Status</th>
             <th></th>
         </tr>
     </thead>

@@ -3,6 +3,9 @@
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
         'id'=>'frmNewAssignClass', 'enctype' => 'multipart/form-data'));?>
 
+
+    <input type="text" value="<?php echo $enroll_id?>"/>
+
     <div class="form-group">
         <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('Grade');?></label>
         <div class="col-sm-4">

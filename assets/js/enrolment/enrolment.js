@@ -25,11 +25,12 @@ $(document).ready(function() {
         },
         "columns"    : [
             { "data" : "khmer_name"},
-            { "data" : "latin_name" },
-            { "data" : "middle_name" },
-            { "data" : "middle_name" },
-            { "data" : "middle_name" },
-            { "data" : "middle_name" },
+            { "data" : "dob" },
+            { "data" : "gender" },
+            { "data" : "academic_id" },
+            { "data" : "academic_id" },
+            { "data" : "times_name" },
+            { "data" : "child_number" },
             { "data" : "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
