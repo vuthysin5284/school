@@ -68,7 +68,7 @@ class Enrolment_model extends CI_Model {
         $sql = " select
                     p.* 
                 from parent p
-                inner join enroll_general eg on eg.parent_id = p.id and p.`type`=2
+                inner join enroll_general eg on eg.parent_id = p.id and p.`type`=1
                 where eg.id = ?";
         $data = $this->db->query($sql,array($obj->id))->row();
         return array(
@@ -148,11 +148,17 @@ class Enrolment_model extends CI_Model {
         $this->db->where('id',$parent_id);
         $this->db->update('parent',$obj);
     }
-    // insert responsible enrollment
-    function insertResponsibleEnroll($obj){
+    // new assign class
+    function insertAssognClassEnroll($obj){
         $this->db->insert('parent',$obj);
         return $this->db->insert_id();
     }
+    // edit Assogn Class Enroll
+    function editAssognClassEnroll($obj,$parent_id){
+        $this->db->where('id',$parent_id);
+        $this->db->update('parent',$obj);
+    }
+
     /*delete enrol*/
     function delete_enrol($obj){
         $this->db->where('id',$obj->id);

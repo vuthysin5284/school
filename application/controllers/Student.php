@@ -22,8 +22,8 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
         $page_data['page_width']  = "60";
-        $page_data['page_name']  = 'student/enrolment/enrolment_list';
-        $page_data['page_title'] = get_phrase('student');
+        $page_data['page_name']  = 'student/index';
+        $page_data['page_title'] = get_phrase('student');//enrolment/enrolment_list
         $this->load->view('index', $page_data);
 
     }
@@ -121,7 +121,13 @@ class Student extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
-        $page_data['enroll_id']= $param1;
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll parent
+        if ($param2 == 'edit') {
+            $page_data['res_data'] = $this->enrolment_m->get_enrolment_parent($obj);
+        }
 
         $page_data['page_title'] = get_phrase('responsible');
         $this->load->view('student/enrolment/responsible', $page_data);

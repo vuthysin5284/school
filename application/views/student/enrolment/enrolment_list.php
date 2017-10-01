@@ -1,17 +1,21 @@
-<div style="padding:5px;"></div>
 <div class="row">
     <div class="col-md-10">
-        <a href="<?php echo base_url();?>location/location_list"
+        <a class="btn btn-info" href="<?php echo base_url();?>location/location_list"
            data-url="<?php echo base_url();?>location/location_list">
-            <i class="fa fa-exclamation-circle"></i>Fees Management</a>
+            <i class="fa fa-exclamation-circle"></i>
+            <?php echo get_phrase('fees_management');?>
+        </a>
         &nbsp;
-        <a href="<?php echo base_url();?>location/location_list"
+        <a class="btn btn-info" href="<?php echo base_url();?>location/location_list"
            data-url="<?php echo base_url();?>location/location_list">
-            <i class="fa fa-exclamation-circle"></i>Tasks</a>
+            <i class="fa fa-exclamation-circle"></i>
+            <?php echo get_phrase('tasks');?></a>
         &nbsp;
-        <a href="<?php echo base_url();?>location/location_list"
+        <a class="btn btn-info" href="<?php echo base_url();?>location/location_list"
            data-url="<?php echo base_url();?>location/location_list">
-            <i class="fa fa-exclamation-circle"></i>Reports</a>
+            <i class="fa fa-exclamation-circle"></i>
+            <?php echo get_phrase('reports');?>
+        </a>
     </div>
 
     <!-- button create new enrollment-->

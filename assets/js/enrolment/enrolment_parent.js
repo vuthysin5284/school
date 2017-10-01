@@ -2,10 +2,10 @@
 // on the button click submit create only
 $("#btnParentSubmit").on('click',function(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
-    create_new_student(2);
+    create_new_parent();
 });
 
-function create_new_student(status){
+function create_new_parent(){
     var pb_crud_id = $('#pb_crud_id').val();
     var enrolment_id = $('#enrolment_id').val();
     $.ajax({
