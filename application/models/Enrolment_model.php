@@ -89,7 +89,54 @@ class Enrolment_model extends CI_Model {
         );
 
     }
+    /* sin vuthy
+     * 2017 01 02
+     * this function using for get student assign class, subject and letter
+     */
+    function get_enrolment_assign_class($obj){
+        $sql = " select
+                      p.* 
+                from enroll_assign_class p
+                inner join enroll_general eg on eg.id = p.student_id
+                where eg.id = ?";
+        $data = $this->db->query($sql,array($obj->id))->row();
+        return array(
+            "id"=> empty($data->id)?'':$data->id,
+            "grade_id"=> empty($data->grade_id)?'':$data->grade_id,
+            "letter_id"=> empty($data->letter_id)?'':$data->letter_id,
+            "language"=> empty($data->language)?'':$data->language,
+            "status"=> empty($data->status)?'':$data->status,
+            "created_by"=> empty($data->created_by)?'':$data->created_by
+        );
+    }
 
+    //function get letter_data
+    function letter_data(){
+        $sql = " select 
+						*
+					from letter 
+					";
+        return $this->db->query($sql)->result();
+
+    }
+    //function get subject_data
+    function subject_data(){
+        $sql = " select 
+						*
+					from course 
+					";
+        return $this->db->query($sql)->result();
+
+    }
+    //function get grade list
+    function grade_list(){
+        $sql = " select 
+						*
+					from classes 
+					";
+        return $this->db->query($sql)->result();
+
+    }
     //function get gender list
     function get_gender_list(){
         $sql = " select 
@@ -149,14 +196,14 @@ class Enrolment_model extends CI_Model {
         $this->db->update('parent',$obj);
     }
     // new assign class
-    function insertAssognClassEnroll($obj){
-        $this->db->insert('parent',$obj);
+    function insertAssignClassEnroll($obj){
+        $this->db->insert('enroll_assign_class',$obj);
         return $this->db->insert_id();
     }
     // edit Assogn Class Enroll
-    function editAssognClassEnroll($obj,$parent_id){
-        $this->db->where('id',$parent_id);
-        $this->db->update('parent',$obj);
+    function editAssignClassEnroll($obj,$assign_id){
+        $this->db->where('id',$assign_id);
+        $this->db->update('enroll_assign_class',$obj);
     }
 
     /*delete enrol*/

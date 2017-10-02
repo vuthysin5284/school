@@ -138,7 +138,18 @@ class Student extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
-        $page_data['enroll_id']= $param1;
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll parent
+        if ($param2 == 'edit') {
+            $page_data['ass_data'] = $this->enrolment_m->get_enrolment_assign_class($obj);
+        }
+
+        //get data to object
+        $page_data["grade_list"] = $this->enrolment_m->grade_list();
+        $page_data["subject_data"] = $this->enrolment_m->subject_data();
+        $page_data["letter_data"] = $this->enrolment_m->letter_data();
 
         $page_data['page_title'] = get_phrase('assign_class');
         $this->load->view('student/enrolment/assign_class', $page_data);

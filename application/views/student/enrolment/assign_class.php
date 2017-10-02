@@ -1,4 +1,4 @@
-<div class="panel-body">
+<div class="panel-body"> 
 
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
         'id'=>'frmNewAssignClass', 'enctype' => 'multipart/form-data'));?>
@@ -6,60 +6,57 @@
 
     <input type="hidden" name="assign_class_id" value="<?php echo empty($ass_data["id"])?'':$ass_data["id"]?>"/>
 
-    <div class="form-group">
-        <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('Grade');?></label>
-        <div class="col-sm-4">
-            <select class="form-control" id="grade" name="grade" >
-                <option value="0">... Grade ...</option>
-                <option value="1"> k-3 </option>
-                <option value="2"> K-4 </option>
-                <option value="3"> K-5 </option>
-                <option value="4"> 1-st </option>
-                <option value="5"> 2-nd </option>
-                <option value="6"> 3-rd </option>
-            </select>
+    <div class="col-sm-8">
+        <div class="form-group">
+            <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('Grade');?></label>
+            <div class="col-sm-8">
+                <select class="form-control" id="grade" name="grade" >
+                    <option value="0">... Grade ...</option>
+                    <?php
+                        foreach($grade_list as $gl){
+                            $selected = ($gl->id==$ass_data["grade_id"])?" selected":"";
+                            echo "<option value='".$gl->id."' ".$selected."> ".$gl->classes_name."</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('subjects');?></label>
+            <div class="col-sm-8">
+                <select class="form-control" id="subject" name="subject[]" multiple style="height: 220px;">
+                    <option value="0">... Subject ...</option>
+                    <?php
+                        foreach($subject_data as $sd){
+                            $selected = in_array($sd->id, explode(",",$ass_data["language"]), true)?'selected':'';
+                            echo "<option value='".$sd->id."'  ".$selected."> ".$sd->course_name."</option>";
+                        }
+                    ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('letter');?></label>
+            <div class="col-sm-8">
+                <select class="form-control" id="letter" name="letter">
+                    <option value="0">... Letter ...</option>
+                    <?php
+                    foreach($letter_data as $ld){
+                        $selected = ($ass_data["letter_id"]==$ld->id)?'selected':'';
+                        echo "<option value='".$ld->id."' ".$selected."> ".$ld->description_kh."</option>";
+                    }
+                    ?>
+                </select>
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('languages');?></label>
-        <div class="col-sm-4">
-            <select class="form-control" id="language" name="language" multiple style="height: 220px;">
-                <option value="1"> 1 </option>
-                <option value="2"> 2 </option>
-                <option value="3"> 3 </option>
-                <option value="4"> 4 </option>
-                <option value="5"> 5 </option>
-                <option value="6"> 6 </option>
-                <option value="7"> 7 </option>
-                <option value="8"> 8 </option>
-                <option value="9"> 9 </option>
-                <option value="10"> 10 </option>
-                <option value="11"> 11 </option>
-                <option value="12"> 12 </option>
-            </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('letter');?></label>
-        <div class="col-sm-4">
-            <select class="form-control" id="letter" name="letter">
-                <option value="1"> A </option>
-                <option value="2"> B </option>
-                <option value="3"> C </option>
-                <option value="4"> D </option>
-                <option value="5"> E </option>
-                <option value="6"> F </option>
-                <option value="7"> H </option>
-                <option value="8"> I </option>
-                <option value="9"> G </option>
-                <option value="10"> K </option>
-                <option value="11"> L </option>
-                <option value="12"> M </option>
-            </select>
-        </div>
+    <div class="col-sm-4">
+        The class is device by admin side setup, while this system start up and the school setup the cofiguration.
+        that school is private or public school.
     </div>
 
-    <hr style="margin-top: 10px;"/>
+
+    <hr style="margin-top: 10px;clear: both"/>
     <div class="form-actions pull-right" style="margin-right:20px;">
         <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
         <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
