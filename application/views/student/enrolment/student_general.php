@@ -110,8 +110,9 @@
                     ?>
                 </select>
             </div>
-            <div class="col-sm-3">
-                <a href="#">Copy Parent</a>
+            <label for="field-1" class="col-sm-2 control-label"><?php echo get_phrase('reference');?></label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" style="font-style: italic;text-align: center" placeholder="parents" />
             </div>
         </div>
 

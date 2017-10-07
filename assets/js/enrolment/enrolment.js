@@ -12,7 +12,20 @@ $(document).ready(function() {
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
-
+        "dom": 'lBfrtip',
+        "buttons": [
+            {
+                extend: 'collection',
+                text: 'Export',
+                buttons: [
+                    'copy',
+                    'excel',
+                    'csv',
+                    'pdf',
+                    'print'
+                ]
+            }
+        ],
         "ajax"       : {
             "url"    : baseurl+'student/get_enrolment_data',
             "type"   : 'POST',

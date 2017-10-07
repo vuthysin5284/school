@@ -1,3 +1,4 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="row">
     <div class="col-md-10">
         <a class="btn btn-info" href="<?php echo base_url();?>location/location_list"
@@ -47,8 +48,3 @@
 </table>
 
 <script src="<?php echo base_url();?>assets/js/enrolment/enrolment.js"></script>
-
-<!--?php
-    $this->load->view("student/enrolment/enrolment_detail");
-?>
-
