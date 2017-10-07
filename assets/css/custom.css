@@ -1,4 +1,7 @@
 /* Write your custom CSS here */
+*{
+    font-family: 'Roboto', helvetica, arial, sans-serif;
+}
 body, p {
     font-size: 12px;
 }
@@ -18,7 +21,7 @@ input[type="text"], select.form-control, textarea.form-control, input[type="pass
 }
 
 .menu.accordion-menu>li.active{
-    border-bottom: 3px solid blue;
+    border-bottom: 3px solid #12AFCB;
 }
 .menu.accordion-menu>li {
     border-left: 0px solid transparent;
@@ -32,9 +35,22 @@ input[type="text"], select.form-control, textarea.form-control, input[type="pass
 }
   
 .container {
-    width: 99%;
+    width: 100%;
+    background: #eee;
+    font-family: 'Roboto', helvetica, arial, sans-serif;
+    font-weight: 300;
 }
+.topmenu-outer{
+    background: #eee;
+    font-family: 'Roboto', helvetica, arial, sans-serif;
+    font-weight: 300;
 
+}
+.page-inner {
+    padding: 0 0 50px;
+    background: #eee;
+    position: relative;
+}
 .panel .panel-body {
     padding: 5px;
 }
@@ -62,6 +78,7 @@ thead {
 }
 table.dataTable tbody th, table.dataTable tbody td {
     padding: 5px 10px;
+    font-family: 'Roboto', helvetica, arial, sans-serif;
 }
 
 .form-group {
@@ -76,5 +93,24 @@ table.dataTable tbody th, table.dataTable tbody td {
 .compact-menu .horizontal-bar .accordion-menu li a p {
     display: inline;
     font-size: 15px;
-    font-weight: bold;
+    /*font-weight: bold;*/
+}
+.menu.accordion-menu ul li a:hover, .menu.accordion-menu ul li.active a, .menu.accordion-menu>li.active.open>a, .menu.accordion-menu>li.active>a, .menu.accordion-menu>li.open>a, .menu.accordion-menu>li>a:hover {
+    color: #12AFCB;
+}
+.badge.badge-success {
+    background: red;
+    color: #ffffff;
+}
+.modal-header {
+    padding: 10px;
+    overflow: hidden;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border: 0!important;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    background: #12AFCB;
+    color: #ffffff;
 }

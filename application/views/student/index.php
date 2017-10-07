@@ -20,7 +20,7 @@
         padding-top: 0px;
     }
     .active.default{
-        border-left: 5px solid blue;
+        border-left: 5px solid #12AFCB;
     }
 </style>
 
@@ -32,19 +32,19 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-exclamation-circle"></i>Enrollment List</a></li>
+                    <i class="fa fa-graduation-cap"></i><?php echo get_phrase('enrollment_list');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>location/location_list"
                    data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Fees Management</a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('fees_management');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>location/location_list"
                    data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Tasks</a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('tasks');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>location/location_list"
                    data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Reports</a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('reports');?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

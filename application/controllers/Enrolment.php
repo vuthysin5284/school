@@ -146,7 +146,7 @@ class Enrolment extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
-        $id = empty($this->input->post("pb_hidden_id"))?0:$this->input->post("pb_hidden_id");
+        $id = empty($this->input->post("enrolment_id"))?0:$this->input->post("enrolment_id");
         $crud = $this->input->post("pb_crud_id");
 
         $data["father_name_kh"] = $this->input->post("responsibility_kh");
@@ -163,21 +163,68 @@ class Enrolment extends CI_Controller {
         $data["type"]           = 1; // responsible
 
 
+        $parent_id       = $this->input->post("responsible_id");
         if($crud=='new'){ // create new
             $data["created_by"] 	= $this->session->userdata("user_id");
             $data["created_date"] 	= date('Y-m-d h:s:i');
             // insert parent
-            $this->enrolment_m->insertParentEnroll($data);
+            $parent_id =$this->enrolment_m->insertParentEnroll($data);
+            //
+            $this->enrolment_m->editEnroll($parent_id,$id);
         }else if($crud=='edit'){ // edit
             $data["modified_by"] 	= $this->session->userdata("user_id");
             $data["modified_date"] 	= date('Y-m-d h:s:i');
-            //
-            $this->enrolment_m->editParentEnroll($data,$id);
+            if($parent_id==''){
+                // insert parent
+                $parent_id =$this->enrolment_m->insertParentEnroll($data);
+                //
+                $this->enrolment_m->editEnroll($parent_id,$id);
+            }else {
+                //
+                $this->enrolment_m->editParentEnroll($data, $parent_id);
+            }
         }
         echo json_encode(array("data"=>$data));
 
     }
+    // new assign class
+    function new_assign_class($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
 
+        $student_id = empty($this->input->post("enrolment_id"))?0:$this->input->post("enrolment_id");
+        $crud = $this->input->post("pb_crud_id");
+
+        $data["student_id"] = empty($this->input->post("enrolment_id"))?0:$this->input->post("enrolment_id");
+        $data["grade_id"] = $this->input->post("grade");
+        $data["language"] = implode(',', $this->input->post("subject"));
+        $data["letter_id"]   = $this->input->post("letter");
+
+
+        $assign_id  = $this->input->post("assign_class_id");
+        if($crud=='new'){ // create new
+            $data["created_by"] 	= $this->session->userdata("user_id");
+            $data["created_date"] 	= date('Y-m-d h:s:i');
+            // insert parent
+            $parent_id =$this->enrolment_m->insertAssignClassEnroll($data);
+        }else if($crud=='edit'){ // edit
+            $data["modified_by"] 	= $this->session->userdata("user_id");
+            $data["modified_date"] 	= date('Y-m-d h:s:i');
+            if($assign_id==''){
+                $data["created_by"] 	= $this->session->userdata("user_id");
+                $data["created_date"] 	= date('Y-m-d h:s:i');
+                // insert parent
+                $parent_id =$this->enrolment_m->insertAssignClassEnroll($data);
+            }else {
+                //
+                $this->enrolment_m->editAssignClassEnroll($data, $assign_id);
+            }
+        }
+        echo json_encode(array("data"=>$data));
+
+    }
     // get data list
     public function enrolment_data(){
 
