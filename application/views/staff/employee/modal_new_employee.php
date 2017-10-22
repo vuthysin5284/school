@@ -95,17 +95,12 @@
                     <input type="number" min="1980" value="2010" id="txtdob_yy" name="txtdob_yy" class="form-control" title="yyyy" />
                 </div>
             </div>
+           
             <div class="form-group">
-                   <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('hired_date');?> 
-                   </label>
-                     <div class="col-sm-2">
-                    <input type="number" min="1" max="31" id="txtdob_dd" name="txtdob_dd" class="form-control"  placeholder="dd" title="dd" />
-                </div>
-                <div class="col-sm-3">
-                    <input type="number" min="1" max="12" id="txtdob_mm" name="txtdob_mm" class="form-control"  placeholder="mm" title="mm" />
-                </div>
-                <div class="col-sm-3">
-                    <input type="number" min="1980" value="2010" id="txtdob_yy" name="txtdob_yy" class="form-control" title="yyyy" />
+                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('hired_date');?>
+                </label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" data-date-format="yyyy-mm-dd" id="txthiredate" name="txthiredate"/>
                 </div>
             </div>
                <div class="form-group">
@@ -129,15 +124,7 @@
 
 
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('employee_number');?> <span class="red">*</span>
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="employee_number" name="employee_number" placeholder="employee number" />
-                </div>
-            </div>
-        </div>
+       
         <div class="col-md-6">
             <div class="form-group">
                 <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('staff_type');?> 
@@ -170,4 +157,9 @@
 </div>
 
 <script src="<?php echo base_url();?>assets/js/employee/employee_new.js"></script>
- 
+ <script type="text/javascript">
+	$(function () {
+		$('#txthiredate').datepicker();
+		
+	});
+</script>

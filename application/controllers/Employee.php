@@ -64,11 +64,14 @@ class Employee extends CI_Controller {
 		 $data["khmer_name"] = $this->input->post("khmer_name");
 		 $data["gender"] = $this->input->post("gender");
 		 $data["position"] = $this->input->post("position");
+		 $data["department"] = $this->input->post("department");
 		 $data["phone"] = $this->input->post("phone");
 		 $data["joined_date"] = $this->input->post("joined_date");
 		 $data["hired_date"] = $this->input->post("hired_date");
 		 $data["email"] = $this->input->post("email");
-        $data["status"] 	= $this->input->post("status");
+         $data["status"] 	= $this->input->post("status");
+		 $data["staff_type"] = $this->input->post("staff_type");
+		
 		
 
 
@@ -116,13 +119,17 @@ class Employee extends CI_Controller {
 			array('db' => 'latin_name', 			'dt' => "latin_name", 				'field' => 'latin_name'),
 			array('db' => 'khmer_name', 			'dt' => "khmer_name", 				'field' => 'khmer_name'),
 			array('db' => 'gender', 				'dt' => "gender", 					'field' => 'gender'),
-			array('db' => 'position', 				'dt' => "position", 				'field' => 'position'),
+			array('db' => 'position',				'dt' => "position", 				'field' => 'position'),
+			array('db' => 'department', 			'dt' => "department", 				'field' => 'department'),
 			array('db' => 'phone', 					'dt' => "phone", 					'field' => 'phone'),
 			array('db' => 'joined_date', 			'dt' => "joined_date", 				'field' => 'joined_date'),
 			array('db' => 'hired_date', 			'dt' => "hired_date", 				'field' => 'hired_date'),
 			array('db' => 'email', 					'dt' => "email", 					'field' => 'email'),
-			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
-			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
+			array('db' => 'status', 				'dt' => "status", 					'field' => 'status'),
+			array('db' => 'staff_type',				'dt' => "staff_type", 				'field' => 'staff_type'),
+			
+			
+			
         );
 		
 		

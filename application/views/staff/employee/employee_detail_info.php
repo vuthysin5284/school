@@ -16,12 +16,12 @@
         min-height: 400px;
     }
 </style>
-
-<div class="panel-body">
-    <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered','enctype' => 'multipart/form-data'));?>
-        <div role="tabpanel">
+ 
+        <div role="tabpanel"> 
+            <input type="text" id="pb_crud_id" value="<?php echo $crud?>" />
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="employee" role="tablist">
+            
 
                 <li role="presentation" class="active">
                     <a href="<?php echo base_url();?>staff/employee_general"
@@ -125,15 +125,6 @@
 
         </div>
 
-        <hr style="margin-top: 10px;"/>
-        <div class="form-actions pull-right" style="margin-right:20px;">
-            <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
-            <button type="button" class="btn btn-info"><?php echo get_phrase('transfer');?></button>
-            <button type="button" class="btn btn-info"><?php echo get_phrase('terminate');?></button>
-            <button type="button" class="btn btn-info"><?php echo get_phrase('Review');?></button>
-            <button type="button" id="btnSubmit" class="btn btn-info"><?php echo get_phrase('save');?></button>
-        </div>
-    <?php echo form_close();?>
-</div>
+        
 
 <script src="<?php echo base_url();?>assets/js/employee/employee_tab.js"></script>

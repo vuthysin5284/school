@@ -23,7 +23,7 @@ $("#btnSubmit").on('click',function(e) {
         $("#description").css('border','1px solid red');
         return false;
     }*/
-
+		
    /* var url = baseurl+'employee/create_new_employee';
     $.ajax({
         type: "POST",
