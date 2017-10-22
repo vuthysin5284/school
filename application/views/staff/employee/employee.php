@@ -24,6 +24,7 @@
             <th>Hired Date</th>
             <th>Email</th>
             <th>Status</th>
+            <th>Staff Type</th>
             <th></th>
         </tr>
     </thead>

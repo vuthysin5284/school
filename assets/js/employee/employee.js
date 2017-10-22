@@ -34,7 +34,8 @@ $(document).ready(function() {
 			{ "data" : "joined_date" },
 			{ "data" : "hired_date" },
 			{ "data" : "email" },
-            { "data": "status",
+			{ "data" : "status" },
+            { "data": "staff_type",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
                     $(nTd).html(yesno);

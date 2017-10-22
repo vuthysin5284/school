@@ -452,7 +452,7 @@ DELETE FROM `employee`;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
 INSERT INTO `employee` (`id`, `employee_number`, `latin_name`, `khmer_name`, `gender`, `position`, `department`, `phone`, `joined_date`, `hired_date`, `email`, `status`, `created_by`, `created_date`, `modified_by`, `modified_date`, `is_delete`, `delete_by`, `delete_date`) VALUES
 	(11, '1', 'hout', 'ហ៊ួត', 'male', 'IT', 'building A', '060969848', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'houtkikilu@gmail.com', 'single', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00'),
-	(12, '2', 'Eng', 'អេង', 'Male', 'IT', 'Building B', ')965868428', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'buneng99@gmail.com', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00');
+	(12, '2', 'Eng', 'អេង', 'Male', 'IT', 'Building B', '0965868428', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 'buneng99@gmail.com', '', 0, '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 0, '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 
 -- Dumping structure for table eds.employee_location
