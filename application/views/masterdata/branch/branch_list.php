@@ -10,7 +10,7 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_branch" class="display" cellspacing="0" width="100%">
+<table id="datable_branch" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
     <tr>
         <th>Khmer name</th>
