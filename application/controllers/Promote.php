@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Teacher extends CI_Controller { 
+class Promote extends CI_Controller {
 	
 	function __construct()
 	{
@@ -20,14 +20,23 @@ class Teacher extends CI_Controller {
     
      
 	public function index()
-	{ 
+	{
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+        $page_data['page_main'] = get_phrase('academic');
 		$page_data['page_name']  = 'teacher/index';
-        $page_data['page_title'] = get_phrase('teacher');
+        $page_data['page_title'] = get_phrase('promote_management');
         $this->load->view('index', $page_data); 
 	}
 	
 	public function pivot_table(){
-		
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_main_title'] = get_phrase('teacher');
 		$page_data['page_name']  = 'inventory/general_master_data';
         $page_data['page_title'] = get_phrase('general_master_data');

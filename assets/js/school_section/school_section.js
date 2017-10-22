@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'floor/new_floor/';
-var _url_del =  baseurl+'floor/delete/';
+var _url_path =  baseurl+'schoolsection/new_section/';
+var _url_del =  baseurl+'schoolsection/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_testing_register').DataTable( {
+    datable_result = $('#datable_section').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -13,7 +13,7 @@ $(document).ready(function() {
         "serverSide"	: true ,
 
         "ajax"       : {
-            "url"    : baseurl+'testingregister/testing_record_data',
+            "url"    : baseurl+'schoolsection/section_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,13 +23,17 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "deal_name"},
-            { "data" : "deal_name"},
-            { "data" : "deal_name"},
-            { "data" : "contact" },
+            { "data" : "session_name" },
+            { "data" : "classes_name",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    var value = oData.classes_name;
+                    $(nTd).html(value);
+                }
+            },
+            { "data" : "section_name" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
+                    var yesno = oData.is_delete==0?(oData.status==1?'Active': '<font color="red">Inactive</font>'): '<font color="red">Delete</font>';
                     $(nTd).html(yesno);
                 }
             },
