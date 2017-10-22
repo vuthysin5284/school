@@ -21,9 +21,10 @@ class Staff extends CI_Controller
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $page_data['page_main']  = get_phrase('human_resource');
         $page_data['page_width']  = "90";
         $page_data['page_name']  = 'staff/index';
-        $page_data['page_title'] = get_phrase('staff');
+        $page_data['page_title'] = get_phrase('staffing_management');
         $this->load->view('index', $page_data);
     }
 	//section
