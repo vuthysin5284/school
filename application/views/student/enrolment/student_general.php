@@ -153,6 +153,7 @@
         <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
         <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
         <button type="button" class="btn btn-info"><?php echo get_phrase('admin_paid');?></button>
+        <button type="button" class="btn btn-info"><?php echo get_phrase('transfer');?></button>
         <button type="button" id="btnSubmitNew" class="btn btn-info"><?php echo get_phrase('submit & new');?></button>
         <button type="button" id="btnSubmit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
     </div>

@@ -18,7 +18,7 @@ class Datatable_model extends CI_Model{
 		$limit = self::limit( $request, $columns );
 		$order = self::order( $request, $columns );
 		$where = self::filter( $request, $columns, $bindings );
-		 
+
 
 		// Main query to actually get the data
 		$data = $this->db->query(

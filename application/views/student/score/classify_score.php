@@ -27,10 +27,10 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_classify_score" class="display" cellspacing="0" width="100%">
+<table id="datable_classify_score"  class="table table-striped table-bordered table-hover" width="100%">
     <thead>
     <tr>
-        <th>No</th>
+        <th>លរ</th>
         <th><?php echo get_phrase('student_name')?></th>
         <th><?php echo get_phrase('gender')?></th>
         <th>Total</th>​

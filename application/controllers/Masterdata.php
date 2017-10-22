@@ -16,12 +16,15 @@ class MasterData extends CI_Controller {
 		
     }
 	function master_data(){
-        if ($this->session->userdata('is_login') != 1)
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
+        }
 
         $page_data['page_width']  = "50";
+        $page_data['page_main']  = get_phrase('master_data');
 		$page_data['page_name']  = 'menu/master_data';
-        $page_data['page_title'] = get_phrase('master_data');
+        $page_data['page_title'] = get_phrase('academic_data');
         $this->load->view('index', $page_data);
 	}
 	 

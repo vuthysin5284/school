@@ -1,27 +1,32 @@
  
        
 <!-- Styles -->
-<!--link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'-->
+<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url();?>assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
-<link href="<?php echo base_url();?>assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
-<link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<!--link href="<?php echo base_url();?>assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+<link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
 <link href="<?php echo base_url();?>assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
-<link href="<?php echo base_url();?>assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>	
+<link href="<?php echo base_url();?>assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/slidepushmenus/css/component.css" rel="stylesheet" type="text/css"/>	
 <link href="<?php echo base_url();?>assets/plugins/weather-icons-master/css/weather-icons.min.css" rel="stylesheet" type="text/css"/>	
-<link href="<?php echo base_url();?>assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>	
+<link href="<?php echo base_url();?>assets/plugins/metrojs/MetroJs.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>
 
-<link href="<?php echo base_url();?>assets/plugins/datatables/css/jquery.datatables.min.css" rel="stylesheet" type="text/css"/>	
-<link href="<?php echo base_url();?>assets/plugins/datatables/css/jquery.datatables_themeroller.css" rel="stylesheet" type="text/css"/>	 
-         
-    
+
+<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/metisMenu/dist/metisMenu.css" />
+<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/animate.css/animate.css" />
+<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/c3/c3.min.css" />
+
+
+
 <!-- Theme Styles -->
 <link href="<?php echo base_url();?>assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url();?>assets/css/datepicker.css" rel="stylesheet" type="text/css"/>
 
 <script src="<?php echo base_url();?>assets/plugins/3d-bold-navigation/js/modernizr.js"></script> 
 
@@ -31,8 +36,6 @@
 <script>
 	var baseurl = '<?php echo base_url();?>';  
 </script>   
-
-            
 
 
 <!-- Javascripts -->
@@ -62,9 +65,21 @@
 <script src="<?php echo base_url();?>assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/moment/moment.js"></script>
 
-<script src="<?php echo base_url();?>assets/plugins/datatables/js/jquery.datatables.min.js"></script>   
 
-<script src="<?php echo base_url();?>assets/plugins/x-editable/bootstrap3-editable/js/bootstrap-editable.js"></script>
+<!-- DataTables -->
+<script src="<?php echo base_url();?>assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- DataTables buttons scripts -->
+<script src="<?php echo base_url();?>assets/vendor/pdfmake/build/pdfmake.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/pdfmake/build/vfs_fonts.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/datatables.net-buttons/js/buttons.html5.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/datatables.net-buttons/js/buttons.print.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+<script src="<?php echo base_url();?>assets/vendor/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+
+
+
 <script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 
 <script src="<?php echo base_url();?>assets/js/modern.js"></script>
+<script type="text/javascript" src="<?php echo base_url();?>assets/js/typeahead.js"></script>

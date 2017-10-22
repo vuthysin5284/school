@@ -20,8 +20,9 @@ class Leave extends CI_Controller
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
+        $page_data['page_main']  = get_phrase('human_resource');
         $page_data['page_name']  = 'leave/index';
-        $page_data['page_title'] = get_phrase('leave');
+        $page_data['page_title'] = get_phrase('leave_management');
         $this->load->view('index', $page_data);
     }
     /*

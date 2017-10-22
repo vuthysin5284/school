@@ -4,7 +4,7 @@
                         <div class="col-md-12">
                             <div class="row mailbox-header">
                                 <div class="col-md-2">
-                                    <a href="compose.html" class="btn btn-success btn-block">Compose</a>
+                                    <a href="compose" class="btn btn-success btn-block">Compose</a>
                                 </div>
                                 <div class="col-md-6">
                                     <h2>Inbox</h2>

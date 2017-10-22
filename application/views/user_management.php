@@ -21,7 +21,7 @@
 							 	u.*,
 								r.name as role_name 
 							FROM user u
-							inner join role r on r.role_id = r.role_id
+							inner join role r on r.role_id = u.role_id
 							where u.`status` in(1,0)
 							group by u.admin_id
 							LIMIT ".$p.", ".$per_page." 

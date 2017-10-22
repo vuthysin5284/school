@@ -21,9 +21,11 @@ class Student extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-        $page_data['page_width']  = "60";
+        $page_data['page_width']  = "70";
         $page_data['page_name']  = 'student/index';
-        $page_data['page_title'] = get_phrase('student');//enrolment/enrolment_list
+
+        $page_data['page_main'] = get_phrase('academic');
+        $page_data['page_title'] = get_phrase('enrolment_management');//enrolment/enrolment_list
         $this->load->view('index', $page_data);
 
     }
@@ -34,6 +36,7 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_name']  = 'student/profile/profile';
         $page_data['page_title'] = get_phrase('profile');
         $this->load->view('index', $page_data);
@@ -154,6 +157,178 @@ class Student extends CI_Controller {
         $page_data['page_title'] = get_phrase('assign_class');
         $this->load->view('student/enrolment/assign_class', $page_data);
     }
+
+    // student pic
+    function student_pic($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+
+        $page_data['page_title'] = get_phrase('student_picture');
+        $this->load->view('student/admin/student_pic', $page_data);
+    }
+
+    /* admin student part
+     * */
+    // admin fee
+    function admin_fee($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_fee');
+        $this->load->view('student/admin/admin_fee', $page_data);
+    }
+    // admin study fee
+    function admin_study_fee($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_study_fee');
+        $this->load->view('student/admin/admin_study_fee', $page_data);
+    }
+    // admin student food
+    function admin_food($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_food');
+        $this->load->view('student/admin/admin_food', $page_data);
+    }
+    // admin transport fee
+    function admin_transport_fee($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_transport_fee');
+        $this->load->view('student/admin/admin_transport_fee', $page_data);
+    }
+
+    // admin paid history
+    function admin_paid_history($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_paid_history');
+        $this->load->view('student/admin/admin_paid_history', $page_data);
+    }
+    // admin_remidial_fee
+    function admin_remidial_fee($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_remidial_fee');
+        $this->load->view('student/admin/admin_remidial_fee', $page_data);
+    }
+    // admin student not activity
+    function admin_student_not_activity($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_student_not_activity');
+        $this->load->view('student/admin/admin_student_not_activity', $page_data);
+    }
+    // admin attendance tracking
+    function admin_attendance_tracking($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $obj = new stdClass();
+        $obj->id = $param1;
+        // checking for edit and load data of enroll general
+        if ($param2 == 'edit') {
+            //$page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+
+
+        $page_data['page_title'] = get_phrase('admin_attendance_tracking');
+        $this->load->view('student/admin/admin_attendance_tracking', $page_data);
+    }
+
+
 
     // get enrolment data grid
     public function get_enrolment_data(){

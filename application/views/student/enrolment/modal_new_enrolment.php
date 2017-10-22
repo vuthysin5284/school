@@ -48,12 +48,6 @@
                     <?php echo get_phrase('assign_class');?>
                 </a>
             </li>
-            <li role="presentation">
-                <a href="<?php echo base_url();?>student/assign_class/<?php echo empty($id)?'':$id?>/<?php echo empty($crud)?'':$crud?>"
-                   data-url="<?php echo base_url();?>student/assign_class/<?php echo empty($id)?'':$id?>/<?php echo empty($crud)?'':$crud?>" data-toggle="tab" aria-expanded="false">
-                    <?php echo get_phrase('picture');?>
-                </a>
-            </li>
         </ul>
         <!-- Tab panes -->
         <div class="col-md-12" style="padding-right:0px; padding-left: 0px;">

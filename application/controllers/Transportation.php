@@ -17,9 +17,15 @@ class Transportation extends CI_Controller {
 
     //
     function index(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_main']  = get_phrase('administrative');
         $page_data['page_name']  = 'transportation/index';
         $page_data['page_width']  = 40;
-        $page_data['page_title'] = get_phrase('transportation');
+        $page_data['page_title'] = get_phrase('fleet_management');
         $this->load->view('index', $page_data);
     }
 
@@ -38,12 +44,14 @@ class Transportation extends CI_Controller {
 
     function transportation(){
 
+        $page_data['page_main']  = get_phrase('administrative');
 		$page_data['page_name']  = 'transportation/transportation';
         $page_data['page_title'] = get_phrase('transportation');
         $this->load->view('index', $page_data);
 	}
     /*** transportation ***/
     function transportation_list($param1='',$param2='',$param3=''){
+        $page_data['page_main']  = get_phrase('administrative');
         $page_data['page_title'] = get_phrase('transportation');
         $this->load->view('transportation/transportation_list',$page_data);
     }

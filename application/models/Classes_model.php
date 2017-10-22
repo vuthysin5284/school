@@ -38,7 +38,8 @@
 		/* classes detail */
 		function get_classes_detail($obj){
 			$sql = " select 
-						*
+						*,
+						0 as total_student
 					from classes pb 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->classes_id))->row();
@@ -46,8 +47,12 @@
                         "id"=> empty($data->id)?'':$data->id,
                         "classes_number"=> empty($data->classes_number)?'':$data->classes_number,
                         "classes_name"=> empty($data->classes_name)?'':$data->classes_name,
-                        "room_id"=> empty($data->room_id)?'':$data->room_id,
+                        "session_id"=> empty($data->session_id)?'':$data->session_id,
+                        "grade_abbreviation"=> empty($data->grade_abbreviation)?'':$data->grade_abbreviation,
+                        "total_student"=> empty($data->total_student)?'':$data->total_student,
+                        "total_capacity"=> empty($data->total_capacity)?'':$data->total_capacity,
                         "description"=> empty($data->description)?'':$data->description,
+                        "order_number"=> empty($data->order_number)?'':$data->order_number,
                         "status"=> empty($data->status)?'':$data->status,
                         "created_date"=> empty($data->created_date)?'':$data->created_date,
                         "modified_date"=> empty($data->modified_date)?'':$data->modified_date,
@@ -61,13 +66,13 @@
 			$sql = "select * from classes where status = 1 and classes like ?";
 			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
 		}
-		//function get classes list
-        function get_room_list($obj){
+		//function get school session list
+        function get_session_list($obj){
             $sql = " select 
 						*
-					from room 
+					from school_session 
 					";
-           return $this->db->query($sql,array($obj->branch_id))->result();
+           return $this->db->query($sql)->result();
 
         }
 		

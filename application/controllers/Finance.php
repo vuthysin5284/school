@@ -17,8 +17,14 @@ class Finance extends CI_Controller {
 
     //
     function index(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_main']  = get_phrase('finance');
         $page_data['page_name']  = 'finance/index';
-        $page_data['page_title'] = get_phrase('finance');
+        $page_data['page_title'] = get_phrase('expense_management');
         $this->load->view('index', $page_data);
     }
 

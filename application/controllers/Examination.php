@@ -23,6 +23,7 @@ class Examination extends CI_Controller {
         }
         $page_data['page_width']  = "60";
         $page_data['page_name']  = 'student/exam/index';
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_title'] = get_phrase('examination_management');
         $this->load->view('index', $page_data);
 
@@ -34,6 +35,7 @@ class Examination extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_name']  = 'student/exam/score_student';
         $page_data['page_title'] = get_phrase('score_student');
         $this->load->view('student/exam/score_student', $page_data);
@@ -45,6 +47,7 @@ class Examination extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_name']  = 'student/exam/classify_score';
         $page_data['page_title'] = get_phrase('classify_score');
         $this->load->view('student/exam/classify_score', $page_data);
@@ -55,19 +58,22 @@ class Examination extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_title'] = get_phrase('honorable_table');
         $this->load->view('student/exam/honorable_table', $page_data);
     }
     function result_score(){
-    if ($this->session->userdata('is_login') != 1){
-        $this->session->set_userdata('last_page', current_url());
-        redirect(base_url(). 'login', 'refresh');
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+
+        $page_data['page_main'] = get_phrase('academic');
+        $page_data['page_width']  = "60";
+        $page_data['page_name']  = 'student/exam/result_score';
+        $page_data['page_title'] = get_phrase('result_score');
+        $this->load->view('index', $page_data);
     }
-    $page_data['page_width']  = "60";
-    $page_data['page_name']  = 'student/exam/result_score';
-    $page_data['page_title'] = get_phrase('result_score');
-    $this->load->view('index', $page_data);
-}
 
     // get enrolment data grid
     public function get_enrolment_data(){

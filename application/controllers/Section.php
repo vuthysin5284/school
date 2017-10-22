@@ -49,9 +49,10 @@ class Section extends CI_Controller {
         }
 
         $data["section_name"] 	= $this->input->post("section_name");
-        $data["department_name"] 	= $this->input->post("department_name");
+        $data["max_strength"] 	= $this->input->post("max_strength");
         $data["status"] 	= empty($this->input->post("status"))?0:1;
-        $data["description"] = $this->input->post("description");
+        $data["session_id"] = $this->input->post("session_id");
+        $data["session_id"] = $this->input->post("session_id");
 		
 
 

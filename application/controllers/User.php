@@ -82,7 +82,7 @@ class User extends CI_Controller {
 		 
 		$page_data['page_width'] = '35';
         $page_data['page_name']  = 'user_management';
-        $page_data['page_main_title'] = get_phrase('security');
+        $page_data['page_main'] = get_phrase('security');
         $page_data['page_title'] = get_phrase('user_management');
         $this->load->view('index', $page_data);
 	}
@@ -126,6 +126,7 @@ class User extends CI_Controller {
 		$page_data['page_width']  = "40";
 		$page_data['emp_id']  = $this->input->post("emp_id_auto");
 		$page_data['page_name']  = 'user_role';
+        $page_data['page_main'] = get_phrase('security');
         $page_data['page_main_title'] = get_phrase('security');
         $page_data['page_title'] = get_phrase('role');
         $this->load->view('index', $page_data);

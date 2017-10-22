@@ -13,11 +13,12 @@
 <table id="datable_classes" class="display" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Classes Number</th>
-            <th>Classes Name</th>
-            <th>Room</th>
+            <th>Session name</th>
+            <th>Class Number</th>
+            <th>Class Name</th>
+            <th>Grade</th>
             <th>Description</th>
-            <th>STATUS</th>
+            <th>Status</th>
             <th></th>
         </tr>
     </thead>

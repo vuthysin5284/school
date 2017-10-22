@@ -44,9 +44,16 @@
                                 <div class="form-group">
                                     <input type="text" name="username" class="form-control" placeholder="Email" required>
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" name="password" class="form-control" placeholder="Password" required>
-                                </div>
+                            <div class="form-group">
+                                <input type="password" name="password" class="form-control" placeholder="Password" required>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control" name="running_sesion" required>
+                                    <option value="">Running session</option>
+                                    <option value="1">2016 - 2017</option>
+                                    <option value="2">2017 - 2018</option>
+                                </select>
+                            </div>
                                 <button type="submit" class="btn btn-info btn-block">Login</button>
                                 <a href="forgot.html" class="display-block text-center m-t-md text-sm">Forgot Password?</a>
                                 <!--p class="text-center m-t-xs text-sm">Do not have an account?</p>

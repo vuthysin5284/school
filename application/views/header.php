@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="logo-box">
-                <a href="index.html" class="logo-text"><span>EDS</span></a>
+                <a href="<?php base_url()."main/dashboard"?>" class="logo-text"><span>Apple american Intitude School</span></a>
             </div><!-- Logo Box -->
             <div class="search-button">
                 <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
@@ -162,15 +162,15 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown">
-                                <span class="user-name">David<i class="fa fa-angle-down"></i></span>
+                                <span class="user-name">Sin Vuthy<i class="fa fa-angle-down"></i></span>
                                 <img class="img-circle avatar" src="<?php echo base_url();?>assets/images/avatar1.png" width="40" height="40" alt="">
                             </a>
                             <ul class="dropdown-menu dropdown-list" role="menu">
                                 <li role="presentation"><a href="<?php echo base_url();?>main/profile"><i class="fa fa-user"></i>Profile</a></li>
-                                <li role="presentation"><a href="calendar.html"><i class="fa fa-calendar"></i>Calendar</a></li>
-                                <li role="presentation"><a href="inbox.html"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
+                                <li role="presentation"><a href="<?php echo base_url();?>main/calendar"><i class="fa fa-calendar"></i>Calendar</a></li>
+                                <li role="presentation"><a href="<?php echo base_url();?>main/inbox"><i class="fa fa-envelope"></i>Inbox<span class="badge badge-success pull-right">4</span></a></li>
                                 <li role="presentation" class="divider"></li>
-                                <li role="presentation"><a href="lock-screen.html"><i class="fa fa-lock"></i>Lock screen</a></li>
+                                <!--li role="presentation"><a href="lockscreen"><i class="fa fa-lock"></i>Lock screen</a></li-->
                                 <li role="presentation"><a href="<?php echo base_url();?>login/logout"><i class="fa fa-sign-out m-r-xs"></i>Log out</a> 
                             </ul>
                         </li>

@@ -24,13 +24,12 @@
 </div>
 <div style="clear:both"></div>
 <br />
-
-<table id="datable_result_score" class="display" cellspacing="0" width="100%">
+<table id="datable_result_score" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
     <tr>
         <th>No</th>
-        <th><?php echo get_phrase('student_name')?></th>
-        <th><?php echo get_phrase('gender')?></th>
+        <th>មោះ<!-- ឈ្មោះ ភេទ ?php echo get_phrase('student_name')?--></th>
+        <th>ភេទ<!--?php echo get_phrase('gender')?--></th>
         <th>1</th>
         <th>2</th>
         <th>3</th>

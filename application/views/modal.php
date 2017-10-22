@@ -2,10 +2,10 @@
 	function showAjaxModal(url)
 	{
 		// SHOWING AJAX PRELOADER IMAGE
-		jQuery('#modal_ajax .modal-body').html('<div style="text-align:center;margin-top:200px;"><img src="<?php echo base_url();?>assets/images/reload.gif" /></div>');
+		jQuery('#modal_ajax .modal-body').html('<div style="text-align:center;margin-top:10%;"><img src="<?php echo base_url();?>assets/images/reload.gif" /></div>');
 
 		// LOADING THE AJAX MODAL
-		jQuery('#modal_ajax').modal({backdrop:  'static', keyboard: false});
+		jQuery('#modal_ajax').modal({backdrop:  'static', keyboard: false}).draggable();
 
 		// SHOW AJAX RESPONSE ON REQUEST SUCCESS
 		$.ajax({

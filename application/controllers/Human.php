@@ -17,6 +17,11 @@ class Human extends CI_Controller {
 
     //
     function index(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
         $page_data['page_name']  = 'finance/index';
         $page_data['page_title'] = get_phrase('finance');
         $this->load->view('index', $page_data);
@@ -25,9 +30,14 @@ class Human extends CI_Controller {
     //
     /*** payroll ***/
     function payroll($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+        $page_data['page_main']  = get_phrase('human_resource');
         $page_data['page_width']  = "50";
         $page_data['page_name']  = 'payroll/payroll';
-        $page_data['page_title'] = get_phrase('payroll');
+        $page_data['page_title'] = get_phrase('payrolls_management');
         $this->load->view('index', $page_data);
     }
 

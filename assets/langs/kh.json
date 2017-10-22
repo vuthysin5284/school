@@ -7,7 +7,7 @@
     "sInfoPostFix":    "",
     "sInfoThousands":  ",",
     "sLengthMenu":     "Show _MENU_ entries", 
-    "sSearch":       	"ស្វែងរក",
+    "sSearch":       	"ស្វែងរក &nbsp;",
     "sZeroRecords":    "No matching records found",
     "oPaginate": {
         "sFirst":    	"ដំបូង",

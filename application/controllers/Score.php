@@ -21,6 +21,8 @@ class Score extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
+
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_width']  = "60";
         $page_data['page_name']  = 'student/score/index';
         $page_data['page_title'] = get_phrase('score_management');
@@ -34,6 +36,7 @@ class Score extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_name']  = 'student/score/score_student';
         $page_data['page_title'] = get_phrase('score_student');
         $this->load->view('student/score/score_student', $page_data);
@@ -45,6 +48,7 @@ class Score extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
 
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_name']  = 'student/score/classify_score';
         $page_data['page_title'] = get_phrase('classify_score');
         $this->load->view('student/score/classify_score', $page_data);
@@ -55,6 +59,7 @@ class Score extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_title'] = get_phrase('honorable_table');
         $this->load->view('student/score/honorable_table', $page_data);
     }
@@ -64,9 +69,10 @@ class Score extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
+        $page_data['page_main'] = get_phrase('academic');
         $page_data['page_width']  = "60";
         $page_data['page_name']  = 'student/score/result_score';
-        $page_data['page_title'] = get_phrase('result_score');
+        $page_data['page_title'] = get_phrase('finally_result_score');
         $this->load->view('index', $page_data);
     }
 

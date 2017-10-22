@@ -32,23 +32,23 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>testing_register/testing_record_list"
                    data-url="<?php echo base_url();?>testing_register/testing_record_list">
-                    <i class="fa fa-exclamation-circle"></i>Testing Records</a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('resting_enrollment');?><!--Testing Recordsតារាងបញ្ជីរប្រឡងសាកល្បង--></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>testing_register/testing_information"
-                   data-url="<?php echo base_url();?>testing_register/testing_information">
-                    <i class="fa fa-exclamation-circle"></i>Waiting Register</a></li>
+                <a href="<?php echo base_url();?>testing_register/waiting_register"
+                   data-url="<?php echo base_url();?>testing_register/waiting_register">
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('waiting_enrollment');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>testing_register/testing_information"
-                   data-url="<?php echo base_url();?>testing_register/testing_information">
-                    <i class="fa fa-exclamation-circle"></i>Testing Result</a></li>
+                <a href="<?php echo base_url();?>testing_register/testing_result"
+                   data-url="<?php echo base_url();?>testing_register/testing_result">
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('testing_result');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>testingregister/testing_record_list"
-                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
-                    <i class="fa fa-exclamation-circle"></i>Fees Management</a></li>
+                <a href="<?php echo base_url();?>testing_register/fee_management"
+                   data-url="<?php echo base_url();?>testing_register/fee_management">
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('fees_management');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>testingregister/testing_record_list"
-                   data-url="<?php echo base_url();?>testingregister/testing_record_list">
-                    <i class="fa fa-exclamation-circle"></i>Reports</a></li>
+                <a href="<?php echo base_url();?>testing_register/testing_report"
+                   data-url="<?php echo base_url();?>testing_register/testing_report">
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('reports');?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">
@@ -70,23 +70,3 @@
 
 
     <script src="<?php echo base_url();?>assets/js/custom.js"></script>
-
-    <script>
-        // new upload change file
-        function onNewUpload(id) {
-            $("#new_file").val(id);
-            $("#upload_doc").click();
-        }
-
-        $(".upload").click(function() {
-            $("#new_file").val(0);
-            $("#upload_doc").click();
-        });
-
-        $('#upload_doc').change(function(e) {
-            if(confirm('Are you sure you want to upload file?')){
-                $('#frmUploadDoc').submit();
-            }
-        });
-    </script>
-

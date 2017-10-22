@@ -30,47 +30,108 @@ class Main extends CI_Controller {
         $this->load->view('index', $page_data);
 	}
 	 
-	function dashboard(){
-		if ($this->session->userdata('is_login') != 1)
+	function dashboard()
+    {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
-			
-		$page_data['page_name']  = 'main/dashboard';
+        }
+
+        $page_data['page_main']  = get_phrase('dashboard');
+        $page_data['page_name']  = 'main/dashboard';
         $page_data['page_title'] = get_phrase('dashboard');
         $this->load->view('index', $page_data);
 	} 
 	 
 	function profile(){
-		
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_main']  = get_phrase('profile');
 		$page_data['page_name']  = 'main/profile';
         $page_data['page_title'] = get_phrase('profile');
         $this->load->view('index', $page_data);
 	} 
 	
 	function field_panel(){
-		
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
 		$page_data['page_name']  = 'main/field_panel';
         $page_data['page_title'] = get_phrase('field_panel');
         $this->load->view('index', $page_data);
 	} 
 	function pivot_table(){
-		
+
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
 		$page_data['page_name']  = 'main/pivot_table';
         $page_data['page_title'] = get_phrase('pivot_table');
         $this->load->view('index', $page_data);
 	} 
 	function inbox(){
-		
-		$page_data['page_name']  = 'main/inbox';
+
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+        $page_data['page_main']  = get_phrase('profile');
+        $page_data['page_name']  = 'main/inbox';
         $page_data['page_title'] = get_phrase('inbox');
         $this->load->view('index', $page_data);
-	} 
-	function compose(){
-		
-		$page_data['page_name']  = 'main/compose';
+	}
+    function messageview(){
+
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+        $page_data['page_main']  = get_phrase('profile');
+        $page_data['page_name']  = 'main/messageview';
+        $page_data['page_title'] = get_phrase('messageview');
+        $this->load->view('index', $page_data);
+    }
+    function compose(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_main']  = get_phrase('profile');
+        $page_data['page_name']  = 'main/compose';
         $page_data['page_title'] = get_phrase('compose');
         $this->load->view('index', $page_data);
-	}  
-	public function json_datatable(){
+	}
+    //
+    function lockscreen(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_name']  = 'main/lockscreen';
+        $page_data['page_main'] = get_phrase('main');
+        $page_data['page_title'] = get_phrase('lockscreen');
+        $this->load->view('index', $page_data);
+    }
+    //
+    function calendar(){
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_name']  = 'main/calendar';
+        $page_data['page_main'] = get_phrase('main');
+        $page_data['page_title'] = get_phrase('calendar');
+        $this->load->view('index', $page_data);
+    }
+    public function json_datatable(){
 		$json =  array(
 					array(
 						  	"id"=> 1,

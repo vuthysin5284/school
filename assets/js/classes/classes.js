@@ -23,9 +23,19 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
+            { "data" : "session_name" },
             { "data" : "classes_number" },
-            { "data" : "classes_name"},
-            { "data" : "room_id"},
+            { "data" : "classes_name",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    var value = oData.classes_name+"<br />"+oData.grade_abbreviation;
+                    $(nTd).html(value);
+                }
+            },
+            { "data" : "total_capacity",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    var value = "Capacity : "+oData.total_capacity+"<br />Total student : "+oData.total_student;
+                    $(nTd).html(value);
+                }},
             { "data" : "description" },
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {

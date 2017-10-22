@@ -1,23 +1,33 @@
 /* Write your custom CSS here */
-*{
-    font-family: 'Roboto', helvetica, arial, sans-serif;
-}
+
 body, p {
     font-size: 12px;
+    font-family: 'Roboto', helvetica, arial, sans-serif,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+th {
+    text-align: left;
+    font-size: 11px;
+}
+td {
+    font-size: 11px;
 }
 .btn {
     font-size: 12px;
     border: 1px solid transparent;
     border-radius: 0;
 }
+.seperated_line{
+    padding:3px;
+    border-bottom:1px solid #eee;
+}
 
-input[type="text"], select.form-control, textarea.form-control, input[type="password"],input[type="date"] {
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+input[type="text"],input[type="number"], select.form-control, textarea.form-control, input[type="password"],input[type="date"] {
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }
 .dataTables_wrapper .dataTables_filter input, .dataTables_wrapper .dataTables_length select {
-    -moz-border-radius: 6px;
-    -webkit-border-radius: 6px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
 }
 
 .menu.accordion-menu>li.active{
@@ -26,7 +36,6 @@ input[type="text"], select.form-control, textarea.form-control, input[type="pass
 .menu.accordion-menu>li {
     border-left: 0px solid transparent;
 }
- 
  
 .profile-info-value {
     color: #000;
@@ -53,6 +62,12 @@ input[type="text"], select.form-control, textarea.form-control, input[type="pass
 }
 .panel .panel-body {
     padding: 5px;
+}
+.panel-body {
+    padding: 2px;
+}
+.panel {
+    margin-bottom: 0px;
 }
 .tab-content {
     padding: 5px;
@@ -92,8 +107,8 @@ table.dataTable tbody th, table.dataTable tbody td {
 
 .compact-menu .horizontal-bar .accordion-menu li a p {
     display: inline;
-    font-size: 15px;
-    /*font-weight: bold;*/
+    font-size: 12px;
+    font-weight: 500;
 }
 .menu.accordion-menu ul li a:hover, .menu.accordion-menu ul li.active a, .menu.accordion-menu>li.active.open>a, .menu.accordion-menu>li.active>a, .menu.accordion-menu>li.open>a, .menu.accordion-menu>li>a:hover {
     color: #12AFCB;

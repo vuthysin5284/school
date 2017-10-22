@@ -1,0 +1,241 @@
+<li class="">
+									<a href="http://localhost:80/eds/main/dashboard">
+										<span class="menu-icon icon-speedometer"></span>
+										<p>Dashboard</p>
+									</a>
+								</li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-graduation-cap"></span>
+										<p>Academic</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/testing_register">
+													<span class="menu-icon "></span>
+													<p>Testing Enrollment</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/student">
+													<span class="menu-icon "></span>
+													<p>Enrollment Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/examination/index">
+													<span class="menu-icon "></span>
+													<p>Examination Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/promote">
+													<span class="menu-icon "></span>
+													<p>Promote Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/score/index">
+													<span class="menu-icon "></span>
+													<p>Score Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/score/result_score">
+													<span class="menu-icon "></span>
+													<p>Finally Result Score</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-bars"></span>
+										<p>Attendance</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/examination/result_score">
+													<span class="menu-icon "></span>
+													<p>Schedule List</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/examination/result_score">
+													<span class="menu-icon "></span>
+													<p>Attendance List</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-money"></span>
+										<p>Financial</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/finance">
+													<span class="menu-icon "></span>
+													<p>Expense Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Revenue</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Cashcollection</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Pending Invoicing</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Sale Report</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Summary Report</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-users"></span>
+										<p>Human Resource</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/staff">
+													<span class="menu-icon fa fa-user"></span>
+													<p>Staffing Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/leave">
+													<span class="menu-icon fa fa-frown-o"></span>
+													<p>Leave Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon fa fa-clock-o"></span>
+													<p>Time Sheet</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/human/payroll">
+													<span class="menu-icon fa fa-usd"></span>
+													<p>Payrolls Management</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-eye"></span>
+										<p>Administrative</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/transportation">
+													<span class="menu-icon fa fa-bus"></span>
+													<p>Fleet Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon fa fa-history"></span>
+													<p>Event Management</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-bar-chart"></span>
+										<p>Reports</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/report/parent">
+													<span class="menu-icon "></span>
+													<p>Finance Report</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/report/sibling">
+													<span class="menu-icon "></span>
+													<p>Human Resource</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/report/family">
+													<span class="menu-icon "></span>
+													<p>Student Report</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Fleet Report</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Miscellaneous Report</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-rocket"></span>
+										<p>Miscellaneous</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Suppliers List</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Stationery</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Clinic</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Property</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-cogs"></span>
+										<p>Master Data</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/masterdata/master_data">
+													<span class="menu-icon "></span>
+													<p>Acadamic Setup</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/setup/setup_data">
+													<span class="menu-icon "></span>
+													<p>Setup Place</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/hrsetup">
+													<span class="menu-icon "></span>
+													<p>Setup HR</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/setupLeave/index">
+													<span class="menu-icon "></span>
+													<p>Setup Pleave</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon "></span>
+													<p>Setup Expense Type</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/Payrollsetup">
+													<span class="menu-icon "></span>
+													<p>Setup Payroll</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/itemsetup">
+													<span class="menu-icon "></span>
+													<p>Item Master</p>
+												</a>
+											</li></ul></li><li class="droplink">
+									<a href="#">
+										<span class="menu-icon fa fa-key"></span>
+										<p>Security</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/user/user_role">
+													<span class="menu-icon fa fa-gavel"></span>
+													<p>Role</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/user/user_management">
+													<span class="menu-icon fa fa-users"></span>
+													<p>User Management</p>
+												</a>
+											</li></ul></li>

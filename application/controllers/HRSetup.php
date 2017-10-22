@@ -14,10 +14,15 @@ class HRSetup extends CI_Controller
         $this->output->set_header('Pragma: no-cache');
 
     }
-    function index()
-    {
+    function index() {
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url() . 'login', 'refresh');
+        }
+
+        $page_data['page_main']  =  get_phrase('master_data');
         $page_data['page_name']  = 'staff/hrSetup';
-        $page_data['page_title'] = get_phrase('staff');
+        $page_data['page_title'] = get_phrase('hr_setup');
         $this->load->view('index', $page_data);
     }
 }

@@ -133,6 +133,6 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array();
+$autoload['model'] = array('Crud_model');
 
 //$autoload['model'] = array('language' , 'email_model' , 'crud_model' ,'registry_model','ticket_model','report' );

@@ -12,24 +12,30 @@
     <div class="col-md-12">
         Student classification score. the user can filter by monthly or by term
     </div>
-
-    <div class="col-md-12">
-        <select class="form-control" style="width: 250px;text-align: center">
+    <div class="col-md-2">
+        <select class="form-control pull-left" style="width: 150px;">
+            <option>...Year...</option>
+            <option>2017</option>
+            <option>2018</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control pull-left" style="width: 250px;text-align: center">
+            <option>...Month...</option>
             <option>Jan</option>
             <option>Feb</option>
         </select>
-
     </div>
 </div>
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_score_student" class="display" cellspacing="0" width="100%">
+<table id="datable_score_student"  class="table table-striped table-bordered table-hover" width="100%">
     <thead>
     <tr>
-        <th>No</th>
-        <th><?php echo get_phrase('student_name')?></th>
-        <th><?php echo get_phrase('gender')?></th>
+        <th>លរ<!--លរ--></th>
+        <th>មោះ<!-- ឈ្មោះ ភេទ ?php echo get_phrase('student_name')?--></th>
+        <th>ភេទ<!--?php echo get_phrase('gender')?--></th>
         <th>Khmer</th>
         <th>Math</th>
         <th>Phisic</th>
@@ -49,6 +55,7 @@
     </tr>
     </thead>
 </table>
+
 
 <script src="<?php echo base_url();?>assets/js/enrolment/score_student.js"></script>
 

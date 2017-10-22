@@ -3,7 +3,7 @@
 var datable_result;
 var _url_path =  baseurl+'testing_register/new_record/';
 var _url_del =  baseurl+'testing_register/delete/';
-var _url_edit = baseurl+'testing_register/testing_record_detail_info/';
+var _url_edit = baseurl+'testing_register/new_testing_enrollment/';
 
 $(document).ready(function() {
     datable_result = $('#datable_register').DataTable( {
@@ -13,7 +13,15 @@ $(document).ready(function() {
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
-
+        "bLengthChange": false,
+        "bPaginate": false,
+        dom             : "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+        buttons: [
+            {extend: 'copy',className: 'btn-sm'},
+            {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'print',className: 'btn-sm'}
+        ],
         "ajax"       : {
             "url"    : baseurl+'testing_register/record_data',
             "type"   : 'POST',
@@ -25,11 +33,9 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-			{ "data" : "testing_id" },
-            { "data" : "latin_name" },
             { "data" : "khmer_name"},
+            { "data" : "latin_name" },
             { "data" : "gender" },
-			{ "data" : "nationality" },
 			{ "data" : "date_of_birth" },
 			{ "data" : "age"},
 			{ "data" : "academic_year"},
@@ -37,10 +43,9 @@ $(document).ready(function() {
 			{ "data" : "language"},
 			{ "data" : "relative_name"},
 			{ "data" : "contact_number"},
-			{ "data" : "relative"},
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
+                    var yesno = oData.is_delete==0?(oData.status==1?'Pending':'Inactive'): '<font color="red">Deleted</font>';
                     $(nTd).html(yesno);
                 }
             },

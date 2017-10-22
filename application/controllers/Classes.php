@@ -28,7 +28,7 @@ class Classes extends CI_Controller {
 		
         $obj->branch_id = $this->session->userdata("branch_id");
         $page_data["classes_detail"] = $this->classes_m->get_classes_detail($obj);
-        $page_data["room_list"] = $this->classes_m->get_room_list($obj);
+        $page_data["session_list"] = $this->classes_m->get_session_list($obj);
         $page_data["crud"] = $param2;
         $this->load->view('masterdata/classes/modal_new_classes' ,$page_data);
     }
@@ -62,9 +62,12 @@ class Classes extends CI_Controller {
 
         $data["classes_number"] 	= $this->input->post("classes_number");
         $data["classes_name"] 	    = $this->input->post("classes_name");
-        $data["room_id"] 	        = $this->input->post("room_id");
+        $data["session_id"] 	        = $this->input->post("session_id");
         $data["status"] 	    = empty($this->input->post("status"))?0:1;
         $data["description"]    = $this->input->post("description");
+        $data["total_capacity"]    = $this->input->post("total_capacity");
+        $data["grade_abbreviation"]    = $this->input->post("grade_abbreviation");
+        $data["order_number"] 	        = $this->input->post("order_number");
 
 
         // got value hidden file for reference id price book
@@ -108,18 +111,22 @@ class Classes extends CI_Controller {
             redirect(base_url() . 'login', 'refresh');
         }
         // DB table to use
-        $table = 'classes where is_delete=0';
+        $table = 'class_v';
         $primaryKey	= "id";
         // indexes
         $columns = array(
             array( 'db' => 'id', 		    	'dt'	=> "id", 				'field'	=> 'id'),
             array( 'db' => 'classes_number',    'dt'	=> "classes_number", 	'field'	=> 'classes_number' ),
             array( 'db' => 'classes_name',      'dt'	=> "classes_name",      'field'	=> 'classes_name' ),
-            array( 'db' => 'room_id',         	'dt'	=> "room_id",        	    'field'	=> 'room_id' ),
-            array( 'db' => 'classes_name',   	'dt'	=> "classes_name",      'field'	=> 'classes_name'  ),
+            array( 'db' => 'session_id',        'dt'	=> "session_id",        'field'	=> 'session_id' ),
+            array( 'db' => 'session_name',   	'dt'	=> "session_name",      'field'	=> 'session_name'  ),
             array( 'db' => 'description',   	'dt'	=> "description",   	'field'	=> 'description'  ),
+            array( 'db'	=> 'order_number',        	    'dt'	=> "order_number",        	'field'	=> 'order_number' ),
             array( 'db'	=> 'status',        	'dt'	=> "status",        	'field'	=> 'status' ),
-            array( 'db'	=> 'is_delete',         'dt'	=> "is_delete",         'field'	=> 'is_delete' )
+            array( 'db'	=> 'is_delete',         'dt'	=> "is_delete",         'field'	=> 'is_delete' ),
+            array( 'db'	=> 'total_capacity',         'dt'	=> "total_capacity",         'field'	=> 'total_capacity' ),
+            array( 'db'	=> 'grade_abbreviation',         'dt'	=> "grade_abbreviation",         'field'	=> 'grade_abbreviation' ),
+            array( 'db'	=> 'total_student',         'dt'	=> "total_student",         'field'	=> 'total_student' )
         );
 
         $sql_details	= array(
@@ -135,27 +142,5 @@ class Classes extends CI_Controller {
 
     }
 
-
-   /* public function room_data(){
-
-        // DB table to use
-        $table = 'room';
-
-        // indexes
-        $columns = array(
-            array( 'db' => 'id', 			'dt' => 0 ),
-            array( 'db' => 'classes_number',  	'dt' => 1 ),
-            array( 'db' => 'classes_name',   	'dt' => 2 ),
-            array( 'db' => 'floor',   	    'dt' => 2 ),
-            array( 'db' => 'building', 	    'dt' => 2 ),
-            array( 'db' => 'classes_name',   	'dt' => 2 ),
-            array( 'db' => 'description',    'dt' => 3 ),
-            array( 'db'	=> 'status',         'dt' => 4)
-        );
-
-
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
-
-    }*/
 
 } 

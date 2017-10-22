@@ -1,33 +1,50 @@
 <div class="row">
-    <div class="col-md-6 pull-right text-right">
+
+    <div class="col-md-2">
+        <select class="form-control">
+            <option>... Status ...</option>
+            <option>Active</option>
+            <option>Inactive</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control">
+            <option>... Payment ...</option>
+            <option>Paid</option>
+            <option>Not paid</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control">
+            <option>1</option>
+        </select>
+    </div>
+    <div class="col-md-2 pull-right text-right">
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>testing_register/new_record/0/new');">
             <i class="fa fa-user-plus"></i>
-            <?php echo get_phrase('new_record');?>
+            <?php echo get_phrase('testing_register');?>
         </button>
     </div>
 </div>
-<div style="padding:5px; border-bottom:2px solid #eee;"></div> <!-- end header -->
+<div class="seperated_line"></div> <!-- end header -->
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_register" class="display" cellspacing="0" width="100%">
+<table id="datable_register" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
         <tr>
-        	<th>Auto Number</th>
-            <th>Latin Name</th>
+        	<th>No</th>
             <th>Khmer Name</th>
+            <th>Latin Name</th>
             <th>Gender</th>
-            <th>Nationality</th>
-            <th>Date of Birth</th>
+            <th>Dob</th>
             <th>Age</th>
-            <th>Academic Year</th>
-            <th>Expected Class</th>
-            <th>Language</th>
+            <th>Session</th>
+            <th>Class</th>
             <th>Relative Name</th>
             <th>Contact Number</th>
-            <th>Relative</th>
-            <th>STATUS</th>
-            <th>Options</th>
+            <th>Status</th>
+            <th>Action</th>
         </tr>
     </thead>
 </table>

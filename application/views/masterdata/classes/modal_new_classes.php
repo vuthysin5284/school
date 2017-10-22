@@ -21,47 +21,76 @@
     <input type="hidden" name="pb_hidden_id" value="<?php echo $classes_detail["id"]?>"/>
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
-        <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('classes_number');?> <span class="red">*</span>
-           </label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="classes_number" name="classes_number" placeholder="classes number"  value="<?php echo $classes_detail["classes_number"]?>" />
-            </div>
-        </div>
-        <div class="form-group">
-           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('classes_name');?> <span class="red">*</span>
-           </label>
-            <div class="col-sm-8">
-                <input type="text" class="form-control" id="classes_name" name="classes_name" placeholder="classes name" value="<?php echo $classes_detail["classes_name"]?>" />
-            </div>
-        </div>
-        
-       <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('room');?> <span class="red">*</span>
+
+    <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('session_name');?> <span class="red">*</span>
             </label>
             <div class="col-sm-8">
-                <select class="form-control" id="room_id" name="room_id" >
-                    <option value="0">... room ...</option>
+                <select class="form-control" id="session_id" name="session_id" >
+                    <option value="0">... session ...</option>
                     <?php
-					
-                    foreach($room_list as $r){
-						
-                        $selected = ($r->room_number==$classes_detail["room_id"])?" selected":"";
-                        echo "<option value='".$r->room_number."' ".$selected.">".$r->room_number."</option>";
+                        foreach($session_list as $r){
+                            $selected = ($r->id==$classes_detail["session_id"])?" selected":"";
+                            echo "<option value='".$r->id."' ".$selected.">".$r->session_name."</option>";
 
-                    }
+                        }
                     ?>
                 </select>
             </div>
         </div>
 
+
     <div class="form-group">
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('class_number');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="classes_number" name="classes_number" placeholder="class number"  value="<?php echo $classes_detail["classes_number"]?>" />
+            </div>
+        </div>
+        <div class="form-group">
+           <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('class_name');?> <span class="red">*</span>
+           </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="classes_name" name="classes_name" placeholder="class name" value="<?php echo $classes_detail["classes_name"]?>" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('class_abbreviation');?></label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" name="grade_abbreviation" value="<?php echo $classes_detail["grade_abbreviation"]?>"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('total_capacity');?></label>
+            <div class="col-sm-8">
+                <input type="number" class="form-control" name="total_capacity" value="<?php echo $classes_detail["total_capacity"]?>"/>
+            </div>
+        </div>
+
+        <?php if($crud=="edit"){?>
+        <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('total_student');?></label>
+            <div class="col-sm-8">
+                <input type="number" readonly="true" class="form-control" name="total_student" value="<?php echo $classes_detail["total_student"]?>"/>
+            </div>
+        </div>
+        <?php }?>
+
+        <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
-            <div class="col-sm-8">  
-                <input type="text" class="form-control"  name="description"  value="<?php echo $classes_detail["description"]?>"/>
-             </div>
-        </div> 
-              
+            <div class="col-sm-8">
+                <textarea class="form-control" name="description"><?php echo $classes_detail["description"]?></textarea>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('order_number');?></label>
+            <div class="col-sm-8">
+                <input type="number" class="form-control" name="order_number" value="<?php echo $classes_detail["order_number"]?>" />
+            </div>
+        </div>
+
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
             <div class="col-sm-8">  

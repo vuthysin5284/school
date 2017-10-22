@@ -16,12 +16,15 @@ class Setup extends CI_Controller {
     }
     //
 	function setup_data(){
-        if ($this->session->userdata('is_login') != 1)
+        if ($this->session->userdata('is_login') != 1) {
+            $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
+        }
 
         $page_data['page_width']  = "50";
+        $page_data['page_main']  = get_phrase('master_data');
 		$page_data['page_name']  = 'menu/setup';
-        $page_data['page_title'] = get_phrase('setup');
+        $page_data['page_title'] = get_phrase('setup_place');
         $this->load->view('index', $page_data);
 	}
 	 

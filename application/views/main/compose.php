@@ -7,7 +7,7 @@
                         <div class="col-md-12">
                             <div class="row mailbox-header">
                                 <div class="col-md-2">
-                                    <a href="inbox.html" class="btn btn-success btn-block">Back to Inbox</a>
+                                    <a href="<?php echo base_url();?>main/inbox" class="btn btn-success btn-block">Back to Inbox</a>
                                 </div>
                                 <div class="col-md-6">
                                     <h2>Compose</h2>

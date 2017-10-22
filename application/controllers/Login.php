@@ -40,6 +40,7 @@ class Login extends CI_Controller {
         $login_status = $this->validate_login($username, $password);
         $response['login_status'] = $login_status;
         if ($login_status == 'success') {
+            $this->session->set_userdata('running_sesion', $_POST["running_sesion"]);
             $response['redirect_url'] = $this->session->userdata('last_page');
 			redirect(base_url(), 'refresh');
         }
@@ -70,7 +71,10 @@ class Login extends CI_Controller {
             // is login
 			$this->db->where('admin_id',$row->admin_id);
 			$this->db->set('is_login','online');
-			$this->db->update('user'); 
+			$this->db->update('user');
+
+			//
+            self::writeMenus($row->admin_id);
 			
             return 'success';
         }
@@ -144,7 +148,106 @@ class Login extends CI_Controller {
 		  
 		return $suppervice;
 		
-	} 
+	}
+
+	function writeMenus($user_id){
+        $sql = "   
+                    SELECT 
+                        * 
+                    FROM menu 
+                    WHERE MENU_ID IN(
+                        select 
+                            DISTINCT m.MAIN_MENU_ID 
+                        from menu m 
+                        inner join menu_role mr on mr.MENU_ID = m.MENU_ID
+                        inner join role r on r.role_id = mr.ROLE_ID
+                        inner join user u on u.role_id = r.role_id  
+                        where sap_id =  '" . $this->session->userdata('sap_id') . "' 
+                    )
+                    
+                    AND is_leaf =  ?
+                    and LOAD_TYPE = 1
+                    and status_id = 1
+                    and MAIN_MENU_ID = 0 
+                    
+                    union all 
+                    
+                    SELECT 
+                            m.*
+                    from menu m 
+                    inner join menu_role mr on mr.MENU_ID = m.MENU_ID
+                    inner join role r on r.role_id = mr.ROLE_ID
+                    inner join user u on u.role_id = r.role_id  
+                    where sap_id = '" . $this->session->userdata('sap_id') . "'
+                    AND MAIN_MENU_ID = ? 
+                    and LOAD_TYPE = 1
+                    and status_id = 1
+                        
+                ORDER BY order_by ASC
+            ";
+            $result = $this->db->query($sql, array(1, 0))->result_array();
+
+        $navigation = '';
+
+        foreach ($result as $row) {
+            //
+            if ($row["IS_LEAF"] == 1) {// level one
+                $navigation .= '<li class="droplink">
+									<a href="#">
+										<span class="menu-icon ' . $row["icon"] . '"></span>
+										<p>' . get_phrase($row["MENU_NAME"]) . '</p><span class="arrow"></span>
+									</a>
+								<ul  class="sub-menu">';
+
+                $result1 = $this->db->query($sql, array(0, $row["MENU_ID"]))->result_array();
+
+                // checking is have sub menu?
+                foreach ($result1 as $sub) {
+                    if ($sub["IS_LEAF"] == 1) { // level two
+                        $navigation .= '<li class="droplink">
+													<a href="#">
+														<span class="menu-icon ' . $sub["icon"] . '"></span>
+														<p>' . get_phrase($sub["MENU_NAME"]) . '</p><span class="arrow"></span>
+													</a>
+												<ul  class="sub-menu">';
+                        $result2 = $this->db->query($sql, array(0, $sub["MENU_ID"]))->result_array();
+                        foreach ($result2 as $sub2) {
+                            //
+                            $navigation .= '<li class="">
+													<a href="' . base_url() . $sub2["LINK"] . '">
+														<span class="menu-icon ' . $sub2["icon"] . '"></span>
+														<p>' . get_phrase($sub2["MENU_NAME"]) . '</p>
+													</a>
+												</li>';
+                        }
+                        $navigation .= '</ul></li>';
+                    } else {
+
+                        //
+                        $navigation .= '<li class="">
+												<a href="' . base_url() . $sub["LINK"] . '">
+													<span class="menu-icon ' . $sub["icon"] . '"></span>
+													<p>' . get_phrase($sub["MENU_NAME"]) . '</p>
+												</a>
+											</li>';
+                    }
+                }
+                // for main menu
+                $navigation .= '</ul></li>';
+            } else {
+                $navigation .= '<li class="">
+									<a href="' . base_url() . $row["LINK"] . '">
+										<span class="menu-icon ' . $row["icon"] . '"></span>
+										<p>' . get_phrase($row["MENU_NAME"]) . '</p>
+									</a>
+								</li>';
+            }
+        }
+
+        fopen('./'.$user_id.'.txt', 'w');
+        // write string to text file
+        file_put_contents('./'.$user_id.'.txt',$navigation);
+    }
 	 
 
 }

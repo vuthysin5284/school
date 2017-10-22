@@ -35,9 +35,10 @@
         <div class="page-inner">  
 			<div class="page-breadcrumb">
                 <ol class="breadcrumb container">
-                    <li>&nbsp;</li>
-                    <!--li><a href="<?php echo base_url();?>">Home</a></li>
-                    <li class="active"><?php echo $page_title;?></li-->
+                    <input type="text" id="fuzzysearch" class="pull-right form-control" style="width: 25%;" placeholder="searching your favorite" />
+                    <li>Home</li>
+                    <li><?php echo $page_main;?></li>
+                    <li><?php echo $page_title;?></li>
                 </ol>
             </div>
             
@@ -56,4 +57,24 @@
  
 </body>
 </html>
+
+<script>
+    $(document).ready(function () {
+        $('#fuzzysearch').typeahead({
+            source: function (query, result) {
+                $.ajax({
+                    url: baseurl+"search/search",
+                    data: 'query=' + query,
+                    dataType: "json",
+                    type: "POST",
+                    success: function (data) {
+                        result($.map(data, function (item) {
+                            return item;
+                        }));
+                    }
+                });
+            }
+        });
+    });
+</script>
  

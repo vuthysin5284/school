@@ -29,6 +29,6 @@ $( document ).ready(function() {
         e.stopPropagation();
         e.preventDefault();
 
-        window.location = "message-view.html";
+        window.location = "messageview";
     });
 });

@@ -30,6 +30,19 @@ class Enrolment extends CI_Controller {
         $page_data["crud"] = $param2;
         $this->load->view('student/enrolment/modal_new_enrolment' ,$page_data);
     }
+    //
+    function admin_enrolment($param1 = '',$param2 = '',$param3 = '')
+    {
+        $obj = new stdClass();
+        $obj->id = $param1;
+        if($param2=='edit'){
+            $page_data["enrolment_detail"] = $this->enrolment_m->get_enrolment_general($obj);
+        }
+        $page_data["id"] = $param1;
+        $page_data["crud"] = $param2;
+        $this->load->view('student/admin/modal_admin_enrolment' ,$page_data);
+    }
+    //
     function delete($param1 = '',$param2 = '',$param3 = ''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
@@ -223,6 +236,16 @@ class Enrolment extends CI_Controller {
             }
         }
         echo json_encode(array("data"=>$data));
+
+    }
+    // new student upload
+    function new_student_upload($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+        $student_id = empty($this->input->post("enrolment_id"))?0:$this->input->post("enrolment_id");
+        move_uploaded_file($_FILES['student_image']['tmp_name'], 'C:/wamp/www/school/uploads/student_image/' . $student_id . '.jpg');
 
     }
     // get data list

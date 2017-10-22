@@ -6,13 +6,20 @@ var _url_del =  baseurl+'enrolment/delete/';
 
 $(document).ready(function() {
     datable_result = $('#datable_result_score').DataTable( {
-        fixedColumns    : true,
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
+
+        dom             : "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+        buttons: [
+            {extend: 'copy',className: 'btn-sm'},
+            {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'print',className: 'btn-sm'}
+        ],
 
         "ajax"       : {
             "url"    : baseurl+'staff/get_employee_data',
