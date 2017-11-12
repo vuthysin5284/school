@@ -4,6 +4,7 @@ var _url_path =  baseurl+'enrolment/new_enrolment/';
 var _url_edit = baseurl+'enrolment/new_enrolment/';
 var _url_admin = baseurl+'enrolment/admin_enrolment/';
 var _url_del =  baseurl+'enrolment/delete/';
+var _img =  baseurl+'uploads/student_image/1.jpg';
 
 $(document).ready(function() {
     datable_result = $('#datable_enrolment').DataTable( {
@@ -13,13 +14,18 @@ $(document).ready(function() {
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
-
-        dom             : "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
+        "dom"             : "<'row'<'col-sm-3'l><'col-sm-6'B><'col-sm-3'f>>tr<'col-sm-3'i>p",
         buttons: [
             {extend: 'copy',className: 'btn-sm'},
             {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
             {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-            {extend: 'print',className: 'btn-sm'}
+            {extend: 'print',className: 'btn-sm'},
+            {
+                text: 'Refresh', action: function () {
+                    datable_result.draw();
+                    //datable_result.ajax.reload();
+                }
+            }
         ],
         "ajax"       : {
             "url"    : baseurl+'student/get_enrolment_data',
@@ -27,18 +33,40 @@ $(document).ready(function() {
             "destroy" : true
         },
         language: {
-            //processing: "<img src='"+baseurl+"assets/images/reload.gif'>",
-            loadingRecords: "<img src='"+baseurl+"assets/images/reload.gif'>",
+            processing: _progImg,
+            loadingRecords: _progImg,
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "khmer_name"},
-            { "data" : "dob" },
-            { "data" : "gender" },
-            { "data" : "academic_id" },
-            { "data" : "academic_id" },
-            { "data" : "times_name" },
-            { "data" : "child_number" },
+            { "data" : "id",
+                render: function (data, type, row, meta) {
+                var auto_num = meta.row + meta.settings._iDisplayStart + 1;
+                    return  "krs<br />"+('00000000' + auto_num).slice(-8);
+                }
+            },
+            { "data" : "image" ,
+                'render': function (data, type, full, meta) {
+                    return '<img src="'+_img+'" class="img" />';
+                }
+            },
+            { "data" : "khmer_name" ,
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.khmer_name+'<div>Sex: '+oData.gender_name +'</div>' +
+                        '<div>Fee: Paid</div>');
+                }
+            },
+            { "data" : "dob",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.dob+'<div>AGE: '+oData.id+'</div>');
+                }
+            },
+            { "data" : "session_name" ,
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.session_name+'<div>Next paid date: 2018-01-10 </div>');
+                }},
+            { "data" : "class_name" },
+            { "data" : "section_name" },
+            //{ "data" : "child_number" },
 
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {

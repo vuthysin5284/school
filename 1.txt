@@ -9,7 +9,7 @@
 										<p>Academic</p><span class="arrow"></span>
 									</a>
 								<ul  class="sub-menu"><li class="">
-												<a href="http://localhost:80/eds/testing_register">
+												<a href="http://localhost:80/eds/testing_enrollment">
 													<span class="menu-icon "></span>
 													<p>Testing Enrollment</p>
 												</a>
@@ -47,11 +47,6 @@
 												<a href="http://localhost:80/eds/examination/result_score">
 													<span class="menu-icon "></span>
 													<p>Schedule List</p>
-												</a>
-											</li><li class="">
-												<a href="http://localhost:80/eds/examination/result_score">
-													<span class="menu-icon "></span>
-													<p>Attendance List</p>
 												</a>
 											</li></ul></li><li class="droplink">
 									<a href="#">

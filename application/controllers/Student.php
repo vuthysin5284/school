@@ -9,6 +9,7 @@ class Student extends CI_Controller {
         $this->load->database('default', TRUE);
         $this->load->library('session');
         $this->load->model("Enrolment_model","enrolment_m");
+        $this->load->model("Common_model","com_m");
 
         /*cache control*/
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -95,9 +96,9 @@ class Student extends CI_Controller {
             $page_data['general_data'] = $this->enrolment_m->get_enrolment_general($obj);
         }
 
-        $page_data["gender_list"] = $this->enrolment_m->get_gender_list();
-        $page_data["time_study"] = $this->enrolment_m->get_timestudy_list();
-        $page_data["child_number"] = $this->enrolment_m->get_child_list();
+        $page_data["gender_list"] = $this->com_m->get_gender_list();
+        $page_data["time_study"] = $this->com_m->get_timestudy_list();
+        $page_data["child_number"] = $this->com_m->get_child_list();
 
         $page_data['page_title'] = get_phrase('student_general');
         $this->load->view('student/enrolment/student_general', $page_data);
@@ -150,9 +151,9 @@ class Student extends CI_Controller {
         }
 
         //get data to object
-        $page_data["grade_list"] = $this->enrolment_m->grade_list();
-        $page_data["subject_data"] = $this->enrolment_m->subject_data();
-        $page_data["letter_data"] = $this->enrolment_m->letter_data();
+        $page_data["grade_list"] = $this->com_m->grade_list();
+        $page_data["subject_data"] = $this->com_m->subject_data();
+        $page_data["letter_data"] = $this->com_m->letter_data();
 
         $page_data['page_title'] = get_phrase('assign_class');
         $this->load->view('student/enrolment/assign_class', $page_data);
@@ -337,7 +338,7 @@ class Student extends CI_Controller {
             redirect(base_url(). 'login', 'refresh');
         }
         // DB table to use
-        $table = 'student_info where is_delete=0' ;														// Field
+        $table = 'student_info_view where is_delete=0 and branch_id = 1' ;														// Field
         $primaryKey = "id";
         // indexes
         $columns = array(
@@ -346,9 +347,13 @@ class Student extends CI_Controller {
             array('db' => 'khmer_name',             'dt' => "khmer_name",           'field' => 'khmer_name'),
             array('db' => 'latin_name',             'dt' => "latin_name",           'field' => 'latin_name'),
             array('db' => 'middle_name',            'dt' => "middle_name",          'field' => 'middle_name'),
-            array('db' => 'gender',                 'dt' => "gender",               'field' => 'gender'),
+            array('db' => 'image',                  'dt' => "image",                'field' => 'image'),
+            array('db' => 'gender_name',            'dt' => "gender_name",          'field' => 'gender_name'),
             array('db' => 'dob',                    'dt' => "dob",                  'field' => 'dob'),
-            array('db' => 'academic_id',            'dt' => "academic_id",          'field' => 'academic_id'),
+            array('db' => 'age',                    'dt' => "age",                  'field' => 'age'),
+            array('db' => 'session_name',           'dt' => "session_name",         'field' => 'session_name'),
+            array('db' => 'class_name',             'dt' => "class_name",           'field' => 'class_name'),
+            array('db' => 'section_name',           'dt' => "section_name",         'field' => 'section_name'),
             array('db' => 'times_name',             'dt' => "times_name",           'field' => 'times_name'),
             array('db' => 'child_number',           'dt' => "child_number",         'field' => 'child_number'),
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),

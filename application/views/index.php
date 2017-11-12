@@ -35,8 +35,9 @@
         <div class="page-inner">  
 			<div class="page-breadcrumb">
                 <ol class="breadcrumb container">
-                    <input type="text" id="fuzzysearch" class="pull-right form-control" style="width: 25%;" placeholder="searching your favorite" />
-                    <li>Home</li>
+                    <button class="btn btn-info pull-right" id="btnGSearch">search</button>
+                    <input type="text" id="fuzzysearch" class="pull-right form-control" style="width: 25%; margin-right: 5px; height: 32px;" placeholder="searching your favorite" />
+                    <li><a href="<?php echo base_url()?>home">Home</a></li>
                     <li><?php echo $page_main;?></li>
                     <li><?php echo $page_title;?></li>
                 </ol>
@@ -75,6 +76,22 @@
                 });
             }
         });
+
+        // on search
+        $("#btnGSearch").on('click',function(e){
+            e.preventDefault();
+
+            $.ajax({
+                url: baseurl+"search/search_result",
+                data: 'query=' + $("#fuzzysearch").val(),
+                dataType: "json",
+                type: "POST",
+                success: function (data) {
+                    $('#main-wrapper').html(JSON.stringify(data));
+                }
+            });
+        });
     });
 </script>
+
  

@@ -1,7 +1,7 @@
  
        
 <!-- Styles -->
-<link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+<link href='<?php echo base_url();?>assets/css/google_fonts/google_fonts.css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
 <link href="<?php echo base_url();?>assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
 <!--link href="<?php echo base_url();?>assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
 <link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
@@ -16,7 +16,7 @@
 <link href="<?php echo base_url();?>assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>
 
 
-<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/metisMenu/dist/metisMenu.css" />
+<!--link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/metisMenu/dist/metisMenu.css" /-->
 <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/animate.css/animate.css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/bootstrap/dist/css/bootstrap.css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/c3/c3.min.css" />
@@ -34,7 +34,8 @@
 
  
 <script>
-	var baseurl = '<?php echo base_url();?>';  
+	var baseurl = '<?php echo base_url();?>';
+    var _progImg = "<div style='text-align: center; position: relative'><img src='"+baseurl+"assets/images/reload.gif'></div>";
 </script>   
 
 
@@ -52,15 +53,6 @@
 <script src="<?php echo base_url();?>assets/plugins/3d-bold-navigation/js/main.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/waypoints/jquery.waypoints.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jquery-counterup/jquery.counterup.min.js"></script>
-
-<!--script src="<?php echo base_url();?>assets/plugins/toastr/toastr.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.time.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.symbol.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.resize.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/curvedlines/curvedLines.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/metrojs/MetroJs.min.js"></script-->
 
 <script src="<?php echo base_url();?>assets/plugins/jquery-mockjax-master/jquery.mockjax.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/moment/moment.js"></script>
