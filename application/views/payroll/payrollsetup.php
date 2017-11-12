@@ -29,8 +29,8 @@
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
             <li class="active default">
-                <a href="<?php echo base_url();?>branch/branch_list"
-                   data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>payrollsetup//payrollsetup"
+                   data-url="<?php echo base_url();?>payrollsetup/payrollsetup/" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i><?php echo get_phrase("payroll_tax");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
