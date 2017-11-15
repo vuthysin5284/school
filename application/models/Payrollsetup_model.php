@@ -4,19 +4,18 @@
 		
 		function __construct()
 		{ 
-			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			parent::__construct(); 
 			 
 		}  
 		/*create new payrollsetup*/
-		function new_payrollsetup($data){
-			$this->db->insert('payrollsetup',$data);
+		function new_payrolltax($data){
+			$this->db->insert('payroll_tax',$data);
 			return $this->db->insert_id(); 		
 		}
 		/*edit payrollsetup*/
-		function edit_payrollsetup($data,$id){
+		function edit_payrolltax($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('payrollsetup',$data);
+			return $this->db->update('payroll_tax',$data);
 		}
 
 		/*delete payrollsetup*/
@@ -37,26 +36,25 @@
 			$this->db->update('payrollsetup');
 		}
 		
-		/* payrollsetup detail */
+		/*  author: Eng
+			date : 2017-11-12
+			param: @obj
+			function: get payroll tax detail
+			return : data in object  
+		*/
 		function get_payrollsetup_detail($obj){
 			$sql = " select 
 						*
-					from payrollsetup 
+					from payroll_tax 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->payrollsetup_id))->row();
+			$data = $this->db->query($sql,array($obj->payroll_tax_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
-                        "payroll_tax_name_kh"=> empty($data->payroll_tax_name_kh)?'':$data->payroll_tax_name_kh,
-                        "payroll_tax_name"=> empty($data->payroll_tax_name)?'':$data->payroll_tax_name,
-                        "phone_number"=> empty($data->phone_number)?'':$data->phone_number,
-                        "email"=> empty($data->email)?'':$data->email,
-                        "prefix"=> empty($data->prefix)?'':$data->prefix,
+                        "payroll_tax_number"=> empty($data->payroll_tax_number)?0:$data->payroll_tax_number,
+                        "amount_in_riel_less_than"=> empty($data->amount_in_riel_less_than)?0:$data->amount_in_riel_less_than,
+                        "tax_percentage"=> empty($data->tax_percentage)?'':$data->tax_percentage,
+                        "deduction_amount_in_riel"=> empty($data->deduction_amount_in_riel)?0:$data->deduction_amount_in_riel,
                         "status"=> empty($data->status)?'':$data->status,
-                        "address"=> empty($data->address)?'':$data->address,
-                        "address1"=> empty($data->address1)?'':$data->address1,
-                        "address2"=> empty($data->address2)?'':$data->address2,
-                        "address3"=> empty($data->address3)?'':$data->address3,
-                        "address4"=> empty($data->address4)?'':$data->address4,
                         "created_date"=> empty($data->created_date)?'':$data->created_date,
                         "modified_date"=> empty($data->modified_date)?'':$data->modified_date,
                         "created_by"=> empty($data->created_by)?'':$data->created_by,

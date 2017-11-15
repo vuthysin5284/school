@@ -1,10 +1,10 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'payrollsetup/new_payrollsetup/';
-var _url_del =  baseurl+'payrollsetup/delete/';
+var _url_path =  baseurl+'deduction_item/new_deduction_item/';
+var _url_del =  baseurl+'deduction_item/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_payrollsetup').DataTable( {
+    datable_result = $('#datable_deduction_item').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -22,7 +22,7 @@ $(document).ready(function() {
         ],
 
         "ajax"       : {
-            "url"    : baseurl+'payrollsetup/payrollsetup_data',
+            "url"    : baseurl+'deduction_item/deduction_item_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -32,11 +32,9 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "payroll_tax_name_kh" },
-            { "data" : "payroll_tax_name"},
-            { "data" : "phone_number" },
-            { "data" : "email" },
-            { "data" : "prefix" },
+            { "data" : "deduction_number" },
+            { "data" : "deduction_item"},
+            { "data" : "description" },
             { "data" : "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     var status = (oData.status==1)?'Active':'<font color="red">Inactive</font>';

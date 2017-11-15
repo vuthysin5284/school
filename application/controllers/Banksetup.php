@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Payrollsetup extends CI_Controller
+class Banksetup extends CI_Controller
 {
 
     function __construct()
@@ -27,76 +27,76 @@ class Payrollsetup extends CI_Controller
         $this->load->view('index', $page_data);
     }
 
-    function payroll_tax($param1 = '',$param2 = '',$param3 = ''){
+    function banksetup($param1 = '',$param2 = '',$param3 = ''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
 
         $page_data['page_main']  =  get_phrase('payrollsetup');
-        $page_data['page_name']  = 'payrollsetup/payroll_tax_list';
-        $page_data['page_title'] = get_phrase('payroll_tax');
-        $this->load->view('payroll/payrollsetup/payroll_tax/payroll_tax_list', $page_data);
+        $page_data['page_name']  = 'payrollsetup/banksetup';
+        $page_data['page_title'] = get_phrase('banksetup');
+        $this->load->view('payroll/payrollsetup/banksetup/banksetup', $page_data);
 
     }
-    function new_payroll_tax($param1 = '',$param2 = '',$param3 = '')
+    function new_banksetup($param1 = '',$param2 = '',$param3 = '')
     {
         if ($this->session->userdata('is_login') != 1)
             redirect(base_url() . 'login', 'refresh');
 
         $obj = new stdClass();
-        $obj->payroll_tax_id = $param1;
+        $obj->banksetup_id = $param1;
         // edit
         if($param2=='edit'){
-            $this->load->model("payrollsetup_model", "pr_m");
-            $page_data["prtax_del"] = $this->pr_m->get_payrollsetup_detail($obj);
+            $this->load->model("banksetup_model", "bs_m");
+            $page_data["bs_del"] = $this->bs_m->get_banksetup_detail($obj);
         }
         //
         $page_data["crud"] = $param2;
-        $this->load->view('payroll/payrollsetup/payroll_tax/modal_new_payroll_tax' ,$page_data);
+        $this->load->view('payroll/payrollsetup/banksetup/modal_new_banksetup' ,$page_data);
     }
-    /*** payroll tax ***/
-    function payrollsetup_list($param1='',$param2='',$param3=''){
+    /*** banksetup ***/
+    function banksetup_list($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1)
             redirect(base_url() . 'login', 'refresh');
 
         $page_data['page_title'] = get_phrase('payrollsetup');
-        $this->load->view('payroll/payrollsetup/payrollsetup_list',$page_data);
+        $this->load->view('payroll/payrollsetup/banksetup_list',$page_data);
     }
-    /* create new payroll tax */
-    function create_new_payrolltax($param1 = '', $param2 = '', $param3 = ''){
+    /* create new banksetup */
+    function create_new_banksetup($param1 = '', $param2 = '', $param3 = ''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
         // load model
-        $this->load->model("payrollsetup_model", "pr_m");
+        $this->load->model("banksetup_model", "bs_m");
 
         // variables
-        $data["payroll_tax_number"]         = $this->input->post("payroll_tax_number");
-        $data["amount_in_riel_less_than"]   = $this->input->post("amount_in_riel_less_than");
-        $data["tax_percentage"]             = $this->input->post("percentage");
-        $data["deduction_amount_in_riel"]   = $this->input->post("deduction_amount_in_riel");
+        $data["bank_number"]                = $this->input->post("bank_number");
+        $data["bank_name"]                  = $this->input->post("bank_name");
+        $data["transfer_fee"]               = $this->input->post("transfer_fee");
+        $data["remark"]                     = $this->input->post("remark");
         $data["status"]                     = empty($this->input->post("status")) ? 0 : 1;
 
 
         // got value hidden file for reference id payroll tax
-        $id = empty($this->input->post("payroll_tax_id")) ? 0 : $this->input->post("payroll_tax_id");
+        $id = empty($this->input->post("banksetup_id")) ? 0 : $this->input->post("banksetup_id");
         $crud = $this->input->post("pb_crud_id");
 
-        // in case id is payroll tax id
+        // in case id is banksetup id
         if ($crud == 'new') { // create new
             $data["created_by"]     = $this->session->userdata("user_id");
             $data["created_date"]   = date('Y-m-d h:s:i');
             //
-            $data["payroll_tax_id"] = $this->pr_m->new_payrolltax($data);
+            $data["banksetup_id"] = $this->bs_m->new_banksetup($data);
 
         } else if ($crud == 'edit') { // edit
             $data["modified_by"] = $this->session->userdata("user_id");
             $data["modified_date"] = date('Y-m-d h:s:i');
             //
-            $this->pr_m->edit_payrolltax($data, $id);
-            $data["payroll_tax_id"] = $id;
+            $this->bs_m->edit_banksetup($data, $id);
+            $data["banksetup_id"] = $id;
         }
         echo json_encode(array("data" => $data));
 
@@ -107,25 +107,25 @@ class Payrollsetup extends CI_Controller
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
-        $this->load->model("payrollsetup_model", "pr_m");
+        $this->load->model("banksetup_model", "bs_m");
         $obj = new stdClass();
-        $obj->payrollsetup_id = $param1;
+        $obj->banksetup_id = $param1;
         //
-        $this->pr_m->delete_payrollsetup($obj);
+        $this->bs_m->delete_banksetup($obj);
     }
-    public function payrollsetup_data(){
+    public function banksetup_data(){
         // DB table to use
-        $table = 'payroll_tax where is_delete=0';
+        $table = 'banksetup';
         $primaryKey = "id";
         // indexes
         $columns = array(
-            array('db' => 'id', 'dt' => "id", 'field' => 'id'),
-            array('db' => 'payroll_tax_number', 'dt' => "payroll_tax_number", 'field' => 'payroll_tax_number'),
-            array('db' => 'amount_in_riel_less_than', 'dt' => "amount_in_riel_less_than", 'field' => 'amount_in_riel_less_than'),
-            array('db' => 'tax_percentage', 'dt' => "tax_percentage", 'field' => 'tax_percentage'),
-            array('db' => 'deduction_amount_in_riel', 'dt' => "deduction_amount_in_riel", 'field' => 'deduction_amount_in_riel'),
-            array('db' => 'status', 'dt' => "status", 'field' => 'status'),
-            array('db' => 'is_delete', 'dt' => "is_delete", 'field' => 'is_delete')
+            array('db' => 'id',                 'dt' => "id",               'field' => 'id'),
+            array('db' => 'bank_number',        'dt' => "bank_number",      'field' => 'bank_number'),
+            array('db' => 'bank_name',          'dt' => "bank_name",        'field' => 'bank_name'),
+            array('db' => 'transfer_fee',       'dt' => "transfer_fee",     'field' => 'transfer_fee'),
+            array('db' => 'remark',             'dt' => "remark",           'field' => 'remark'),
+            array('db' => 'status',             'dt' => "status",           'field' => 'status'),
+            array('db' => 'is_delete',          'dt' => "is_delete",        'field' => 'is_delete')
         );
 
         $sql_details = array(

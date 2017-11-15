@@ -29,21 +29,21 @@
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
             <li class="active default">
-                <a href="<?php echo base_url();?>payrollsetup//payrollsetup"
-                   data-url="<?php echo base_url();?>payrollsetup/payrollsetup/" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>payrollsetup/payroll_tax"
+                   data-url="<?php echo base_url();?>payrollsetup/payroll_tax" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i><?php echo get_phrase("payroll_tax");?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>deduction_item/deduction_item"
+                   data-url="<?php echo base_url();?>deduction_item/deduction_item" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-sign-out"></i><?php echo get_phrase("deduction_item");?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
+                <a href="<?php echo base_url();?>allowance_item/allowance_item"
+                   data-url="<?php echo base_url();?>allowance_item/allowance_item" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-file-text-o"></i><?php echo get_phrase("allowance_item");?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("bank_setup");?></a></li>
+                <a href="<?php echo base_url();?>banksetup/banksetup"
+                   data-url="<?php echo base_url();?>banksetup/banksetup"  data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("banksetup");?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">
