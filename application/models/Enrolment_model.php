@@ -110,60 +110,6 @@ class Enrolment_model extends CI_Model {
         );
     }
 
-    //function get letter_data
-    function letter_data(){
-        $sql = " select 
-						*
-					from letter 
-					";
-        return $this->db->query($sql)->result();
-
-    }
-    //function get subject_data
-    function subject_data(){
-        $sql = " select 
-						*
-					from course 
-					";
-        return $this->db->query($sql)->result();
-
-    }
-    //function get grade list
-    function grade_list(){
-        $sql = " select 
-						*
-					from classes 
-					";
-        return $this->db->query($sql)->result();
-
-    }
-    //function get gender list
-    function get_gender_list(){
-        $sql = " select 
-						*
-					from genders 
-					";
-        return $this->db->query($sql)->result();
-
-    }
-    //function get timestudy list
-    function get_timestudy_list(){
-        $sql = " select 
-						*
-					from times 
-					";
-        return $this->db->query($sql)->result();
-
-    }
-    //function get get_child_list list
-    function get_child_list(){
-        $sql = " select 
-						*
-					from child 
-					";
-        return $this->db->query($sql)->result();
-
-    }
     /* lookup employee */
     function lookup_enrolment($obj){
         $sql = "select * from enroll_general where status = 1 and enrolment like ?";

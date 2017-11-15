@@ -32,18 +32,18 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-graduation-cap"></i><?php echo get_phrase('enrollment_management');?><!--តារាងបញ្ជីរសិស្ស--></a></li>
+                    <i class="fa fa-graduation-cap"></i><?php echo get_phrase('enrollment_list');?><!--តារាងបញ្ជីរសិស្ស--></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
                     <i class="fa fa-exclamation-circle"></i><!--គ្រប់គ្រងការបង់ប្រាក់ --><?php echo get_phrase('fees_management');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
                     <i class="fa fa-exclamation-circle"></i><!--លទ្ធផលកិច្ចការ--><?php echo get_phrase('tasks');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>location/location_list"
-                   data-url="<?php echo base_url();?>location/location_list">
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
                     <i class="fa fa-exclamation-circle"></i><!--របាយការណ៍--><?php echo get_phrase('Reports');?></a></li>
         </ul>
     </div>

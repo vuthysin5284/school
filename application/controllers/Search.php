@@ -15,6 +15,8 @@ class Search extends CI_Controller {
         $this->output->set_header('Pragma: no-cache');
 
     }
+
+    // auto completed
     function search(){
         if ($this->session->userdata('is_login') != 1)
             redirect(base_url() . 'login', 'refresh');
@@ -26,4 +28,15 @@ class Search extends CI_Controller {
         echo json_encode($result);
     }
 
+    //
+    function search_result(){
+        if ($this->session->userdata('is_login') != 1)
+            redirect(base_url() . 'login', 'refresh');
+
+        $obj = new stdClass();
+        $obj->search = $this->input->get('query');
+        $result =$this->search_m->resul_search($obj);
+
+        echo json_encode($result);
+    }
 }

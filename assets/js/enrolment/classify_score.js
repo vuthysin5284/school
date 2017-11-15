@@ -11,7 +11,7 @@ $(document).ready(function() {
         "paging"		: true,
         "ordering"		: true,
         "processing"	: true,
-        "serverSide"	: true ,
+        "serverSide"	: true,
 
         dom             : "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
         buttons: [

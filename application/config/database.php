@@ -94,7 +94,27 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
+$db['sli'] = array(
+    'dsn'   => '',
+    'hostname' => '',
+    'username' => '',
+    'password' => '',
+    'database' => './database/student.sqlite',
+    'dbdriver' => 'sqlite3',
+    'dbprefix' => '',
+    'pconnect' => FALSE,
+    'db_debug' => (ENVIRONMENT !== 'production'),
+    'cache_on' => FALSE,
+    'cachedir' => '',
+    'char_set' => 'utf8',
+    'dbcollat' => 'utf8_general_ci',
+    'swap_pre' => '',
+    'encrypt' => FALSE,
+    'compress' => FALSE,
+    'stricton' => FALSE,
+    'failover' => array(),
+    'save_queries' => TRUE
+);
 
 // ERP connection
 $db['erp'] = array(
@@ -141,6 +161,6 @@ $db['erp'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE,
 	'date_default_timezone_set' => 'Asia/Phnom_Penh'
-); 
+);
 */
 

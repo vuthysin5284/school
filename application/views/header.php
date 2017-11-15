@@ -9,9 +9,9 @@
             <div class="logo-box">
                 <a href="<?php base_url()."main/dashboard"?>" class="logo-text"><span>Apple american Intitude School</span></a>
             </div><!-- Logo Box -->
-            <div class="search-button">
+            <!--div class="search-button">
                 <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
-            </div>
+            </div-->
             <div class="topmenu-outer">
                 <div class="top-menu">
                     <ul class="nav navbar-nav navbar-left">
@@ -66,9 +66,9 @@
                         </li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li>	
+                        <!--li>
                             <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>
-                        </li>
+                        </li-->
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle waves-effect waves-button waves-classic" data-toggle="dropdown"><i class="fa fa-envelope"></i><span class="badge badge-success pull-right">4</span></a>
                             <ul class="dropdown-menu title-caret dropdown-lg" role="menu">

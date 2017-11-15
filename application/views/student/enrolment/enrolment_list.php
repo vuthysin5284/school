@@ -2,17 +2,35 @@
 <div class="row">
     <div class="col-md-2">
         <select class="form-control">
-            <option>... Status ...</option>
-            <option>Active</option>
-            <option>Inactive</option>
+            <option>... Session ...</option>
+            <option>2017</option>
+            <option>2018</option>
         </select>
     </div>
+    <div class="col-md-2">
+        <select class="form-control">
+            <option>... Class ...</option>
+            <option>1</option>
+            <option>2</option>
+        </select>
+    </div>
+    <div class="col-md-2">
+        <select class="form-control">
+            <option>... Section ...</option>
+            <option>abc</option>
+            <option>tttt</option>
+        </select>
+    </div>
+
     <div class="col-md-2">
         <select class="form-control">
             <option>... Status ...</option>
             <option>Active</option>
             <option>Inactive</option>
         </select>
+    </div>
+    <div class="col-md-1">
+        <button class="btn btn-info">Search</button>
     </div>
 
     <!-- button create new enrollment-->
@@ -31,16 +49,17 @@
 <table id="datable_enrolment" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th>Image</th>
-            <th>Enrolment ID</th>
+            <th style="width: 80px;">Enrol ID</th>
+            <th style="width: 70px;">Image</th>
             <th>Student Name</th>
-            <th>Date Of Birth</th>
-            <th>Academic Year</th>
+            <th style="width: 100px;">Dob</th>
+            <th>Session Name</th>
             <th>Class name</th>
             <th>Section name</th>
-            <th></th>
+            <th style="width: 100px;">Actions</th>
         </tr>
     </thead>
 </table>
-
+<div style="clear:both"></div>
 <script src="<?php echo base_url();?>assets/js/enrolment/enrolment.js"></script>
+<br />

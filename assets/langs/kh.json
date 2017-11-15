@@ -1,12 +1,12 @@
  
 {
     "sEmptyTable":     "No data available in table",
-    "sInfo":           "Showing _START_ to _END_ of _TOTAL_ entries",
-    "sInfoEmpty":      "Showing 0 to 0 of 0 entries",
-    "sInfoFiltered":   "(filtered from _MAX_ total entries)",
+    "sInfo":           "បង្ហាញ _START_ to _END_ of _TOTAL_ ចំនួន",
+    "sInfoEmpty":      "បង្ហាញ 0 to 0 of 0 ចំនួន",
+    "sInfoFiltered":   "(filtered from _MAX_ total ចំនួន)",
     "sInfoPostFix":    "",
     "sInfoThousands":  ",",
-    "sLengthMenu":     "Show _MENU_ entries", 
+    "sLengthMenu":     "បង្ហាញ  _MENU_ ចំនួន", 
     "sSearch":       	"ស្វែងរក &nbsp;",
     "sZeroRecords":    "No matching records found",
     "oPaginate": {

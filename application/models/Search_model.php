@@ -18,5 +18,15 @@
             $query = $this->db->get();
             return $query->result();
 		}
+		//
+        function resul_search($obj){
+            $this->db->distinct();
+            $this->db->select("name");
+            $this->db->from('users');
+            $this->db->like('name', $obj->search);
+            $this->db->limit(20);
+            $query = $this->db->get();
+            return $query->result();
+        }
 	}
 ?>
