@@ -1,9 +1,8 @@
  
        
 <!-- Styles -->
-<link href='<?php echo base_url();?>assets/css/google_fonts/google_fonts.css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
-<link href="<?php echo base_url();?>assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
-<!--link href="<?php echo base_url();?>assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
+<!--link href="<?php echo base_url();?>assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
+<link href="<?php echo base_url();?>assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
 <link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
 <link href="<?php echo base_url();?>assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
@@ -28,7 +27,7 @@
 <link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/css/datepicker.css" rel="stylesheet" type="text/css"/>
 
-<script src="<?php echo base_url();?>assets/plugins/3d-bold-navigation/js/modernizr.js"></script> 
+<script src="<?php echo base_url();?>assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
 
 
 
@@ -42,7 +41,7 @@
 <!-- Javascripts -->
 <script src="<?php echo base_url();?>assets/plugins/jquery/jquery-2.1.4.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
-<script src="<?php echo base_url();?>assets/plugins/pace-master/pace.min.js"></script>
+<!--script-- src="<?php echo base_url();?>assets/plugins/pace-master/pace.min.js"></script-->
 <script src="<?php echo base_url();?>assets/plugins/jquery-blockui/jquery.blockui.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>

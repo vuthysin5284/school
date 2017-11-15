@@ -34,23 +34,27 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>testing_enrollment/testing_record_list"
                    data-url="<?php echo base_url();?>testing_enrollment/testing_record_list">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('resting_enrollment');?><!--Testing Recordsតារាងបញ្ជីរប្រឡងសាកល្បង--></a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>testing_enrollment/waiting_register"
-                   data-url="<?php echo base_url();?>testing_enrollment/waiting_register">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('waiting_enrollment');?></a></li>
+                    <i class="fa fa-user"></i><?php echo get_phrase('1._testing_enrollment');?><!--Testing Recordsតារាងបញ្ជីរប្រឡងសាកល្បង--></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>testing_enrollment/testing_result"
                    data-url="<?php echo base_url();?>testing_enrollment/testing_result">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('testing_result');?></a></li>
+                    <i class="fa fa-money"></i><?php echo get_phrase('2._waiting_payment');?></a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>testing_enrollment/testing_result"
+                   data-url="<?php echo base_url();?>testing_enrollment/testing_result">
+                    <i class="fa fa-check"></i><?php echo get_phrase('3._testing_result');?></a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>testing_enrollment/waiting_register"
+                   data-url="<?php echo base_url();?>testing_enrollment/waiting_register">
+                    <i class="fa fa-check-square-o"></i><?php echo get_phrase('4._waiting_enrollment');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>testing_enrollment/fee_management"
                    data-url="<?php echo base_url();?>testing_enrollment/fee_management">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('fees_management');?></a></li>
+                    <i class="fa fa-money"></i><?php echo get_phrase('5._fees_management');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>testing_enrollment/testing_report"
                    data-url="<?php echo base_url();?>testing_enrollment/testing_report">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('reports');?></a></li>
+                    <i class="fa fa-bar-chart"></i><?php echo get_phrase('6._reports');?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

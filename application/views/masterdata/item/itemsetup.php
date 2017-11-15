@@ -32,19 +32,19 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>itemsetup/admin_item_fee"
                    data-url="<?php echo base_url();?>itemsetup/admin_item_fee">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('admin_fee_setup');?></a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('admin_fee_item');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>itemsetup/school_item_fee"
                    data-url="<?php echo base_url();?>itemsetup/school_item_fee">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('school_fee_setup');?></a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('school_fee_item');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>itemsetup/transport_item_fee"
                    data-url="<?php echo base_url();?>itemsetup/transport_item_fee">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('transport_fee_setup');?></a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('transport_fee_item');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>itemsetup/lunch_item_fee"
                    data-url="<?php echo base_url();?>itemsetup/lunch_item_fee">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('lunch_fee_setup');?></a></li>
+                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('lunch_fee_item');?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

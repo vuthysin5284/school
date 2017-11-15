@@ -201,7 +201,7 @@
 											</li><li class="">
 												<a href="http://localhost:80/eds/setupLeave/index">
 													<span class="menu-icon "></span>
-													<p>Setup Pleave</p>
+													<p>Setup Leave</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/">

@@ -148,3 +148,25 @@ table.dataTable tbody th, table.dataTable tbody td {
     border-bottom:1px solid #EEE;
     background-color:#eeeeee;
 }
+.form-login-error {
+    color: #b62020;
+    padding: 10px;
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 12px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    border-radius: 3px 3px 0 0;
+}
+.login-page .login-progressbar {
+    height: 0px;
+    width: 100%;
+    overflow: hidden;
+    -moz-transition: all 550ms ease-in-out;
+    -o-transition: all 550ms ease-in-out;
+    -webkit-transition: all 550ms ease-in-out;
+    transition: all 550ms ease-in-out;
+}

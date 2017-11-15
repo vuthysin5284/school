@@ -34,15 +34,15 @@ class Login extends CI_Controller {
         //Recieving post input of email, password from ajax request
         $username = $_POST["username"];
         $password = $_POST["password"];
+        $running_sesion = $_POST["running_sesion"];
         $response['submitted_data'] = $_POST; 
 		
         //Validating login
-        $login_status = $this->validate_login($username, $password);
+        $login_status = $this->validate_login($username, $password,$running_sesion);
         $response['login_status'] = $login_status;
         if ($login_status == 'success') {
-            $this->session->set_userdata('running_sesion', $_POST["running_sesion"]);
             $response['redirect_url'] = $this->session->userdata('last_page');
-			redirect(base_url(), 'refresh');
+			//redirect(base_url(), 'refresh');
         }
 
         //Replying ajax request with validation response
@@ -50,7 +50,7 @@ class Login extends CI_Controller {
     }
 
     //Validating login from ajax request
-    function validate_login($username = '', $password = '') {
+    function validate_login($username = '', $password = '', $running_sesion = '') {
         $credential = array('username' => $username, 'password' => sha1(md5(sha1(md5($password)))));
 		 
 		// limit show records in page 
@@ -61,6 +61,8 @@ class Login extends CI_Controller {
         $query = $this->db->get_where('user', $credential);
         if ($query->num_rows() > 0) {
             $row = $query->row();
+
+            $this->session->set_userdata('running_sesion', $running_sesion);
             $this->session->set_userdata('is_login', '1');
             $this->session->set_userdata('user_id', $row->admin_id); 
             $this->session->set_userdata('sap_id', $row->SAP_ID);

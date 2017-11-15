@@ -2,12 +2,8 @@
     <div class="col-md-12">
         <div class="panel info-box panel-white">
             <center style="margin-bottom:50px;">
-                <h3 style="color:black;">សាលាអន្តរជាតិអេផលអាមេរិកាំង</h3>
-                <h4>Apple American School</h4><br />
-                <input type="text" id="txtSearchAais" class="form-control"
-                       style="width:50%; margin-bottom:10px;" placeholder="<?php echo $this->session->userdata('brand_name');?>  Searching..."/>
-                <div style="clear:both"></div>
-                <div style="width:50%;">
+
+                <div style="width:50%; margin-bottom: 10px; margin-top:10px;">
                     <!-- student paid late -->
                     <div style="float:left;width:50%; color:#FB5656; text-align:left;">
                         <a href='<?php echo base_url();?>index.php?admin/student_late_paid' style="text-decoration: none">
@@ -59,6 +55,11 @@
                     </div>
                 </div>
                 <div style="clear:both"></div>
+
+                <br />
+                <input type="text" id="txtSearchAais" class="form-control"
+                       style="width:50%; margin-bottom:10px;" placeholder="<?php echo $this->session->userdata('brand_name');?>  Searching..."/>
+
 
                 <div style="width:50%; text-align:left;">
                     <h4>Result search (?) </h4>
