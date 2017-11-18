@@ -48,34 +48,34 @@ class Payrollsetup extends CI_Controller
         $obj->payroll_tax_id = $param1;
         // edit
         if($param2=='edit'){
-            $this->load->model("payrollsetup_model", "pr_m");
-            $page_data["prtax_del"] = $this->pr_m->get_payrollsetup_detail($obj);
+            $this->load->model("payroll_tax_model", "pr_m");
+            $page_data["prtax_del"] = $this->pr_m->get_payroll_tax_detail($obj);
         }
         //
         $page_data["crud"] = $param2;
         $this->load->view('payroll/payrollsetup/payroll_tax/modal_new_payroll_tax' ,$page_data);
     }
     /*** payroll tax ***/
-    function payrollsetup_list($param1='',$param2='',$param3=''){
+    function payrolltax_list($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1)
             redirect(base_url() . 'login', 'refresh');
 
         $page_data['page_title'] = get_phrase('payrollsetup');
-        $this->load->view('payroll/payrollsetup/payrollsetup_list',$page_data);
+        $this->load->view('payroll/payrollsetup/payrolltax_list',$page_data);
     }
     /* create new payroll tax */
-    function create_new_payrolltax($param1 = '', $param2 = '', $param3 = ''){
+    function create_new_payroll_tax($param1 = '', $param2 = '', $param3 = ''){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
         // load model
-        $this->load->model("payrollsetup_model", "pr_m");
+        $this->load->model("payroll_tax_model", "pr_m");
 
         // variables
         $data["payroll_tax_number"]         = $this->input->post("payroll_tax_number");
         $data["amount_in_riel_less_than"]   = $this->input->post("amount_in_riel_less_than");
-        $data["tax_percentage"]             = $this->input->post("percentage");
+        $data["tax_percentage"]             = $this->input->post("tax_percentage");
         $data["deduction_amount_in_riel"]   = $this->input->post("deduction_amount_in_riel");
         $data["status"]                     = empty($this->input->post("status")) ? 0 : 1;
 
@@ -89,13 +89,13 @@ class Payrollsetup extends CI_Controller
             $data["created_by"]     = $this->session->userdata("user_id");
             $data["created_date"]   = date('Y-m-d h:s:i');
             //
-            $data["payroll_tax_id"] = $this->pr_m->new_payrolltax($data);
+            $data["payroll_tax_id"] = $this->pr_m->new_payroll_tax($data);
 
         } else if ($crud == 'edit') { // edit
             $data["modified_by"] = $this->session->userdata("user_id");
             $data["modified_date"] = date('Y-m-d h:s:i');
             //
-            $this->pr_m->edit_payrolltax($data, $id);
+            $this->pr_m->edit_payroll_tax($data, $id);
             $data["payroll_tax_id"] = $id;
         }
         echo json_encode(array("data" => $data));
@@ -107,13 +107,13 @@ class Payrollsetup extends CI_Controller
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
         }
-        $this->load->model("payrollsetup_model", "pr_m");
+        $this->load->model("payroll_tax_model", "pr_m");
         $obj = new stdClass();
-        $obj->payrollsetup_id = $param1;
+        $obj->payroll_tax_id = $param1;
         //
-        $this->pr_m->delete_payrollsetup($obj);
+        $this->pr_m->delete_payroll_tax($obj);
     }
-    public function payrollsetup_data(){
+    public function payroll_tax_data(){
         // DB table to use
         $table = 'payroll_tax where is_delete=0';
         $primaryKey = "id";

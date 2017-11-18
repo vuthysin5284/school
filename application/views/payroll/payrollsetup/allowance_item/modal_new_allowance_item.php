@@ -37,9 +37,9 @@
             <div class="col-sm-7">
                 <select class="form-control" btn btn-info id="period" name="period" value="<?php echo empty($alt_del["period"])?'':$alt_del["period"]?>">
                     <option>... period ...</option>
-                    <option>Weekly</option>
-                    <option>Monthly</option>
-                    <option>Yearly</option>
+                    <option value="Weekly" <?php echo $alt_del["period"] == "Weekly" ? "selected": '';?> >Weekly</option>
+                    <option value="Monthly" <?php echo $alt_del["period"] == "Monthly" ? "selected": '';?> >Monthly</option>
+                    <option value="Yearly" <?php echo $alt_del["period"] == "Yearly" ? "selected": '';?> >Yearly</option>
                 </select>
             </div>
         </div>
