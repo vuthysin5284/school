@@ -12,14 +12,14 @@
 
 <table id="datable_payroll_tax" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
-    <tr>
-        <th>Payroll Tax Number</th>
-        <th>Amount In Riel Less Than</th>
-        <th>Tax Percentage</th>
-        <th>Deduction Amount In Riel</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
+        <tr>
+            <th style="width: 150px;">Payroll Tax Number</th>
+            <th style="width: 150px;">Amount In Riel Less Than</th>
+            <th style="width: 120px;">Tax Percentage</th>
+            <th style="width: 100px;">Deduction Amount In Riel</th>
+            <th style="width: 80px;">Status</th>
+            <th style="width: 50px;">Actions</th>
+        </tr>
     </thead>
 </table>
 

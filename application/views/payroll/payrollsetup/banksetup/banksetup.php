@@ -9,18 +9,18 @@
 <div style="padding:5px; border-bottom:2px solid #eee;"></div> <!-- end header -->
 <div style="clear:both"></div>
 <br />
-
-<table id="datable_banksetup" class="table table-striped table-bordered table-hover" width="100%">
+<table id="datable_banksetup" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
     <thead>
-    <tr>
-        <th>Bank Number</th>
-        <th>Bank Name</th>
-        <th>Transfer Fee</th>
-        <th>Remark</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
+        <tr>
+            <th style="width: 150px;">Bank Number</th>
+            <th style="width: 150px;">Bank Name</th>
+            <th style="width: 120px;">Transfer Fee</th>
+            <th style="width: 100px;">Remark</th>
+            <th style="width: 80px;">Status</th>
+            <th style="width: 50px;">Actions</th>
+        </tr>
     </thead>
 </table>
+
 
 <script src="<?php echo base_url();?>assets/js/payrollsetup/banksetup/banksetup.js"></script>

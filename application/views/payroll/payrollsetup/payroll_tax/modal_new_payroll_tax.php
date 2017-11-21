@@ -34,7 +34,7 @@
         <div class="form-group">
             <label for="field-1" class="col-sm-5 control-label"><?php echo get_phrase('amount_in_riel_less_than');?></label>
             <div class="col-sm-7">
-                <input type="text" class="form-control" name="amount_in_riel_less_than" id="amount_in_riel_less_than" value="<?php echo empty($prtax_del["amount_in_riel_less_than"])?'':$prtax_del["amount_in_riel_less_than"]?>"/>
+                <input type="text" class="form-control" name="amount_in_riel_less_than" id="amount_in_riel_less_than"  value="<?php echo empty($prtax_del["amount_in_riel_less_than"])?'':$prtax_del["amount_in_riel_less_than"]?>"/>
             </div>
         </div>
         <div class="form-group">

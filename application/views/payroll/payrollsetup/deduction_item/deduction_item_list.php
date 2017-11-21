@@ -12,13 +12,13 @@
 
 <table id="datable_deduction_item" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
-    <tr>
-        <th>Deduction Number</th>
-        <th>Deduction Item</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
+        <tr>
+            <th style="width: 150px;">Deduction Number</th>
+            <th style="width: 150px;">Deduction Item</th>
+            <th style="width: 120px;">Description</th>
+            <th style="width: 80px;">Status</th>
+            <th style="width: 50px;">Actions</th>
+        </tr>
     </thead>
 </table>
 

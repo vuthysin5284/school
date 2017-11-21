@@ -12,14 +12,14 @@
 
 <table id="datable_allowance_item" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
-    <tr>
-        <th>Allowance Number</th>
-        <th>Period</th>
-        <th>Allowance name</th>
-        <th>Description</th>
-        <th>Status</th>
-        <th></th>
-    </tr>
+        <tr>
+            <th style="width: 150px;">Allowance Number</th>
+            <th style="width: 150px;">Period</th>
+            <th style="width: 120px;">Allowance name</th>
+            <th style="width: 100px;">Status</th>
+            <th style="width: 80px;">Status</th>
+            <th style="width: 50px;">Actions</th>
+        </tr>
     </thead>
 </table>
 
