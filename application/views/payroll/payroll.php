@@ -31,43 +31,43 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>branch/branch_list"
                    data-url="<?php echo base_url();?>branch/branch_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i><?php echo get_phrase("employee_advance");?></a></li>
+                   <?php echo get_phrase("1._employee_advance");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-sign-out"></i><?php echo get_phrase("employee_deduction");?></a></li>
+                   <?php echo get_phrase("2._employee_deduction");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i><?php echo get_phrase("employee_allowance");?></a></li>
+                   <?php echo get_phrase("3._employee_allowance");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("payroll_adjustment");?></a></li>
+                    <?php echo get_phrase("4._payroll_adjustment");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>finance/voucher_entry"
                    data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("over_time_list");?></a></li>
+                   <?php echo get_phrase("5._over_time_list");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("bank_transfer");?></a></li>
+                   <?php echo get_phrase("6._bank_transfer");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("salary_administrator");?></a></li>
+                    <?php echo get_phrase("7._salary_administrator");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("payroll_process");?></a></li>
+                    <?php echo get_phrase("8._payroll_process");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("payroll_commit");?></a></li>
+                   <?php echo get_phrase("9._payroll_commit");?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>room/room_list"
                    data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i><?php echo get_phrase("migrate_salary");?></a></li>
+                    <?php echo get_phrase("10._migrate_salary");?></a></li>
 
         </ul>
     </div>

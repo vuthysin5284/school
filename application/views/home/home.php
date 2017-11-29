@@ -2,10 +2,10 @@
     <div class="col-md-12">
         <div class="panel info-box panel-white">
             <center style="margin-bottom:50px;">
-
-                <div style="width:50%; margin-bottom: 10px; margin-top:10px;">
+                <!-- main -->
+                <div style="width:99%; margin-bottom: 10px; margin-top:10px;">
                     <!-- student paid late -->
-                    <div style="float:left;width:50%; color:#FB5656; text-align:left;">
+                    <div style="float:left;width:25%; color:#FB5656; text-align:left;">
                         <a href='<?php echo base_url();?>index.php?admin/student_late_paid' style="text-decoration: none">
                             <div class="col-lg-12 col-md-12">
                                 <div class="panel info-box panel-white">
@@ -27,16 +27,17 @@
                                 </div>
                             </div>
                         </a>
-                    </div>
+                    </div><!-- end paid -->
+
                     <!-- attendance -->
-                    <div style="float:left; border-left:3px solid #EEE; width:50%; color:#FB5656; text-align:left;">
+                    <div style="float:left; border-left:3px solid #EEE; width:25%; color:#FB5656; text-align:left;">
                         <a href='<?php echo base_url();?>index.php?attendance/student_absent_detail' style="text-decoration: none">
                             <div class="col-lg-12 col-md-12">
                                 <div class="panel info-box panel-white">
                                     <div class="panel-body">
                                         <div class="info-box-stats">
                                             <p class="counter">5</p>
-                                            <span class="info-box-title">Dialy attendance</span>
+                                            <span class="info-box-title">Today attendance - Student</span>
                                         </div>
                                         <div class="info-box-icon">
                                             <i class="icon-users"></i>
@@ -52,8 +53,62 @@
                             </div>
 
                         </a>
-                    </div>
-                </div>
+                    </div><!-- end attendance -->
+
+                    <!-- attendance -->
+                    <div style="float:left; border-left:3px solid #EEE; width:25%; color:#FB5656; text-align:left;">
+                        <a href='<?php echo base_url();?>index.php?attendance/student_absent_detail' style="text-decoration: none">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="panel info-box panel-white">
+                                    <div class="panel-body">
+                                        <div class="info-box-stats">
+                                            <p class="counter">5</p>
+                                            <span class="info-box-title">Today attendance - Staff</span>
+                                        </div>
+                                        <div class="info-box-icon">
+                                            <i class="icon-users"></i>
+                                        </div>
+                                        <div class="info-box-progress">
+                                            <div class="progress progress-xs progress-squared bs-n">
+                                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div><!-- end attendance -->
+                    <!-- attendance -->
+                    <div style="float:left; border-left:3px solid #EEE; width:25%; color:#FB5656; text-align:left;">
+                        <a href='<?php echo base_url();?>index.php?attendance/student_absent_detail' style="text-decoration: none">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="panel info-box panel-white">
+                                    <div class="panel-body">
+                                        <div class="info-box-stats">
+                                            <p class="counter">5</p>
+                                            <span class="info-box-title">Dialy attendance</span>
+                                        </div>
+                                        <div class="info-box-icon">
+                                            <i class="icon-users"></i>
+                                        </div>
+                                        <div class="info-box-progress">
+                                            <div class="progress progress-xs progress-squared bs-n">
+                                                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </a>
+                    </div><!-- end attendance -->
+
+                </div><!-- end main -->
+
+
                 <div style="clear:both"></div>
 
                 <br />

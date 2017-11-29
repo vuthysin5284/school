@@ -121,7 +121,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-info btn-block">Login
+                    <button type="submit" class="btn btn-info btn-block">
                         <i class="fa fa-sign-in"></i>
                         Login
                     </button>

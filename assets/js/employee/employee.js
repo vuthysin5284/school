@@ -3,6 +3,7 @@ var datable_result;
 var _url_path =  baseurl+'employee/new_employee/';
 var _url_edit = baseurl+'staff/employee_detail_info/';
 var _url_del =  baseurl+'employee/delete/';
+var _img =  baseurl+'uploads/student_image/1.jpg';
 
 $(document).ready(function() {
     datable_result = $('#datable_employee').DataTable( {
@@ -12,19 +13,36 @@ $(document).ready(function() {
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
-
+        "dom"             : "<'row'<'col-sm-3'l><'col-sm-6'B><'col-sm-3'f>>tr<'col-sm-3'i>p",
+        buttons: [
+            {extend: 'copy',className: 'btn-sm'},
+            {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'print',className: 'btn-sm'},
+            {
+                text: 'Refresh', action: function () {
+                    datable_result.draw();
+                    //datable_result.ajax.reload();
+                }
+            }
+        ],
         "ajax"       : {
             "url"    : baseurl+'staff/get_employee_data',
             "type"   : 'POST',
             "destroy" : true
         },
         language: {
-            processing: "<img src='"+baseurl+"assets/images/reload.gif'>",
-            loadingRecords: "<img src='"+baseurl+"assets/images/reload.gif'>",
+            processing: _progImg,
+            loadingRecords: _progImg,
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
             { "data" : "employee_number"},
+            { "data" : "image" ,
+                'render': function (data, type, full, meta) {
+                    return '<img src="'+_img+'" class="img" />';
+                }
+            },
             { "data" : "latin_name" },
 			{ "data" : "khmer_name" },
 			{ "data" : "gender" },
