@@ -1,10 +1,11 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'ItemSetup/admin_item_fee_new/';
-var _url_del  =  baseurl+'ItemSetup/delete/';
+var _url_path =  baseurl+'lunch_item_fee/new_lunch_item_fee/';
+var _url_edit = baseurl+'lunch_item_fee/new_lunch_item_fee/';
+var _url_del =  baseurl+'lunch_item_fee/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_admin_item').DataTable( {
+    datable_result = $('#datable_lunch_item').DataTable( {
         "filter"        : true,
         "info"          : true,
         "paging"        : true,
@@ -13,7 +14,7 @@ $(document).ready(function() {
         "serverSide"    : true ,
 
         "ajax"       : {
-            "url"    : baseurl+'ItemSetup/admin_item_fee_data',
+            "url"    : baseurl+'lunch_item_fee/lunch_item_fee_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -35,7 +36,7 @@ $(document).ready(function() {
                 "fnCreatedCell" : function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
                         '<center>'+
-                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
+                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
                         '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
                         '</center>');
                 }

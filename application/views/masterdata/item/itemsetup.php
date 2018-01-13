@@ -34,16 +34,16 @@
                    data-url="<?php echo base_url();?>itemsetup/admin_item_fee">
                     <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('admin_fee_item');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>itemsetup/school_item_fee"
-                   data-url="<?php echo base_url();?>itemsetup/school_item_fee">
+                <a href="<?php echo base_url();?>school_item_fee/school_item_fee"
+                   data-url="<?php echo base_url();?>school_item_fee/school_item_fee">
                     <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('school_fee_item');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>itemsetup/transport_item_fee"
-                   data-url="<?php echo base_url();?>itemsetup/transport_item_fee">
+                <a href="<?php echo base_url();?>transport_item_fee/transport_item_fee"
+                   data-url="<?php echo base_url();?>transport_item_fee/transport_item_fee">
                     <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('transport_fee_item');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>itemsetup/lunch_item_fee"
-                   data-url="<?php echo base_url();?>itemsetup/lunch_item_fee">
+                <a href="<?php echo base_url();?>lunch_item_fee/lunch_item_fee"
+                   data-url="<?php echo base_url();?>lunch_item_fee/lunch_item_fee">
                     <i class="fa fa-exclamation-circle"></i><?php echo get_phrase('lunch_fee_item');?></a></li>
         </ul>
     </div>

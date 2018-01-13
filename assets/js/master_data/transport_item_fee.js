@@ -1,10 +1,11 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'ItemSetup/admin_item_fee_new/';
-var _url_del  =  baseurl+'ItemSetup/delete/';
+var _url_path = baseurl+'transport_item_fee/new_transport_item_fee/';
+var _url_edit = baseurl+'transport_item_fee/new_transport_item_fee/';
+var _url_del =  baseurl+'transport_item_fee/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_admin_item').DataTable( {
+    datable_result = $('#datable_transport_item').DataTable( {
         "filter"        : true,
         "info"          : true,
         "paging"        : true,
@@ -13,7 +14,7 @@ $(document).ready(function() {
         "serverSide"    : true ,
 
         "ajax"       : {
-            "url"    : baseurl+'ItemSetup/admin_item_fee_data',
+            "url"    : baseurl+'transport_item_fee/transport_item_fee_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -44,9 +45,6 @@ $(document).ready(function() {
         "order": [[0, 'desc']]
     });
 } );
-
-
-
 //
 function on_delete_data(url){
     delete_data(url,remove_row);
@@ -61,3 +59,6 @@ function remove_row(url){
         }
     });
 }
+
+
+
