@@ -10,32 +10,32 @@
 									</a>
 								<ul  class="sub-menu"><li class="">
 												<a href="http://localhost:80/eds/testing_enrollment">
-													<span class="menu-icon "></span>
+													<span class="menu-icon fa fa-pencil-square-o"></span>
 													<p>Testing Enrollment</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/student">
-													<span class="menu-icon "></span>
+													<span class="menu-icon fa fa-users"></span>
 													<p>Enrollment Management</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/examination/index">
-													<span class="menu-icon "></span>
+													<span class="menu-icon fa fa-laptop"></span>
 													<p>Examination Management</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/promote">
-													<span class="menu-icon "></span>
+													<span class="menu-icon fa fa-share-square-o"></span>
 													<p>Promote Management</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/score/index">
-													<span class="menu-icon "></span>
+													<span class="menu-icon fa fa-question"></span>
 													<p>Score Management</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/score/result_score">
-													<span class="menu-icon "></span>
+													<span class="menu-icon fa fa-globe"></span>
 													<p>Finally Result Score</p>
 												</a>
 											</li></ul></li><li class="droplink">

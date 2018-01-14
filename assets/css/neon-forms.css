@@ -6403,7 +6403,7 @@ hr + .mail-env {
 }
 .login-page .login-form .form-group .input-group {
   background: #FFF; 
-  border: 1px solid #373e4a;
+  border: 1px solid #EEE;
   padding-top: 6px;
   padding-bottom: 6px;
   -moz-transition: all 300ms ease-in-out;

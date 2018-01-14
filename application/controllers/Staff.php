@@ -608,6 +608,7 @@ class Staff extends CI_Controller
         // indexes
         $columns = array(
 			array('db' => 'id', 		 		'dt' => "id", 						'field' => 'id'),
+            array('db' => 'image',               'dt' => "image",                'field' => 'image'),
 			array('db' => 'employee_number', 	'dt' => "employee_number", 			'field' => 'employee_number'),
 			array('db' => 'latin_name', 		'dt' => "latin_name", 				'field' => 'latin_name'),
 			array('db' => 'khmer_name', 		'dt' => "khmer_name", 				'field' => 'khmer_name'),

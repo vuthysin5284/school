@@ -50,7 +50,7 @@
             <li class="default">
                 <a href="<?php echo base_url();?>testing_enrollment/fee_management"
                    data-url="<?php echo base_url();?>testing_enrollment/fee_management">
-                    <i class="fa fa-money"></i><?php echo get_phrase('5._fees_management');?></a></li>
+                    <i class="fa fa-ban"></i><?php echo get_phrase('5._cancelling_list');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>testing_enrollment/testing_report"
                    data-url="<?php echo base_url();?>testing_enrollment/testing_report">
