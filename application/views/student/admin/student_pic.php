@@ -4,9 +4,8 @@
         'id'=>'frmNewStudentUpload', 'enctype' => 'multipart/form-data'));?>
 
     <div class="col-sm-8">
-
         <div class="controls" style="width:150px;">
-            <img id="blah" src="<?php echo $this->Crud_model->get_image_url('student',$this->uri->segment(3, 0));?>" style="height:150px;"/>
+            <!--img id="blah" src="<?php echo $this->Crud_model->get_image_url('student',$this->uri->segment(3, 0));?>" style="height:150px;"/-->
         </div>
         <div class="controls">
             <input type="file" name="student_image" id="imgInp" />
@@ -22,7 +21,7 @@
     <hr style="margin-top: 10px;clear: both"/>
     <div class="form-actions pull-right" style="margin-right:20px;">
         <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
-        <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
+        <!--button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button-->
         <button type="button" id="btnStudentUploadSubmit" disabled class="btn btn-info"><?php echo get_phrase('Upload');?></button>
     </div>
     <?php echo form_close();?>

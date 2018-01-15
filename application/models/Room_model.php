@@ -5,18 +5,18 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new room*/
 		function new_room($data){
-			$this->db->insert('room',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('room',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit room*/
 		function edit_room($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('room_v',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('room_v',$data);
 		}
 
 		//function get floor list
@@ -25,7 +25,7 @@
 						*
 					from floor 
 					where branch_id=?";
-           return $this->db->query($sql,array($obj->branch_id))->result();
+           return $this->sys->query($sql,array($obj->branch_id))->result();
 
         }
         //function get building list
@@ -34,24 +34,24 @@
 						*
 					from building 
 					";
-            return $this->db->query($sql,array($obj->branch_id))->result();
+            return $this->sys->query($sql,array($obj->branch_id))->result();
 
         }
 		/*delete room*/
 		function delete_room($obj){
-			$this->db->where('id',$obj->room_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('room');
+			$this->sys->where('id',$obj->room_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('room');
 		}
 		/*udate status room*/
 		function update_status_room($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('room');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('room');
 		}
 		
 		/* room detail */
@@ -60,7 +60,7 @@
 						*
 					from room_v 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->room_id))->row();
+			$data = $this->sys->query($sql,array($obj->room_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "room_number"=> empty($data->room_number)?'':$data->room_number,
@@ -81,7 +81,7 @@
 		/* lookup_room */
 		function lookup_room($obj){
 			$sql = "select * from room where status = 1 and room like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

@@ -3,7 +3,7 @@
 				* 
 			from user u 
 			where admin_id=?";
-	$result = $this->db->query($sql,array($param2))->row();  
+	$result = $this->sys->query($sql,array($param2))->row();  
 	
 	if($param2!=''){ 
 		$form = 'update';
@@ -59,7 +59,7 @@
                 <select id="role" name="role_id" class="form-control">
                 	<option value="0"> ... select ... </option>
                     <?php $sql_pm = "select * from role where status = 1";
-						$perm = $this->db->query($sql_pm)->result_array();
+						$perm = $this->sys->query($sql_pm)->result_array();
 						foreach($perm as $pm){ 
 							if($pm["role_id"] == $result->role_id){
 								$select = " selected";
@@ -69,7 +69,25 @@
                     <?php } ?>
                 </select>
              </div>
-        </div>  
+        </div>
+
+        <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('branch');?></label>
+            <div class="col-sm-8">
+                <select id="branch_id" name="branch_id" class="form-control">
+                    <option value="0"> ... select ... </option>
+                    <?php $sql_pm = "select * from branch where status = 1";
+                    $branch = $this->sys->query($sql_pm)->result_array();
+                    foreach($branch as $b){
+                        if($b["id"] == $result->branch_id){
+                            $select = " selected";
+                        }else{$select = "";}
+                        ?>
+                        <option value="<?php echo $b["id"]?>" <?php echo $select;?>><?php echo $b["branch_name"]?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
         
         <hr style="margin-top: 10px;"/>
         

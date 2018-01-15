@@ -2,17 +2,20 @@
 
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
         'id'=>'frmNewEnrolmentGeneral', 'enctype' => 'multipart/form-data'));?>
+        <input type="hidden" id="session_name" name="session_name"
+               value="<?php echo empty($general_data["session_name"])?$this->session->userdata('session_name'):$general_data["session_name"]?>" />
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('enrollment_iD');?></label>
-            <div class="col-sm-6">
-                <input type="text" class="form-control" style="font-style: italic;text-align: center" readonly placeholder="Auto generate" />
+            <div class="col-sm-7">
+                <input type="text" class="form-control" style="font-style: italic;text-align: center" readonly placeholder="Auto generate"
+                       value="<?php echo empty($general_data["enrolment_id"])?'':$general_data["enrolment_id"]?>"/>
             </div>
         </div>
-        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('student_name');?></label>
+        <div class="form-group col-md-12">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('student_name');?><span class="red">*</span></label>
             <div class="col-sm-3">
-                <input type="text" class="form-control" name="st_khmer_name" placeholder="khmer name"
+                <input type="text" class="form-control" id="st_khmer_name" name="st_khmer_name" placeholder="khmer name"
                        value="<?php echo empty($general_data["khmer_name"])?'':$general_data["khmer_name"]?>"/>
             </div>
             <div class="col-sm-3">
@@ -28,29 +31,29 @@
         <?php
             $arr_dob =  explode('-',empty($general_data["dob"])?'':$general_data["dob"]);
         ?>
-        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('date_of_birth');?></label>
+        <div class="form-group col-md-12">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('date_of_birth');?><span class="red">*</span></label>
              <div class="col-sm-3">
-                 <input type="number" min="1" max="31" id="txtdob_dd" name="txtdob_dd" class="form-control" placeholder="dd" title="dd"
+                 <input type="number" min="1" max="31" id="txtdob_dd" name="txtdob_dd" class="form-control" placeholder="dd"
                         value="<?php echo empty($arr_dob[2])?'':$arr_dob[2]?>"/>
              </div>
              <div class="col-sm-3">
-                 <input type="number" min="1" max="12" id="txtdob_mm" name="txtdob_mm" class="form-control"  placeholder="mm" title="mm"
+                 <input type="number" min="1" max="12" id="txtdob_mm" name="txtdob_mm" class="form-control"  placeholder="mm"
                         value="<?php echo empty($arr_dob[1])?'':$arr_dob[1]?>"/>
              </div>
             <div class="col-sm-3">
-                <input type="number" min="1980" id="txtdob_yy" name="txtdob_yy" class="form-control" title="yyyy"
+                <input type="number" min="1980" id="txtdob_yy" name="txtdob_yy" class="form-control" placeholder="yyyy"
                        value="<?php echo empty($arr_dob[0])?'':$arr_dob[0]?>"/>
             </div>
             <!--div class="col-sm-3">
                 <input type="text" class="form-control" id="txtAge" name="txtAge" readonly />
             </div-->
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('gender');?> <span class="red">*</span></label>
             <div class="col-sm-3">
                 <select class="form-control" id="gender" name="gender" >
-                    <option value="0">... Gender ...</option>
+                    <option value="">... Gender ...</option>
                     <?php
                     foreach($gender_list as $bl){
                         $selected = ($bl->id==$general_data["gender_id"])?" selected":"";
@@ -61,30 +64,33 @@
                 </select>
             </div>
         </div>
-        <div class="form-group">
-            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('academic_year');?> <span class="red">*</span></label>
+        <div class="form-group col-md-12">
+            <hr />
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('session');?></label>
             <div class="col-sm-6">
-                <?php
-                $cu =  date("Y")-1;
-                $c =  date("Y");
-                $s = "";
-                ?>
-                <select class="form-control" id="academic_year" name="academic_year" >
-                    <option value="0">... Academic Year ...</option>
+                <?php echo empty($general_data["session_name"])?$this->session->userdata('session_name'):$general_data["session_name"]?>
+            </div>
+        </div>
+        <div class="form-group col-md-12">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('section');?> <span class="red">*</span></label>
+            <div class="col-sm-6">
+                <select class="form-control" id="section" name="section" >
+                    <option value="">... Section ...</option>
                     <?php
-                    for($i=0; $i<=2; $i++){
-                        if(($cu+$i)==$c){$s="selected";}else{$s="";}
-                        echo "<option value='".($cu+$i)." - ".($c+$i)."' $s >&nbsp;".($cu+$i)." - ".($c+$i)."</option> ";
+                    foreach($section_list as $sl){
+                        $selected = ($sl->id==$general_data["section_id"])?" selected":"";
+                        echo "<option value='".$sl->id."' ".$selected.">".$sl->section_name."</option>";
+
                     }
                     ?>
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('time_study');?> <span class="red">*</span></label>
             <div class="col-sm-6">
                 <select class="form-control" id="time_study" name="time_study" >
-                    <option value="0">... Time Study ...</option>
+                    <option value="">... Time Study ...</option>
                     <?php
                     foreach($time_study as $ts){
                         $selected = ($ts->id==$general_data["time_study_id"])?" selected":"";
@@ -96,7 +102,8 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
+            <hr />
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('children_number');?></label>
             <div class="col-sm-3">
                 <select class="form-control" id="children_number" name="children_number" >
@@ -117,7 +124,7 @@
         </div>
 
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('former_school');?></label>
             <div class="col-sm-5">
                 <input type="text" class="form-control" name="former_school" placeholder="Former School"
@@ -130,17 +137,18 @@
             </div>
         </div>
 
-        <hr />
-        <div class="form-group">
+
+        <div class="form-group col-md-12">
+            <hr />
             <label for="field-1" class="col-sm-3 control-label"></label>
             <div class="col-sm-8">
-                <input type="checkbox" id="field-2" name="chIsTestNext"
+                <input type="checkbox" id="field-2"  class="col-sm-1" name="chIsTestNext"
                 <?php echo (empty($general_data["is_waiting_testing"])?'':$general_data["is_waiting_testing"]==1?'checked':'')?> />
-                <label for="field-2"><?php echo get_phrase('waiting_test');?></label>
+                <label for="field-2"  class="col-sm-6"><?php echo get_phrase('waiting_test');?></label>
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group col-md-12">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('testing_id');?></label>
             <div class="col-sm-3">
                 <input type="text" class="form-control" name="testing_id" placeholder="Testing ID"
@@ -148,7 +156,7 @@
             </div>
         </div>
 
-    <hr style="margin-top: 10px;"/>
+    <!--hr style="margin-top: 10px;"/>
     <div class="form-actions pull-right" style="margin-right:20px;">
         <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
         <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
@@ -156,9 +164,9 @@
         <button type="button" class="btn btn-info"><?php echo get_phrase('transfer');?></button>
         <button type="button" id="btnSubmitNew" class="btn btn-info"><?php echo get_phrase('submit & new');?></button>
         <button type="button" id="btnSubmit" class="btn btn-info"><?php echo get_phrase('submit');?></button>
-    </div>
+    </div-->
 
     <?php echo form_close();?>
 </div>
 
-<script src="<?php echo base_url();?>assets/js/enrolment/enrolment_general.js"></script>
+<!--script src="<?php echo base_url();?>assets/js/enrolment/enrolment_general.js"></script-->

@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new location*/
 		function new_location($data){
-			$this->db->insert('location',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('location',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit location*/
 		function edit_location($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('location',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('location',$data);
 		}
 		/*delete location*/
 		function delete_location($obj){
-			$this->db->where('id',$obj->location_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('location');
+			$this->sys->where('id',$obj->location_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('location');
 		}
 		/*udate status location*/
 		function update_status_location($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('location');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('location');
 		}
 		
 		/* location detail */
@@ -41,7 +41,7 @@
 						*
 					from location pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "name"=> empty($data->name)?'':$data->name,
@@ -57,7 +57,7 @@
 		/* lookup_location */
 		function lookup_location($obj){
 			$sql = "select * from location where status = 1 and location like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

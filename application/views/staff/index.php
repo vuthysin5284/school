@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -31,15 +28,15 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>staff/employee"
                    data-url="<?php echo base_url();?>staff/employee" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Employee</a></li>
+                    <?php echo get_phrase('1._staffing');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>staff/employee"
                    data-url="<?php echo base_url();?>staff/employee" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Employee Attendance</a></li>
+                    <?php echo get_phrase('2._staff_attendance');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>staff/employee"
                    data-url="<?php echo base_url();?>staff/employee" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-inbox"></i>Salary Adjustment</a></li>
+                    <?php echo get_phrase('3._activity_log');?></a></li>
             <!--li class="default">
                 <a href="<?php echo base_url();?>staff/employee_status"
                    data-url="<?php echo base_url();?>staff/employee_status" data-toggle="tab" aria-expanded="false">

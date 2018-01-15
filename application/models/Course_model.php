@@ -5,36 +5,36 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new course*/
 		function new_course($data){
-			$this->db->insert('course',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('course',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit course*/
 		function edit_course($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('course',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('course',$data);
 		}
 
 		/*delete course*/
 		function delete_course($obj){
 
-			$this->db->where('id',$obj->course_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('course');
+			$this->sys->where('id',$obj->course_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('course');
 		}
 		/*udate status course*/
 		function update_status_course($obj){
-			$this->db->where('id',$obj->course_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('course');
+			$this->sys->where('id',$obj->course_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('course');
 		}
 		
 		/* course detail */
@@ -43,7 +43,7 @@
 						*
 					from course 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->course_id))->row();
+			$data = $this->sys->query($sql,array($obj->course_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "course_name"=> empty($data->course_name)?'':$data->course_name,
@@ -59,7 +59,7 @@
 		/* lookup_course */
 		function lookup_course($obj){
 			$sql = "select * from course where status = 1 and course_name like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

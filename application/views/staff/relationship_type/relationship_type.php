@@ -10,7 +10,7 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_relationship_type" class="display" cellspacing="0" width="100%">
+<table id="datable_relationship_type" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
         <tr>
             <th>Relationship Type Name</th>

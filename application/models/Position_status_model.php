@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new position*/
 		function new_position_status($data){
-			$this->db->insert('position_status',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('position_status',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit position*/
 		function edit_position_status($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('position_status',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('position_status',$data);
 		}
 		/*delete position*/
 		function delete_position_status($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('position_status');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('position_status');
 		}
 		/*update status position*/
 		function update_status_position_status($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('position_status');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('position_status');
 		}
 		
 		/* position detail */
@@ -41,7 +41,7 @@
 						*
 					from position_status pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row(); 
+			$data = $this->sys->query($sql,array($obj->id))->row(); 
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "position_status_name"=> empty($data->position_status_name)?'':$data->position_status_name,
@@ -57,7 +57,7 @@
 		/* lookup position_status */
 		function lookup_position($obj){
 			$sql = "select * from position_status where status = 1 and position_status like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

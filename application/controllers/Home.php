@@ -6,7 +6,6 @@ class Home extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->database('default', TRUE);
         $this->load->library('session');
 		
        /*cache control*/
@@ -26,5 +25,8 @@ class Home extends CI_Controller {
         $page_data['page_title'] = get_phrase('home');
         $this->load->view('index', $page_data);
 	}
+	function search(){
+	    echo json_encode(array('data'=>'Ok'));
+    }
 
 } 

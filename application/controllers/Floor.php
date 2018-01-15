@@ -6,7 +6,7 @@ class Floor extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("floor_model","floor_m");
         $this->load->model('datatable_model');
@@ -98,8 +98,17 @@ class Floor extends CI_Controller {
 			array('db' => 'status', 	 'dt' => "status", 		'field' => 'status'),
 			array('db' => 'is_delete',   'dt' => "is_delete", 	'field'	=> 'is_delete')
         );
-		
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+
+
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
 
 

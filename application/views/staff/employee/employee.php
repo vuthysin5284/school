@@ -17,15 +17,18 @@
     <div class="col-md-2">
         <select class="form-control">
             <option>... Status ...</option>
+            <option>Show all</option>
             <option>Active</option>
-            <option>Inactive</option>
+            <option>Terminated</option>
+            <option>Resigned</option>
+            <option>Dead</option>
         </select>
     </div>
     <div class="col-md-1">
         <button class="btn btn-info">Search</button>
     </div>
     <div class="col-md-2 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>employee/new_employee/0/new');">
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>staff/new_employee/0/new');">
             <i class="fa fa-user-plus"></i>
             <?php echo get_phrase('add_new');?>
         </button>
@@ -38,18 +41,13 @@
 <table id="datable_employee" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th style="width: 80px;">Emp No</th>
             <th style="width: 70px;">Image</th>
-            <th style="width: 150px;">Latin Name</th>
-            <th style="width: 150px;">Khmer Name</th>
+            <th style="width: 250px;">Employee Name</th>
             <th>Gender</th>
-            <th>Position</th>
             <th>Department</th>
             <th>Phone</th>
-            <th style="width: 80px;">Joined Date</th>
-            <th style="width: 80px;">Hired Date</th>
+            <th style="width: 90px;">Hired Date</th>
             <th>Email</th>
-            <th style="width: 80px;">Status</th>
             <th style="width: 80px;">Staff Type</th>
             <th></th>
         </tr>

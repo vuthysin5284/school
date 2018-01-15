@@ -1,7 +1,7 @@
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo get_phrase($crud.'_testing_enrollment');?></h4>
+    <h4 class="modal-title"><?php echo get_phrase($crud.'_testing_register');?></h4>
 </div>
 
 <style>

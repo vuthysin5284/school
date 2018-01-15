@@ -6,7 +6,7 @@ class Student extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->load->database('default', TRUE);
+        $this->db=$this->load->database('default', TRUE);
         $this->load->library('session');
         $this->load->model("Enrolment_model","enrolment_m");
         $this->load->model("Common_model","com_m");
@@ -22,6 +22,7 @@ class Student extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
+
         $page_data['page_width']  = "70";
         $page_data['page_name']  = 'student/index';
 
@@ -43,11 +44,17 @@ class Student extends CI_Controller {
         $this->load->view('index', $page_data);
     }
 
-    function enrolment($param1='',$param2='',$param3=''){
-        if ($this->session->userdata('is_login') != 1){
+    function enrolment($param1='',$param2='',$param3='')
+    {
+        if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
-            redirect(base_url(). 'login', 'refresh');
+            redirect(base_url() . 'login', 'refresh');
         }
+
+        $page_data["session_list"] = $this->com_m->get_session_active();
+        $page_data["class_list"] = $this->com_m->get_class_active();
+        $page_data["section_list"] = $this->com_m->get_section_list();
+
         $page_data['page_title'] = get_phrase('enrolment');
         $this->load->view('student/enrolment/enrolment_list', $page_data);
     }
@@ -336,9 +343,18 @@ class Student extends CI_Controller {
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
+            //echo json_encode(array('draw'=>1,'data'=>'time_out'));
+            //return;
         }
         // DB table to use
-        $table = 'student_info_view where is_delete=0 and branch_id = 1' ;														// Field
+        $table = '  student_info_view 
+                    where is_delete=0 
+                    and (session_id = '.$this->input->post('running_session').' or 0='.$this->input->post('running_session').')
+					and (section_id = '.$this->input->post('section').' or 0='.$this->input->post('section').')
+					and (grade_id = '.$this->input->post('classes').' or 0='.$this->input->post('classes').')
+                    and branch_id = '.$this->session->userdata('branch_id').'
+                      
+                ' ;														// Field
         $primaryKey = "id";
         // indexes
         $columns = array(
@@ -357,10 +373,25 @@ class Student extends CI_Controller {
             array('db' => 'times_name',             'dt' => "times_name",           'field' => 'times_name'),
             array('db' => 'child_number',           'dt' => "child_number",         'field' => 'child_number'),
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),
-            array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete')
+            array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete'),
+            array('db' => 'created_date',           'dt' => "created_date",         'field' => 'created_date'),
+            array('db' => 'language',                     'dt' => "language",         'field' => 'language',
+                'formatter'	=> function($d, $row) {
+                    $result = $this->db->query('select GROUP_CONCAT(course_name) as course_name from eds_sys.course where id in('.$d.')')->row();
+                    return str_replace(',','<br />',$result->course_name);
+                }
+            )
+
         );
-        $this->load->model('datatable_model');
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+        $sql_details = array(
+            'user' => $this->db->username,
+            'pass' => $this->db->password,
+            'port' => $this->db->port,
+            'db' => $this->db->database,
+            'host' => $this->db->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
     }
 
 } 

@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -32,19 +29,19 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>floor/floor_list"
                    data-url="<?php echo base_url();?>floor/floor_list">
-                    <i class="fa fa-exclamation-circle"></i>Floor</a></li>
+                    <i class="fa fa-building"></i>Floor</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>building/building_list"
                    data-url="<?php echo base_url();?>building/building_list">
-                    <i class="fa fa-exclamation-circle"></i>building</a></li>
+                    <i class="fa fa-home"></i>building</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>location/location_list"
                    data-url="<?php echo base_url();?>location/location_list">
-                    <i class="fa fa-exclamation-circle"></i>Location</a></li>
-            <li class="default">
+                    <i class="fa fa-location-arrow"></i>Location</a></li>
+            <!--li class="default">
                 <a href="<?php echo base_url();?>leave/leave_type" data-url="<?php echo base_url();?>leave_type/leave_type_list"
                 data-toggle="tab" aria-expanded="false">
-                <i class="fa fa-inbox"></i>Leave Type</a></li>
+                <i class="fa fa-inbox"></i>Leave Type</a></li-->
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

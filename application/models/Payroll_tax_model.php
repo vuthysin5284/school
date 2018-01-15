@@ -4,36 +4,37 @@
 		
 		function __construct()
 		{ 
-			parent::__construct(); 
-			 
-		}  
+			parent::__construct();
+            $this->sys = $this->load->database('sys', TRUE);
+
+        }  
 		/*create new payrolltax*/
 		function new_payroll_tax($data){
-			$this->db->insert('payroll_tax',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('payroll_tax',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit payrolltax*/
 		function edit_payroll_tax($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('payroll_tax',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('payroll_tax',$data);
 		}
 
 		/*delete payrolltax*/
 		function delete_payroll_tax($obj){
 
-			$this->db->where('id',$obj->payrollsetup_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('payroll_tax');
+			$this->sys->where('id',$obj->payrollsetup_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('payroll_tax');
 		}
 		/*update status payrolltax*/
 		function update_status_payroll_tax($obj){
-			$this->db->where('id',$obj->payrollsetup_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('payroll_tax');
+			$this->sys->where('id',$obj->payrollsetup_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('payroll_tax');
 		}
 		
 		/*  author: Eng
@@ -47,7 +48,7 @@
 						*
 					from payroll_tax 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->payroll_tax_id))->row();
+			$data = $this->sys->query($sql,array($obj->payroll_tax_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "payroll_tax_number"=> empty($data->payroll_tax_number)?0:$data->payroll_tax_number,
@@ -65,7 +66,7 @@
 		/* lookup_branch */
 		function lookup_payroll_tax($obj){
 			$sql = "select * from payroll_tax where status = 1 and payroll_tax like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

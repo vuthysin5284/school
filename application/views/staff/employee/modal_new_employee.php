@@ -1,7 +1,7 @@
  
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo get_phrase('create new');?></h4>
+    <h4 class="modal-title"><i class="fa fa-user m-r-xs"></i><?php echo get_phrase(''.$crud.'_employee');?></h4>
 </div>
 
 
@@ -12,154 +12,157 @@
 </style>
 
 <?php //var_dump($employee_detail);?>
- 
-<div class="panel-body">
 
-    <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
-				'id'=>'frmNewEmployee', 'enctype' => 'multipart/form-data'));?>
-
-    <input type="hidden" name="pb_hidden_id" value="<?php echo $employee_detail["id"]?>"/>
-    <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
     <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-white">
+                <div class="panel-body">
+                    <div id="rootwizard">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active"><a href="#tab1" data-toggle="tab"><i class="fa fa-user m-r-xs"></i>Personal Info</a></li>
+                            <li role="presentation"><a href="#tab2" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Product Info</a></li>
+                            <li role="presentation"><a href="#tab3" data-toggle="tab"><i class="fa fa-truck m-r-xs"></i>Payment</a></li>
+                            <li role="presentation"><a href="#tab4" data-toggle="tab"><i class="fa fa-check m-r-xs"></i>Finish</a></li>
+                        </ul>
 
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('employee_number');?></label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control"  placeholder="Auto number" />
-                </div>
-            </div>
 
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('latin_name');?> <span class="red">*</span>
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="latin_name" name="latin_name" placeholder="latin name" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('Khmer_name');?> 
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" id="khmer_name" name="khmer_name" placeholder="khmer name" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('gender');?></label>
-                <div class="col-sm-8">
-                    <select class="form-control" >
-                        <option>male</option>
-                        <option>female</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                   <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('position');?> <span class="red">*</span>
-                   </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="position" name="position" placeholder="position" />
+                        <div class="progress progress-sm m-t-sm">
+                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                            </div>
+                        </div>
+                        <form id="wizardForm">
+                            <div class="tab-content">
+                                <div class="tab-pane active fade in" id="tab1">
+                                    <div class="row m-b-lg">
+                                        <div class="col-md-6">
+                                            <div class="row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="exampleInputName">First Name</label>
+                                                    <input type="text" class="form-control" name="exampleInputName" id="exampleInputName" placeholder="First Name">
+                                                </div>
+                                                <div class="form-group  col-md-6">
+                                                    <label for="exampleInputName2">Last Name</label>
+                                                    <input type="text" class="form-control col-md-6" name="exampleInputName2" id="exampleInputName2" placeholder="Last Name" >
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="exampleInputEmail">Email address</label>
+                                                    <input type="email" class="form-control" name="exampleInputEmail" id="exampleInputEmail" placeholder="Enter email" >
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="exampleInputPassword1">Password</label>
+                                                    <input type="password" class="form-control" name="exampleInputPassword1" id="exampleInputPassword1" placeholder="Password" >
+                                                </div>
+                                                <div class="form-group col-md-12">
+                                                    <label for="exampleInputPassword2">Confirm Password</label>
+                                                    <input type="password" class="form-control" name="exampleInputPassword2" id="exampleInputPassword2" placeholder="Confirm Password">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h3>Personal Info</h3>
+                                            <p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus.</p>
+                                            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec ullamcorper nulla non metus auctor fringilla.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab2">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="assets/images/envato-logo.png" width="250" alt="">
+                                            <div class="m-t-md">
+                                                <address>
+                                                    <strong>Twitter, Inc.</strong><br>
+                                                    795 Folsom Ave, Suite 600<br>
+                                                    San Francisco, CA 94107<br>
+                                                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                                                </address>
+                                                <address>
+                                                    <strong>Full Name</strong><br>
+                                                    <a href="mailto:#">first.last@example.com</a>
+                                                </address>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputProductName">Product Name</label>
+                                                <input type="text" class="form-control" name="exampleInputProductName" id="exampleInputProductName" placeholder="Product Name" >
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputProductId">Product ID</label>
+                                                <input type="text" class="form-control" name="exampleInputProductId" id="exampleInputProductId" placeholder="Product ID">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputQuantity">Quantity</label>
+                                                <input type="number" min="1" max="5" class="form-control" name="exampleInputQuantity" id="exampleInputQuantity" placeholder="Quantity">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab3">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputCard">Card Number</label>
+                                                <div class="row">
+                                                    <div class="col-md-8">
+                                                        <input type="text" class="form-control" name="exampleInputCard" id="exampleInputCard" placeholder="Card Number">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control col-md-4" name="exampleInputSecurity" id="exampleInputSecurity" placeholder="Security Code">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputHolder">Card Holders Name</label>
+                                                <input type="text" class="form-control" name="exampleInputHolder" id="exampleInputHolder" placeholder="Card Holders Name">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputExpiration">Expiration</label>
+                                                <input type="text" class="form-control date-picker" name="exampleInputExpiration" id="exampleInputExpiration" placeholder="Expiration">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label for="exampleInputCsv">CSV</label>
+                                                <input type="text" class="form-control" name="exampleInputCsv" id="exampleInputCsv" placeholder="CSV">
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <label class="f-s-12">By pressing Next You will Agree to the Payment <a href="#">Terms & Conditions</a></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab4">
+                                    <h2 class="no-s">Thank You !</h2>
+                                    <div class="alert alert-info m-t-sm m-b-lg" role="alert">
+                                        Congratulations ! You got the last step.
+                                    </div>
+                                </div>
+                                <ul class="pager wizard">
+                                    <li class="previous"><a href="#" class="btn btn-info">Previous</a></li>
+                                    <li class="next"><a href="#" class="btn btn-info">Next</a></li>
+                                </ul>
+                            </div>
+                        </form>
                     </div>
-            </div>
-
-             <div class="form-group">
-                    <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('department');?>
-                    </label>
-                    <div class="col-sm-8">
-                    <select class="form-control" >
-                        <option>building A</option>
-                        <option>building B</option>
-                        <option>building C</option>
-                       
-                    </select>
-
-                </div>
-                </div>
-              <div class="form-group">
-                   <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('phone');?> <span class="red">*</span>
-                   </label>
-                    <div class="col-sm-8">
-                        <input type="text" class="form-control" id="phone" name="phone" placeholder="phone" />
-                    </div>
-            </div>
-            <div class="form-group">
-                   <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('joined_date');?>
-                   </label>
-                     <div class="col-sm-2">
-                    <input type="number" min="1" max="31" id="txtdob_dd" name="txtdob_dd" class="form-control"  placeholder="dd" title="dd" />
-                </div>
-                <div class="col-sm-3">
-                    <input type="number" min="1" max="12" id="txtdob_mm" name="txtdob_mm" class="form-control"  placeholder="mm" title="mm" />
-                </div>
-                <div class="col-sm-3">
-                    <input type="number" min="1980" value="2010" id="txtdob_yy" name="txtdob_yy" class="form-control" title="yyyy" />
-                </div>
-            </div>
-           
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('hired_date');?>
-                </label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" data-date-format="yyyy-mm-dd" id="txthiredate" name="txthiredate"/>
-                </div>
-            </div>
-               <div class="form-group">
-                   <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('email');?> 
-                   </label>
-                    <div class="col-sm-8">
-                        <input type="email" class="form-control" id="email" name="email" placeholder="email" />
-                    </div>
-            </div>
-            <div class="form-group">
-               <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('status');?> </label>
-                <div class="col-sm-8">
-                    <select class="form-control" >
-                        <option>single</option>
-                        <option>taken</option>
-                    </select>
                 </div>
             </div>
         </div>
 
-
-
-
-       
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('staff_type');?> 
-                </label>
-                <div class="col-sm-8">
-                    <select class="form-control" >
-                        <option>Office</option>
-                        <option>Teacher</option>
-                        <option>Cashie</option>
-                        <option>Security</option>
-                    </select>
-
-                </div>
-            </div>
-        </div>
     </div>
 
-    <hr style="margin-top: 10px;"/>
-    <div class="form-actions pull-right" style="margin-right:20px;">
-        <button type="button"  data-dismiss="modal" class="btn btn-info"><?php echo get_phrase('close');?></button>
-        <button type="reset" class="btn btn-info"><?php echo get_phrase('reset');?></button>
-        <button type="button" id="btnSubmit" class="btn btn-info">
-            <?php echo get_phrase('save');?>
-        </button>
-        <button type="button" id="btnSaveNew" class="btn btn-info">
-			<?php echo get_phrase('save_new');?>
-        </button>
-    </div>
-    <?php echo form_close();?>
-</div>
 
-<script src="<?php echo base_url();?>assets/js/employee/employee_new.js"></script>
  <script type="text/javascript">
 	$(function () {
 		$('#txthiredate').datepicker();
 		
 	});
 </script>
+
+
+
+<script src="<?php echo base_url();?>assets/plugins/twitter-bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/jquery-validation/jquery.validate.min.js"></script>
+<script src="<?php echo base_url();?>assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="<?php echo base_url();?>assets/js/modern.min.js"></script>
+<script src="<?php echo base_url();?>assets/js/pages/form-wizard.js"></script>
+<script src="<?php echo base_url();?>assets/js/employee/employee_new.js"></script>

@@ -7,7 +7,7 @@
                 </a>
             </div>
             <div class="logo-box">
-                <a href="<?php base_url()."main/dashboard"?>" class="logo-text"><span>Apple american Intitude School</span></a>
+                <a href="<?php base_url()."main/dashboard"?>" class="logo-text"><span><?php echo $this->session->userdata("common_name"); ?></span></a>
             </div><!-- Logo Box -->
             <!--div class="search-button">
                 <a href="javascript:void(0);" class="waves-effect waves-button waves-classic show-search"><i class="fa fa-search"></i></a>

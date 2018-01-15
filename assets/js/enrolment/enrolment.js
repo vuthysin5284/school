@@ -1,13 +1,14 @@
 // JavaScript Document
-var datable_result;
+var register_datable_list;
 var _url_path =  baseurl+'enrolment/new_enrolment/';
 var _url_edit = baseurl+'enrolment/new_enrolment/';
 var _url_admin = baseurl+'enrolment/admin_enrolment/';
 var _url_del =  baseurl+'enrolment/delete/';
+var _url_del =  baseurl+'enrolment/delete/';
 var _img =  baseurl+'uploads/student_image/1.jpg';
 
 $(document).ready(function() {
-    datable_result = $('#datable_enrolment').DataTable( {
+    register_datable_list = $('#datable_enrolment').DataTable( {
         "filter"		: true,
         "info"			: true,
         "paging"		: true,
@@ -22,14 +23,24 @@ $(document).ready(function() {
             {extend: 'print',className: 'btn-sm'},
             {
                 text: 'Refresh', action: function () {
-                    datable_result.draw();
-                    //datable_result.ajax.reload();
+                    register_datable_list.draw();
                 }
             }
         ],
         "ajax"       : {
             "url"    : baseurl+'student/get_enrolment_data',
             "type"   : 'POST',
+            "data"   : function(data) {
+                data.running_session = $('#sl_running_session').val();
+                data.classes = $('#sl_classes').val();
+                data.section = $('#sl_section').val();
+            },
+            //'success': function(data){
+                //if(data.data=='time_out'){
+                 //   window.location.href = baseurl+'login';
+                //}
+
+            //},
             "destroy" : true
         },
         language: {
@@ -40,48 +51,80 @@ $(document).ready(function() {
         "columns"    : [
             { "data" : "id",
                 render: function (data, type, row, meta) {
-                var auto_num = meta.row + meta.settings._iDisplayStart + 1;
-                    return  "krs<br />"+('00000000' + auto_num).slice(-8);
-                }
+                    var auto_num = meta.row + meta.settings._iDisplayStart + 1;
+                    return  auto_num;//"krs<br />"+('00000000' + auto_num).slice(-8);
+                },"searchable": false
             },
             { "data" : "image" ,
                 'render': function (data, type, full, meta) {
                     return '<img src="'+_img+'" class="img" />';
-                }
+                },
+                "searchable": false
             },
             { "data" : "khmer_name" ,
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    $(nTd).html(oData.khmer_name+'<div>Sex: '+oData.gender_name +'</div>' +
-                        '<div>Fee: Paid</div>');
+                    $(nTd).html(oData.khmer_name+' - '+oData.latin_name+'<div>Sex: '+oData.gender_name +'</div>' +
+                        '<div>ID: '+oData.enrolment_id+'</div>');
                 }
             },
             { "data" : "dob",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    $(nTd).html(oData.dob+'<div>AGE: '+oData.id+'</div>');
-                }
+                    $(nTd).html(oData.dob+'<div>'+oData.id+' Years</div>');
+                },
+                "searchable": false
             },
-            { "data" : "session_name" ,
-                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    $(nTd).html(oData.session_name+'<div>Next paid date: 2018-01-10 </div>');
-                }},
-            { "data" : "class_name" },
-            { "data" : "section_name" },
-            //{ "data" : "child_number" },
+            {
+                "data": "session_name",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.session_name + '<div>Next paid: 2018-01-10 </div>');
+                },
+                "searchable": false
+            },
+            {
+                "data": "section_name",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+
+                    var newD = new Date(oData.created_date);
+
+                    $(nTd).html(oData.section_name + '<div>Register: ' + newD.getFullYear() + '-' + newD.getMonth() + '-' + newD.getDate() + '</div>');
+                },
+                "searchable": false
+            },
+            {
+                "data": "class_name",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.class_name + '<div>' + oData.section_name + '</div>');
+                },
+                "searchable": false
+            },
+            { "data" : "language",
+                "searchable": false},
 
             { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
                         '<center>'+
-                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
-                        '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>&nbsp;|&nbsp;'+
-                        '<a href="#" class="label label-info" onclick="showAjaxModal(\''+_url_admin+oData.id+'/admin/share\');"><i class="fa fa-wrench"></i></a>'+
+                        '<a href="javascript:void(0);" title="Edit student" class="label label-info" onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a><br />'+
+                        //'<a href="#" class="label label-danger" title="Delete student" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>&nbsp;|&nbsp;'+
+                        '<a href="#" class="label label-info" title="Admin" onclick="showAjaxModal(\''+_url_admin+oData.id+'/admin/share\');"><i class="fa fa-wrench"></i></a><br />'+
+                        '<a href=\''+baseurl+'/main/profile\' class="label label-info" title="Student Profiles"><i class="fa fa-user"></i></a>'+
                         '</center>');
-                }
+                },"searchable": false
             }
         ],
         "order": [[0, 'desc']]
     });
-} );
+
+
+    // on the button search
+    $('#btnSearchStudent').on('click',function (evt) {
+        evt.preventDefault();
+        //var running_session = $('#sl_running_session').val();
+        //var classes = $('#sl_classes').val();
+        //var section = $('#sl_section').val();
+        register_datable_list.ajax.reload();
+    });
+});
 
 function edit_enrolment_data(url){
     $.ajax({
@@ -108,46 +151,7 @@ function remove_row(url){
         type: "POST",
         url: url,
         success: function(data){
-            datable_result.draw();
+            register_datable_list.draw();
         }
     });
 }
-
-$(document).ready(function() {
-    $('#example1').DataTable( {
-        "filter"		: true,
-        "info"			: true,
-        "paging"		: true,
-        "ordering"		: true,
-        "processing"	: true,
-        "serverSide"	: true ,
-
-        "ajax"       : {
-            "url"    : baseurl+'dashboard/data',
-            "type"   : 'POST',
-            "destroy" : true
-        },
-        dom: "<'row'<'col-sm-4'l><'col-sm-4 text-center'B><'col-sm-4'f>>tp",
-        "lengthMenu": [ [10, 25, 50, -1], [10, 25, 50, "All"] ],
-        buttons: [
-            {extend: 'copy',className: 'btn-sm'},
-            {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
-            {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
-            {extend: 'print',className: 'btn-sm'}
-        ],
-        language: {
-            processing: "<img src='<?php echo base_url();?>assets/images/ProgressIcon.gif'>",
-            loadingRecords: "<img src='<?php echo base_url();?>assets/images/ProgressIcon.gif'>",
-            "url": "<?php echo base_url();?>assets/lang/kh.json"
-        },
-        "columns"    : [
-            { "data" : "id" },
-            { "data" : "deal_name" },
-            { "data" : "contact" },
-            { "data" : "tags" },
-            { "data" : "created_date" },
-            { "data" : "value" }
-        ],
-        "order": [[0, 'asc']]
-    });
-} );

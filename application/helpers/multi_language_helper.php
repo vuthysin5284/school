@@ -18,8 +18,8 @@ if ( ! function_exists('get_phrase'))
 {
 	function get_phrase($phrase = '') {
 		$CI	=&	get_instance();
-		$CI->load->database();
-		$current_language	=	$CI->db->get_where('settings' , array('type' => 'language'))->row()->description;
+		$CI->sys = $CI->load->database('sys', TRUE);
+		$current_language	=	$CI->sys->get_where('settings' , array('type' => 'language'))->row()->description;
 		
 		if ( $current_language	==	'') {
 			$current_language	=	'english';
@@ -28,13 +28,13 @@ if ( ! function_exists('get_phrase'))
 
 
 		/** insert blank phrases initially and populating the language db ***/
-		$check_phrase	=	$CI->db->get_where('language' , array('phrase' => $phrase))->row()->phrase;
+		$check_phrase	=	$CI->sys->get_where('language' , array('phrase' => $phrase))->row()->phrase;
 		if ( $check_phrase	!=		$phrase)
-			$CI->db->insert('language' , array('phrase' => $phrase));
+			$CI->sys->insert('language' , array('phrase' => $phrase));
 			
 		
 		// query for finding the phrase from `language` table
-		$query	=	$CI->db->get_where('language' , array('phrase' => $phrase));
+		$query	=	$CI->sys->get_where('language' , array('phrase' => $phrase));
 		$row   	=	$query->row();	
 		
 		// return the current sessioned language field of according phrase, else return uppercase spaced word

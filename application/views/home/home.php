@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-        <div class="panel info-box panel-white">
+        <div class="panel info-box panel-white" style="min-height:550px">
             <center style="margin-bottom:50px;">
                 <!-- main -->
                 <div style="width:99%; margin-bottom: 10px; margin-top:10px;">
@@ -120,69 +120,7 @@
                     <h4>Result search (?) </h4>
                 </div>
 
-                <div id="div_AaisSearch" style="width:50%; text-align:left; ">
-                    <div class="col-sm-12 result_search">
-                        <div class="col-sm-10">
-                            <h5>
-                                <a href="#">ហេង បញ្ញា heng panha - AAIS6-0005148</a>
-                            </h5>
-                            <b class="col-sm-3">Children</b>: Second child<br />
-                            <b class="col-sm-3">Acadenic Year</b>: 2017-2018<br />
-                            <b class="col-sm-3">Grade</b>: Conversation 1<br />
-                            <b class="col-sm-3">Branch</b>: Apple American International Schoo 6
-
-                        </div>
-
-                        <div class="col-sm-2">
-                            <center>
-                                <img src="<?php echo $this->crud_model->get_image_url('student','1');?>" class="img"/><br />
-                            b 2017-10-20<br />
-                            20ys
-                            </center>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 result_search">
-                        <div class="col-sm-10">
-                            <h5>
-                                <a href="#">ហេង បញ្ញា heng panha - AAIS6-0005148</a>
-                            </h5>
-                            <b class="col-sm-3">Children</b>: Second child<br />
-                            <b class="col-sm-3">Acadenic Year</b>: 2017-2018<br />
-                            <b class="col-sm-3">Grade</b>: Conversation 1<br />
-                            <b class="col-sm-3">Branch</b>: Apple American International Schoo 6
-
-                        </div>
-
-                        <div class="col-sm-2">
-                            <center>
-                                <img src="<?php echo $this->crud_model->get_image_url('student','1');?>" class="img" /><br />
-                                2017-10-20<br />
-                                20ys
-                            </center>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 result_search">
-                        <div class="col-sm-10">
-                            <h5>
-                                <a href="#">ហេង បញ្ញា heng panha - AAIS6-0005148</a>
-                            </h5>
-                            <b class="col-sm-3">Children</b>: Second child<br />
-                            <b class="col-sm-3">Acadenic Year</b>: 2017-2018<br />
-                            <b class="col-sm-3">Grade</b>: Conversation 1<br />
-                            <b class="col-sm-3">Branch</b>: Apple American International Schoo 6
-
-                        </div>
-
-                        <div class="col-sm-2">
-                            <center>
-                                <img src="<?php echo $this->crud_model->get_image_url('student','1');?>" class="img" /><br />
-                                2017-10-20<br />
-                                20ys
-                            </center>
-                        </div>
-                    </div>
-
-                </div>
+                <div id="div_AaisSearch" style="width:50%; text-align:left; "></div>
 
             </center>
         </div>
@@ -191,4 +129,40 @@
 </div>
 <script>
     $('#txtSearchAais').focus();
+    $('#txtSearchAais').on('keypress',function (evt) {
+        if(evt.which == 13) {
+            $.ajax({
+                url: baseurl+'home/search',
+                data: {},
+                type: 'POST',
+                dataType: 'json',
+                success: function(result){
+                    var data = '<div class="col-sm-12 result_search">'+
+'                        <div class="col-sm-10">'+
+'                            <h5>'+ '<a href=\''+baseurl+'/main/profile\' class="label label-info" title="Student Profiles"><i class="fa fa-user"></i></a>'+
+'                            <a href="<?php echo base_url();?>main/profile">ហេង បញ្ញា heng panha - AAIS6-0005148</a>'+
+'                            </h5>'+
+'                            <b class="col-sm-4">Children</b>: Second child<br />'+
+'                            <b class="col-sm-4">Running Session</b>: 2017-2018<br />'+
+'                            <b class="col-sm-4">Grade</b>: Conversation 1<br />'+
+'                            <b class="col-sm-4">Branch</b>: Apple American International Schoo 6'+
+'                        </div>'+
+'                        <div class="col-sm-2">'+
+'                            <center>'+
+'                                <img src="<?php echo $this->crud_model->get_image_url('student','1');?>" class="img"/><br /><br />'+
+'                                b 2017-10-20<br />'+
+'                                20ys'+
+'                            </center>'+
+'                        </div>'+
+'                    </div>';
+
+
+                    $("#div_AaisSearch").html(data);
+                }
+            });
+
+
+        }
+        
+    });
 </script>

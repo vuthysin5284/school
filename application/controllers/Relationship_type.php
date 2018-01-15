@@ -6,7 +6,7 @@ class Relationship_type extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("relationship_type_model","relationship_type_m");
         $this->load->model('datatable_model');
@@ -28,12 +28,11 @@ class Relationship_type extends CI_Controller {
         $this->load->view('staff/relationship_type/modal_new_relationship_type' ,$page_data);
     }
 
+    //
     function relationship_type(){
-
-		$page_data['page_name']  = 'relationship_type/relationship_type';
         $page_data['page_title'] = get_phrase('relationship_type');
-        $this->load->view('index', $page_data);
-	}
+        $this->load->view('staff/relationship_type/relationship_type', $page_data);
+    }
     /*** relationship_type ***/
     function relationship_type_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('relationship_type');
@@ -85,7 +84,7 @@ class Relationship_type extends CI_Controller {
         $this->relationship_type_m->delete_relationship_type($obj);
     }
 
-    public function relationship_type_data(){
+    public function get_relationship_type_data(){
 
         // DB table to use
         $table = 'relationship_type where is_delete=0';
@@ -98,12 +97,17 @@ class Relationship_type extends CI_Controller {
 			array('db' => 'status', 	 				'dt' => "status", 					'field' => 'status'),
 			array('db' => 'is_delete',   				'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
-		
-		
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
 
-
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
     }
 

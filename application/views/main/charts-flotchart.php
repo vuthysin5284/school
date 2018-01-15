@@ -346,7 +346,7 @@
                         <li class="droplink"><a href="#"><span class="menu-icon icon-note"></span><p>Forms</p><span class="arrow"></span></a>
                             <ul class="sub-menu">
                                 <li><a href="form-elements.html">Form Elements</a></li>
-                                <li><a href="form-wizard.html">Form Wizard</a></li>
+                                <li><a href="form-wizard.php">Form Wizard</a></li>
                                 <li><a href="form-upload.html">File Upload</a></li>
                                 <li><a href="form-image-crop.html">Image Crop</a></li>
                                 <li><a href="form-image-zoom.html">Image Zoom</a></li>

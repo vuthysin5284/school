@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Employee extends CI_Controller {
+class bak extends CI_Controller {
  
 	function __construct()
 	{
@@ -9,37 +9,23 @@ class Employee extends CI_Controller {
 		$this->db= $this->load->database('default', TRUE);
         $this->load->library('session');
         $this->load->model("employee_model","employee_m");
-        $this->load->model('datatable_model');
 		
        /*cache control*/
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
 		$this->output->set_header('Pragma: no-cache');
 		
     }
-    /*
-	*	$page_name		=	The name of page
-	*/
-    function new_employee($param1 = '',$param2 = '',$param3 = '')
-    {
-        if ($this->session->userdata('is_login') != 1){
-            $this->session->set_userdata('last_page', current_url());
-            redirect(base_url(). 'login', 'refresh');
-        }
-        $obj = new stdClass();
-        $obj->id = $param1;
-        $page_data["employee_detail"] = $this->employee_m->get_employee_detail($obj);
-        $page_data["crud"] = $param2;
-        $this->load->view('staff/employee/modal_new_employee' ,$page_data);
-    }
 
-    function employee(){
+
+
+    function employee1(){
         if ($this->session->userdata('is_login') != 1){
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
 
 		$page_data['page_name']  = 'employee/employee';
-        $page_data['page_title'] = get_phrase('employee');
+        $page_data['page_title'] = get_phrase('Employee.bak');
         $this->load->view('index', $page_data);
 	}
     /*** employee list ***/
@@ -48,7 +34,7 @@ class Employee extends CI_Controller {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url(). 'login', 'refresh');
         }
-        $page_data['page_title'] = get_phrase('employee');
+        $page_data['page_title'] = get_phrase('Employee.bak');
         $this->load->view('employee/employee_list',$page_data);
     }
 
@@ -131,11 +117,15 @@ class Employee extends CI_Controller {
 			
 			
         );
-		
-		
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
-
-
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
 
     }

@@ -200,7 +200,7 @@ class Datatable_model extends CI_Model{
 		}
 
 		if ( $where !== '' ) {
-			$where = 'WHERE '.$where;
+			$where = ' and '.$where;
 		}
 
 		return $where;

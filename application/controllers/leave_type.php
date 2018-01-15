@@ -6,7 +6,7 @@ class Leave_type extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("leave_type_model","leave_type_m");
         $this->load->model('datatable_model');

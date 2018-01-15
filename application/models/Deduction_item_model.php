@@ -5,36 +5,36 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new deduction_item*/
 		function new_deduction_item($data){
-			$this->db->insert('deduction_item',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('deduction_item',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit deduction_item*/
 		function edit_deduction_item($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('deduction_item',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('deduction_item',$data);
 		}
 
 		/*delete deduction_item*/
 		function delete_deduction_item($obj){
 
-			$this->db->where('id',$obj->deduction_item_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('deduction_item');
+			$this->sys->where('id',$obj->deduction_item_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('deduction_item');
 		}
 		/*update status deduction_item*/
 		function update_status_deduction_item($obj){
-			$this->db->where('id',$obj->deduction_item_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('deduction_item');
+			$this->sys->where('id',$obj->deduction_item_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('deduction_item');
 		}
 		
 		/* deduction_item detail */
@@ -43,7 +43,7 @@
 						*
 					from deduction_item 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->deduction_item_id))->row();
+			$data = $this->sys->query($sql,array($obj->deduction_item_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "deduction_number"=> empty($data->deduction_number)?'':$data->deduction_number,
@@ -60,7 +60,7 @@
 		/* lookup_branch */
 		function lookup_deduction_item($obj){
 			$sql = "select * from deduction_item where status = 1 and deduction_item like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

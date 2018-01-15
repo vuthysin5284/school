@@ -6,7 +6,7 @@ class Job_level extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("job_level_model","job_level_m");
         $this->load->model('datatable_model');
@@ -28,12 +28,11 @@ class Job_level extends CI_Controller {
         $this->load->view('staff/job_level/modal_new_job_level' ,$page_data);
     }
 
+    //job level
     function job_level(){
-
-		$page_data['page_name']  = 'job_level/job_level';
         $page_data['page_title'] = get_phrase('job_level');
-        $this->load->view('index', $page_data);
-	}
+        $this->load->view('staff/job_level/job_level', $page_data);
+    }
     /*** job_level ***/
     function job_level_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('job_level');
@@ -85,7 +84,7 @@ class Job_level extends CI_Controller {
         $this->job_level_m->delete_job_level($obj);
     }
 
-    public function job_level_data(){
+    public function get_job_level_data(){
 
         // DB table to use
         $table = 'job_level where is_delete=0';
@@ -98,7 +97,17 @@ class Job_level extends CI_Controller {
 			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
         );
-  echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
+
 
     }
 

@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new floor*/
 		function new_floor($data){
-			$this->db->insert('floor',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('floor',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit floor*/
 		function edit_floor($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('floor',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('floor',$data);
 		}
 		/*delete floor*/
 		function delete_floor($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('floor');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('floor');
 		}
 		/*update status floor*/
 		function update_status_floor($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('floor');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('floor');
 		}
 		
 		/* floor detail */
@@ -41,7 +41,7 @@
 						*
 					from floor pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "floor"=> empty($data->floor)?'':$data->floor,
@@ -57,7 +57,7 @@
 		/* lookup_floor */
 		function lookup_floor($obj){
 			$sql = "select * from floor where status = 1 and floor like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

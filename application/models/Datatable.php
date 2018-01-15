@@ -169,7 +169,7 @@ class Datatable  extends CI_Model{
 		}
 
 		if ( $where !== '' ) {
-			$where = 'WHERE '.$where;
+			$where = ' AND '.$where;
 		}
 
 		return $where;

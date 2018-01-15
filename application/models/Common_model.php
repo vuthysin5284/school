@@ -5,7 +5,7 @@ class Common_model extends CI_Model {
     function __construct()
     {
         parent::__construct();
-        $this->db = $this->load->database('default', TRUE);
+        $this->sys = $this->load->database('sys', TRUE);
     }
 
     //function get letter_data
@@ -14,16 +14,18 @@ class Common_model extends CI_Model {
 						*
 					from letter 
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
 
     }
     //function get subject_data
-    function subject_data(){
+    function subject_data($obj){
         $sql = " select 
 						*
 					from course 
+					where status =1 and is_delete=0
+					
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
 
     }
     //function get grade list
@@ -32,16 +34,39 @@ class Common_model extends CI_Model {
 						*
 					from classes 
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
 
+    }
+    /* session active*/
+    function get_session_active(){
+        $sql = " select 
+						* 
+					from school_session
+					where status = 1 and is_delete=0
+				";
+        return  $this->sys->query($sql)->result();
     }
     /* session list*/
     function get_session_list(){
         $sql = " select 
 						* 
-					from school_session";
-        return  $this->db->query($sql)->result();
+					from school_session 
+				";
+        return  $this->sys->query($sql)->result();
     }
+
+    //function get_class_active list
+    function get_class_active()
+    {
+        $sql = " select 
+						*
+					from classes 
+					where session_id=?
+					order by id DESC 
+					";
+        return $this->sys->query($sql,array($this->session->userdata('running_session')))->result();
+    }
+
     //function get_expected_class_list list
     function get_expected_class_list()
     {
@@ -49,15 +74,26 @@ class Common_model extends CI_Model {
 						*
 					from classes order by id DESC 
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
     }
         //function get gender list
     function get_gender_list(){
         $sql = " select 
 						*
-					from genders 
+					from gender
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
+
+    }
+    //function get section  list
+    function get_section_list(){
+        $sql = " select 
+						*
+					from school_section 
+					where status=?
+					and session_id=?
+					";
+        return $this->sys->query($sql,array(1,$this->session->userdata('running_session')))->result();
 
     }
     //function get timestudy list
@@ -66,7 +102,7 @@ class Common_model extends CI_Model {
 						*
 					from times 
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
 
     }
     //function get get_child_list list
@@ -75,8 +111,37 @@ class Common_model extends CI_Model {
 						*
 					from child 
 					";
-        return $this->db->query($sql)->result();
+        return $this->sys->query($sql)->result();
 
+    }
+    // checking common setup?
+    function get_common(){
+        $sql = " select 
+						*
+					from common 
+					";
+        return $this->sys->query($sql)->result();
+
+    }
+
+    // generated nextid
+    function nextid($field){
+        $arr = array();
+        $this->sys->select('prefix,'.$field);
+        $this->sys->where('prefix',$this->session->userdata('prefix'));
+        $nextid = $this->sys->get('nextid')->result_array();
+        foreach($nextid as $row):
+            $arr[$field] = $row[$field];
+            self::insertNextRegisterId($arr[$field],$field);
+        endforeach;
+        return $arr;
+    }
+
+    // update next id
+    public function insertNextRegisterId($id,$field){
+        $data[$field]  = ($id + 1);
+        $this->sys->where('prefix', $this->session->userdata('prefix'));
+        $this->sys->update('nextid', $data);
     }
 }
 ?>

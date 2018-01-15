@@ -38,7 +38,7 @@ class Crud_model extends CI_Model {
 	////////IMAGE URL//////////
 	function get_image_url($type = '' , $id = '')
 	{
-		if(file_exists('uploads/'.$type.'_image/'.$id.'.jpg'))
+		if(file_exists(base_url().'uploads/'.$type.'_image/'.$id.'.jpg'))
 			$image_url	=	base_url().'uploads/'.$type.'_image/'.$id.'.jpg';
 		else
 			$image_url	=	base_url().'uploads/user.jpg';

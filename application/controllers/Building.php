@@ -6,10 +6,9 @@ class Building extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("building_model","building_m");
-        $this->load->model('datatable_model');
 		
        /*cache control*/
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -98,34 +97,7 @@ class Building extends CI_Controller {
         //
         $this->building_m->delete_building($obj);
     }
-
-    /*
-    public function room_data(){
-        // DB table to use
-        $table = 'deal';
-        $primaryKey	= "id";
-        // indexes
-        $columns = array(
-            array( 'db' => 'id', 		'dt'	=> "id", 			'field'	=> 'id'),
-            array( 'db' => 'deal_name', 'dt'	=> "deal_name", 	'field'	=> 'deal_name' ),
-            array( 'db' => 'contact',   'dt'	=> "contact",       'field'	=> 'contact' ),
-            array( 'db' => 'tags',      'dt'	=> "tags",          'field'	=> 'tags' )
-        );
-
-        $sql_details	= array(
-            'user'	=> $this->db->username,
-            'pass'	=> $this->db->password,
-            'port'	=> $this->db->port,
-            'db'	=> $this->db->database,
-            'host'	=> $this->db->hostname
-        );
-
-        $this->load->model('datatable');
-        echo json_encode(Datatable::simple($_POST, $sql_details,$table,$primaryKey, $columns));
-
-    }*/
-
-
+    //
     public function building_data(){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
@@ -144,9 +116,16 @@ class Building extends CI_Controller {
 			array('db' => 'is_delete', 'dt' => "is_delete", 'field'	=> 'is_delete' )
         );
 
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
-
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
 
     }

@@ -6,7 +6,7 @@ class Country extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("country_model","country_m");
         $this->load->model('datatable_model');
@@ -32,16 +32,11 @@ class Country extends CI_Controller {
         $this->load->view('staff/country/modal_new_country' ,$page_data);
     }
 
+    //country
     function country(){
-
-        if ($this->session->userdata('is_login') != 1) {
-            $this->session->set_userdata('last_page', current_url());
-            redirect(base_url() . 'login', 'refresh');
-        }
-		$page_data['page_name']  = 'country/country';
         $page_data['page_title'] = get_phrase('country');
-        $this->load->view('index', $page_data);
-	}
+        $this->load->view('staff/country/country', $page_data);
+    }
     /*** country ***/
     function country_list($param1='',$param2='',$param3=''){
         if ($this->session->userdata('is_login') != 1) {
@@ -99,7 +94,7 @@ class Country extends CI_Controller {
         $this->country_m->delete_country($obj);
     }
 
-    public function country_data(){
+    public function get_country_data(){
         if ($this->session->userdata('is_login') != 1) {
             $this->session->set_userdata('last_page', current_url());
             redirect(base_url() . 'login', 'refresh');
@@ -118,7 +113,15 @@ class Country extends CI_Controller {
 			array('db' => 'status', 	 		'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   		'dt' => "is_delete", 			'field'	=> 'is_delete')
         );
-  echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
     }
 

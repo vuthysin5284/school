@@ -27,18 +27,18 @@
 
 <table id="datable_register" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
-    <tr>
-        <th>No</th>
-        <th>Khmer Name</th>
-        <th>Latin Name</th>
-        <th>Gender</th>
-        <th>Dob</th>
-        <th>Age</th>
-        <th>Session</th>
-        <th>Expected Class</th>
-        <th>Check</th><!-- using for mark student have been assessment or give score to student after exam -->
-        <th>Action</th>
-    </tr>
+        <tr>
+            <th>No</th>
+            <th style="width: 250px">Khmer Name</th>
+            <th style="width: 100px">Date of Birth</th>
+            <th style="width: 150px">Session</th>
+            <th style="width: 150px">Section</th>
+            <th style="width: 150px">Expected Class</th>
+            <!--th>Relative Name</th>
+            <th>Contact Number</th-->
+            <th style="width: 100px">Status</th><!-- using for mark student have been assessment or give score to student after exam -->
+            <th style="width: 100px">Action</th>
+        </tr>
     </thead>
 </table>
 

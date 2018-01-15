@@ -6,7 +6,7 @@ class User extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db = $this->load->database('default', TRUE);
+		$this->sys = $this->load->database('sys', TRUE);
 		//$this->erp=$this->load->database('erp', true); 
         $this->load->library('session');
 		//$this->load->library('googlemaps');
@@ -30,7 +30,7 @@ class User extends CI_Controller {
 		$data["sap_id"] = $this->input->post("sap_id");
 		$data["username"] = $this->input->post("username");
 		$data["role_id"] =  $this->input->post("role_id");
-        $data["branch_id"] =  $this->session->userdata("branch_id");
+        $data["branch_id"] =  $this->input->post("branch_id");
 		$data["email"] = $this->input->post("email");
 		$data["phone"] = $this->input->post("phone");
 		
@@ -42,7 +42,7 @@ class User extends CI_Controller {
 			$data["chat_status"] = 'offline';
 			$data["is_login"] = 'offline';
 			
-			$this->db->insert('user',$data);
+			$this->sys->insert('user',$data);
 			
 			redirect(base_url() . 'user/user_management/', 'refresh');
 		}
@@ -51,7 +51,7 @@ class User extends CI_Controller {
 				$data["password"] =  sha1(md5(sha1(md5($this->input->post("password"))))); 
 			} 
 			
-			$data["name"] = $this->input->post("full_name");
+			/*$data["name"] = $this->input->post("full_name");
 			$data["sap_id"] = $this->input->post("sap_id");
 			$data["username"] = $this->input->post("username");
 			$data["role_id"] =  $this->input->post("role_id");
@@ -59,10 +59,10 @@ class User extends CI_Controller {
 			$data["phone"] = $this->input->post("phone");
 			
 			$data["is_admin"] = empty($this->input->post("is_admin"))?0:1;
-			$data["status"] = empty($this->input->post("status"))?0:1; 
+			$data["status"] = empty($this->input->post("status"))?0:1; */
 			
-			$this->db->where('admin_id',$this->input->post("user_id")); 
-			$this->db->update('user',$data);  
+			$this->sys->where('admin_id',$this->input->post("user_id")); 
+			$this->sys->update('user',$data);  
 			
 			redirect(base_url() . 'user/user_management/', 'refresh');
 		}
@@ -72,9 +72,9 @@ class User extends CI_Controller {
 			$lenghts = count($this->input->post("buld_user"));
 			$buld_user = $this->input->post("buld_user");
 			for($i=0;$i<=$lenghts;$i++){
-				$this->db->where('admin_id',$buld_user[$i]);
-				$this->db->set('status',0);
-				$this->db->update('user');
+				$this->sys->where('admin_id',$buld_user[$i]);
+				$this->sys->set('status',0);
+				$this->sys->update('user');
 			} 
 			return;
 		}
@@ -98,7 +98,7 @@ class User extends CI_Controller {
 			$data["name"] = $this->input->post("roll_name");
 			$data["description"] = $this->input->post("description");
 			$data["status"] = empty($this->input->post("status"))?0:1;
-			$this->db->insert('role',$data);
+			$this->sys->insert('role',$data);
 			
 			redirect(base_url(). 'user/user_role', 'refresh');
 		}
@@ -106,14 +106,14 @@ class User extends CI_Controller {
 		if($param1=="add_menu_role"){ 
 			$data["ROLE_ID"] = $this->input->post("role_id");
 			$data["MENU_ID"] = $this->input->post("menu_id"); 
-			$this->db->insert('menu_role',$data);
+			$this->sys->insert('menu_role',$data);
 			return; 
 		}
 		// remove
 		if($param1=="remove_menu_role"){
-			$this->db->where('MENU_ID', $this->input->post("menu_id"));
-			$this->db->where('ROLE_ID', $this->input->post("role_id"));
-            $this->db->delete('menu_role');
+			$this->sys->where('MENU_ID', $this->input->post("menu_id"));
+			$this->sys->where('ROLE_ID', $this->input->post("role_id"));
+            $this->sys->delete('menu_role');
 			
 		}
 		

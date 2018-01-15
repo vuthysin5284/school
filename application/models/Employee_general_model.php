@@ -5,9 +5,10 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
-			 
-		}  
+            $this->db = $this->load->database('default', TRUE);
+            $this->sys = $this->load->database('sys', TRUE);
+
+        }
 		/*create new employee list*/
 		function new_employee_general($data){
 			$this->db->insert('employee_general',$data);
@@ -104,7 +105,7 @@
 		//
 		function gender(){
 			$sql = "select * from gender where status = 1";
-			return $this->db->query($sql)->result();
+			return $this->sys->query($sql)->result();
 			
 		}
 		

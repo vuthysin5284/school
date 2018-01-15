@@ -114,8 +114,11 @@
                         </div>
                         <select class="form-control" id="running_sesion" name="running_sesion" required>
                             <option value="">Running session</option>
-                            <option value="1">2016 - 2017</option>
-                            <option value="2">2017 - 2018</option>
+                            <?php
+                                foreach($session_list as $row){
+                                    echo "<option value='".$row["id"]."'>".$row["session_name"]."</option>";
+                                }
+                            ?>
                         </select>
                     </div>
                 </div>
@@ -142,6 +145,7 @@
 
 
 <!-- Javascripts-->
+<script src="assets/js/gsap/main-gsap.js"></script>
 <script src="assets/plugins/pace-master/pace.min.js"></script>
 <script src="assets/js/gsap/main-gsap.js"></script>
 <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>

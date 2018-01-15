@@ -73,6 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $active_group = 'default';
 $query_builder = TRUE;
 
+//default data using for every transaction tracking
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -94,6 +95,30 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+// data setup for whole system
+$db['sys'] = array(
+    'dsn'	=> '',
+    'hostname' => 'localhost',
+    'username' => 'root',
+    'password' => '',
+    'database' => 'eds_sys',
+    'dbdriver' => 'mysqli',
+    'dbprefix' => '',
+    'pconnect' => FALSE,
+    'db_debug' => (ENVIRONMENT !== 'production'),
+    'cache_on' => FALSE,
+    'cachedir' => '',
+    'char_set' => 'utf8',
+    'dbcollat' => 'utf8_general_ci',
+    'swap_pre' => '',
+    'encrypt' => FALSE,
+    'compress' => FALSE,
+    'stricton' => FALSE,
+    'failover' => array(),
+    'save_queries' => TRUE
+);
+
 $db['sli'] = array(
     'dsn'   => '',
     'hostname' => '',
@@ -115,52 +140,3 @@ $db['sli'] = array(
     'failover' => array(),
     'save_queries' => TRUE
 );
-
-// ERP connection
-$db['erp'] = array(
-	'dsn'	=> '',
-	'hostname' => 'Driver={SQL Server Native Client 10.0};Server=PC-Vuthy;Database=VITALD;',
-	'username' => 'sa',
-	'password' => '5284',
-	'database' => '',
-	'dbdriver' => 'odbc',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => TRUE,
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE
-); 
-
-// ERP connection
-/*$db['erp'] = array(
-	'dsn'	=> '',
-	'hostname' => 'Driver={SQL Server Native Client 11.0};Server=NVC-DB;Database=VD;',
-	'username' => 'sa',
-	'password' => 'nvc@water',
-	'database' => 'VD',
-	'dbdriver' => 'odbc',
-	'dbprefix' => '',
-	'pconnect' => FALSE,
-	'db_debug' => TRUE,
-	'cache_on' => FALSE,
-	'cachedir' => '',
-	'char_set' => 'utf8',
-	'dbcollat' => 'utf8_general_ci',
-	'swap_pre' => '',
-	'encrypt' => FALSE,
-	'compress' => FALSE,
-	'stricton' => FALSE,
-	'failover' => array(),
-	'save_queries' => TRUE,
-	'date_default_timezone_set' => 'Asia/Phnom_Penh'
-);
-*/
-
