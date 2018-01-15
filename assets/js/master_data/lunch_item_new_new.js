@@ -1,16 +1,16 @@
 // this is the id of the form
 $("#btnSubmit").on('click',function(e) {
     // requirement
-    if($("#discrioption").val()==''){
-        $("#discrioption").css('border','1px solid red');
+    if($("#description").val()==''){
+        $("#description").css('border','1px solid red');
         return false;
     }
-    var url = baseurl+'ItemSetup/create_new_admin_item_fee';
+    var url = baseurl+'lunch_item_fee/create_new_lunch_item_fee';
     $.ajax({
         type: "POST",
         url: url,
         dataType:"JSON",
-        data: $("#frmNewAdminItemFee").serialize(), // serializes the form's elements.
+        data: $("#frmNewLunchItemFee").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
             $('#modal_ajax').modal('hide');
