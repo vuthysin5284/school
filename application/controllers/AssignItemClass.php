@@ -54,9 +54,10 @@ class AssignItemClass extends CI_Controller {
                         aif.*,
                         ic.item_id,
                         ic.class_id 
-                      from admin_item_fee  aif
+                      from item_master  aif
                       left join item_class ic on ic.item_id = aif.id and ic.class_id =?
-                      where status = 1
+                      where aif.status = 1
+                      and aif.is_delete=0
                    ";
         $page_data['item_list'] = $this->sys->query($sql_item,array($this->input->post("class_id")))->result_array();
 		 

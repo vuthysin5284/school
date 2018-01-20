@@ -5,27 +5,27 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			//$this->db = $this->load->database('default', TRUE);
 			 
 		}  
 		/*create new admin item*/
 		function new_admin_item_fee($data){
-			$this->db->insert('item_master',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('item_master',$data);
+			return $this->sys->insert_id();
 		}
 		/*edit admin item*/
 		function edit_admin_item_fee($data,$id){
-			$this->db->where('id', $id);
-			return $this->db->update('item_master', $data);
+			$this->sys->where('id', $id);
+			return $this->sys->update('item_master', $data);
 		}
 		/*delete admin_item_fee*/
 		function delete_admin_item_fee($obj){
 
-			$this->db->where('id',$obj->admin_item_fee_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('item_master');
+			$this->sys->where('id',$obj->admin_item_fee_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('item_master');
 		}
 
 		/* admin item fee detail */
@@ -34,7 +34,7 @@
 						*
 					from item_master 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->admin_item_fee_id))->row();
+			$data = $this->sys->query($sql,array($obj->admin_item_fee_id))->row();
 			return array( 
                         "id"				=> empty($data->id)?'':$data->id,
                         "description"		=> empty($data->description)?'':$data->description,
@@ -49,6 +49,6 @@
 		/* lookup_admin item */
 		function lookup_admin_item_fee($obj){
 			$sql = "select * from item_master where status = 1 and item_master like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 }

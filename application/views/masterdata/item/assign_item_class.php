@@ -2,7 +2,7 @@
     <?php echo form_open(base_url() . 'assignitemclass/assign_item_class/filter' , array('class' => 'form-horizontal validatable','target'=>'_top'));?>
 	<div class="panel-body" style="border:0px solid #EEE; width:500px; padding:5px; min-height:500px;">
      
-           <div class="pull-left" style="text-align:left; padding-top:10px; width:50px;">Classes:</div>
+           <div class="pull-left" style="text-align:left; padding-top:10px; width:50px;">Group:</div>
            <div class="pull-left" style="margin-left:10px;"> 
                 <select id="class_id" name="class_id" class="form-control">
                 	<option value="0"> ... select ... </option>
@@ -18,6 +18,8 @@
            </div>
             <div class="pull-left" style="margin-left:10px;">
                 <button type="submit" name="btnSubmit" class="btn btn-info"><?php echo get_phrase('filter');?></button>
+                <button type="button" class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>modal/popup/new_role/');" >
+                    <?php echo get_phrase('create_group');?></button>
            </div>
             <br />
             <br />
@@ -36,7 +38,7 @@
                                 echo '<li> 
                                         <input type="checkbox"  class="col-md-1" name="chk" id="chk'.$row["id"].'" '.$checked.' 
                                             onClick="onChange('.$row["id"].');"/> 
-                                        <lable class="col-md-11" >'.$row["item_name_kh"].'</lable> 
+                                        <lable class="col-md-11" >'.$row["description"].'</lable> 
                                    </li>';
 							
 						}

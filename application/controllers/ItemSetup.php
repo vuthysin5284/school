@@ -119,11 +119,11 @@ class ItemSetup extends CI_Controller
         );
 
         $sql_details = array(
-            'user' => $this->db->username,
-            'pass' => $this->db->password,
-            'port' => $this->db->port,
-            'db' => $this->db->database,
-            'host' => $this->db->hostname
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
         );
 
         $this->load->model('datatable');
