@@ -29,7 +29,16 @@
             <input type="text" class="form-control" id="description" value="<?php echo empty($item_dl['description'])?'':$item_dl['description'];?>" name="description" />
         </div>
     </div>
-    
+    <div class="form-group">
+        <label for="field-1" class="col-sm-4 control-label"><?php echo get_phrase('prize_list');?> <span class="red">*</span></label>
+        <div class="col-sm-7">
+            <select class="form-control" btn btn-info id="prize_list" name="prize_list" value="<?php echo empty($item_dl["prize_list"])?'':$item_dl["prize_list"]?>">
+                    <option>... prize_list ...</option>
+                    <option value="abc"> abc </option>
+                    <option value="anchor"> anchor </option>
+            </select>
+        </div>
+    </div>
 
     <div class="form-group">
         <label for="field-1" class="col-sm-4 control-label">&nbsp;</label>

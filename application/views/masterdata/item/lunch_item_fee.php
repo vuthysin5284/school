@@ -24,7 +24,7 @@
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>lunch_item_fee/new_lunch_item_fee/0/new');">
             <i class="fa fa-graduation-cap"></i>
             <!--?php echo get_phrase('enroll_new');?-->
-            បញ្ចូលសិស្សថ្មី
+            New Item
         </button>
     </div> 
 </div>

@@ -26,7 +26,7 @@
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>itemsetup/admin_item_fee_new/0/new');">
             <i class="fa fa-graduation-cap"></i>
             <!--?php echo get_phrase('enroll_new');?-->
-            បញ្ចូលសិស្សថ្មី
+            New Item
         </button>
     </div>
 </div>
