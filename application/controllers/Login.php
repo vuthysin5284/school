@@ -8,8 +8,7 @@ class Login extends CI_Controller {
 
     function __construct() {
         parent::__construct();
-       /* $this->load->model('crud_model');*/
-        $this->load->database();
+        $this->sys = $this->load->database('sys', TRUE);
         $this->load->library('session');
         /* cache control */
         $this->output->set_header('Last-Modified: ' . gmdate("D, d M Y H:i:s") . ' GMT');
@@ -20,11 +19,12 @@ class Login extends CI_Controller {
 
     //Default function, redirects to logged in user area
     public function index() {
-
         if ($this->session->userdata('is_login') == 1)
-           	redirect(base_url(), 'refresh'); 
-			
-        $this->load->view('login');
+           	redirect(base_url(), 'refresh');
+
+        $sql = "select * from school_session where status = 1 and `is_delete` = 0 and is_lock = 0";
+        $data["session_list"] = $this->sys->query($sql)->result_array();
+        $this->load->view('login',$data);
     }
 
     //Ajax login function 
@@ -54,26 +54,30 @@ class Login extends CI_Controller {
         $credential = array('username' => $username, 'password' => sha1(md5(sha1(md5($password)))));
 		 
 		// limit show records in page 
-		$this->session->set_userdata('per_page', $this->db->get_where('settings' , array('type' => 'per_page'))->row()->description);
+		$this->session->set_userdata('per_page', $this->sys->get_where('settings' , array('type' => 'per_page'))->row()->description);
 
         // Checking login credential for admin
-		$this->db->where('status=',1);
-        $query = $this->db->get_where('user', $credential);
+		$this->sys->where('status=',1);
+        $query = $this->sys->get_where('user', $credential);
         if ($query->num_rows() > 0) {
             $row = $query->row();
 
-            $this->session->set_userdata('running_sesion', $running_sesion);
+            $this->session->set_userdata('running_session', $running_sesion);
             $this->session->set_userdata('is_login', '1');
             $this->session->set_userdata('user_id', $row->admin_id); 
             $this->session->set_userdata('sap_id', $row->SAP_ID);
             $this->session->set_userdata('name', $row->name);
             $this->session->set_userdata('email', $row->email);
-            $this->session->set_userdata('branch_id', 1);
+            $this->session->set_userdata('branch_id', $row->branch_id);
+            $this->session->set_userdata('prefix', $this->sys->get_where('branch' , array('id' => $row->branch_id))->row()->prefix);
+            $this->session->set_userdata('common_name', $this->sys->get_where('common')->row()->common_name);
+            $this->session->set_userdata('common_id', $this->sys->get_where('common')->row()->id);
 
+            $this->session->set_userdata('session_name', $this->sys->get_where('school_session',array('id' => $running_sesion))->row()->session_name);
             // is login
-			$this->db->where('admin_id',$row->admin_id);
-			$this->db->set('is_login','online');
-			$this->db->update('user');
+			$this->sys->where('admin_id',$row->admin_id);
+			$this->sys->set('is_login','online');
+			$this->sys->update('user');
 
 			//
             self::writeMenus($row->admin_id);
@@ -106,12 +110,12 @@ class Login extends CI_Controller {
         $new_password           =   substr( md5( rand(100000000,20000000000) ) , 0,7);
 
         // Checking credential for admin
-        $query = $this->db->get_where('admin' , array('email' => $email));
+        $query = $this->sys->get_where('admin' , array('email' => $email));
         if ($query->num_rows() > 0) 
         {
             $reset_account_type     =   'admin';
-            $this->db->where('email' , $email);
-            $this->db->update('admin' , array('password' => $new_password));
+            $this->sys->where('email' , $email);
+            $this->sys->update('admin' , array('password' => $new_password));
             $resp['status']         = 'true';
         } 
 
@@ -127,9 +131,9 @@ class Login extends CI_Controller {
 
     function logout() {
 		// is login
-		$this->db->where('admin_id',$this->session->userdata('login_user_id'));
-		$this->db->set('is_login','offline');
-		$this->db->update('user');
+		$this->sys->where('admin_id',$this->session->userdata('login_user_id'));
+		$this->sys->set('is_login','offline');
+		$this->sys->update('user');
 		
 		//
         $this->session->sess_destroy();
@@ -142,7 +146,7 @@ class Login extends CI_Controller {
 	function getAdvisor($param1 = ''){ 
 		$sql = "  select type,description from settings where type = ? ";
 		
-		$record = $this->db->query($sql,array($param1))->result_array();
+		$record = $this->sys->query($sql,array($param1))->result_array();
 		 
 		foreach($record as $row){
 			$suppervice = $row["description"];
@@ -187,7 +191,7 @@ class Login extends CI_Controller {
                         
                 ORDER BY order_by ASC
             ";
-            $result = $this->db->query($sql, array(1, 0))->result_array();
+            $result = $this->sys->query($sql, array(1, 0))->result_array();
 
         $navigation = '';
 
@@ -201,7 +205,7 @@ class Login extends CI_Controller {
 									</a>
 								<ul  class="sub-menu">';
 
-                $result1 = $this->db->query($sql, array(0, $row["MENU_ID"]))->result_array();
+                $result1 = $this->sys->query($sql, array(0, $row["MENU_ID"]))->result_array();
 
                 // checking is have sub menu?
                 foreach ($result1 as $sub) {
@@ -212,7 +216,7 @@ class Login extends CI_Controller {
 														<p>' . get_phrase($sub["MENU_NAME"]) . '</p><span class="arrow"></span>
 													</a>
 												<ul  class="sub-menu">';
-                        $result2 = $this->db->query($sql, array(0, $sub["MENU_ID"]))->result_array();
+                        $result2 = $this->sys->query($sql, array(0, $sub["MENU_ID"]))->result_array();
                         foreach ($result2 as $sub2) {
                             //
                             $navigation .= '<li class="">

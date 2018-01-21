@@ -19,63 +19,60 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
 <div class="row m-t-md">
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
+            <li class="default active">
+                <a href="<?php echo base_url();?>employee_status/employee_status"
+                   data-url="<?php echo base_url();?>employee_status/employee_status" data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('1._employee_status');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/employee_status"
-                   data-url="<?php echo base_url();?>staff/employee_status" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Employee Status</a></li>
+                <a href="<?php echo base_url();?>position_status/position_status"
+                   data-url="<?php echo base_url();?>position_status/position_status" data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('2._position_status');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/position_status"
-                   data-url="<?php echo base_url();?>staff/position_status" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-sign-out"></i>Position Status</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>staff/department_status"
+                <a href="<?php echo base_url();?>department/department_status"
                    data-url="<?php echo base_url();?>staff/department_status"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Department</a></li>
+                    <?php echo get_phrase('3._department');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/position"
-                   data-url="<?php echo base_url();?>staff/position"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i> Position</a></li>
+                <a href="<?php echo base_url();?>position/position"
+                   data-url="<?php echo base_url();?>position/position"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('4._position');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/section"
-                   data-url="<?php echo base_url();?>staff/section"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Section</a></li>
+                <a href="<?php echo base_url();?>section/section"
+                   data-url="<?php echo base_url();?>section/section"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('5._section');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/main_station"
-                   data-url="<?php echo base_url();?>staff/main_station"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Main Station</a></li>
+                <a href="<?php echo base_url();?>main_station/main_station"
+                   data-url="<?php echo base_url();?>main_station/main_station"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('6._main_station');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/employee_location"
+                <a href="<?php echo base_url();?>employee_location/employee_location"
                   data-url="<?php echo base_url();?>employee_location/employee_location"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Employee Location</a></li>
+                    <?php echo get_phrase('7._employee_location');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/job_level"
-                   data-url="<?php echo base_url();?>staff/job_level"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Job Level</a></li>
+                <a href="<?php echo base_url();?>job_level/job_level"
+                   data-url="<?php echo base_url();?>job_level/job_level"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('8._job_level');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/country"
-                   data-url="<?php echo base_url();?>staff/country"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Country</a></li>
+                <a href="<?php echo base_url();?>country/country"
+                   data-url="<?php echo base_url();?>country/country"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('9._country');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/education_type"
-                   data-url="<?php echo base_url();?>staff/education_type"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Education Type</a></li>
+                <a href="<?php echo base_url();?>education_type/education_type"
+                   data-url="<?php echo base_url();?>education_type/education_type"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('10._education_type');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/relationship_type"
-                   data-url="<?php echo base_url();?>staff/relationship_type"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Relationship Type</a></li>
+                <a href="<?php echo base_url();?>relationship_type/relationship_type"
+                   data-url="<?php echo base_url();?>relationship_type/relationship_type"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('11._relationship_type');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>staff/leave_reason"
-                   data-url="<?php echo base_url();?>staff/leave_reason"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Leave Reason</a></li>
+                <a href="<?php echo base_url();?>leave_reason/leave_reason"
+                   data-url="<?php echo base_url();?>leave_reason/leave_reason"  data-toggle="tab" aria-expanded="false">
+                    <?php echo get_phrase('12._leave_reason');?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

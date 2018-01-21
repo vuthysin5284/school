@@ -6,10 +6,9 @@ class Employee_status extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("employee_status_model","employee_status_m");
-        $this->load->model('datatable_model');
 		
        /*cache control*/
 		$this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -28,12 +27,11 @@ class Employee_status extends CI_Controller {
         $this->load->view('staff/employee_status/modal_new_employee_status' ,$page_data);
     }
 
+    //employee status
     function employee_status(){
-
-		$page_data['page_name']  = 'employee_status/employee_status';
         $page_data['page_title'] = get_phrase('employee_status');
-        $this->load->view('index', $page_data);
-	}
+        $this->load->view('staff/employee_status/employee_status', $page_data);
+    }
     /*** employee ***/
     function employee_status_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('employee_status');
@@ -85,7 +83,7 @@ class Employee_status extends CI_Controller {
         $this->employee_status_m->delete_employee_status($obj);
     }
 
-    public function employee_status_data(){
+    public function get_employee_status_data(){
 
         // DB table to use
         $table = 'employee_status where is_delete=0';
@@ -98,12 +96,16 @@ class Employee_status extends CI_Controller {
 			array('db' => 'status', 	 			'dt' => "status", 					'field' => 'status'),
 			array('db' => 'is_delete',   			'dt' => "is_delete", 				'field'	=> 'is_delete')
         );
-		
-		
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
-
-
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
     }
 

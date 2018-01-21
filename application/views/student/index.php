@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid #12AFCB;
-    }
 </style>
 
 
@@ -32,24 +29,26 @@
             <li class="active default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-graduation-cap"></i><?php echo get_phrase('1._enrollment');?><!--តារាងបញ្ជីរសិស្ស--></a></li>
+                    <i class="fa fa-user"></i><?php echo get_phrase('student_list');?><!--តារាងបញ្ជីរសិស្ស--></a></li>
+
+
+            <!-- register not yet payment, waiting to paid for admin first.-->
+            <!--li class="default">
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
+                    <i class="fa fa-tasks"></i><?php echo get_phrase('student_by_teacher');?></a></li-->
             <li class="default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-graduation-cap"></i><?php echo get_phrase('2._top_student');?><!--តារាងបញ្ជីរសិស្ស--></a></li>
-                    <!-- register not yet payment, waiting to paid for admin first.-->
+                    <i class="fa fa-user-times"></i><?php echo get_phrase('student_inactive');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-money"></i><!--គ្រប់គ្រងការបង់ប្រាក់ --><?php echo get_phrase('3._stransfer_list');?></a></li>
+                    <i class="fa fa-bus"></i><?php echo get_phrase('student_transfer_list');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>student/enrolment"
                    data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-tasks"></i><!--លទ្ធផលកិច្ចការ--><?php echo get_phrase('4._suspending_list');?></a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>student/enrolment"
-                   data-url="<?php echo base_url();?>student/enrolment">
-                    <i class="fa fa-bar-chart"></i><!--របាយការណ៍--><?php echo get_phrase('5._reports');?></a></li>
+                    <i class="fa fa-paypal"></i><?php echo get_phrase('student_last_payment');?></a></li>
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

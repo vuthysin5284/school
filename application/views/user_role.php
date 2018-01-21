@@ -11,7 +11,7 @@
 			where MAIN_MENU_ID = ?
 			order by order_by asc
 		";
-	$result = $this->db->query($sql,array(0))->result_array(); 
+	$result = $this->sys->query($sql,array(0))->result_array();
 	
 ?>
 <center>  
@@ -23,7 +23,7 @@
                 <select id="role" name="role" class="form-control">
                 	<option value="0"> ... select ... </option>
                     <?php $sql_pm = "select * from role where status = 1";
-						$perm = $this->db->query($sql_pm)->result_array();
+						$perm = $this->sys->query($sql_pm)->result_array();
 						foreach($perm as $pm){
 							if($pm["role_id"] == $role_id){
 								$select = " selected";
@@ -58,7 +58,7 @@
 													<span>'.$row["MENU_NAME"].'</span>
 												</a><ul style="list-style-type: none;">'; 
 												
-												$result1 = $this->db->query($sql,array($row["MENU_ID"]))->result_array();
+												$result1 = $this->sys->query($sql,array($row["MENU_ID"]))->result_array();
 												// checking is have sub menu?
 												foreach($result1 as $sub){  
 													$checked="";
@@ -74,7 +74,7 @@
 																		<span>'.$sub["MENU_NAME"].'</span>
 																	</a><ul style="list-style-type: none;">'; 
 													
-														$result2 = $this->db->query($sql,array($sub["MENU_ID"]))->result_array();
+														$result2 = $this->sys->query($sql,array($sub["MENU_ID"]))->result_array();
 														// checking is have sub menu?
 														foreach($result2 as $sub2){  
 															$checked="";
@@ -83,8 +83,8 @@
 															
 																//
 															echo '<li> 
-																<input type="checkbox" name="chk" id="chk'.$sub2["MENU_ID"].'" '.$checked.'  onClick="onChange('.$sub2["MENU_ID"].');"/>
-																<lable style="margin-left:20px;">'.$sub2["MENU_NAME"].'</lable> 
+																<input type="checkbox" class="col-md-1" name="chk" id="chk'.$sub2["MENU_ID"].'" '.$checked.'  onClick="onChange('.$sub2["MENU_ID"].');"/>
+																<lable class="col-md-11">'.$sub2["MENU_NAME"].'</lable> 
 														   </li>';
 														}
 														// for main menu 
@@ -92,8 +92,8 @@
 													}else{ 
 														//
 														echo '<li> 
-																<input type="checkbox" name="chk" id="chk'.$sub["MENU_ID"].'" '.$checked.'  onClick="onChange('.$sub["MENU_ID"].');"/>
-																<lable style="margin-left:20px;">'.$sub["MENU_NAME"].'</lable> 
+																<input type="checkbox" class="col-md-1"  name="chk" id="chk'.$sub["MENU_ID"].'" '.$checked.'  onClick="onChange('.$sub["MENU_ID"].');"/>
+																<lable class="col-md-11" >'.$sub["MENU_NAME"].'</lable> 
 														   </li>';
 													}
 												}
@@ -103,8 +103,8 @@
 									 
 							}else{  // main 
 								echo '<li> 
-											<input type="checkbox" name="chk" id="chk'.$row["MENU_ID"].'" '.$checked.' onClick="onChange('.$row["MENU_ID"].');"/> 
-											<lable style="margin-left:20px;">'.$row["MENU_NAME"].'</lable> 
+											<input type="checkbox"  class="col-md-1" name="chk" id="chk'.$row["MENU_ID"].'" '.$checked.' onClick="onChange('.$row["MENU_ID"].');"/> 
+											<lable class="col-md-11" >'.$row["MENU_NAME"].'</lable> 
 									   </li>';
 							}
 							

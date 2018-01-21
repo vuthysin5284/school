@@ -4,36 +4,37 @@
 		
 		function __construct()
 		{ 
-			parent::__construct(); 
-			 
-		}  
+			parent::__construct();
+            $this->sys = $this->load->database('sys', TRUE);
+
+        }
 		/*create new banksetup*/
 		function new_banksetup($data){
-			$this->db->insert('banksetup',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('banksetup',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit banksetup*/
 		function edit_banksetup($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('banksetup',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('banksetup',$data);
 		}
 
 		/*delete banksetup*/
 		function delete_banksetup($obj){
 
-			$this->db->where('id',$obj->banksetup_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('banksetup');
+			$this->sys->where('id',$obj->banksetup_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('banksetup');
 		}
 		/*update status banksetup*/
 		function update_status_banksetup($obj){
-			$this->db->where('id',$obj->banksetup_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('banksetup');
+			$this->sys->where('id',$obj->banksetup_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('banksetup');
 		}
 		
 		/*  author: Eng
@@ -47,7 +48,7 @@
 						*
 					from banksetup 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->banksetup_id))->row();
+			$data = $this->sys->query($sql,array($obj->banksetup_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "bank_number"=> empty($data->bank_number)?0:$data->bank_number,
@@ -65,7 +66,7 @@
 		/* lookup_banksetup */
 		function lookup_banksetup($obj){
 			$sql = "select * from banksetup where status = 1 and banksetup like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

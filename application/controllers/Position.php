@@ -6,7 +6,7 @@ class Position extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("position_model","position_m");
         $this->load->model('datatable_model');
@@ -27,13 +27,11 @@ class Position extends CI_Controller {
         $page_data["crud"] = $param2;
         $this->load->view('staff/position/modal_new_position' ,$page_data);
     }
-
+    //
     function position(){
-
-		$page_data['page_name']  = 'position/position';
         $page_data['page_title'] = get_phrase('position');
-        $this->load->view('index', $page_data);
-	}
+        $this->load->view('staff/position/position', $page_data);
+    }
     /*** position ***/
     function position_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('position');
@@ -85,7 +83,7 @@ class Position extends CI_Controller {
         $this->position_m->delete_position($obj);
     }
 
-    public function position_data(){
+    public function get_position_data(){
 
         // DB table to use
         $table = 'position where is_delete=0';
@@ -99,11 +97,15 @@ class Position extends CI_Controller {
 			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
 			
         );
-		
-		
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
-
-
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
 
     }

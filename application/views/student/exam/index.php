@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -30,17 +27,15 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
 
             <li class="active default">
-                <a href="<?php echo base_url();?>examination/score_student"
-                   data-url="<?php echo base_url();?>examination/score_student">
-                    <i class="fa fa-exclamation-circle"></i>Score by Student</a></li>
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
+                    <i class="fa fa-pencil"></i><!--របាយការណ៍--><?php echo get_phrase('examination');?></a></li>
             <li class="default">
-                <a href="<?php echo base_url();?>examination/classify_score"
-                   data-url="<?php echo base_url();?>examination/classify_score">
-                    <i class="fa fa-exclamation-circle"></i>Classify Score</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>examination/honorable_table"
-                   data-url="<?php echo base_url();?>examination/honorable_table">
-                    <i class="fa fa-exclamation-circle"></i>Honorable tables</a></li>
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
+                    <i class="fa fa-subscript"></i><!--របាយការណ៍--><?php echo get_phrase('exam_result');?></a></li>
+
+
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

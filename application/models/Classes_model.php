@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new classes*/
 		function new_classes($data){
-			$this->db->insert('classes',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('classes',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit classes*/
 		function edit_classes($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('classes',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('classes',$data);
 		}
 		/*delete classes*/
 		function delete_classes($obj){
-			$this->db->where('id',$obj->classes_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('classes');
+			$this->sys->where('id',$obj->classes_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('classes');
 		}
 		/*udate status classes*/
 		function update_status_classes($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('classes');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('classes');
 		}
 		
 		/* classes detail */
@@ -42,7 +42,7 @@
 						0 as total_student
 					from classes pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->classes_id))->row();
+			$data = $this->sys->query($sql,array($obj->classes_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "classes_number"=> empty($data->classes_number)?'':$data->classes_number,
@@ -64,7 +64,7 @@
 		/* lookup_classes */
 		function lookup_classes($obj){
 			$sql = "select * from classes where status = 1 and classes like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		//function get school session list
         function get_session_list($obj){
@@ -72,7 +72,7 @@
 						*
 					from school_session 
 					";
-           return $this->db->query($sql)->result();
+           return $this->sys->query($sql)->result();
 
         }
 		

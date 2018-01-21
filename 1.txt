@@ -54,34 +54,14 @@
 										<p>Financial</p><span class="arrow"></span>
 									</a>
 								<ul  class="sub-menu"><li class="">
-												<a href="http://localhost:80/eds/finance">
+												<a href="http://localhost:80/eds/">
 													<span class="menu-icon "></span>
-													<p>Expense Management</p>
+													<p>A/P - Account Payable</p>
 												</a>
 											</li><li class="">
 												<a href="http://localhost:80/eds/">
 													<span class="menu-icon "></span>
-													<p>Revenue</p>
-												</a>
-											</li><li class="">
-												<a href="http://localhost:80/eds/">
-													<span class="menu-icon "></span>
-													<p>Cashcollection</p>
-												</a>
-											</li><li class="">
-												<a href="http://localhost:80/eds/">
-													<span class="menu-icon "></span>
-													<p>Pending Invoicing</p>
-												</a>
-											</li><li class="">
-												<a href="http://localhost:80/eds/">
-													<span class="menu-icon "></span>
-													<p>Sale Report</p>
-												</a>
-											</li><li class="">
-												<a href="http://localhost:80/eds/">
-													<span class="menu-icon "></span>
-													<p>Summary Report</p>
+													<p>A/R - Account Receivable</p>
 												</a>
 											</li></ul></li><li class="droplink">
 									<a href="#">
@@ -99,7 +79,12 @@
 													<p>Leave Management</p>
 												</a>
 											</li><li class="">
-												<a href="http://localhost:80/eds/">
+												<a href="http://localhost:80/eds/leave">
+													<span class="menu-icon fa fa-frown-o"></span>
+													<p>Overt Time Management</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/leave">
 													<span class="menu-icon fa fa-clock-o"></span>
 													<p>Time Sheet</p>
 												</a>
@@ -123,33 +108,38 @@
 													<span class="menu-icon fa fa-history"></span>
 													<p>Event Management</p>
 												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/">
+													<span class="menu-icon fa fa-bell"></span>
+													<p>Event Promotion</p>
+												</a>
 											</li></ul></li><li class="droplink">
 									<a href="#">
 										<span class="menu-icon fa fa-bar-chart"></span>
 										<p>Reports</p><span class="arrow"></span>
 									</a>
 								<ul  class="sub-menu"><li class="">
-												<a href="http://localhost:80/eds/report/parent">
+												<a href="http://localhost:80/eds/report/finance_report">
 													<span class="menu-icon "></span>
 													<p>Finance Report</p>
 												</a>
 											</li><li class="">
-												<a href="http://localhost:80/eds/report/sibling">
+												<a href="http://localhost:80/eds/report/human_resource_report">
 													<span class="menu-icon "></span>
 													<p>Human Resource</p>
 												</a>
 											</li><li class="">
-												<a href="http://localhost:80/eds/report/family">
+												<a href="http://localhost:80/eds/report/student_report">
 													<span class="menu-icon "></span>
 													<p>Student Report</p>
 												</a>
 											</li><li class="">
-												<a href="http://localhost:80/eds/">
+												<a href="http://localhost:80/eds/report/fleet_report">
 													<span class="menu-icon "></span>
 													<p>Fleet Report</p>
 												</a>
 											</li><li class="">
-												<a href="http://localhost:80/eds/">
+												<a href="http://localhost:80/eds/report/miscellaneous_report">
 													<span class="menu-icon "></span>
 													<p>Miscellaneous Report</p>
 												</a>
@@ -184,6 +174,11 @@
 										<p>Master Data</p><span class="arrow"></span>
 									</a>
 								<ul  class="sub-menu"><li class="">
+												<a href="http://localhost:80/eds/common">
+													<span class="menu-icon "></span>
+													<p>Common</p>
+												</a>
+											</li><li class="">
 												<a href="http://localhost:80/eds/masterdata/master_data">
 													<span class="menu-icon "></span>
 													<p>Acadamic Setup</p>
@@ -216,7 +211,12 @@
 											</li><li class="">
 												<a href="http://localhost:80/eds/itemsetup">
 													<span class="menu-icon "></span>
-													<p>Item Master</p>
+													<p>Item Fee</p>
+												</a>
+											</li><li class="">
+												<a href="http://localhost:80/eds/assignitemclass/assign_item_class">
+													<span class="menu-icon "></span>
+													<p>Assign Item To Class</p>
 												</a>
 											</li></ul></li><li class="droplink">
 									<a href="#">

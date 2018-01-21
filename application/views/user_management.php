@@ -19,18 +19,22 @@
                     $sql = " 
                              SELECT 
 							 	u.*,
-								r.name as role_name 
+								r.name as role_name,
+								b.branch_name,
+								b.prefix 
+								
 							FROM user u
 							inner join role r on r.role_id = u.role_id
+							inner join branch b on b.id = u.branch_id
 							where u.`status` in(1,0)
 							group by u.admin_id
 							LIMIT ".$p.", ".$per_page." 
                     	";
-                    $result	=	$this->db->query($sql)->result_array(); 
+                    $result	=	$this->sys->query($sql)->result_array();
                     
                     
                     $sql1 = " select count(*) number from user where `status` in(1,0)";
-                    $result_p	=	$this->db->query($sql1)->row(); 
+                    $result_p	=	$this->sys->query($sql1)->row();
                     $num_P = ($result_p->number/$per_page)<'0.5'?1:round($result_p->number/$per_page); 
                      ?>
                       
@@ -61,6 +65,7 @@
                         <th><div style="font-weight:bold"><?php echo get_phrase('user_name');?></div></th>
                         <th><div style="font-weight:bold"><?php echo get_phrase('SAP');?></div></th>
                         <th width="30%"><div style="font-weight:bold"><?php echo get_phrase('full_name');?></div></th>
+                        <th><div style="font-weight:bold"><?php echo get_phrase('branch');?></div></th>
                         <th><div style="font-weight:bold"><?php echo get_phrase('phone');?></div></th>
                         <th><div style="font-weight:bold"><?php echo get_phrase('email');?></div></th>  
                         <th><div style="font-weight:bold"><?php echo get_phrase('role_name');?></div></th> 
@@ -78,6 +83,7 @@
                         </td> 
                         <td><?php echo $row['SAP_ID'];?></td>
                         <td><?php echo $row['name'];?></td>
+                        <td><?php echo '[ '. $row['prefix'].' ] '.$row['branch_name'];?></td>
                         <td><?php echo $row['phone'];?></td>
                         <td><?php echo $row['email']; ?></td>   
                         <td><?php echo $row['role_name']; ?></td>   

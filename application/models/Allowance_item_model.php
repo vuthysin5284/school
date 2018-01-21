@@ -5,36 +5,36 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new allowance_item*/
 		function new_allowance_item($data){
-			$this->db->insert('allowance_item',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('allowance_item',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit allowance_item*/
 		function edit_allowance_item($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('allowance_item',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('allowance_item',$data);
 		}
 
 		/*delete allowance_item*/
 		function delete_allowance_item($obj){
 
-			$this->db->where('id',$obj->allowance_item_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('allowance_item');
+			$this->sys->where('id',$obj->allowance_item_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('allowance_item');
 		}
 		/*update status allowance_item*/
 		function update_status_allowance_item($obj){
-			$this->db->where('id',$obj->allowance_item_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('allowance_item');
+			$this->sys->where('id',$obj->allowance_item_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('allowance_item');
 		}
 		
 		/* allowance_item detail */
@@ -43,7 +43,7 @@
 						*
 					from allowance_item 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->allowance_item_id))->row();
+			$data = $this->sys->query($sql,array($obj->allowance_item_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "allowance_number"	=> empty($data->allowance_number)?'':$data->allowance_number,
@@ -61,7 +61,7 @@
 		/* lookup_allowance_item */
 		function lookup_allowance_item($obj){
 			$sql = "select * from allowance_item where status = 1 and allowance_item like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

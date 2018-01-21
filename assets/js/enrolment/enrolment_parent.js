@@ -1,22 +1,19 @@
-
-// on the button click submit create only
-$("#btnParentSubmit").on('click',function(e) {
-    e.preventDefault(); // avoid to execute the actual submit of the form.
-    create_new_parent();
-});
-
-function create_new_parent(){
-    var pb_crud_id = $('#pb_crud_id').val();
-    var enrolment_id = $('#enrolment_id').val();
-    $.ajax({
-        type: "POST",
-        url: baseurl+'enrolment/create_enrolment_parent',
-        dataType:"JSON",
-        data: $("#frmNewParent").serialize()+ "&pb_crud_id=" + pb_crud_id+ "&enrolment_id=" + enrolment_id, // serializes the form's elements.
-        success: function(data){
-            $('#modal_ajax').modal('hide');
-        }
-    });
-
-
+ // on action copy information from parent to resposible base student
+function onCopyParent(type){
+    if(type==1){
+        $("input[name='responsibility_kh']").val($("input[name='father_name_kh']").val());
+        $("input[name='responsibility_en']").val($("input[name='father_name_en']").val());
+        $("input[name='resp_occupation']").val($("input[name='occupation']").val());
+        $("input[name='resp_phone_number']").val($("input[name='phone_number']").val());
+    }else{
+        $("input[name='responsibility_kh']").val($("input[name='mother_name_kh']").val());
+        $("input[name='responsibility_en']").val($("input[name='mother_name_en']").val());
+        $("input[name='resp_occupation']").val($("input[name='occupation_m']").val());
+        $("input[name='resp_phone_number']").val($("input[name='phone_number_m']").val());
+    }
+    $("input[name='resp_address']").val($("input[name='address']").val());
+    $("input[name='resp_address1']").val($("input[name='address1']").val());
+    $("input[name='resp_address2']").val($("input[name='address2']").val());
+    $("input[name='resp_address3']").val($("input[name='address3']").val());
+    $("input[name='resp_address4']").val($("input[name='address4']").val());
 }

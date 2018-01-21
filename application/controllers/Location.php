@@ -6,7 +6,7 @@ class Location extends CI_Controller {
     function __construct()
     {
         parent::__construct();
-        $this->db= $this->load->database('default', TRUE);
+        $this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("location_model","location_m");
        /*cache control*/
@@ -28,8 +28,8 @@ class Location extends CI_Controller {
 
     function check_exists($field,$key)
     {
-        $this->db->where($field,$key);
-        $query = $this->db->get('location');
+        $this->sys->where($field,$key);
+        $query = $this->sys->get('location');
         if ($query->num_rows() > 0){
             return true;
         }
@@ -40,12 +40,12 @@ class Location extends CI_Controller {
 
     function new_country(){
        // echo $this->input->post('new_country');
-      /*  $country = $this->db->select_max('country')->from('location')->get()->result();
+      /*  $country = $this->sys->select_max('country')->from('location')->get()->result();
         $result = $country->country;
         echo $result; */
 
       if(!$this->check_exists('name',$this->input->post('new_country'))){
-            $country = $this->db->select_max('country')->from('location')->get()->row();   
+            $country = $this->sys->select_max('country')->from('location')->get()->row();   
             $country_id =  $country->country + 1;
             
 
@@ -59,7 +59,7 @@ class Location extends CI_Controller {
                'village' => 0
             );
             
-           if ($this->db->insert('location', $data)){
+           if ($this->sys->insert('location', $data)){
                 $json = array('status' => 1, 
                               'country_id' => $country_id, 
                               'country_name' => $this->input->post('new_country'),
@@ -82,7 +82,7 @@ class Location extends CI_Controller {
         //echo $this->input->post('country_id');
 
       if(!$this->check_exists('name',$this->input->post('new_province'))){
-            $province = $this->db->select_max('province')->from('location')->get()->row();   
+            $province = $this->sys->select_max('province')->from('location')->get()->row();   
             $province_id =  $province->province + 1;
             
 
@@ -97,7 +97,7 @@ class Location extends CI_Controller {
             );
 
             
-           if ($this->db->insert('location', $data)){
+           if ($this->sys->insert('location', $data)){
                 $json = array('status' => 1, 
                               'province_id' => $province_id, 
                               'province_name' => $this->input->post('new_province'),
@@ -123,7 +123,7 @@ class Location extends CI_Controller {
         //echo $this->input->post('province_id');
 
       if(!$this->check_exists('name',$this->input->post('new_district'))){
-            $district = $this->db->select_max('district')->from('location')->get()->row();   
+            $district = $this->sys->select_max('district')->from('location')->get()->row();   
             $district_id =  $district->district + 1;
             
 
@@ -138,7 +138,7 @@ class Location extends CI_Controller {
             );
 
             
-           if ($this->db->insert('location', $data)){
+           if ($this->sys->insert('location', $data)){
                 $json = array('status' => 1, 
                               'district_id' => $district_id, 
                               'district_name' => $this->input->post('new_district'),
@@ -164,7 +164,7 @@ class Location extends CI_Controller {
        // echo $this->input->post('district_id');
 
       if(!$this->check_exists('name',$this->input->post('new_commune'))){
-            $commune = $this->db->select_max('commune')->from('location')->get()->row();   
+            $commune = $this->sys->select_max('commune')->from('location')->get()->row();   
             $commune_id =  $commune->commune + 1;
             
 
@@ -179,7 +179,7 @@ class Location extends CI_Controller {
             );
 
             
-           if ($this->db->insert('location', $data)){
+           if ($this->sys->insert('location', $data)){
                 $json = array('status' => 1, 
                               'commune_id' => $commune_id, 
                               'commune_name' => $this->input->post('new_commune'),
@@ -205,7 +205,7 @@ class Location extends CI_Controller {
       //echo $this->input->post('commune_id');
 
       if(!$this->check_exists('name',$this->input->post('new_village'))){
-            $village = $this->db->select_max('village')->from('location')->get()->row();   
+            $village = $this->sys->select_max('village')->from('location')->get()->row();   
             $village_id =  $village->village + 1;
             
 
@@ -220,7 +220,7 @@ class Location extends CI_Controller {
             );
 
             
-           if ($this->db->insert('location', $data)){
+           if ($this->sys->insert('location', $data)){
                 $json = array('status' => 1, 
                               'village_id' => $village_id, 
                               'village_name' => $this->input->post('new_village'),
@@ -244,18 +244,18 @@ class Location extends CI_Controller {
 
     function update_country(){
             //echo $this->input->post('country_id');
-        $this->db->where('country',$this->input->post('country_id'));
-        $this->db->where('type',1);
-        $this->db->where('province',0);
-        $this->db->where('district',0);
-        $this->db->where('commune',0);
-        $this->db->where('village',0);
+        $this->sys->where('country',$this->input->post('country_id'));
+        $this->sys->where('type',1);
+        $this->sys->where('province',0);
+        $this->sys->where('district',0);
+        $this->sys->where('commune',0);
+        $this->sys->where('village',0);
 
         $data = array(
              'name' => $this->input->post('country_edit_name')
         );
 
-        if ($this->db->update('location',$data)){
+        if ($this->sys->update('location',$data)){
             $json = array(
                           'status' => 1,
                           'country_edit_name' => $this->input->post('country_edit_name'),
@@ -275,18 +275,18 @@ class Location extends CI_Controller {
     function update_province(){
         //echo "This is update province";
 
-        $this->db->where('country',$this->input->post('country_id'));
-        $this->db->where('type',2);
-        $this->db->where('province',$this->input->post('province_id'));
-        $this->db->where('district',0);
-        $this->db->where('commune',0);
-        $this->db->where('village',0);
+        $this->sys->where('country',$this->input->post('country_id'));
+        $this->sys->where('type',2);
+        $this->sys->where('province',$this->input->post('province_id'));
+        $this->sys->where('district',0);
+        $this->sys->where('commune',0);
+        $this->sys->where('village',0);
 
         $data = array(
              'name' => $this->input->post('province_edit_name')
         );
 
-        if ($this->db->update('location',$data)){
+        if ($this->sys->update('location',$data)){
             $json = array(
                           'status' => 1,
                           'province_edit_name' => $this->input->post('province_edit_name'),
@@ -305,18 +305,18 @@ class Location extends CI_Controller {
 
     function update_district(){
 
-        $this->db->where('country',$this->input->post('country_id'));
-        $this->db->where('type',3);
-        $this->db->where('province',$this->input->post('province_id'));
-        $this->db->where('district',$this->input->post('district_id'));
-        $this->db->where('commune',0);
-        $this->db->where('village',0);
+        $this->sys->where('country',$this->input->post('country_id'));
+        $this->sys->where('type',3);
+        $this->sys->where('province',$this->input->post('province_id'));
+        $this->sys->where('district',$this->input->post('district_id'));
+        $this->sys->where('commune',0);
+        $this->sys->where('village',0);
 
         $data = array(
              'name' => $this->input->post('district_edit_name')
         );
 
-        if ($this->db->update('location',$data)){
+        if ($this->sys->update('location',$data)){
             $json = array(
                           'status' => 1,
                           'district_edit_name' => $this->input->post('district_edit_name'),
@@ -334,18 +334,18 @@ class Location extends CI_Controller {
 
     function update_commune(){
 
-        $this->db->where('country',$this->input->post('country_id'));
-        $this->db->where('type',4);
-        $this->db->where('province',$this->input->post('province_id'));
-        $this->db->where('district',$this->input->post('district_id'));
-        $this->db->where('commune',$this->input->post('commune_id'));
-        $this->db->where('village',0);
+        $this->sys->where('country',$this->input->post('country_id'));
+        $this->sys->where('type',4);
+        $this->sys->where('province',$this->input->post('province_id'));
+        $this->sys->where('district',$this->input->post('district_id'));
+        $this->sys->where('commune',$this->input->post('commune_id'));
+        $this->sys->where('village',0);
 
         $data = array(
              'name' => $this->input->post('commune_edit_name')
         );
 
-        if ($this->db->update('location',$data)){
+        if ($this->sys->update('location',$data)){
             $json = array(
                           'status' => 1,
                           'commune_edit_name' => $this->input->post('commune_edit_name'),
@@ -364,18 +364,18 @@ class Location extends CI_Controller {
 
     function update_village(){
 
-        $this->db->where('country',$this->input->post('country_id'));
-        $this->db->where('type',5);
-        $this->db->where('province',$this->input->post('province_id'));
-        $this->db->where('district',$this->input->post('district_id'));
-        $this->db->where('commune',$this->input->post('commune_id'));
-        $this->db->where('village',$this->input->post('village_id'));
+        $this->sys->where('country',$this->input->post('country_id'));
+        $this->sys->where('type',5);
+        $this->sys->where('province',$this->input->post('province_id'));
+        $this->sys->where('district',$this->input->post('district_id'));
+        $this->sys->where('commune',$this->input->post('commune_id'));
+        $this->sys->where('village',$this->input->post('village_id'));
 
         $data = array(
              'name' => $this->input->post('village_edit_name')
         );
 
-        if ($this->db->update('location',$data)){
+        if ($this->sys->update('location',$data)){
             $json = array(
                           'status' => 1,
                           'village_edit_name' => $this->input->post('village_edit_name'),
@@ -400,7 +400,7 @@ class Location extends CI_Controller {
     }
     /*** location ***/
     function location_list($param1='',$param2='',$param3=''){
-        $page_data['countries'] = $this->db->select("*")
+        $page_data['countries'] = $this->sys->select("*")
                                            ->from("location")
                                            ->where('type',1)
                                            //->order_by("name", "asc")
@@ -412,7 +412,7 @@ class Location extends CI_Controller {
     }
 
     function location_list_province(){
-        echo json_encode($this->db->select("*")
+        echo json_encode($this->sys->select("*")
                                   ->from('location')
                                   ->where('type',2)
                                   ->where('country',$this->input->post('country_id'))
@@ -423,7 +423,7 @@ class Location extends CI_Controller {
     }
 
     function location_list_district(){
-        echo json_encode($this->db->select("*")
+        echo json_encode($this->sys->select("*")
                                   ->from('location')
                                   ->where('type',3)
                                   ->where('country',$this->input->post('country_id'))
@@ -434,7 +434,7 @@ class Location extends CI_Controller {
     }
 
     function location_list_commune(){
-        echo json_encode($this->db->select("*")
+        echo json_encode($this->sys->select("*")
                                   ->from('location')
                                   ->where('type',4)
                                   ->where('country',$this->input->post('country_id'))
@@ -446,7 +446,7 @@ class Location extends CI_Controller {
     }
 
     function location_list_village(){
-        echo json_encode($this->db->select("*")
+        echo json_encode($this->sys->select("*")
                                   ->from('location')
                                   ->where('type',5)
                                   ->where('country',$this->input->post('country_id'))
@@ -525,11 +525,11 @@ class Location extends CI_Controller {
         );
 
         $sql_details    = array(
-            'user'  => $this->db->username,
-            'pass'  => $this->db->password,
-            'port'  => $this->db->port,
-            'db'    => $this->db->database,
-            'host'  => $this->db->hostname
+            'user'  => $this->sys->username,
+            'pass'  => $this->sys->password,
+            'port'  => $this->sys->port,
+            'db'    => $this->sys->database,
+            'host'  => $this->sys->hostname
         );
 
         $this->load->model('datatable');

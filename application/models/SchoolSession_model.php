@@ -5,26 +5,26 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new session*/
 		function new_session($data){
-			$this->db->insert('school_session',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('school_session',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit session*/
 		function edit_session($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('school_session',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('school_session',$data);
 		}
 		/*delete session*/
 		function delete_session($obj){
-			$this->db->where('id',$obj->session_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('school_session');
+			$this->sys->where('id',$obj->session_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('school_session');
 		}
 		/* session detail */
 		function get_session_detail($obj){
@@ -33,7 +33,7 @@
 						0 as total_student
 					from school_session pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->session_id))->row();
+			$data = $this->sys->query($sql,array($obj->session_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "session_name"=> empty($data->session_name)?'':$data->session_name,
@@ -48,7 +48,7 @@
 		/* lookup_session */
 		function lookup_session($obj){
 			$sql = "select * from school_session where status = 1 and session like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 	}
 ?>

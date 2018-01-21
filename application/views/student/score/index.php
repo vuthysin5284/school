@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -29,18 +26,39 @@
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist" >
 
-            <li class="active default">
+
+            <!--li class="default">
                 <a href="<?php echo base_url();?>score/score_student"
                    data-url="<?php echo base_url();?>score/score_student">
-                    <i class="fa fa-exclamation-circle"></i>រៀបលំដាប់ចំណាត់ថ្នាក់ <!-- រៀបលំដាប់ចំណាត់ថ្នាក់  Score by Student--></a></li>
+                    <i class="fa fa-exclamation-circle"></i>រៀបលំដាប់ចំណាត់ថ្នាក់ < !-- រៀបលំដាប់ចំណាត់ថ្នាក់  Score by Student-- ></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>score/classify_score"
                    data-url="<?php echo base_url();?>score/classify_score">
-                    <i class="fa fa-exclamation-circle"></i>តារាងចំណាត់ថ្នាក់<!-- តារាងចំណាត់ថ្នាក់ Classify Score--></a></li>
+                    <i class="fa fa-exclamation-circle"></i>តារាងចំណាត់ថ្នាក់< !-- តារាងចំណាត់ថ្នាក់ Classify Score-- ></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>score/honorable_table"
                    data-url="<?php echo base_url();?>score/honorable_table">
-                    <i class="fa fa-exclamation-circle"></i>តារាងកិត្តិយស<!-- តារាងកិត្តិយស Honorable tables--></a></li>
+                    <i class="fa fa-exclamation-circle"></i>តារាងកិត្តិយស< !-- តារាងកិត្តិយស Honorable tables-- ></a></li-->
+
+
+            <li class="default">
+                <a href="<?php echo base_url();?>examination/score_student"
+                   data-url="<?php echo base_url();?>examination/score_student">
+                    <i class="fa fa-exclamation-circle"></i>Score by Student</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>examination/classify_score"
+                   data-url="<?php echo base_url();?>examination/classify_score">
+                    <i class="fa fa-exclamation-circle"></i>Classify Score</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>examination/honorable_table"
+                   data-url="<?php echo base_url();?>examination/honorable_table">
+                    <i class="fa fa-exclamation-circle"></i>Honorable tables</a></li>
+
+            <li class="default">
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
+                    <i class="fa fa-volume-off"></i><!--របាយការណ៍--><?php echo get_phrase('student_low_score');?></a></li>
+
         </ul>
     </div>
     <div class="col-md-10" style="padding-right:0px; padding-left: 0px;">

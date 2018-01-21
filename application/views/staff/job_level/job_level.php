@@ -10,7 +10,7 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_job_level" class="display" cellspacing="0" width="100%">
+<table id="datable_job_level" class="table table-striped table-bordered table-hover" width="100%">
     <thead>
         <tr>
             <th>Job Level Name</th>

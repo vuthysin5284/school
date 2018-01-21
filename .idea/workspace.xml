@@ -2,44 +2,222 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="96b54331-8dc0-4def-8e8a-b370ed9fd226" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/main/profile.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/controllers/AssignItemClass.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Common.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/common/common.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/home/home1.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/main/messageview.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/masterdata/item/assign_item_class.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/report/finance_report.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/report/fleet_report.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/report/human_resource_report.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/report/miscellaneous_report.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/report/student_report.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/staff/employee/modal_addnew_referrence.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/assets/js/pages/calendar_schedule.js" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/1.txt" afterPath="$PROJECT_DIR$/1.txt" />
+      <change beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Allowance_item.php" afterPath="$PROJECT_DIR$/application/controllers/Allowance_item.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Banksetup.php" afterPath="$PROJECT_DIR$/application/controllers/Banksetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Branch.php" afterPath="$PROJECT_DIR$/application/controllers/Branch.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Building.php" afterPath="$PROJECT_DIR$/application/controllers/Building.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Classes.php" afterPath="$PROJECT_DIR$/application/controllers/Classes.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Country.php" afterPath="$PROJECT_DIR$/application/controllers/Country.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Course.php" afterPath="$PROJECT_DIR$/application/controllers/Course.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Deduction_item.php" afterPath="$PROJECT_DIR$/application/controllers/Deduction_item.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Department.php" afterPath="$PROJECT_DIR$/application/controllers/Department.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Education_type.php" afterPath="$PROJECT_DIR$/application/controllers/Education_type.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Employee.php" afterPath="$PROJECT_DIR$/application/controllers/Employee.bak.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Employee_location.php" afterPath="$PROJECT_DIR$/application/controllers/Employee_location.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Employee_status.php" afterPath="$PROJECT_DIR$/application/controllers/Employee_status.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Enrolment.php" afterPath="$PROJECT_DIR$/application/controllers/Enrolment.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Floor.php" afterPath="$PROJECT_DIR$/application/controllers/Floor.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/HRSetup.php" afterPath="$PROJECT_DIR$/application/controllers/HRSetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" afterPath="$PROJECT_DIR$/application/controllers/Home.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/ItemSetup.php" afterPath="$PROJECT_DIR$/application/controllers/ItemSetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Job_level.php" afterPath="$PROJECT_DIR$/application/controllers/Job_level.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Leave.php" afterPath="$PROJECT_DIR$/application/controllers/Leave.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Leave_reason.php" afterPath="$PROJECT_DIR$/application/controllers/Leave_reason.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Location.php" afterPath="$PROJECT_DIR$/application/controllers/Location.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Login.php" afterPath="$PROJECT_DIR$/application/controllers/Login.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Main_station.php" afterPath="$PROJECT_DIR$/application/controllers/Main_station.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Manage_route.php" afterPath="$PROJECT_DIR$/application/controllers/Manage_route.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Masterdata.php" afterPath="$PROJECT_DIR$/application/controllers/Masterdata.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Modal.php" afterPath="$PROJECT_DIR$/application/controllers/Modal.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Payrollsetup.php" afterPath="$PROJECT_DIR$/application/controllers/Payrollsetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Position.php" afterPath="$PROJECT_DIR$/application/controllers/Position.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Position_status.php" afterPath="$PROJECT_DIR$/application/controllers/Position_status.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Promote.php" afterPath="$PROJECT_DIR$/application/controllers/Promote.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Relationship_type.php" afterPath="$PROJECT_DIR$/application/controllers/Relationship_type.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Report.php" afterPath="$PROJECT_DIR$/application/controllers/Report.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Room.php" afterPath="$PROJECT_DIR$/application/controllers/Room.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Schedule.php" afterPath="$PROJECT_DIR$/application/controllers/Schedule.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/SchoolSection.php" afterPath="$PROJECT_DIR$/application/controllers/SchoolSection.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/SchoolSession.php" afterPath="$PROJECT_DIR$/application/controllers/SchoolSession.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Section.php" afterPath="$PROJECT_DIR$/application/controllers/Section.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Setup.php" afterPath="$PROJECT_DIR$/application/controllers/Setup.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/SetupLeave.php" afterPath="$PROJECT_DIR$/application/controllers/SetupLeave.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Staff.php" afterPath="$PROJECT_DIR$/application/controllers/Staff.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Student.php" afterPath="$PROJECT_DIR$/application/controllers/Student.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Testing_enrollment.php" afterPath="$PROJECT_DIR$/application/controllers/Testing_enrollment.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Times.php" afterPath="$PROJECT_DIR$/application/controllers/Times.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/User.php" afterPath="$PROJECT_DIR$/application/controllers/User.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Welcome.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/leave_type.php" afterPath="$PROJECT_DIR$/application/controllers/leave_type.php" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/multi_language_helper.php" afterPath="$PROJECT_DIR$/application/helpers/multi_language_helper.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Allowance_item_model.php" afterPath="$PROJECT_DIR$/application/models/Allowance_item_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Banksetup_model.php" afterPath="$PROJECT_DIR$/application/models/Banksetup_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Branch_model.php" afterPath="$PROJECT_DIR$/application/models/Branch_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Building_model.php" afterPath="$PROJECT_DIR$/application/models/Building_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Classes_model.php" afterPath="$PROJECT_DIR$/application/models/Classes_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Common_model.php" afterPath="$PROJECT_DIR$/application/models/Common_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Country_model.php" afterPath="$PROJECT_DIR$/application/models/Country_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Course_model.php" afterPath="$PROJECT_DIR$/application/models/Course_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Datatable.php" afterPath="$PROJECT_DIR$/application/models/Datatable.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Datatable_model.php" afterPath="$PROJECT_DIR$/application/models/Datatable_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Deduction_item_model.php" afterPath="$PROJECT_DIR$/application/models/Deduction_item_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Department_model.php" afterPath="$PROJECT_DIR$/application/models/Department_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Employee_general_model.php" afterPath="$PROJECT_DIR$/application/models/Employee_general_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Employee_model.php" afterPath="$PROJECT_DIR$/application/models/Employee_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Enrolment_model.php" afterPath="$PROJECT_DIR$/application/models/Enrolment_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Floor_model.php" afterPath="$PROJECT_DIR$/application/models/Floor_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Job_level_model.php" afterPath="$PROJECT_DIR$/application/models/Job_level_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Leave_reason_model.php" afterPath="$PROJECT_DIR$/application/models/Leave_reason_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Location_model.php" afterPath="$PROJECT_DIR$/application/models/Location_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Main_station_model.php" afterPath="$PROJECT_DIR$/application/models/Main_station_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Manage_route_model.php" afterPath="$PROJECT_DIR$/application/models/Manage_route_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Payroll_tax_model.php" afterPath="$PROJECT_DIR$/application/models/Payroll_tax_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Payrollsetup_model.php" afterPath="$PROJECT_DIR$/application/models/Payrollsetup_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Position_model.php" afterPath="$PROJECT_DIR$/application/models/Position_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Position_status_model.php" afterPath="$PROJECT_DIR$/application/models/Position_status_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Relationship_type_model.php" afterPath="$PROJECT_DIR$/application/models/Relationship_type_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Room_model.php" afterPath="$PROJECT_DIR$/application/models/Room_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Schedule_model.php" afterPath="$PROJECT_DIR$/application/models/Schedule_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/SchoolSection_model.php" afterPath="$PROJECT_DIR$/application/models/SchoolSection_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/SchoolSession_model.php" afterPath="$PROJECT_DIR$/application/models/SchoolSession_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Section_model.php" afterPath="$PROJECT_DIR$/application/models/Section_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/Times_model.php" afterPath="$PROJECT_DIR$/application/models/Times_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/education_type_model.php" afterPath="$PROJECT_DIR$/application/models/Education_type_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/models/leave_type_model.php" afterPath="$PROJECT_DIR$/application/models/leave_type_model.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/add_user.php" afterPath="$PROJECT_DIR$/application/views/add_user.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/edit_user.php" afterPath="$PROJECT_DIR$/application/views/edit_user.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/finance/index.php" afterPath="$PROJECT_DIR$/application/views/finance/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/header.php" afterPath="$PROJECT_DIR$/application/views/header.php" />
       <change beforePath="$PROJECT_DIR$/application/views/home/home.php" afterPath="$PROJECT_DIR$/application/views/home/home.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/includes_top.php" afterPath="$PROJECT_DIR$/application/views/includes_top.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/index.php" afterPath="$PROJECT_DIR$/application/views/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/leave/index.php" afterPath="$PROJECT_DIR$/application/views/leave/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/leave/leave/leave_list.php" afterPath="$PROJECT_DIR$/application/views/leave/leave/leave_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/leave/leave_type/leave_type_list.php" afterPath="$PROJECT_DIR$/application/views/leave/leave_type/leave_type_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/leave/setupleave.php" afterPath="$PROJECT_DIR$/application/views/leave/setupleave.php" />
       <change beforePath="$PROJECT_DIR$/application/views/login.php" afterPath="$PROJECT_DIR$/application/views/login.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/main/calendar.php" afterPath="$PROJECT_DIR$/application/views/main/calendar.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/main/charts-chartjs.php" afterPath="$PROJECT_DIR$/application/views/main/charts-chartjs.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/main/charts-flotchart.php" afterPath="$PROJECT_DIR$/application/views/main/charts-flotchart.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/main/charts-morris.php" afterPath="$PROJECT_DIR$/application/views/main/charts-morris.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/main/gallery.php" afterPath="$PROJECT_DIR$/application/views/main/gallery.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/branch/branch_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/branch/branch_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/building/building_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/building/building_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/classes/classes_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/classes/classes_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/course/course_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/course/course_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/floor/floor_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/floor/floor_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/item/itemsetup.php" afterPath="$PROJECT_DIR$/application/views/masterdata/item/itemsetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/room/room_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/room/room_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/schedule/schedule_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/schedule/schedule_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/schoolsection/section_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/schoolsection/section_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/schoolsession/session_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/schoolsession/session_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/masterdata/times/times_list.php" afterPath="$PROJECT_DIR$/application/views/masterdata/times/times_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/menu/master_data.php" afterPath="$PROJECT_DIR$/application/views/menu/master_data.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/menu/setup.php" afterPath="$PROJECT_DIR$/application/views/menu/setup.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/modal.php" afterPath="$PROJECT_DIR$/application/views/modal.php" />
       <change beforePath="$PROJECT_DIR$/application/views/payroll/payroll.php" afterPath="$PROJECT_DIR$/application/views/payroll/payroll.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/payroll/payrollsetup.php" afterPath="$PROJECT_DIR$/application/views/payroll/payrollsetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/report/family_report.php" afterPath="$PROJECT_DIR$/application/views/report/student_report/family_report.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/report/parent_report.php" afterPath="$PROJECT_DIR$/application/views/report/student_report/parent_report.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/report/sibling_report.php" afterPath="$PROJECT_DIR$/application/views/report/student_report/sibling_report.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/country/country.php" afterPath="$PROJECT_DIR$/application/views/staff/country/country.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/department_list/department_list.php" afterPath="$PROJECT_DIR$/application/views/staff/department_list/department_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/education_type/education_type.php" afterPath="$PROJECT_DIR$/application/views/staff/education_type/education_type.php" />
       <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_background.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_background.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_contact.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_contact.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_detail_info.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_detail_info.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_experience.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_experience.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_family.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_family.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_general.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_general.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_language.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_language.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_referrence.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_referrence.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_skills.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_skills.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/employee_tracking.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/employee_tracking.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee/modal_new_employee.php" afterPath="$PROJECT_DIR$/application/views/staff/employee/modal_new_employee.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee_location/employee_location.php" afterPath="$PROJECT_DIR$/application/views/staff/employee_location/employee_location.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/employee_status/employee_status.php" afterPath="$PROJECT_DIR$/application/views/staff/employee_status/employee_status.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/hrSetup.php" afterPath="$PROJECT_DIR$/application/views/staff/hrSetup.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/index.php" afterPath="$PROJECT_DIR$/application/views/staff/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/job_level/job_level.php" afterPath="$PROJECT_DIR$/application/views/staff/job_level/job_level.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/leave_reason/leave_reason.php" afterPath="$PROJECT_DIR$/application/views/staff/leave_reason/leave_reason.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/main_station/main_station.php" afterPath="$PROJECT_DIR$/application/views/staff/main_station/main_station.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/position/position.php" afterPath="$PROJECT_DIR$/application/views/staff/position/position.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/position_status/position_status.php" afterPath="$PROJECT_DIR$/application/views/staff/position_status/position_status.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/relationship_type/relationship_type.php" afterPath="$PROJECT_DIR$/application/views/staff/relationship_type/relationship_type.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/staff/section/section.php" afterPath="$PROJECT_DIR$/application/views/staff/section/section.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/admin/student_pic.php" afterPath="$PROJECT_DIR$/application/views/student/admin/student_pic.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/enrolment/assign_class.php" afterPath="$PROJECT_DIR$/application/views/student/enrolment/assign_class.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/enrolment/enrolment_list.php" afterPath="$PROJECT_DIR$/application/views/student/enrolment/enrolment_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/enrolment/modal_new_enrolment.php" afterPath="$PROJECT_DIR$/application/views/student/enrolment/modal_new_enrolment.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/enrolment/parent.php" afterPath="$PROJECT_DIR$/application/views/student/enrolment/parent.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/enrolment/responsible.php" afterPath="$PROJECT_DIR$/application/views/student/enrolment/responsible.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/enrolment/student_general.php" afterPath="$PROJECT_DIR$/application/views/student/enrolment/student_general.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/exam/index.php" afterPath="$PROJECT_DIR$/application/views/student/exam/index.php" />
       <change beforePath="$PROJECT_DIR$/application/views/student/index.php" afterPath="$PROJECT_DIR$/application/views/student/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/score/index.php" afterPath="$PROJECT_DIR$/application/views/student/score/index.php" />
       <change beforePath="$PROJECT_DIR$/application/views/student/testing_enrollment/index.php" afterPath="$PROJECT_DIR$/application/views/student/testing_enrollment/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/testing_enrollment/modal_new_testing.php" afterPath="$PROJECT_DIR$/application/views/student/testing_enrollment/modal_new_testing.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/testing_enrollment/testing_record_list.php" afterPath="$PROJECT_DIR$/application/views/student/testing_enrollment/testing_record_list.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/testing_enrollment/testing_result.php" afterPath="$PROJECT_DIR$/application/views/student/testing_enrollment/testing_result.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/student/testing_enrollment/waiting_register.php" afterPath="$PROJECT_DIR$/application/views/student/testing_enrollment/waiting_register.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/teacher/index.php" afterPath="$PROJECT_DIR$/application/views/teacher/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/transportation/index.php" afterPath="$PROJECT_DIR$/application/views/transportation/index.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/user_management.php" afterPath="$PROJECT_DIR$/application/views/user_management.php" />
+      <change beforePath="$PROJECT_DIR$/application/views/user_role.php" afterPath="$PROJECT_DIR$/application/views/user_role.php" />
       <change beforePath="$PROJECT_DIR$/assets/css/custom.css" afterPath="$PROJECT_DIR$/assets/css/custom.css" />
-      <change beforePath="$PROJECT_DIR$/assets/css/neon-forms.css" afterPath="$PROJECT_DIR$/assets/css/neon-forms.css" />
-      <change beforePath="$PROJECT_DIR$/assets/css/neon.css" afterPath="$PROJECT_DIR$/assets/css/neon.css" />
+      <change beforePath="$PROJECT_DIR$/assets/css/modern.css" afterPath="$PROJECT_DIR$/assets/css/modern.css" />
+      <change beforePath="$PROJECT_DIR$/assets/js/branch/branch.js" afterPath="$PROJECT_DIR$/assets/js/branch/branch.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/building/building.js" afterPath="$PROJECT_DIR$/assets/js/building/building.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/classes/classes.js" afterPath="$PROJECT_DIR$/assets/js/classes/classes.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/country/country.js" afterPath="$PROJECT_DIR$/assets/js/country/country.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/course/course.js" afterPath="$PROJECT_DIR$/assets/js/course/course.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/department/department.js" afterPath="$PROJECT_DIR$/assets/js/department/department.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/education_type/education_type.js" afterPath="$PROJECT_DIR$/assets/js/education_type/education_type.js" />
       <change beforePath="$PROJECT_DIR$/assets/js/employee/employee.js" afterPath="$PROJECT_DIR$/assets/js/employee/employee.js" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/TimelineLite.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/TimelineMax.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/TweenLite.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/TweenMax.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/easing/EasePack.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/jquery.gsap.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/main-gsap.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/AttrPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/BezierPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/CSSPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/CSSRulePlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/ColorPropsPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/DirectionalRotationPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/EaselPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/KineticPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/Physics2DPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/PhysicsPropsPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/RaphaelPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/RoundPropsPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/ScrambleTextPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/ScrollToPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/TextPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/plugins/ThrowPropsPlugin.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/utils/Draggable.min.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/assets/js/gsap/utils/SplitText.min.js" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/assets/js/employee_location/employee_location.js" afterPath="$PROJECT_DIR$/assets/js/employee_location/employee_location.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/employee_status/employee_status.js" afterPath="$PROJECT_DIR$/assets/js/employee_status/employee_status.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/enrolment/classify_score.js" afterPath="$PROJECT_DIR$/assets/js/enrolment/classify_score.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/enrolment/enrolment.js" afterPath="$PROJECT_DIR$/assets/js/enrolment/enrolment.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/enrolment/enrolment_new.js" afterPath="$PROJECT_DIR$/assets/js/enrolment/enrolment_new.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/enrolment/enrolment_parent.js" afterPath="$PROJECT_DIR$/assets/js/enrolment/enrolment_parent.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/enrolment/result_score.js" afterPath="$PROJECT_DIR$/assets/js/enrolment/result_score.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/enrolment/score_student.js" afterPath="$PROJECT_DIR$/assets/js/enrolment/score_student.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/floor/floor.js" afterPath="$PROJECT_DIR$/assets/js/floor/floor.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/job_level/job_level.js" afterPath="$PROJECT_DIR$/assets/js/job_level/job_level.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/leave/leave.js" afterPath="$PROJECT_DIR$/assets/js/leave/leave.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/leave_reason/leave_reason.js" afterPath="$PROJECT_DIR$/assets/js/leave_reason/leave_reason.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/leave_type/leave_type.js" afterPath="$PROJECT_DIR$/assets/js/leave_type/leave_type.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main_station/main_station.js" afterPath="$PROJECT_DIR$/assets/js/main_station/main_station.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/master_data/admin_item_fee.js" afterPath="$PROJECT_DIR$/assets/js/master_data/admin_item_fee.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/form-wizard.js" afterPath="$PROJECT_DIR$/assets/js/pages/form-wizard.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/position/position.js" afterPath="$PROJECT_DIR$/assets/js/position/position.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/position_status/position_status.js" afterPath="$PROJECT_DIR$/assets/js/position_status/position_status.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/relationship_type/relationship_type.js" afterPath="$PROJECT_DIR$/assets/js/relationship_type/relationship_type.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/room/room.js" afterPath="$PROJECT_DIR$/assets/js/room/room.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/schedule/schedule.js" afterPath="$PROJECT_DIR$/assets/js/schedule/schedule.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/school_section/school_section.js" afterPath="$PROJECT_DIR$/assets/js/school_section/school_section.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/school_session/school_session.js" afterPath="$PROJECT_DIR$/assets/js/school_session/school_session.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/section/section.js" afterPath="$PROJECT_DIR$/assets/js/section/section.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/testing_record/testing_record.js" afterPath="$PROJECT_DIR$/assets/js/testing_record/testing_record.js" />
+      <change beforePath="$PROJECT_DIR$/assets/js/times/times.js" afterPath="$PROJECT_DIR$/assets/js/times/times.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -49,112 +227,49 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/staff/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employee.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/staff/employee/employee.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#11;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#12;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="enrolment.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/enrolment/enrolment.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="50" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="6" selection-end-column="50" />
-              <folding>
-                <marker date="1510498940828" expanded="true" signature="3136:3142" ph=" " />
-                <marker date="1510498940828" expanded="true" signature="3143:3149" ph=" " />
-                <marker date="1510498940828" expanded="true" signature="3300:3306" ph=" " />
-                <marker date="1510498940828" expanded="true" signature="3307:3313" ph=" " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="enrolment_list.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/student/enrolment/enrolment_list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="48" />
-              <folding>
-                <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Student.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Student.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="499">
-              <caret line="349" column="12" lean-forward="false" selection-start-line="349" selection-start-column="12" selection-end-line="349" selection-end-column="104" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Staff.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Staff.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="610" column="61" lean-forward="true" selection-start-line="610" selection-start-column="61" selection-end-line="610" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="employee.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/js/employee/employee.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-              <folding>
-                <marker date="1511964640822" expanded="true" signature="2635:2641" ph=" " />
-                <marker date="1511964640822" expanded="true" signature="2642:2648" ph=" " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>.login-page .login-form .form-group .input-group</find>
-      <find>gsap</find>
-      <find>class=&quot;table table-striped table-bordered table-hover&quot; cellspacing=&quot;0&quot; width=&quot;100%&quot;&gt;</find>
+      <find>score_student</find>
+      <find>next</find>
+      <find>insertGeneralEnroll</find>
+      <find>db</find>
+      <find>create_new_enrolment</find>
+      <find>get_enrolment_general</find>
+      <find>section</find>
+      <find>label</find>
+      <find>font-size: 13px;</find>
+      <find>filter</find>
       <find>get_enrolment_data</find>
+      <find>session</find>
+      <find>class</find>
+      <find>crud_model</find>
+      <find>get_image_url</find>
+      <find>multiple</find>
+      <find>subject_data</find>
+      <find>datable_result</find>
+      <find>register_datable_list</find>
+      <find>DataTable</find>
+      <find>$columns</find>
+      <find>camlis_patient_sample_tests</find>
+      <find>table.dataTable</find>
+      <find>fullcalendar</find>
+      <find>adjustment</find>
+      <find>created</find>
+      <find>$this-&gt;session-&gt;userdata('user_id')</find>
+      <find>charging_group_b</find>
+      <find>onBilling(</find>
+      <find>schoolFee(</find>
     </findStrings>
+    <replaceStrings>
+      <replace>modal_sv</replace>
+      <replace>$this-&gt;sys</replace>
+    </replaceStrings>
     <dirStrings>
       <dir>C:\wamp\www\eds</dir>
+      <dir>C:\wamp\www\eds\application\controllers</dir>
+      <dir>C:\wamp\www\camlis</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -163,17 +278,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/assets/css/custom.css" />
-        <option value="$PROJECT_DIR$/application/views/payroll/payroll.php" />
+        <option value="$PROJECT_DIR$/application/views/student/testing_enrollment/modal_new_testing.php" />
+        <option value="$PROJECT_DIR$/application/views/main/messageview.php" />
+        <option value="$PROJECT_DIR$/application/views/teacher/index.php" />
+        <option value="$PROJECT_DIR$/assets/js/enrolment/score_student.js" />
+        <option value="$PROJECT_DIR$/assets/js/enrolment/classify_score.js" />
+        <option value="$PROJECT_DIR$/assets/js/enrolment/result_score.js" />
+        <option value="$PROJECT_DIR$/application/views/student/exam/index.php" />
+        <option value="$PROJECT_DIR$/application/views/student/score/index.php" />
+        <option value="$PROJECT_DIR$/application/views/student/enrolment/modal_new_enrolment.php" />
+        <option value="$PROJECT_DIR$/application/models/Enrolment_model.php" />
+        <option value="$PROJECT_DIR$/assets/js/pages/form-wizard.js" />
+        <option value="$PROJECT_DIR$/application/views/student/enrolment/student_general.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Login.php" />
+        <option value="$PROJECT_DIR$/application/views/masterdata/branch/branch_list.php" />
+        <option value="$PROJECT_DIR$/application/models/Datatable_model.php" />
         <option value="$PROJECT_DIR$/application/views/student/testing_enrollment/index.php" />
-        <option value="$PROJECT_DIR$/application/views/student/index.php" />
-        <option value="$PROJECT_DIR$/assets/css/neon-forms.css" />
-        <option value="$PROJECT_DIR$/application/views/login.php" />
+        <option value="$PROJECT_DIR$/application/controllers/HRSetup.php" />
+        <option value="$PROJECT_DIR$/application/views/staff/hrSetup.php" />
+        <option value="$PROJECT_DIR$/application/controllers/SetupLeave.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Payrollsetup.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Reports.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Report.php" />
+        <option value="$PROJECT_DIR$/application/views/report/student_report.php" />
+        <option value="$PROJECT_DIR$/application/views/report/fleet_report.php" />
+        <option value="$PROJECT_DIR$/application/views/report/finance_report.php" />
+        <option value="$PROJECT_DIR$/application/views/report/miscellaneous_report.php" />
+        <option value="$PROJECT_DIR$/application/views/report/human_resource_report.php" />
+        <option value="$PROJECT_DIR$/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Home.php" />
+        <option value="$PROJECT_DIR$/application/views/leave/leave/leave_list.php" />
+        <option value="$PROJECT_DIR$/application/views/report/student_report/family_report.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Enrolment.php" />
+        <option value="$PROJECT_DIR$/application/views/student/enrolment/assign_class.php" />
+        <option value="$PROJECT_DIR$/application/models/Common_model.php" />
+        <option value="$PROJECT_DIR$/assets/js/enrolment/enrolment_new.js" />
+        <option value="$PROJECT_DIR$/assets/css/custom.css" />
+        <option value="$PROJECT_DIR$/application/views/index.php" />
+        <option value="$PROJECT_DIR$/application/views/student/enrolment/enrolment_list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Student.php" />
+        <option value="$PROJECT_DIR$/application/views/includes_top.php" />
+        <option value="$PROJECT_DIR$/application/views/masterdata/schedule/schedule_list.php" />
+        <option value="$PROJECT_DIR$/assets/js/pages/calendar_schedule.js" />
+        <option value="$PROJECT_DIR$/../aaischool/application/views/admin/register.php" />
+        <option value="$PROJECT_DIR$/../aaischool/application/controllers/admin.php" />
+        <option value="$PROJECT_DIR$/application/views/masterdata/item/assign_item_class.php" />
+        <option value="$PROJECT_DIR$/application/controllers/AssignItemClass.php" />
+        <option value="$PROJECT_DIR$/application/models/Datatable.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Testing_enrollment.php" />
+        <option value="$PROJECT_DIR$/assets/js/enrolment/enrolment.js" />
         <option value="$PROJECT_DIR$/application/views/home/home.php" />
-        <option value="$PROJECT_DIR$/assets/css/neon.css" />
-        <option value="$PROJECT_DIR$/application/controllers/Staff.php" />
-        <option value="$PROJECT_DIR$/assets/js/employee/employee.js" />
-        <option value="$PROJECT_DIR$/application/views/staff/employee/employee.php" />
+        <option value="$PROJECT_DIR$/application/views/student/index.php" />
       </list>
     </option>
   </component>
@@ -187,7 +342,7 @@
     <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1382" />
@@ -208,8 +363,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -226,20 +379,7 @@
               <item name="eds" type="b2602c69:ProjectViewProjectNode" />
               <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="eds" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="eds" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="staff" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="eds" type="b2602c69:ProjectViewProjectNode" />
@@ -251,14 +391,6 @@
             <path>
               <item name="eds" type="b2602c69:ProjectViewProjectNode" />
               <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="student" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="enrolment" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="eds" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -266,13 +398,6 @@
               <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="eds" type="b2602c69:ProjectViewProjectNode" />
-              <item name="eds" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="employee" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="eds" type="b2602c69:ProjectViewProjectNode" />
@@ -285,16 +410,24 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../camlis" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp\www\eds\application\views\parent" />
-      <recent name="C:\wamp\www\eds\application\views\attendance" />
-      <recent name="C:\wamp\www\eds\application\views\administration" />
+      <recent name="C:\wamp\www\eds\application\views\masterdata\item" />
+      <recent name="C:\wamp\www\eds\application\controllers" />
+      <recent name="C:\wamp\www\eds\assets\js\pages" />
+      <recent name="C:\wamp\www\eds\application\views\home" />
+      <recent name="C:\wamp\www\eds\application\views\report" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp\www\eds\application\views\report\student_report" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -326,23 +459,36 @@
       <workItem from="1511082490041" duration="783000" />
       <workItem from="1511700265640" duration="2361000" />
       <workItem from="1511956900433" duration="80000" />
-      <workItem from="1511957045314" duration="4580000" />
+      <workItem from="1511957045314" duration="30946000" />
+      <workItem from="1512295842140" duration="19546000" />
+      <workItem from="1513098307802" duration="8598000" />
+      <workItem from="1513353047683" duration="21538000" />
+      <workItem from="1513782272149" duration="1994000" />
+      <workItem from="1513948833415" duration="11096000" />
+      <workItem from="1514039775615" duration="36000" />
+      <workItem from="1514039865146" duration="14831000" />
+      <workItem from="1514215595460" duration="314000" />
+      <workItem from="1514218501486" duration="399000" />
+      <workItem from="1514301948144" duration="5100000" />
+      <workItem from="1514379348204" duration="23002000" />
+      <workItem from="1514560766272" duration="14512000" />
+      <workItem from="1515397245904" duration="2363000" />
+      <workItem from="1515417302319" duration="4326000" />
+      <workItem from="1516030739374" duration="241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8045000" />
+    <option name="totallyTimeSpent" value="162307000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="1" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -354,6 +500,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -364,251 +511,374 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
+  <component name="XPathView.XPathProjectComponent">
+    <history />
+    <find-history>
+      <element expression=".modal" />
+    </find-history>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/student/testing_enrollment/index.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Floor.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="52" column="39" lean-forward="false" selection-start-line="52" selection-start-column="39" selection-end-line="52" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="343">
+          <caret line="108" column="10" lean-forward="true" selection-start-line="108" selection-start-column="10" selection-end-line="108" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/index.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Employee_location.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="717">
+          <caret line="111" column="97" lean-forward="true" selection-start-line="103" selection-start-column="7" selection-end-line="111" selection-end-column="97" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1020">
-          <caret line="60" column="56" lean-forward="false" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="462">
+          <caret line="137" column="87" lean-forward="false" selection-start-line="137" selection-start-column="73" selection-end-line="137" selection-end-column="87" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/testing_enrollment/index.php">
+    <entry file="file://$PROJECT_DIR$/application/models/Crud_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="462">
+          <caret line="49" column="0" lean-forward="true" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/index.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/Home.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="10" lean-forward="true" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="476">
+          <caret line="28" column="44" lean-forward="false" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/home/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1156">
-          <caret line="68" column="25" lean-forward="false" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/custom.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="148" column="1" lean-forward="true" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administration/admin_list/allowance_item_list.php" />
-    <entry file="file://$PROJECT_DIR$/application/views/parent/parent_list.php">
+    <entry file="file://$PROJECT_DIR$/application/views/home/home1.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/attendance/attendance_list.php">
+    <entry file="file://$PROJECT_DIR$/application/views/leave/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-255">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/administration/admin_list.php">
+    <entry file="file://$PROJECT_DIR$/application/views/report/student_report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="601">
+          <caret line="42" column="53" lean-forward="false" selection-start-line="42" selection-start-column="53" selection-end-line="42" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/report/human_resource_report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="28" column="62" lean-forward="false" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Report.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="50" column="56" lean-forward="false" selection-start-line="50" selection-start-column="43" selection-end-line="50" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/report/student_report/family_report.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <caret line="32" column="6" lean-forward="true" selection-start-line="29" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/custom.css">
+    <entry file="file://$PROJECT_DIR$/application/views/leave/leave/leave_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="148" column="1" lean-forward="false" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
+        <state relative-caret-position="102">
+          <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/student/enrolment/modal_new_enrolment.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="272">
+          <caret line="60" column="56" lean-forward="false" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/enrolment/assign_class.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="78" lean-forward="true" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/student/enrolment/assign_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="82" column="8" lean-forward="false" selection-start-line="82" selection-start-column="8" selection-end-line="82" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Common_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="31" column="23" lean-forward="false" selection-start-line="31" selection-start-column="13" selection-end-line="31" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../camlis/application/controllers/Antibiotic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2346">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/payroll/payroll.php">
+    <entry file="file://$PROJECT_DIR$/../camlis/application/controllers/Patient_sample.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="68" column="64" lean-forward="true" selection-start-line="68" selection-start-column="64" selection-end-line="68" selection-end-column="64" />
+        <state relative-caret-position="-5250">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/index.php">
+    <entry file="file://$PROJECT_DIR$/../camlis/application/controllers/Sample_source.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="53" column="10" lean-forward="false" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="-1190">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
+    <entry file="file://$PROJECT_DIR$/../camlis/application/controllers/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="60" column="56" lean-forward="false" selection-start-line="60" selection-start-column="56" selection-end-line="60" selection-end-column="56" />
-          <folding />
+        <state relative-caret-position="-2530">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/neon-forms.css">
+    <entry file="file://$PROJECT_DIR$/../camlis/application/models/Patient_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="6405" column="24" lean-forward="false" selection-start-line="6405" selection-start-column="24" selection-end-line="6405" selection-end-column="24" />
-          <folding />
+        <state relative-caret-position="6681">
+          <caret line="393" column="55" lean-forward="false" selection-start-line="393" selection-start-column="55" selection-end-line="393" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/enrolment/enrolment_new.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="40" lean-forward="true" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Enrolment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3468">
+          <caret line="204" column="81" lean-forward="false" selection-start-line="204" selection-start-column="67" selection-end-line="204" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../camlis/application/models/Patient_sample_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="772">
+          <caret line="553" column="46" lean-forward="false" selection-start-line="553" selection-start-column="32" selection-end-line="553" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/css/custom.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="428">
+          <caret line="207" column="36" lean-forward="false" selection-start-line="207" selection-start-column="36" selection-end-line="207" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/navigation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="47" lean-forward="false" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-408">
+          <caret line="15" column="82" lean-forward="false" selection-start-line="15" selection-start-column="82" selection-end-line="15" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="108" column="76" lean-forward="true" selection-start-line="108" selection-start-column="40" selection-end-line="108" selection-end-column="76" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="123" column="73" lean-forward="false" selection-start-line="123" selection-start-column="73" selection-end-line="123" selection-end-column="73" />
-          <folding />
+        <state relative-caret-position="442">
+          <caret line="152" column="24" lean-forward="true" selection-start-line="152" selection-start-column="24" selection-end-line="152" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/student/testing_enrollment/index.php">
+    <entry file="file://$PROJECT_DIR$/application/views/includes_top.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="66" column="13" lean-forward="true" selection-start-line="66" selection-start-column="13" selection-end-line="66" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/home/home.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="97" column="93" lean-forward="false" selection-start-line="97" selection-start-column="93" selection-end-line="97" selection-end-column="93" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#a#0;n#div#2;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#a#0;n#div#3;n#div#0;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#1;n#center#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/css/neon.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="7662" column="29" lean-forward="true" selection-start-line="7662" selection-start-column="29" selection-end-line="7662" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/staff/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="32" column="58" lean-forward="false" selection-start-line="32" selection-start-column="53" selection-end-line="32" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Student.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="499">
-          <caret line="349" column="12" lean-forward="false" selection-start-line="349" selection-start-column="12" selection-end-line="349" selection-end-column="104" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Staff.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="610" column="61" lean-forward="true" selection-start-line="610" selection-start-column="61" selection-end-line="610" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/enrolment/enrolment.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="50" lean-forward="true" selection-start-line="5" selection-start-column="44" selection-end-line="6" selection-end-column="50" />
-          <folding>
-            <marker date="1510498940828" expanded="true" signature="3136:3142" ph=" " />
-            <marker date="1510498940828" expanded="true" signature="3143:3149" ph=" " />
-            <marker date="1510498940828" expanded="true" signature="3300:3306" ph=" " />
-            <marker date="1510498940828" expanded="true" signature="3307:3313" ph=" " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/employee/employee.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
-          <folding>
-            <marker date="1511964640822" expanded="true" signature="2635:2641" ph=" " />
-            <marker date="1511964640822" expanded="true" signature="2642:2648" ph=" " />
-          </folding>
+        <state relative-caret-position="326">
+          <caret line="30" column="0" lean-forward="true" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/student/enrolment/enrolment_list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="36" selection-end-column="48" />
-          <folding>
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#7;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="1105">
+          <caret line="65" column="13" lean-forward="false" selection-start-line="65" selection-start-column="13" selection-end-line="65" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/staff/employee/employee.php">
+    <entry file="file://$PROJECT_DIR$/application/views/main/calendar.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#3;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#8;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#9;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#11;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#12;n#tr#0;n#thead#0;n#table#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="340">
+          <caret line="20" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/masterdata/schedule/schedule_list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="42" lean-forward="false" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/pages/calendar_schedule.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="54" column="28" lean-forward="false" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../aaischool/application/views/admin/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="557" column="18" lean-forward="false" selection-start-line="557" selection-start-column="12" selection-end-line="557" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../aaischool/application/views/admin/adjustment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="22" column="60" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../aaischool/application/views/admin/student_profile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="2843" column="23" lean-forward="false" selection-start-line="2843" selection-start-column="13" selection-end-line="2843" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../aaischool/application/controllers/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="3678" column="46" lean-forward="false" selection-start-line="3678" selection-start-column="46" selection-end-line="3678" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="121" column="12" lean-forward="false" selection-start-line="121" selection-start-column="12" selection-end-line="121" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/user_role.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="45" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Datatable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="171" column="26" lean-forward="false" selection-start-line="171" selection-start-column="26" selection-end-line="171" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Testing_enrollment.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="191" column="53" lean-forward="false" selection-start-line="191" selection-start-column="53" selection-end-line="191" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/plugins/fontawesome/css/font-awesome.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="3" column="9220" lean-forward="false" selection-start-line="3" selection-start-column="9220" selection-end-line="3" selection-end-column="9220" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/enrolment/enrolment.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="116" column="0" lean-forward="true" selection-start-line="116" selection-start-column="0" selection-end-line="116" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/masterdata/item/assign_item_class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="683">
+          <caret line="67" column="12" lean-forward="false" selection-start-line="67" selection-start-column="12" selection-end-line="67" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/AssignItemClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="59" column="19" lean-forward="false" selection-start-line="59" selection-start-column="19" selection-end-line="59" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="411">
+          <caret line="168" column="65" lean-forward="true" selection-start-line="168" selection-start-column="65" selection-end-line="168" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/home/home.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="142" column="40" lean-forward="true" selection-start-line="142" selection-start-column="40" selection-end-line="142" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="393" column="61" lean-forward="false" selection-start-line="393" selection-start-column="61" selection-end-line="393" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/student/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="31" column="40" lean-forward="false" selection-start-line="31" selection-start-column="40" selection-end-line="31" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

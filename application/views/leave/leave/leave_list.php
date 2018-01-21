@@ -10,18 +10,51 @@
 <div style="clear:both"></div>
 <br />
 
-<table id="datable_room" class="display" cellspacing="0" width="100%">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Description</th>
-            <th>Start Date</th>
-            <th>End Date</th>
-            <th>during</th>
-            <th>STATUS</th>
-            <th></th>
-        </tr>
-    </thead>
-</table>
+<div class="col-md-9">
+    <fieldset>
+        <legend>Leave transaction</legend>
+            <table id="datable_room"  class="table table-striped table-bordered table-hover" width="100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>DESCRIPTION</th>
+                        <th>START DATE</th>
+                        <th>END DATE</th>
+                        <th>DURATION</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+            </table>
+
+    </fieldset>
+</div>
+<div class="col-md-3">
+    <fieldset>
+        <legend>Annual Leave (18):</legend>
+        Per Year: <br />
+        Forward: <br />
+        Balance: <br />
+        Used: <br />
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Personal Leave (30):</legend>
+        Per Year: <br />
+        Balance: <br />
+        Used: <br />
+
+    </fieldset>
+
+    <fieldset>
+        <legend>Sick Leave (7):</legend>
+        Per Year: <br />
+        Balance: <br />
+        Used: <br />
+
+    </fieldset>
+
+</div>
+
 
 <script src="<?php echo base_url();?>assets/js/leave/leave.js"></script>

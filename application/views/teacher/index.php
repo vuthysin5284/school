@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -33,6 +30,13 @@
                 <a href="<?php echo base_url();?>floor/floor_list"
                    data-url="<?php echo base_url();?>floor/floor_list">
                     <i class="fa fa-exclamation-circle"></i>Teacher List</a></li>
+
+
+            <li class="default">
+                <a href="<?php echo base_url();?>student/enrolment"
+                   data-url="<?php echo base_url();?>student/enrolment">
+                    <i class="fa fa-gift"></i><!--របាយការណ៍--><?php echo get_phrase('student_promote');?></a></li>
+
             <li class="default">
                 <a href="<?php echo base_url();?>building/building_list"
                    data-url="<?php echo base_url();?>building/building_list">

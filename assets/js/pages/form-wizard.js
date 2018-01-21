@@ -1,36 +1,42 @@
 $(document).ready(function() {
     var $validator = $("#wizardForm").validate({
         rules: {
-            exampleInputName: {
+            // general
+            st_khmer_name: {
                 required: true
             },
-            exampleInputName2: {
+            txtdob_dd: {
                 required: true
 		    },
-		    exampleInputEmail: {
+            txtdob_mm: {
+                required: true
+		    },
+            txtdob_yy: {
+                required: true//,
+                //equalTo: '#exampleInputPassword1'
+		    },
+            gender: {
+                required: true
+		    },
+            time_study: {
+                required: true
+            },
+            section: {
+                required: true
+            },
+
+
+            email: {
                 required: true,
                 email: true
-		    },
-		    exampleInputPassword1: {
-                required: true
-		    },
-		    exampleInputPassword2: {
-                required: true,
-                equalTo: '#exampleInputPassword1'
-		    },
-		    exampleInputProductName: {
-                required: true
-		    },
-		    exampleInputProductId: {
-                required: true
-		    },
-		    exampleInputQuantity: {
+            },
+            father_name_kh: {
                 required: true
             },
-		    exampleInputCard: {
-                required: true,
-                number: true
+            mother_name_kh: {
+                required: true
 		    },
+
 		    exampleInputSecurity: {
                 required: true,
                 number: true
@@ -55,6 +61,17 @@ $(document).ready(function() {
             var $total = navigation.find('li').length;
             var $current = index+1;
             var $percent = ($current/$total) * 100;
+            // checking button for last tab
+            if($total==$current){
+                $("#btnSaveNewEnrollment").css('display','');
+                $("#btnCloseEnrollment").css('display','');
+                $("#btnNext").css('display','none');
+            }else{
+                $("#btnCloseEnrollment").css('display','none');
+                $("#btnSaveNewEnrollment").css('display','none');
+                $("#btnNext").css('display','');
+            }
+
             $('#rootwizard').find('.progress-bar').css({width:$percent+'%'});
         },
         'onNext': function(tab, navigation, index) {

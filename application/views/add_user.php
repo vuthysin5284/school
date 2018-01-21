@@ -46,23 +46,38 @@
             <div class="col-sm-8">  
                 <input type="text" class="form-control" name="phone" placeholder="phone" />
              </div>
-        </div> 
+        </div>
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('role');?></label>
-            <div class="col-sm-8">  
+            <div class="col-sm-8">
                 <select id="role" name="role_id" class="form-control">
-                	<option value="0"> ... select ... </option>
+                    <option value="0"> ... select ... </option>
                     <?php $sql_pm = "select * from role where status = 1";
-						$perm = $this->db->query($sql_pm)->result_array();
-						foreach($perm as $pm){ 
-					?> 
-                		<option value="<?php echo $pm["role_id"]?>"><?php echo $pm["name"]?></option>
+                    $perm = $this->sys->query($sql_pm)->result_array();
+                    foreach($perm as $pm){
+                        ?>
+                        <option value="<?php echo $pm["role_id"]?>"><?php echo $pm["name"]?></option>
                     <?php } ?>
                 </select>
-             </div>
-        </div>  
-        
-        <hr style="margin-top: 10px;"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('branch');?></label>
+            <div class="col-sm-8">
+                <select id="branch_id" name="branch_id" class="form-control">
+                    <option value="0"> ... select ... </option>
+                    <?php $sql_pm = "select * from branch where status = 1";
+                    $branch = $this->sys->query($sql_pm)->result_array();
+                    foreach($branch as $b){
+                        ?>
+                        <option value="<?php echo $b["id"]?>"><?php echo $b["branch_name"]?></option>
+                    <?php } ?>
+                </select>
+            </div>
+        </div>
+
+    <hr style="margin-top: 10px;"/>
         
         <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('username');?> <span class="red">*</span></label>

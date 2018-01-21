@@ -6,7 +6,7 @@ class Promote extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db=$this->load->database('default', TRUE);
+		$this->sys=$this->load->database('sys', TRUE);
 		//$this->erp=$this->load->database('erp', true); 
         $this->load->library('session');
 		//$this->load->library('googlemaps'); 

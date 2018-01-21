@@ -7,7 +7,7 @@ class Testing_enrollment extends CI_Controller {
 	{
 		parent::__construct();
 		$this->db= $this->load->database('default', TRUE);
-        $this->sli= $this->load->database('sli', TRUE);
+        //$this->sli= $this->load->database('sli', TRUE);
         $this->load->library('session');
         $this->load->model("Testing_record_model","record_m");
         $this->load->model("Common_model","com_m");
@@ -189,7 +189,7 @@ class Testing_enrollment extends CI_Controller {
 	
 	public function record_data(){
         // DB table to use
-        $table = 'testing_enrol_view';
+        $table = 'testing_enrol_view where status = 1';
         $primaryKey	= "id";
         // indexes
         $columns = array(

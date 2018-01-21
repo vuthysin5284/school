@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new section*/
 		function new_main_station($data){
-			$this->db->insert('main_station',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('main_station',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit section*/
 		function edit_main_station($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('main_station',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('main_station',$data);
 		}
 		/*delete section*/
 		function delete_main_station($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('main_station');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('main_station');
 		}
 		/*update status section*/
 		function update_status_main_station($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('main_station');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('main_station');
 		}
 		
 		/* section detail */
@@ -41,7 +41,7 @@
 						*
 					from main_station pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "main_station"=> empty($data->main_station)?'':$data->main_station,
@@ -58,7 +58,7 @@
 		/* lookup section */
 		function lookup_main_station($obj){
 			$sql = "select * from main_station where status = 1 and main_station like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		//function get department list
         function get_main_station_list($obj){
@@ -66,7 +66,7 @@
 						*
 					from section 
 					";
-           return $this->db->query($sql,array($obj->id))->result();
+           return $this->sys->query($sql,array($obj->id))->result();
 
         }
 		

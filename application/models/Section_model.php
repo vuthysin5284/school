@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new section*/
 		function new_section($data){
-			$this->db->insert('section',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('section',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit section*/
 		function edit_section($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('section',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('section',$data);
 		}
 		/*delete section*/
 		function delete_section($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('section');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('section');
 		}
 		/*update status section*/
 		function update_status_section($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('section');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('section');
 		}
 		
 		/* section detail */
@@ -41,7 +41,7 @@
 						*
 					from section pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "section_name"=> empty($data->section_name)?'':$data->section_name,
@@ -58,7 +58,7 @@
 		/* lookup section */
 		function lookup_section($obj){
 			$sql = "select * from section where status = 1 and section like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		//function get department list
         function get_department_list($obj){
@@ -66,7 +66,7 @@
 						*
 					from department 
 					";
-           return $this->db->query($sql,array($obj->id))->result();
+           return $this->sys->query($sql,array($obj->id))->result();
 
         }
 		

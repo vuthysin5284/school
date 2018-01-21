@@ -11,6 +11,20 @@ $(document).ready(function() {
         "ordering"		: true,
         "processing"	: true,
         "serverSide"	: true ,
+        "bLengthChange" : false,
+        "bPaginate"     : false,
+        "dom"             : "<'row'<'col-sm-3'l><'col-sm-6'B><'col-sm-3'f>>tr<'col-sm-3'i>p",
+        buttons: [
+            {extend: 'copy',className: 'btn-sm'},
+            {extend: 'csv',title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'pdf', title: 'ExampleFile', className: 'btn-sm'},
+            {extend: 'print',className: 'btn-sm'},
+            {
+                text: 'Refresh', action: function () {
+                    datable_result.draw();
+                }
+            }
+        ],
 
         "ajax"       : {
             "url"    : baseurl+'times/times_data',
@@ -18,8 +32,8 @@ $(document).ready(function() {
             "destroy" : true
         },
         language: {
-            processing: "<img src='"+baseurl+"assets/images/reload.gif'>",
-            loadingRecords: "<img src='"+baseurl+"assets/images/reload.gif'>",
+            processing: _progImg,
+            loadingRecords: _progImg,
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [

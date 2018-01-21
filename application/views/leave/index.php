@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -32,11 +29,7 @@
             <li class="default">
                 <a href="<?php echo base_url();?>leave/leave_list"
                    data-url="<?php echo base_url();?>leave/leave_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-file-text-o"></i>Your leave</a></li>
-            <li class="default">
-                <a href="<?php echo base_url();?>room/room_list"
-                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-exclamation-circle"></i>Leave(s) Report</a></li>
+                    <i class="fa fa-file-text-o"></i>My leave</a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>finance/voucher_entry"
                    data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
@@ -50,6 +43,10 @@
                 <a href="<?php echo base_url();?>finance/voucher_entry"
                    data-url="<?php echo base_url();?>finance/voucher_entry"  data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-exclamation-circle"></i>YTD Report</a></li>
+            <li class="default">
+                <a href="<?php echo base_url();?>room/room_list"
+                   data-url="<?php echo base_url();?>room/room_list"  data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-exclamation-circle"></i>Leave(s) Report</a></li>
 
         </ul>
     </div>

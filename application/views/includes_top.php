@@ -1,11 +1,11 @@
- 
-       
+
+
 <!-- Styles -->
 <!--link href="<?php echo base_url();?>assets/plugins/pace-master/themes/blue/pace-theme-flash.css" rel="stylesheet"/>
 <link href="<?php echo base_url();?>assets/plugins/uniform/css/uniform.default.min.css" rel="stylesheet"/>
 <link href="<?php echo base_url();?>assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/-->
 <link href="<?php echo base_url();?>assets/plugins/fontawesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url();?>assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>	
+<link href="<?php echo base_url();?>assets/plugins/line-icons/simple-line-icons.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/waves/waves.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/switchery/switchery.min.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/plugins/3d-bold-navigation/css/style.css" rel="stylesheet" type="text/css"/>
@@ -15,17 +15,16 @@
 <link href="<?php echo base_url();?>assets/plugins/toastr/toastr.min.css" rel="stylesheet" type="text/css"/>
 
 
-<!--link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/metisMenu/dist/metisMenu.css" /-->
+<!--link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/metisMenu/dist/metisMenu.css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/animate.css/animate.css" />
+<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/c3/c3.min.css" /-->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
 <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/bootstrap/dist/css/bootstrap.css" />
-<link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/c3/c3.min.css" />
-
-
-
 <!-- Theme Styles -->
 <link href="<?php echo base_url();?>assets/css/modern.min.css" rel="stylesheet" type="text/css"/>
-<link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
 <link href="<?php echo base_url();?>assets/css/datepicker.css" rel="stylesheet" type="text/css"/>
+<link href="<?php echo base_url();?>assets/css/custom.css" rel="stylesheet" type="text/css"/>
+
 
 <script src="<?php echo base_url();?>assets/plugins/3d-bold-navigation/js/modernizr.js"></script>
 
@@ -58,8 +57,10 @@
 
 
 <!-- DataTables -->
-<script src="<?php echo base_url();?>assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
-<script src="<?php echo base_url();?>assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<!--script-- src="<?php echo base_url();?>assets/vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+<script-- src="<?php echo base_url();?>assets/vendor/datatables.net-bs/js/dataTables.bootstrap.min.js"></script-->
 <!-- DataTables buttons scripts -->
 <script src="<?php echo base_url();?>assets/vendor/pdfmake/build/pdfmake.min.js"></script>
 <script src="<?php echo base_url();?>assets/vendor/pdfmake/build/vfs_fonts.js"></script>

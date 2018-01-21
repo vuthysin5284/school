@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new relationship_type*/
 		function new_relationship_type($data){
-			$this->db->insert('relationship_type',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('relationship_type',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit relationship_type*/
 		function edit_relationship_type($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('relationship_type',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('relationship_type',$data);
 		}
 		/*delete relationship_type*/
 		function delete_relationship_type($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('relationship_type');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('relationship_type');
 		}
 		/*update status relationship_type*/
 		function update_status_relationship_type($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('relationship_type');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('relationship_type');
 		}
 		
 		/* employee detail */
@@ -41,7 +41,7 @@
 						*
 					from relationship_type pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "relationship_type_name"=> empty($data->relationship_type_name)?'':$data->relationship_type_name,
@@ -57,7 +57,7 @@
 		/* lookup relationship_type */
 		function lookup_relationship_type($obj){
 			$sql = "select * from relationship_type where status = 1 and relationship_type like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

@@ -6,7 +6,7 @@ class Section extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
-		$this->db= $this->load->database('default', TRUE);
+		$this->sys= $this->load->database('sys', TRUE);
         $this->load->library('session');
         $this->load->model("section_model","section_m");
         $this->load->model('datatable_model');
@@ -29,12 +29,16 @@ class Section extends CI_Controller {
         $this->load->view('staff/section/modal_new_section' ,$page_data);
     }
 
-    function section(){
 
-		$page_data['page_name']  = 'section/section';
+    //section
+    function section(){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
         $page_data['page_title'] = get_phrase('section');
-        $this->load->view('index', $page_data);
-	}
+        $this->load->view('staff/section/section', $page_data);
+    }
     /*** section ***/
     function section_list($param1='',$param2='',$param3=''){
         $page_data['page_title'] = get_phrase('section');
@@ -88,7 +92,7 @@ class Section extends CI_Controller {
         $this->section_m->delete_section($obj);
     }
 
-    public function section_data(){
+    public function get_section_data(){
 
         // DB table to use
         $table = 'section where is_delete=0';
@@ -102,12 +106,17 @@ class Section extends CI_Controller {
 			array('db' => 'status', 	 			'dt' => "status", 				'field' => 'status'),
 			array('db' => 'is_delete',   			'dt' => "is_delete", 			'field'	=> 'is_delete')
         );
-		
-		
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
 
 
-
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
 
     }
 

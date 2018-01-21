@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new employee*/
 		function new_leave_type($data){
-			$this->db->insert('leave_type',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('leave_type',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit employee*/
 		function edit_leave_type($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('leave_type',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('leave_type',$data);
 		}
 		/*delete employee*/
 		function delete_leave_type($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('leave_type');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('leave_type');
 		}
 		/*update status employee*/
 		function update_status_leave_type($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('leave_type');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('leave_type');
 		}
 		
 		/* employee detail */
@@ -41,7 +41,7 @@
 						*
 					from leave_type pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "code"=> empty($data->code)?'':$data->code,
@@ -57,7 +57,7 @@
 		/* lookup employee */
 		function lookup_leave_type($obj){
 			$sql = "select * from leave_type where status = 1 and leave_type like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

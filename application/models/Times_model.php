@@ -5,35 +5,35 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new times*/
 		function new_times($data){
-			$this->db->insert('times',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('times',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit times*/
 		function edit_times($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('times',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('times',$data);
 		}
 
 		/*delete times*/
 		function delete_times($obj){
-			$this->db->where('id',$obj->times_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('times');
+			$this->sys->where('id',$obj->times_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('times');
 		}
 		/*udate status times*/
 		function update_status_times($obj){
-			$this->db->where('id',$obj->times_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('times');
+			$this->sys->where('id',$obj->times_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('times');
 		}
 		
 		/* times detail */
@@ -42,7 +42,7 @@
 						*
 					from times 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->times_id))->row();
+			$data = $this->sys->query($sql,array($obj->times_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "times_name"=> empty($data->times_name)?'':$data->times_name,
@@ -58,7 +58,7 @@
 		/* lookup_times */
 		function lookup_times($obj){
 			$sql = "select * from times where status = 1 and times_name like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

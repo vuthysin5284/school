@@ -1,7 +1,7 @@
 
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-    <h4 class="modal-title"><?php echo get_phrase('staff_profiles');?></h4>
+    <h4 class="modal-title"><i class="fa fa-user m-r-xs"></i><?php echo get_phrase('employee_profiles/'.$crud.'_employee_profile');?></h4>
 </div>
 
 
@@ -18,7 +18,7 @@
 </style>
  
         <div role="tabpanel"> 
-            <input type="text" id="pb_crud_id" value="<?php echo $crud?>" />
+            <input type="hidden" id="pb_crud_id" value="<?php echo $crud?>" />
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" id="employee" role="tablist">
             
@@ -68,7 +68,7 @@
         <li role="presentation">
         		<a href="<?php echo base_url();?>staff/employee_referrence/"
                      data-url="<?php echo base_url();?>staff/employee_referrence/" data-toggle="tab" aria-expanded="false">
-       				 Referrence/
+       				 Referrence
         			</a>
         </li>
         <li role="presentation">
@@ -125,6 +125,5 @@
 
         </div>
 
-        
 
 <script src="<?php echo base_url();?>assets/js/employee/employee_tab.js"></script>

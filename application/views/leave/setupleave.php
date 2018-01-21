@@ -19,9 +19,6 @@
         padding: 0px;
         padding-top: 0px;
     }
-    .active.default{
-        border-left: 5px solid blue;
-    }
 </style>
 
 
@@ -30,7 +27,7 @@
         <ul class="nav mailbox-nav" id="document" role="tablist" >
             <li class="active default">
                 <a href="<?php echo base_url();?>leave/leave_type"
-                   data-url="<?php echo base_url();?>leave_type/leave_type_list" data-toggle="tab" aria-expanded="false">
+                   data-url="<?php echo base_url();?>leave_type/leave_type" data-toggle="tab" aria-expanded="false">
                     <i class="fa fa-inbox"></i>Leave Type</a></li>
         </ul>
     </div>

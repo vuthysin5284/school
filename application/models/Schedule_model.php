@@ -5,36 +5,36 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new schedule*/
 		function new_schedule($data){
-			$this->db->insert('schedule',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('schedule',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit schedule*/
 		function edit_schedule($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('schedule',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('schedule',$data);
 		}
 
 		/*delete schedule*/
 		function delete_schedule($obj){
 
-			$this->db->where('id',$obj->schedule_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('schedule');
+			$this->sys->where('id',$obj->schedule_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('schedule');
 		}
 		/*udate status schedule*/
 		function update_status_schedule($obj){
-			$this->db->where('id',$obj->schedule_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('schedule');
+			$this->sys->where('id',$obj->schedule_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('schedule');
 		}
 		
 		/* schedule detail */
@@ -43,7 +43,7 @@
 						*
 					from schedule 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->schedule_id))->row();
+			$data = $this->sys->query($sql,array($obj->schedule_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "schedule_name"=> empty($data->schedule_name)?'':$data->schedule_name,
@@ -59,7 +59,7 @@
 		/* lookup_schedule */
 		function lookup_schedule($obj){
 			$sql = "select * from schedule where status = 1 and schedule_name like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

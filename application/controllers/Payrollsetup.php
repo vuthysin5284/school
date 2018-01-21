@@ -7,7 +7,7 @@ class Payrollsetup extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->db = $this->load->database('default', TRUE);
+        $this->sys = $this->load->database('sys', TRUE);
         $this->load->library('session');
 
         /*cache control*/
@@ -23,7 +23,7 @@ class Payrollsetup extends CI_Controller
 
         $page_data['page_main']  =  get_phrase('master_data');
         $page_data['page_name']  = 'payroll/payrollsetup';
-        $page_data['page_title'] = get_phrase('payrollsetup');
+        $page_data['page_title'] = get_phrase('payroll_setup');
         $this->load->view('index', $page_data);
     }
 
@@ -129,11 +129,11 @@ class Payrollsetup extends CI_Controller
         );
 
         $sql_details = array(
-            'user' => $this->db->username,
-            'pass' => $this->db->password,
-            'port' => $this->db->port,
-            'db' => $this->db->database,
-            'host' => $this->db->hostname
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
         );
 
         $this->load->model('datatable');

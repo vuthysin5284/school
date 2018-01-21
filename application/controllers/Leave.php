@@ -7,7 +7,7 @@ class Leave extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->db = $this->load->database('default', TRUE);
+        $this->sys = $this->load->database('sys', TRUE);
         $this->load->library('session');
         /*cache control*/
         $this->output->set_header('Cache-Control: no-store, no-cache, must-revalidate, post-check=0, pre-check=0');
@@ -80,8 +80,17 @@ class Leave extends CI_Controller
             array('db' => 'status',                 'dt' => "status",               'field' => 'status'),
             array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete')
         );
-         $this->load->model('datatable_model');
-        echo json_encode($this->datatable_model->result_json($_POST, $table, $columns));
+
+        $sql_details = array(
+            'user' => $this->sys->username,
+            'pass' => $this->sys->password,
+            'port' => $this->sys->port,
+            'db' => $this->sys->database,
+            'host' => $this->sys->hostname
+        );
+        $this->load->model('datatable');
+        echo json_encode(Datatable::simple($_POST, $sql_details, $table, $primaryKey, $columns));
+
     }
 
 

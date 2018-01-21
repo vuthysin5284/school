@@ -1,44 +1,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <div class="row">
     <div class="col-md-2">
-        <select class="form-control">
-            <option>... Session ...</option>
-            <option>2017</option>
-            <option>2018</option>
+        <select class="form-control" id="sl_running_session">
+            <option value="0">Running session</option>
+            <?php
+            foreach($session_list as $row){
+                $selected = ($row->session_name==$this->session->userdata('session_name'))? ' selected':'';
+                echo "<option value='".$row->id."' $selected>".$row->session_name."</option>";
+            }
+            ?>
         </select>
     </div>
     <div class="col-md-2">
-        <select class="form-control">
-            <option>... Class ...</option>
-            <option>1</option>
-            <option>2</option>
+        <select class="form-control" id="sl_classes">
+            <option value="0">... Grade ...</option>
+            <?php
+            foreach($class_list as $row){
+                echo "<option value='".$row->id."'>".$row->classes_name."</option>";
+            }
+            ?>
         </select>
     </div>
     <div class="col-md-2">
-        <select class="form-control">
-            <option>... Section ...</option>
-            <option>abc</option>
-            <option>tttt</option>
-        </select>
-    </div>
-
-    <div class="col-md-2">
-        <select class="form-control">
-            <option>... Status ...</option>
-            <option>Active</option>
-            <option>Inactive</option>
+        <select class="form-control" id="sl_section">
+            <option value="0">... Section ...</option>
+            <?php
+            foreach($section_list as $row){
+                echo "<option value='".$row->id."'>".$row->section_name."</option>";
+            }
+            ?>
         </select>
     </div>
     <div class="col-md-1">
-        <button class="btn btn-info">Search</button>
+        <button class="btn btn-info" id="btnSearchStudent">Search</button>
     </div>
 
     <!-- button create new enrollment-->
-    <div class="col-md-2 pull-right text-right">
+    <div class="col-md-3 pull-right text-right">
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>enrolment/new_enrolment/0/new');">
             <i class="fa fa-graduation-cap"></i>
-            <!--?php echo get_phrase('enroll_new');?-->
-            បញ្ចូលសិស្សថ្មី
+            <?php echo get_phrase('register');?>
+            <!--បញ្ចូលសិស្សថ្មី
+        --></button>
+        <button class="btn btn-info">
+            Import student
         </button>
     </div>
 </div>
@@ -49,13 +54,14 @@
 <table id="datable_enrolment" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th style="width: 80px;">Enrol ID</th>
+            <th style="width:50px;">No</th>
             <th style="width: 70px;">Image</th>
             <th>Student Name</th>
             <th style="width: 100px;">Dob</th>
-            <th>Session Name</th>
-            <th>Class name</th>
-            <th>Section name</th>
+            <th>Session</th>
+            <th>Section</th>
+            <th>Grade/Teacher</th>
+            <th>Subject</th>
             <th style="width: 100px;">Actions</th>
         </tr>
     </thead>

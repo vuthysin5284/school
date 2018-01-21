@@ -10,13 +10,13 @@
 		}  
 		/*create new employee list*/
 		function new_employee($data){
-			$this->db->insert('employee',$data);
+			$this->db->insert('Employee.bak',$data);
 			return $this->db->insert_id(); 		
 		}
 		/*edit employee*/
 		function edit_employee($data,$id){
 			$this->db->where('id',$id);
-			return $this->db->update('employee',$data);
+			return $this->db->update('Employee.bak',$data);
 		}
 		/*delete employee list*/
 		function delete_employee($obj){
@@ -24,7 +24,7 @@
 			$this->db->set('is_delete',1);
 			$this->db->set('delete_by',$this->session->userdata("user_id"));
 			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('employee');
+			$this->db->update('Employee.bak');
 		}
 		/*update status employee */
 		function update_status_employee($obj){
@@ -32,14 +32,14 @@
 			$this->db->set('status',$obj->status);
 			$this->db->set('modified_by',$this->session->userdata("user_id"));
 			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('employee');
+			$this->db->update('Employee.bak');
 		}
 		
 		/* employee  detail */
 		function get_employee_detail($obj){
 			$sql = " select 
 						*
-					from employee pb 
+					from employee_general pb 
 					where id=?";
 			$data = $this->db->query($sql,array($obj->id))->row();
 			return array( 

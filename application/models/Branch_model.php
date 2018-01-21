@@ -5,36 +5,36 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new branch*/
 		function new_branch($data){
-			$this->db->insert('branch',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('branch',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit branch*/
 		function edit_branch($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('branch',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('branch',$data);
 		}
 
 		/*delete branch*/
 		function delete_branch($obj){
 
-			$this->db->where('id',$obj->branch_id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('branch');
+			$this->sys->where('id',$obj->branch_id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('branch');
 		}
 		/*udate status branch*/
 		function update_status_branch($obj){
-			$this->db->where('id',$obj->branch_id);
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('branch');
+			$this->sys->where('id',$obj->branch_id);
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('branch');
 		}
 		
 		/* branch detail */
@@ -43,7 +43,7 @@
 						*
 					from branch 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->branch_id))->row();
+			$data = $this->sys->query($sql,array($obj->branch_id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "branch_name_kh"=> empty($data->branch_name_kh)?'':$data->branch_name_kh,
@@ -67,7 +67,7 @@
 		/* lookup_branch */
 		function lookup_branch($obj){
 			$sql = "select * from branch where status = 1 and branch_name like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

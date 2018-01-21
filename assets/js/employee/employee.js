@@ -37,28 +37,30 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "employee_number"},
             { "data" : "image" ,
                 'render': function (data, type, full, meta) {
                     return '<img src="'+_img+'" class="img" />';
                 }
             },
-            { "data" : "latin_name" },
-			{ "data" : "khmer_name" },
-			{ "data" : "gender" },
-			{ "data" : "position" },
-			{ "data" : "department" },
-			{ "data" : "phone" },
-			{ "data" : "joined_date" },
-			{ "data" : "hired_date" },
-			{ "data" : "email" },
-			{ "data" : "status" },
-            { "data": "staff_type",
+            { "data" : "first_name_kh" ,
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
-                    $(nTd).html(yesno);
+                    var _val = oData.first_name_kh+' '+oData.last_name_kh+' - '+oData.latin_first_name+' '+oData.latin_last_name
+                        +'<div>'+oData.date_of_birth+'</div:>'
+                        +'<div>Code: '+oData.emp_code+'</div:>';
+                    $(nTd).html(_val);
                 }
             },
+			{ "data" : "gender_id" },
+			{ "data" : "department",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    var _val = oData.department+'<div>Position: '+oData.position_level+'</div:>';
+                    $(nTd).html(_val);
+                }
+            },
+			{ "data" : "home_phone" },
+			{ "data" : "hired_date" },
+			{ "data" : "email_address" },
+            { "data": "staff_type"},
            { "data" : "id",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(

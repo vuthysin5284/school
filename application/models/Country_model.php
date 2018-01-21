@@ -5,34 +5,34 @@
 		function __construct()
 		{ 
 			parent::__construct();
-			$this->db = $this->load->database('default', TRUE); 
+			$this->sys = $this->load->database('sys', TRUE);
 			 
 		}  
 		/*create new country*/
 		function new_country($data){
-			$this->db->insert('country',$data);
-			return $this->db->insert_id(); 		
+			$this->sys->insert('country',$data);
+			return $this->sys->insert_id(); 		
 		}
 		/*edit department*/
 		function edit_country($data,$id){
-			$this->db->where('id',$id);
-			return $this->db->update('country',$data);
+			$this->sys->where('id',$id);
+			return $this->sys->update('country',$data);
 		}
 		/*delete department*/
 		function delete_country($obj){
-			$this->db->where('id',$obj->id);
-			$this->db->set('is_delete',1);
-			$this->db->set('delete_by',$this->session->userdata("user_id"));
-			$this->db->set('delete_date',date('Y-m-d h:s:i'));
-			$this->db->update('country');
+			$this->sys->where('id',$obj->id);
+			$this->sys->set('is_delete',1);
+			$this->sys->set('delete_by',$this->session->userdata("user_id"));
+			$this->sys->set('delete_date',date('Y-m-d h:s:i'));
+			$this->sys->update('country');
 		}
 		/*update status department*/
 		function update_status_country($obj){
-			$this->db->where('id',$obj->pricebook_id); 
-			$this->db->set('status',$obj->status);
-			$this->db->set('modified_by',$this->session->userdata("user_id"));
-			$this->db->set('modified_date',date('Y-m-d h:s:i'));
-			$this->db->update('country');
+			$this->sys->where('id',$obj->pricebook_id); 
+			$this->sys->set('status',$obj->status);
+			$this->sys->set('modified_by',$this->session->userdata("user_id"));
+			$this->sys->set('modified_date',date('Y-m-d h:s:i'));
+			$this->sys->update('country');
 		}
 		
 		/* country detail */
@@ -41,7 +41,7 @@
 						*
 					from country pb 
 					where id=?";
-			$data = $this->db->query($sql,array($obj->id))->row();
+			$data = $this->sys->query($sql,array($obj->id))->row();
 			return array( 
                         "id"=> empty($data->id)?'':$data->id,
                         "country_name"=> empty($data->country_name)?'':$data->country_name,
@@ -59,7 +59,7 @@
 		/* lookup department */
 		function lookup_country($obj){
 			$sql = "select * from country where status = 1 and country like ?";
-			return $this->db->query($sql,array($obj["keyword"].'%'))->result();
+			return $this->sys->query($sql,array($obj["keyword"].'%'))->result();
 		}
 		
 	}

@@ -41,15 +41,24 @@ $(document).ready(function() {
                     return meta.row + meta.settings._iDisplayStart + 1;
                 }
             },
-            { "data" : "khmer_name"},
-            { "data" : "latin_name" },
-            { "data" : "gender_name" },
-			{ "data" : "dob" },
-			{ "data" : "age"},
+            { "data" : "khmer_name",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.khmer_name+' - '+oData.latin_name+'<div>Sex: '+oData.gender_name +'</div>' +
+                        '<div>CODE: '+oData.testing_id+'</div>');
+                }
+
+            },
+			{ "data" : "dob",
+                "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    $(nTd).html(oData.dob+'<div>Age: '+oData.age +'</div>');
+                }
+            },
 			{ "data" : "session_name"},
-			{ "data" : "classes_name"},
+            { "data" : "session_name"},
+            { "data" : "classes_name"},
             { "data": "status",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
+                    // 1: Pending; 2: Checking; 3: Passed; 4: Fail; 5:Verified (note will doing at status)
                     var yesno = oData.is_delete==0?(oData.status==1?'Pending':'Inactive'): '<font color="red">Deleted</font>';
                     $(nTd).html(yesno);
                 }
@@ -59,7 +68,9 @@ $(document).ready(function() {
                     $(nTd).html( 
 						'<center>'+
 							'<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
-							'<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
+                            '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a><br />'+
+                            '<a href="javascript:void(0);" class="label label-info"><i class="fa fa-dollar"></i></a>&nbsp;|&nbsp;'+
+                            '<a href="javascript:void(0);" class="label label-info"><i class="fa fa-print"></i></a>'+
 						'</center>');
                 }
             }
