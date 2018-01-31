@@ -23,7 +23,7 @@
     <div class="col-md-2 pull-right text-right">
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>school_item_fee/new_school_item_fee/0/new');">
             <i class="fa fa-plus"></i>
-            <!--?php echo get_phrase('enroll_new');?-->
+            <!--?php echo get_phrase('enroll_new');?--> 
             បញ្ចូលថ្មី
         </button>
     </div> 
