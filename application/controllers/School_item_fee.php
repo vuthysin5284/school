@@ -51,9 +51,9 @@ class School_item_fee extends CI_Controller
         $obj = new stdClass();
         $obj->school_item_fee_id = $param1;
         //edit
-        if($param2=='edit'){
+        //if($param2=='edit'){
             $page_data["item_dl"] = $this->school_m->get_school_item_fee_detail($obj);
-        }
+        //}
         $page_data["crud"] = $param2;
         $this->load->view('masterdata/item/school_item_fee_new' ,$page_data);
     }
@@ -72,8 +72,10 @@ class School_item_fee extends CI_Controller
             redirect(base_url() . 'login', 'refresh');
         }
         //variable
-        $data["description"]   = $this->input->post("description");
-        $data["status"]        = empty($this->input->post("status")) ? 0 : 1;
+        $data["description"]    = $this->input->post("description");
+        $data["prize_id"]       = $this->input->post("prize_id");
+        $data["type"]           = 4;
+        $data["status"]         = empty($this->input->post("status")) ? 0 : 1;
 
         // got value hidden file for reference id price book
         $id = empty($this->input->post("school_item_fee_id")) ? 0 : $this->input->post("school_item_fee_id");
@@ -108,7 +110,7 @@ class School_item_fee extends CI_Controller
     }
     public function school_item_fee_data(){
         // DB table to use
-        $table = 'item_master where is_delete=0';
+        $table = 'item_master where is_delete=0 and type = 4';
         $primaryKey = "id";
         // indexes
         $columns = array(

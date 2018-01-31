@@ -21,10 +21,10 @@
     </div>
     <!-- button create new enrollment-->
     <div class="col-md-2 pull-right text-right">
-        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>itemsetup/school_item_fee_new/0/new');">
-            <i class="fa fa-graduation-cap"></i>
+        <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>school_item_fee/new_school_item_fee/0/new');">
+            <i class="fa fa-plus"></i>
             <!--?php echo get_phrase('enroll_new');?-->
-            បញ្ចូលសិស្សថ្មី
+            បញ្ចូលថ្មី
         </button>
     </div> 
 </div>

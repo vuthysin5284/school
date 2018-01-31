@@ -33,12 +33,14 @@
 			$sql = " select 
 						*
 					from item_master 
-					where id=?";
+					where id=? 
+					";
 			$data = $this->sys->query($sql,array($obj->admin_item_fee_id))->row();
-			return array( 
+			return array(
                         "id"				=> empty($data->id)?'':$data->id,
+                        "prize_id"				=> empty($data->prize_id)?'':$data->prize_id,
                         "description"		=> empty($data->description)?'':$data->description,
-                        "status"			=> empty($data->status)?'':$data->status,
+                        "status"			=> empty($data->status)?'0':$data->status,
                         "created_date"		=> empty($data->created_date)?'':$data->created_date,
                         "modified_date"		=> empty($data->modified_date)?'':$data->modified_date,
                         "created_by"		=> empty($data->created_by)?'':$data->created_by,

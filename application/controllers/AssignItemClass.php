@@ -29,37 +29,37 @@ class AssignItemClass extends CI_Controller {
 		}
 		//add 
 		if($param1=="assign_item_class"){
-			$data["class_id"] = $this->input->post("class_id");
+			$data["group_id"] = $this->input->post("group_id");
 			$data["item_id"] = $this->input->post("item_id");
 			$this->sys->insert('item_class',$data);
 			return; 
 		}
 		// remove
 		if($param1=="remove_item_class"){
-            $data["class_id"] = $this->input->post("class_id");
+            $data["group_id"] = $this->input->post("group_id");
             $data["item_id"] = $this->input->post("item_id");
-            $this->sys->delete('item_class');
+            $this->sys->delete('item_class',$data);
 			
 		}
 		// filter assign item to class
 		if($param1=="filter"){
-			$page_data['class_id'] = $this->input->post("class_id");
+			$page_data['group_id'] = $this->input->post("group_id");
 		}
 		// class
-		$sql_pm = "select * from classes where status = 1 ";
-        $page_data['class_list'] = $this->sys->query($sql_pm)->result_array();
+		$sql_pm = "select * from item_class_group where status = 1 ";
+        $page_data['group_list'] = $this->sys->query($sql_pm)->result_array();
 
         // item list
         $sql_item = "  select 
                         aif.*,
                         ic.item_id,
-                        ic.class_id 
+                        ic.group_id 
                       from item_master  aif
-                      left join item_class ic on ic.item_id = aif.id and ic.class_id =?
+                      left join item_class ic on ic.item_id = aif.id and ic.group_id =?
                       where aif.status = 1
                       and aif.is_delete=0
                    ";
-        $page_data['item_list'] = $this->sys->query($sql_item,array($this->input->post("class_id")))->result_array();
+        $page_data['item_list'] = $this->sys->query($sql_item,array($this->input->post("group_id")))->result_array();
 		 
 		$page_data['page_width']  = "40";
 		$page_data['page_name']  = 'masterdata/item/assign_item_class';
@@ -67,5 +67,19 @@ class AssignItemClass extends CI_Controller {
         $page_data['page_main_title'] = get_phrase('assign_item_class');
         $page_data['page_title'] = get_phrase('assign_item_class');
         $this->load->view('index', $page_data);
-	} 
+	}
+
+	// create group name
+    function create_group_name($param1='',$param2='',$param3=''){
+        if ($this->session->userdata('is_login') != 1){
+            $this->session->set_userdata('last_page', current_url());
+            redirect(base_url(). 'login', 'refresh');
+        }
+
+        $data["group_name"] = $this->input->post("group_name");
+        $data["status"] = empty($this->input->post("status"))?0:1;
+        $this->sys->insert('item_class_group',$data);
+
+        redirect(base_url(). 'assignitemclass/assign_item_class/', 'refresh');
+    }
 } 

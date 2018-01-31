@@ -1,19 +1,20 @@
 // JavaScript Document
 var datable_result;
-var _url_path =  baseurl+'school_item_fee/new_school_item_fee/';
-var _url_del =  baseurl+'school_item_fee/delete/';
+var _url_path =  baseurl+'prizelist/prize_list_new/';
+var _url_del  =  baseurl+'prizelist/delete/';
 
 $(document).ready(function() {
-    datable_result = $('#datable_school_item').DataTable( {
-        "filter"        : true,
-        "info"          : true,
+    datable_result = $('#datable_prize_list').DataTable( {
+        "filter"        : false,
+        "info"          : false,
         "paging"        : true,
-        "ordering"      : true,
+        "ordering"      : false,
         "processing"    : true,
         "serverSide"    : true ,
+        "dom": 'ftipr',
 
         "ajax"       : {
-            "url"    : baseurl+'school_item_fee/school_item_fee_data',
+            "url"    : baseurl+'prizelist/prize_list_data',
             "type"   : 'POST',
             "destroy" : true
         },
@@ -23,16 +24,18 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "id",
-                render: function (data, type, row, meta) {
-                    var auto_num = meta.row + meta.settings._iDisplayStart + 1;
-                    return  auto_num;//"krs<br />"+('00000000' + auto_num).slice(-8);
-                },"searchable": false
-            },
+            { "data" : "id"},
             { "data" : "description"},
+            {
+                "data": "prize",
+                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+                    var prize = oData.prize+' USD';
+                    $(nTd).html(prize);
+                }
+            },
             { "data" : "status",
                 "fnCreatedCell" : function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_delete==0?(oData.status==1?'Active':'Inactive'): '<font color="red">Deleted</font>';
+                    var yesno = oData.status==1?'Active':'Inactive';
                     $(nTd).html(yesno);
                 }
             },
@@ -40,8 +43,8 @@ $(document).ready(function() {
                 "fnCreatedCell" : function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
                         '<center>'+
-                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a>'+
-                        //'&nbsp;|&nbsp;<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
+                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/\');"><i class="fa fa-pencil-square-o"></i></a>'+
+                        //'<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
                         '</center>');
                 }
             }
@@ -66,4 +69,3 @@ function remove_row(url){
         }
     });
 }
-

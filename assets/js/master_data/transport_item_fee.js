@@ -24,7 +24,12 @@ $(document).ready(function() {
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "id"},
+            { "data" : "id",
+                render: function (data, type, row, meta) {
+                    var auto_num = meta.row + meta.settings._iDisplayStart + 1;
+                    return  auto_num;//"krs<br />"+('00000000' + auto_num).slice(-8);
+                },"searchable": false
+            },
             { "data" : "description"},
             { "data" : "status",
                 "fnCreatedCell" : function (nTd, sData, oData, iRow, iCol) {
@@ -36,8 +41,8 @@ $(document).ready(function() {
                 "fnCreatedCell" : function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
                         '<center>'+
-                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/\');"><i class="fa fa-pencil-square-o"></i></a>&nbsp;|&nbsp;'+
-                        '<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
+                        '<a href="javascript:void(0);" class="label label-info" onclick="showAjaxModal(\''+_url_path+oData.id+'/edit/\');"><i class="fa fa-pencil-square-o"></i></a>'+
+                        //'&nbsp;|&nbsp;<a href="#" class="label label-danger" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>'+
                         '</center>');
                 }
             }

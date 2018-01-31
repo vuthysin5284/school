@@ -48,9 +48,9 @@ class Lunch_item_fee extends CI_Controller
         $obj = new stdClass();
         $obj->lunch_item_fee_id = $param1;
         //edit
-        if($param2=='edit'){
+        //if($param2=='edit'){
             $page_data["item_dl"] = $this->lunch_m->get_lunch_item_fee_detail($obj);
-        }
+        //}
         $page_data["crud"] = $param2;
         $this->load->view('masterdata/item/lunch_item_fee_new' ,$page_data);
     }
@@ -69,8 +69,10 @@ class Lunch_item_fee extends CI_Controller
             redirect(base_url() . 'login', 'refresh');
         }
         //variable
-        $data["description"]   = $this->input->post("description");
-        $data["status"]        = empty($this->input->post("status")) ? 0 : 1;
+        $data["description"]    = $this->input->post("description");
+        $data["prize_id"]       = $this->input->post("prize_id");
+        $data["type"]           = 3;
+        $data["status"]         = empty($this->input->post("status")) ? 0 : 1;
 
 
         // got value hidden file for reference id price book
@@ -107,7 +109,7 @@ class Lunch_item_fee extends CI_Controller
 
     public function lunch_item_fee_data(){
         // DB table to use
-        $table = 'item_master where is_delete=0';
+        $table = 'item_master where is_delete=0  and type = 3';
         $primaryKey = "id";
         // indexes
         $columns = array(

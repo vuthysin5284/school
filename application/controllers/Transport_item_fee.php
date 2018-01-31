@@ -53,9 +53,9 @@ class Transport_item_fee extends CI_Controller
         $obj = new stdClass();
         $obj->transport_item_fee_id = $param1;
         //edit
-        if($param2=='edit'){
+        //if($param2=='edit'){
             $page_data["item_dl"] = $this->transport_m->get_transport_item_fee_detail($obj);
-        }
+        //}
         $page_data["crud"] = $param2;
         $this->load->view('masterdata/item/transport_item_fee_new' ,$page_data);
     }
@@ -75,6 +75,9 @@ class Transport_item_fee extends CI_Controller
         }
         //variable
         $data["description"]   = $this->input->post("description");
+        $data["prize_id"]       = $this->input->post("prize_id");
+
+        $data["type"]       = 2;
         $data["status"]        = empty($this->input->post("status")) ? 0 : 1;
 
         // got value hidden file for reference id price book
@@ -110,7 +113,7 @@ class Transport_item_fee extends CI_Controller
 
     public function transport_item_fee_data(){
         // DB table to use
-        $table = 'item_master where is_delete=0';
+        $table = 'item_master where is_delete=0 and type = 2';
         $primaryKey = "id";
         // indexes
         $columns = array(

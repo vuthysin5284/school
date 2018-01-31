@@ -50,9 +50,9 @@ class ItemSetup extends CI_Controller
         $obj = new stdClass();
         $obj->admin_item_fee_id = $param1;
         //edit
-        if($param2=='edit'){
-            $page_data["item_dl"] = $this->admin_m->get_admin_item_fee_detail($obj);
-        }
+        //if($param2=='edit'){
+        $page_data["item_dl"] = $this->admin_m->get_admin_item_fee_detail($obj);
+        //}
         $page_data["crud"] = $param2;
         $this->load->view('masterdata/item/admin_item_fee_new' ,$page_data);
     }
@@ -71,8 +71,10 @@ class ItemSetup extends CI_Controller
             redirect(base_url() . 'login', 'refresh');
         }
         //variable
-        $data["description"]   = $this->input->post("description");
-        $data["status"]        = empty($this->input->post("status")) ? 0 : 1;
+        $data["description"]    = $this->input->post("description");
+        $data["prize_id"]       = $this->input->post("prize_id");
+        $data["type"]           = 1;
+        $data["status"]         = empty($this->input->post("status")) ? 0 : 1;
 
         // got value hidden file for reference id price book
         $id = empty($this->input->post("admin_item_fee_id")) ? 0 : $this->input->post("admin_item_fee_id");
@@ -108,7 +110,7 @@ class ItemSetup extends CI_Controller
 
     public function admin_item_fee_data(){
         // DB table to use
-        $table = 'item_master where is_delete=0';
+        $table = 'item_master where is_delete=0 and type =1';
         $primaryKey = "id";
         // indexes
         $columns = array(

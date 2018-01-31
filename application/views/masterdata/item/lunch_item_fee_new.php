@@ -20,21 +20,57 @@
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
         'id'=>'frmNewLunchItemFee', 'enctype' => 'multipart/form-data'));?>
 
-    <input type="hidden" value="<?php echo empty($item_dl['id'])?'':$item_dl['id'];?>" name="pb_hidden_id"  />
+    <input type="hidden" value="<?php echo $item_dl['id'];?>" name="pb_hidden_id"  />
     <input type="hidden" name="pb_crud_id" value="<?php echo $crud?>"/>
 
     <div class="form-group">
-        <label for="field-1" class="col-sm-4 control-label"><?php echo get_phrase('description');?> <span class="red">*</span></label>
-        <div class="col-sm-7">
-            <input type="text" class="form-control" id="description" value="<?php echo empty($item_dl['description'])?'':$item_dl['description'];?>" name="description" />
+        <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?> <span class="red">*</span></label>
+        <div class="col-sm-9">
+            <input type="text" class="form-control" id="description" value="<?php echo $item_dl['description'];?>" name="description" />
+        </div>
+    </div><div class="form-group">
+        <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('prize');?> <span class="red">*</span></label>
+        <div class="col-sm-9">
+            <select id="role" name="prize_id" class="form-control">
+                <option value="0"> ... select ... </option>
+                <?php $sql_pl = "select * from prize_list where status = 1";
+                $pl = $this->sys->query($sql_pl)->result_array();
+                foreach($pl as $pr){
+                    if($pr["id"] == $item_dl['prize_id']){
+                        $select = " selected";
+                    }else{$select = "";}
+                    ?>
+                    <option value="<?php echo $pr["id"]?>" <?php echo $select;?> ><?php echo $pr["prize"]?></option>
+                <?php } ?>
+            </select>
+
         </div>
     </div>
+
+
     <div class="form-group">
-        <label for="field-1" class="col-sm-4 control-label">&nbsp;</label>
-        <div class="col-sm-7">
-            <input type="radio" name="status" id="active" checked value="1" />
+        <label for="field-1" class="col-sm-3 control-label">&nbsp;</label>
+        <div class="col-sm-9">
+            <?php
+            $active="";
+            $inactive="";
+            $status = $item_dl['status'];
+
+            if($status=='1'){
+                $active = ' checked';
+                $inactive='';
+
+            }
+            if($status=='0'){
+                $inactive =' checked';
+                $active='';
+            }
+
+            ?>
+
+            <input type="radio" name="status" id="active" <?php echo $active;?> value="1" />
             <label for="active"><?php echo get_phrase('active');?></label>
-            <input type="radio" name="status" id="in_active" value="0"/>
+            <input type="radio" name="status" id="in_active" <?php echo $inactive;?> value="0"/>
             <label for="in_active"><?php echo get_phrase('in_active');?></label>
         </div>
     </div>

@@ -4,21 +4,21 @@
      
            <div class="pull-left" style="text-align:left; padding-top:10px; width:50px;">Group:</div>
            <div class="pull-left" style="margin-left:10px;"> 
-                <select id="class_id" name="class_id" class="form-control">
+                <select id="group_id" name="group_id" class="form-control">
                 	<option value="0"> ... select ... </option>
                     <?php
-						foreach($class_list as $pm){
-							if($pm["id"] == (empty($class_id)?0:$class_id)){
+						foreach($group_list as $pm){
+							if($pm["id"] == (empty($group_id)?0:$group_id)){
 								$select = " selected";
 							}else{$select = "";}
 					?> 
-                		<option value="<?php echo $pm["id"]?>" <?php echo $select;?> ><?php echo $pm["classes_name"]?></option>
+                		<option value="<?php echo $pm["id"]?>" <?php echo $select;?> ><?php echo $pm["group_name"]?></option>
                     <?php } ?>
                 </select>
            </div>
             <div class="pull-left" style="margin-left:10px;">
                 <button type="submit" name="btnSubmit" class="btn btn-info"><?php echo get_phrase('filter');?></button>
-                <button type="button" class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>modal/popup/new_role/');" >
+                <button type="button" class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>modal/popup/new_item_group/');" >
                     <?php echo get_phrase('create_group');?></button>
            </div>
             <br />
@@ -74,7 +74,7 @@
 		  		url		: "<?php echo base_url();?>assignitemclass/assign_item_class/"+assign_item_class,
                 data	: {
                     	'<?php echo $this->security->get_csrf_token_name(); ?>':'<?php echo $this->security->get_csrf_hash(); ?>',
-                        class_id: '<?php echo $class_id;?>',
+                        group_id: '<?php echo $group_id;?>',
 						item_id: item_id
 						
                 },

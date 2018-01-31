@@ -24,9 +24,9 @@
     <!-- button create new admin-->
     <div class="col-md-2 pull-right text-right">
         <button class="btn btn-info" onclick="showAjaxModal('<?php echo base_url();?>itemsetup/admin_item_fee_new/0/new');">
-            <i class="fa fa-graduation-cap"></i>
+            <i class="fa fa-plus"></i>
             <!--?php echo get_phrase('enroll_new');?-->
-            បញ្ចូលសិស្សថ្មី
+            បញ្ចូលថ្មី
         </button>
     </div>
 </div>
