@@ -42,7 +42,7 @@ class Common_model extends CI_Model {
         $sql = " select 
 						* 
 					from school_session
-					where status = 1 and is_delete=0
+					where status = 1
 				";
         return  $this->sys->query($sql)->result();
     }
@@ -56,7 +56,7 @@ class Common_model extends CI_Model {
     }
 
     //function get_class_active list
-    function get_class_active()
+    function get_class_active($session_id)
     {
         $sql = " select 
 						*
@@ -64,7 +64,7 @@ class Common_model extends CI_Model {
 					where session_id=?
 					order by id DESC 
 					";
-        return $this->sys->query($sql,array($this->session->userdata('running_session')))->result();
+        return $this->sys->query($sql,array($session_id))->result();
     }
 
     //function get_expected_class_list list
@@ -86,14 +86,14 @@ class Common_model extends CI_Model {
 
     }
     //function get section  list
-    function get_section_list(){
+    function get_section_list($session_id){
         $sql = " select 
 						*
 					from school_section 
 					where status=?
 					and session_id=?
 					";
-        return $this->sys->query($sql,array(1,$this->session->userdata('running_session')))->result();
+        return $this->sys->query($sql,array(1,$session_id))->result_array();
 
     }
     //function get timestudy list

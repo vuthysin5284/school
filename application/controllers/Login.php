@@ -34,11 +34,11 @@ class Login extends CI_Controller {
         //Recieving post input of email, password from ajax request
         $username = $_POST["username"];
         $password = $_POST["password"];
-        $running_sesion = $_POST["running_sesion"];
+        //$running_sesion = $_POST["running_sesion"];
         $response['submitted_data'] = $_POST; 
 		
         //Validating login
-        $login_status = $this->validate_login($username, $password,$running_sesion);
+        $login_status = $this->validate_login($username, $password);//,$running_sesion
         $response['login_status'] = $login_status;
         if ($login_status == 'success') {
             $response['redirect_url'] = $this->session->userdata('last_page');
@@ -50,7 +50,7 @@ class Login extends CI_Controller {
     }
 
     //Validating login from ajax request
-    function validate_login($username = '', $password = '', $running_sesion = '') {
+    function validate_login($username = '', $password = '') {//, $running_sesion = ''
         $credential = array('username' => $username, 'password' => sha1(md5(sha1(md5($password)))));
 		 
 		// limit show records in page 
@@ -62,7 +62,7 @@ class Login extends CI_Controller {
         if ($query->num_rows() > 0) {
             $row = $query->row();
 
-            $this->session->set_userdata('running_session', $running_sesion);
+            //$this->session->set_userdata('running_session', $running_sesion);
             $this->session->set_userdata('is_login', '1');
             $this->session->set_userdata('user_id', $row->admin_id); 
             $this->session->set_userdata('sap_id', $row->SAP_ID);
@@ -73,7 +73,7 @@ class Login extends CI_Controller {
             $this->session->set_userdata('common_name', $this->sys->get_where('common')->row()->common_name);
             $this->session->set_userdata('common_id', $this->sys->get_where('common')->row()->id);
 
-            $this->session->set_userdata('session_name', $this->sys->get_where('school_session',array('id' => $running_sesion))->row()->session_name);
+            //$this->session->set_userdata('session_name', $this->sys->get_where('school_session',array('id' => $running_sesion))->row()->session_name);
             // is login
 			$this->sys->where('admin_id',$row->admin_id);
 			$this->sys->set('is_login','online');

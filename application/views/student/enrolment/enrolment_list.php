@@ -5,7 +5,7 @@
             <option value="0">Running session</option>
             <?php
             foreach($session_list as $row){
-                $selected = ($row->session_name==$this->session->userdata('session_name'))? ' selected':'';
+                $selected = ($row->is_lock==1)? ' selected':'';
                 echo "<option value='".$row->id."' $selected>".$row->session_name."</option>";
             }
             ?>
@@ -14,21 +14,11 @@
     <div class="col-md-2">
         <select class="form-control" id="sl_classes">
             <option value="0">... Grade ...</option>
-            <?php
-            foreach($class_list as $row){
-                echo "<option value='".$row->id."'>".$row->classes_name."</option>";
-            }
-            ?>
         </select>
     </div>
     <div class="col-md-2">
         <select class="form-control" id="sl_section">
             <option value="0">... Section ...</option>
-            <?php
-            foreach($section_list as $row){
-                echo "<option value='".$row->id."'>".$row->section_name."</option>";
-            }
-            ?>
         </select>
     </div>
     <div class="col-md-1">

@@ -17,7 +17,7 @@
             <th>Start Date</th>
             <th>End Date</th>
             <th>Status</th>
-            <th>Lock Status</th>
+            <th>Locked</th>
             <th></th>
         </tr>
     </thead>

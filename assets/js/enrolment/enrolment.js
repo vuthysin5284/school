@@ -155,3 +155,39 @@ function remove_row(url){
         }
     });
 }
+
+
+// listener waiting on session change
+$("#sl_running_session").on('change',function(e) {
+
+    var url = baseurl+'lookup/getSectionListBySessionId';
+    $.ajax({
+        type: "POST",
+        url: url,
+        dataType:"JSON",
+        data: {session_id : $(this).find(":selected").val()}, // serializes the form's elements.
+        success: function(data){
+            // close modal add product
+            $('#sl_section').empty().append($('<option>... Section ...</option>'));
+            $('#sl_classes').empty().append($('<option>... Grade ...</option>'));
+            // session
+            $.each(data.session, function (i, item) {
+                $('#sl_section').append($('<option>', {
+                    value: item.id,
+                    text : item.section_name
+                }));
+            });
+            // class
+            $.each(data.class, function (i, item) {
+                $('#sl_classes').append($('<option>', {
+                    value: item.id,
+                    text : item.classes_name
+                }));
+            });
+        }
+    });
+
+    e.preventDefault();
+});
+
+

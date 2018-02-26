@@ -52,8 +52,8 @@ class Student extends CI_Controller {
         }
 
         $page_data["session_list"] = $this->com_m->get_session_active();
-        $page_data["class_list"] = $this->com_m->get_class_active();
-        $page_data["section_list"] = $this->com_m->get_section_list();
+        //$page_data["class_list"] = $this->com_m->get_class_active();
+        //$page_data["section_list"] = $this->com_m->get_section_list();
 
         $page_data['page_title'] = get_phrase('enrolment');
         $this->load->view('student/enrolment/enrolment_list', $page_data);

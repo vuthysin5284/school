@@ -47,7 +47,7 @@ $(document).ready(function() {
                 }
             },{ "data": "is_lock",
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
-                    var yesno = oData.is_lock==1?'Freeze': 'Open';
+                    var yesno = oData.is_lock==1?'Yes': 'No';
                     $(nTd).html(yesno);
                 }
             },

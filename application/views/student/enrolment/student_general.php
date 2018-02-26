@@ -2,8 +2,6 @@
 
     <?php echo form_open(base_url(),array('class' => 'form-horizontal form-groups-bordered',
         'id'=>'frmNewEnrolmentGeneral', 'enctype' => 'multipart/form-data'));?>
-        <input type="hidden" id="session_name" name="session_name"
-               value="<?php echo empty($general_data["session_name"])?$this->session->userdata('session_name'):$general_data["session_name"]?>" />
 
         <div class="form-group col-md-12">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('enrollment_iD');?></label>
@@ -68,7 +66,16 @@
             <hr />
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('session');?></label>
             <div class="col-sm-6">
-                <?php echo empty($general_data["session_name"])?$this->session->userdata('session_name'):$general_data["session_name"]?>
+                <select class="form-control" id="session_name" name="session_name" >
+                    <option value="">... Session ...</option>
+                    <?php
+                    foreach($session_list as $ss){
+                        $selected = ($sl->id==$general_data["session_id"])?" selected":"";
+                        echo "<option value='".$ss->id."' ".$selected.">".$ss->session_name."</option>";
+
+                    }
+                    ?>
+                </select>
             </div>
         </div>
         <div class="form-group col-md-12">
@@ -76,13 +83,6 @@
             <div class="col-sm-6">
                 <select class="form-control" id="section" name="section" >
                     <option value="">... Section ...</option>
-                    <?php
-                    foreach($section_list as $sl){
-                        $selected = ($sl->id==$general_data["section_id"])?" selected":"";
-                        echo "<option value='".$sl->id."' ".$selected.">".$sl->section_name."</option>";
-
-                    }
-                    ?>
                 </select>
             </div>
         </div>

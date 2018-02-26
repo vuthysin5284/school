@@ -41,7 +41,8 @@ class Enrolment extends CI_Controller {
 
         // general
         $page_data["gender_list"] = $this->com_m->get_gender_list();
-        $page_data["section_list"] = $this->com_m->get_section_list();
+        $page_data["session_list"] = $this->com_m->get_session_list();
+        //$page_data["section_list"] = $this->com_m->get_section_list();
         $page_data["time_study"] = $this->com_m->get_timestudy_list();
         $page_data["child_number"] = $this->com_m->get_child_list();
 
@@ -88,7 +89,8 @@ class Enrolment extends CI_Controller {
         $data["is_waiting_testing"]  = $this->input->post("chIsTestNext")=='on'?1:0;
         $data["testing_id"]     = $this->input->post("testing_id");
         $data["branch_id"]      = $this->session->userdata("branch_id");
-        $data["session_id"]      = $this->sys->get_where("school_session",array('session_name'=>$this->input->post('session_name')))->row()->id;
+        $data["session_id"]      = $this->input->post('session_name');
+            //$this->sys->get_where("school_session",array('session_name'=>$this->input->post('session_name')))->row()->id;
 
         $data["section_id"]      = $this->input->post("section");
 

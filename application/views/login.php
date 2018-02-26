@@ -36,7 +36,7 @@
     </script>
 
 </head>
-<body class="page-body login-page login-form-fall" data-url="http://neon.dev">
+<body class="page-body login-page login-form-fall" data-url="localhost/edu">
 
 
 <!-- This is needed when you send requests via Ajax -->
@@ -107,21 +107,21 @@
 
                 </div>
 
-                <div class="form-group">
+                <!--div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="fa fa-home"></i>
                         </div>
                         <select class="form-control" id="running_sesion" name="running_sesion" required>
                             <option value="">Running session</option>
-                            <?php
+                            < ?php
                                 foreach($session_list as $row){
                                     echo "<option value='".$row["id"]."'>".$row["session_name"]."</option>";
                                 }
                             ?>
                         </select>
                     </div>
-                </div>
+                </div-->
 
                 <div class="form-group">
                     <button type="submit" class="btn btn-info btn-block">

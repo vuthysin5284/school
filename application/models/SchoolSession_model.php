@@ -41,7 +41,7 @@
                         "end_date"=> empty($data->end_date)?'':$data->end_date,
                         "copy_cofig_data_from"=> empty($data->copy_cofig_data_from)?'':$data->copy_cofig_data_from,
                         "is_lock"=> empty($data->is_lock)?'':$data->is_lock,
-                        "status"=> empty($data->status)?'':$data->status
+                        "status"=> empty($data->status)?'0':$data->status
 				);     
 		}
 		

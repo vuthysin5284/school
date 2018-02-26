@@ -68,8 +68,8 @@ var neonLogin = neonLogin || {};
 						dataType: 'json',
 						data: {
 							username: $("input#username").val(),
-							password: $("input#password").val(),
-                            running_sesion: $("select#running_sesion").val()
+							password: $("input#password").val()/*,
+                            running_sesion: $("select#running_sesion").val()*/
 						},
 						error: function()
 						{

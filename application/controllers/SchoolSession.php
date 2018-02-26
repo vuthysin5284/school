@@ -50,11 +50,11 @@ class SchoolSession extends CI_Controller {
         }
 
         $data["session_name"] 	= $this->input->post("session_name");
-        $data["status"] 	    = empty($this->input->post("active"))?0:1;
+        $data["status"] 	    = empty($this->input->post("status"))?0:1;
         $data["is_lock"] 	    = empty($this->input->post("is_lock"))?0:1;
         $data["start_date"]    = $this->input->post("start_date");
         $data["end_date"]    = $this->input->post("end_date");
-        $data["copy_config_data_from"]    = $this->input->post("copy_config_data_from");
+        //$data["copy_config_data_from"]    = $this->input->post("copy_config_data_from");
 
 
         // got value hidden file for reference id price book

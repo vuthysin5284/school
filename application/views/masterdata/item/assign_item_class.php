@@ -38,7 +38,7 @@
                                 echo '<li> 
                                         <input type="checkbox"  class="col-md-1" name="chk" id="chk'.$row["id"].'" '.$checked.' 
                                             onClick="onChange('.$row["id"].');"/> 
-                                        <lable class="col-md-11" >'.$row["description"].'</lable> 
+                                        <label class="col-md-11" for="chk'.$row["id"].'">'.$row["description"].'</label> 
                                    </li>';
 							
 						}
