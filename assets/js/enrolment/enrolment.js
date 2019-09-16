@@ -9,7 +9,11 @@ var _img =  baseurl+'uploads/student_image/1.jpg';
 
 $(document).ready(function() {
     register_datable_list = $('#datable_enrolment').DataTable( {
-        "filter"		: true,
+        fixedHeader: {
+            header: true,
+            footer: true
+        },
+        "filter"		: true, 
         "info"			: true,
         "paging"		: true,
         "ordering"		: true,
@@ -44,17 +48,17 @@ $(document).ready(function() {
             "destroy" : true
         },
         language: {
-            processing: _progImg,
+            //processing: _progImg,
             loadingRecords: _progImg,
             "url": baseurl+"assets/langs/kh.json"
         },
         "columns"    : [
-            { "data" : "id",
+            /*{ "data" : "id",
                 render: function (data, type, row, meta) {
                     var auto_num = meta.row + meta.settings._iDisplayStart + 1;
                     return  auto_num;//"krs<br />"+('00000000' + auto_num).slice(-8);
                 },"searchable": false
-            },
+            },*/
             { "data" : "image" ,
                 'render': function (data, type, full, meta) {
                     return '<img src="'+_img+'" class="img" />';
@@ -104,10 +108,11 @@ $(document).ready(function() {
                 "fnCreatedCell"	: function (nTd, sData, oData, iRow, iCol) {
                     $(nTd).html(
                         '<center>'+
-                        '<a href="javascript:void(0);" title="Edit student" class="label label-info" onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a><br />'+
-                        //'<a href="#" class="label label-danger" title="Delete student" onclick="on_delete_data(\''+_url_del+oData.id+'\');"><i class="fa fa-trash"></i></a>&nbsp;|&nbsp;'+
-                        '<a href="#" class="label label-info" title="Admin" onclick="showAjaxModal(\''+_url_admin+oData.id+'/admin/share\');"><i class="fa fa-wrench"></i></a><br />'+
-                        '<a href=\''+baseurl+'/main/profile\' class="label label-info" title="Student Profiles"><i class="fa fa-user"></i></a>'+
+                        //'<a href="javascript:void(0);" title="Edit student" class="btn btn-info" ' +
+                        //'onclick="showAjaxModal(\''+_url_edit+oData.id+'/edit/share\');"><i class="fa fa-pencil-square-o"></i></a> | '+
+                        //'<a href="#" class="btn btn-info" title="Admin" ' +
+                        //'onclick="showAjaxModal(\''+_url_admin+oData.id+'/admin/share\');"><i class="fa fa-wrench"></i></a> | '+
+                        '<a href=\''+baseurl+'main/profile/'+oData.id+'\' class="btn btn-info" title="Student Profiles"><i class="fa fa-user"></i></a>'+
                         '</center>');
                 },"searchable": false
             }

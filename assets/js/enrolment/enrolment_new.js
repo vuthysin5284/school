@@ -6,7 +6,7 @@ $("#btnSaveNewEnrollment").on('click',function(e) {
         type: "POST",
         url: url,
         dataType:"JSON",
-        data: $("#wizardForm").serialize(), // serializes the form's elements.
+        data: $("#frmNewEnrolmentGeneral").serialize(), // serializes the form's elements.
         success: function(data){
             // close modal add product
             $('#modal_ajax').modal('hide');
@@ -16,6 +16,10 @@ $("#btnSaveNewEnrollment").on('click',function(e) {
 
     e.preventDefault();
 });
+$("#btn_close").on('click',function(e) {
+    $('#modal_ajax').modal('hide');
+});
+
 
 
 // listener waiting on session change

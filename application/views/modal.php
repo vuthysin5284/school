@@ -2,11 +2,11 @@
 	function showAjaxModal(url)
 	{
 		// SHOWING AJAX PRELOADER IMAGE
-		jQuery('#modal_ajax .modal-body').html('<div style="text-align:center;margin-top:10%;"><img src="<?php echo base_url();?>assets/images/reload.gif" /></div>');
+		jQuery('#modal_ajax .modal-body').html(_progImg);
 
 		// LOADING THE AJAX MODAL
 		//jQuery('#modal_ajax').modal({backdrop:  'static', keyboard: false});//.draggable();
-        jQuery('#modal_ajax').modal('show', {backdrop: 'true'});
+        jQuery('#modal_ajax').modal({backdrop:  'static', keyboard: false});
 
 		// SHOW AJAX RESPONSE ON REQUEST SUCCESS
 		$.ajax({
@@ -23,7 +23,7 @@
     function showAjaxSubmodal(url)
     {
         // SHOWING AJAX PRELOADER IMAGE
-        jQuery('#summodal_ajax .modal-body').html('<div style="text-align:center;margin-top:10%;"><img src="<?php echo base_url();?>assets/images/reload.gif" /></div>');
+        jQuery('#summodal_ajax .modal-body').html(_progImg);
 
         // LOADING THE AJAX MODAL
         jQuery('#summodal_ajax').modal({backdrop:  'static', keyboard: false});

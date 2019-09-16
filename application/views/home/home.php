@@ -154,6 +154,7 @@
 '                                20ys'+
 '                            </center>'+
 '                        </div>'+
+                        '<div class="col-sm-12">Payment | Profiles | Transcript | ...</div>'+
 '                    </div>';
 
 

@@ -31,10 +31,6 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script>
-        var baseurl = '<?php echo base_url();?>';
-    </script>
-
 </head>
 <body class="page-body login-page login-form-fall" data-url="localhost/edu">
 

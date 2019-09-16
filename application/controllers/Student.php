@@ -346,12 +346,15 @@ class Student extends CI_Controller {
             //echo json_encode(array('draw'=>1,'data'=>'time_out'));
             //return;
         }
+        $running_session = empty($this->input->post('running_session'))?0:$this->input->post('running_session');
+        $section = empty($this->input->post('section'))?0:$this->input->post('section');
+        $classes = empty($this->input->post('classes'))?0:$this->input->post('classes');
         // DB table to use
         $table = '  student_info_view 
                     where is_delete=0 
-                    and (session_id = '.$this->input->post('running_session').' or 0='.$this->input->post('running_session').')
-					and (section_id = '.$this->input->post('section').' or 0='.$this->input->post('section').')
-					and (grade_id = '.$this->input->post('classes').' or 0='.$this->input->post('classes').')
+                    and (session_id = '.$running_session.' or 0='.$running_session.')
+					and (section_id = '.$section.' or 0='.$section.')
+					and (grade_id = '.$classes.' or 0='.$classes.')
                     and branch_id = '.$this->session->userdata('branch_id').'
                       
                 ' ;														// Field
@@ -376,8 +379,8 @@ class Student extends CI_Controller {
             array('db' => 'is_delete',              'dt' => "is_delete",            'field' => 'is_delete'),
             array('db' => 'created_date',           'dt' => "created_date",         'field' => 'created_date'),
             array('db' => 'language',                     'dt' => "language",         'field' => 'language',
-                'formatter'	=> function($d, $row) {
-                    $result = $this->db->query('select GROUP_CONCAT(course_name) as course_name from eds_sys.course where id in('.$d.')')->row();
+                'formatter'	=> function($id, $row) {
+                    $result = $this->db->query('select GROUP_CONCAT(course_name) as course_name from '.$this->config->item('eds_sys').'.course where id in('.$row["id"].')')->row();
                     return str_replace(',','<br />',$result->course_name);
                 }
             )

@@ -35,6 +35,7 @@
         <button class="btn btn-info">
             Import student
         </button>
+
     </div>
 </div>
 <div class="seperated_line"></div>
@@ -44,7 +45,7 @@
 <table id="datable_enrolment" class="table table-striped table-bordered table-hover" cellspacing="0" width="100%">
     <thead>
         <tr>
-            <th style="width:50px;">No</th>
+            <th style="width:50px; display: none;">No</th>
             <th style="width: 70px;">Image</th>
             <th>Student Name</th>
             <th style="width: 100px;">Dob</th>

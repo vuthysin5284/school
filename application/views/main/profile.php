@@ -24,15 +24,19 @@
     <div class="row">
         <div class="col-md-3 user-profile">
             <div class="profile-image-container">
-                <img src="<?php echo base_url();?>assets/images/profile-picture.png" alt="">
+                <img src="<?php echo base_url();?>assets/images/avatar1.png" alt="">
             </div>
             <h3 class="text-center">Amily Lee</h3>
             <p class="text-center">UI/UX Designer</p>
             <hr>
-            <ul class="list-unstyled text-center">
-                <li><p><i class="fa fa-map-marker m-r-xs"></i>Melbourne, Australia</p></li>
-                <li><p><i class="fa fa-envelope m-r-xs"></i><a href="#">example@mail.com</a></p></li>
-                <li><p><i class="fa fa-link m-r-xs"></i><a href="#">www.themeforest.net</a></p></li>
+            <ul class="list-unstyled text-left" style="margin-left:15%;">
+                <li><p><i class="fa fa-envelope m-r-xs"></i><a href="#">ប្រអប់សារ</a></p></li>
+                <li><p><i class="fa fa-calendar m-r-xs"></i><a href="#">ប្រវត្តិបង់ប្រាក់</a></p></li>
+                <li><p><i class="fa fa-clock-o m-r-xs"></i><a href="#">កត់ត្រាអវត្តមាន</a></p></li>
+                <li><p><i class="fa fa-book m-r-xs"></i><a href="#">កត់ត្រាសកម្មភាព</a></p></li>
+                <li><p><i class="fa fa-cog m-r-xs"></i><a href="#">ថ្លៃរដ្ឋបាល</a></p></li>
+                <li><p><i class="fa fa-cutlery m-r-xs"></i><a href="#">ថ្លៃអាហារ</a></p></li>
+                <li><p><i class="fa fa-taxi m-r-xs"></i><a href="#">ថ្លៃដឹកជញ្ចូន</a></p></li>
             </ul>
             <hr>
             <button class="btn btn-primary btn-block"><i class="fa fa-plus m-r-xs"></i>Follow</button>

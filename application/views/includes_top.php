@@ -38,7 +38,8 @@
 
 
 <!-- Javascripts -->
-<script src="<?php echo base_url();?>assets/plugins/jquery/jquery-2.1.4.min.js"></script>
+<script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+<!--script src="<?php echo base_url();?>assets/plugins/jquery/jquery-2.1.4.min.js"></script-->
 <script src="<?php echo base_url();?>assets/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!--script-- src="<?php echo base_url();?>assets/plugins/pace-master/pace.min.js"></script-->
 <script src="<?php echo base_url();?>assets/plugins/jquery-blockui/jquery.blockui.js"></script>

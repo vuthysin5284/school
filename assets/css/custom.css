@@ -126,7 +126,7 @@ table.dataTable tbody th, table.dataTable tbody td {
 
 label {
     font-size: 13px;
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .compact-menu .horizontal-bar .accordion-menu li a p {
@@ -210,3 +210,4 @@ label {
 table.dataTable {
     border-collapse: collapse;
 }
+ 
