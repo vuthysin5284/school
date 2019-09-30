@@ -35,7 +35,7 @@
                     <?php echo get_phrase('2._position_status');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>department/department_status"
-                   data-url="<?php echo base_url();?>staff/department_status"  data-toggle="tab" aria-expanded="false">
+                   data-url="<?php echo base_url();?>department/department_status"  data-toggle="tab" aria-expanded="false">
                     <?php echo get_phrase('3._department');?></a></li>
             <li class="default">
                 <a href="<?php echo base_url();?>position/position"
