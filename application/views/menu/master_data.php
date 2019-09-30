@@ -28,18 +28,6 @@ if($common){
 <div class="row m-t-md">
     <div class="col-md-2" style="padding-right:0px; padding-left: 0px;">
         <ul class="nav mailbox-nav" id="document" role="tablist">
-            <li class="active default">
-                <a href="<?php echo base_url(); ?>branch/branch_list"
-                   data-url="<?php echo base_url(); ?>branch/branch_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-building"></i>Branch Setup</a></li>
-            <li class="default">
-                <a href="<?php echo base_url(); ?>room/room_list"
-                   data-url="<?php echo base_url(); ?>room/room_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-building-o"></i>Room Setup</a></li>
-            <li class="default">
-                <a href="<?php echo base_url(); ?>classes/classes_list"
-                   data-url="<?php echo base_url(); ?>classes/classes_list" data-toggle="tab" aria-expanded="false">
-                    <i class="fa fa-table"></i>Class Setup</a></li>
             <li class="default">
                 <a href="<?php echo base_url(); ?>schoolsession/session_list"
                    data-url="<?php echo base_url(); ?>schoolsession/session_list" data-toggle="tab"
@@ -50,6 +38,14 @@ if($common){
                    data-url="<?php echo base_url(); ?>schoolsection/section_list" data-toggle="tab"
                    aria-expanded="false">
                     <i class="fa fa-table"></i>Section Setup</a></li>
+            <li class="active default">
+                <a href="<?php echo base_url(); ?>room/room_list"
+                   data-url="<?php echo base_url(); ?>room/room_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-building-o"></i>Room Setup</a></li>
+            <li class="default">
+                <a href="<?php echo base_url(); ?>classes/classes_list"
+                   data-url="<?php echo base_url(); ?>classes/classes_list" data-toggle="tab" aria-expanded="false">
+                    <i class="fa fa-table"></i>Class Setup</a></li>
             <li class="default">
                 <a href="<?php echo base_url(); ?>times/times_list"
                    data-url="<?php echo base_url(); ?>times/times_list" data-toggle="tab" aria-expanded="false">
