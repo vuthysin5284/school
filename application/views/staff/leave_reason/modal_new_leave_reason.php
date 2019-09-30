@@ -28,8 +28,7 @@
                 <input type="text" class="form-control" id="leave_reason_name" name="leave_reason_name" placeholder="leave reason name"  value="<?php echo $leave_reason_detail["leave_reason_name"]?>" />
             </div>
         </div>        
-       <div class="form-group">
-
+      
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
             <div class="col-sm-8">  

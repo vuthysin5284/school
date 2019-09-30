@@ -28,7 +28,6 @@
                 <input type="text" class="form-control" id="education_type_name" name="education_type_name" placeholder="relationship type name"  value="<?php echo $education_type_detail["education_type_name"]?>" />
             </div>
         </div>        
-       <div class="form-group">
 
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>

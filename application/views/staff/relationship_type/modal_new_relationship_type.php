@@ -28,7 +28,7 @@
                 <input type="text" class="form-control" id="relationship_type_name" name="relationship_type_name" placeholder="relationship type name"  value="<?php echo $relationship_type_detail["relationship_type_name"]?>" />
             </div>
         </div>        
-       <div class="form-group">
+      
 
     <div class="form-group">
             <label for="field-1" class="col-sm-3 control-label"><?php echo get_phrase('description');?></label>
